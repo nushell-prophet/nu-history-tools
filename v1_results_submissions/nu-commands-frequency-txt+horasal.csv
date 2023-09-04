@@ -1,0 +1,38 @@
+name,command_type,count
+ls,builtin,292
+encode,builtin,145
+cd,builtin,135
+decode,builtin,89
+open,builtin,86
+each,builtin,42
+let,keyword,40
+where,builtin,38
+get,builtin,37
+exit,builtin,35
+path,builtin,35
+debug,builtin,33
+add,alias,31
+register,keyword,28
+dfr filter,builtin,25
+help commands,builtin,22
+lines,builtin,21
+rm,builtin,21
+split chars,builtin,19
+select,builtin,17
+str join,builtin,17
+dfr col,builtin,17
+dfr contains,builtin,16
+save,builtin,15
+config,builtin,15
+into binary,builtin,14
+to text,builtin,12
+dfr filter-with,builtin,12
+print,builtin,12
+which,builtin,11
+dfr get,builtin,11
+sort-by,builtin,11
+size,builtin,10
+dfr open,builtin,10
+random integer,builtin,10
+version,builtin,10
+fmt,builtin,10

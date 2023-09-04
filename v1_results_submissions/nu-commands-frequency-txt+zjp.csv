@@ -1,0 +1,47 @@
+name,command_type,count
+ls,builtin,393
+cd,builtin,343
+ll,custom,335
+debug,builtin,256
+config,builtin,175
+help,builtin,130
+path,builtin,111
+let-env,builtin,88
+rm,builtin,84
+print,builtin,83
+lines,builtin,80
+let,keyword,73
+timeit,builtin,55
+which,builtin,55
+get,builtin,52
+head,custom,52
+p,builtin,51
+echo,builtin,48
+mv,builtin,46
+filter,builtin,43
+g,builtin,42
+do,builtin,41
+cp,builtin,38
+sys,builtin,37
+to text,builtin,33
+open,builtin,33
+open tail,custom,32
+each,builtin,31
+table,builtin,30
+source,keyword,30
+first,builtin,29
+n,builtin,28
+version,builtin,28
+any,builtin,27
+str join,builtin,22
+mkdir,builtin,19
+into record,builtin,16
+find,builtin,15
+where,builtin,15
+path split,builtin,15
+path dirname,builtin,14
+update,builtin,12
+str replace,builtin,11
+inspect,builtin,11
+save,builtin,11
+describe,builtin,10

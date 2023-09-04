@@ -1,0 +1,55 @@
+name,command_type,count
+cd,builtin,719
+open,builtin,491
+highlight,plugin,350
+ls,builtin,341
+http get,builtin,187
+from,builtin,173
+debug,builtin,138
+help,builtin,125
+path,builtin,124
+lines,builtin,112
+first,builtin,105
+register,keyword,95
+rm,builtin,93
+start,builtin,90
+where,builtin,79
+update,builtin,79
+http,builtin,78
+exit,builtin,77
+explore,plugin,73
+add,alias,70
+from csv,builtin,69
+source,keyword,68
+select,builtin,59
+to text,builtin,53
+save,builtin,49
+config,builtin,47
+to json,builtin,46
+each,builtin,43
+filter,builtin,40
+which,builtin,37
+items,builtin,33
+get,builtin,33
+all,builtin,31
+to,builtin,31
+str replace,builtin,30
+last,builtin,28
+parse,builtin,26
+help commands,builtin,24
+mkdir,builtin,23
+clear,builtin,23
+do,builtin,23
+complete,builtin,23
+let-env,builtin,22
+into int,builtin,20
+ansi,builtin,19
+from json,builtin,18
+echo,builtin,16
+zip,builtin,14
+mv,builtin,14
+http post,builtin,13
+to md,builtin,12
+columns,builtin,12
+reject,builtin,11
+into datetime,builtin,10

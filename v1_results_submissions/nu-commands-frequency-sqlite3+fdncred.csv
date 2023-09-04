@@ -1,0 +1,211 @@
+name,command_type,count
+ls,builtin,1525
+help,builtin,818
+get,builtin,792
+open,builtin,677
+cd,builtin,661
+let,keyword,584
+source,keyword,501
+env,custom,501
+where,builtin,498
+each,builtin,364
+table,builtin,351
+z,alias,332
+config,builtin,273
+n,builtin,271
+lines,builtin,246
+def,keyword,244
+select,builtin,241
+debug,builtin,240
+merge,builtin,214
+path,builtin,213
+transpose,builtin,211
+ansi,builtin,211
+git fetch,external,206
+history,builtin,190
+echo,builtin,186
+first,builtin,178
+if,builtin,176
+git push,external,174
+update,builtin,173
+print,builtin,170
+let-env,builtin,164
+into datetime,builtin,155
+upsert,builtin,153
+flatten,builtin,145
+sort-by,builtin,145
+str replace,builtin,142
+register,keyword,141
+help commands,builtin,133
+find,builtin,132
+describe,builtin,128
+length,builtin,125
+rm,builtin,124
+into binary,builtin,124
+char,builtin,123
+do,builtin,120
+last,builtin,120
+split column,builtin,116
+into int,builtin,114
+str trim,builtin,113
+http get,builtin,112
+explore,builtin,111
+query web,plugin,105
+parse,builtin,104
+size,builtin,104
+from json,builtin,102
+lsg,custom,99
+which,builtin,96
+group-by,builtin,88
+git status,external,85
+ps,builtin,84
+into,builtin,84
+cargo install-update,external,81
+skip,builtin,80
+git log,external,80
+split row,builtin,80
+date format,builtin,78
+version,builtin,76
+pwd,custom,75
+format,builtin,74
+save,builtin,71
+show,custom,71
+default,builtin,70
+cargo install,external,69
+bytes at,builtin,68
+sys,builtin,67
+nuver,custom,67
+for,keyword,65
+str length,builtin,64
+str join,builtin,64
+complete,builtin,64
+url,builtin,64
+to json,builtin,63
+date now,builtin,62
+reduce,builtin,62
+take,builtin,61
+columns,builtin,61
+append,builtin,59
+glob,builtin,58
+p,builtin,58
+rename,builtin,57
+to text,builtin,57
+reject,builtin,56
+into record,builtin,56
+git branch,external,55
+into duration,builtin,55
+ansi strip,builtin,53
+alias,keyword,53
+wrap,builtin,52
+all,builtin,51
+keybindings,builtin,51
+term size,builtin,49
+split chars,builtin,46
+detect columns,builtin,45
+column,custom,44
+from ssv,builtin,43
+input,builtin,43
+git pull,external,43
+reverse,builtin,43
+decode,builtin,43
+from,builtin,42
+is-empty,builtin,41
+use,keyword,41
+mut,keyword,40
+hide_prompt,custom,40
+uniq,builtin,40
+cal,builtin,39
+date,builtin,39
+regex,plugin,38
+while,builtin,37
+path expand,builtin,36
+seq,builtin,36
+get_weather,custom,35
+sleep,builtin,35
+stars,custom,35
+mkdir,builtin,34
+str collect,builtin,34
+zip,builtin,33
+mv,builtin,33
+inspect,builtin,32
+schema,builtin,31
+into string,builtin,30
+path parse,builtin,30
+window,builtin,29
+to,builtin,28
+gstat,plugin,27
+nudown,custom,26
+grid,builtin,26
+cp,builtin,26
+group,builtin,26
+decode base64,builtin,25
+http,builtin,25
+from csv,builtin,24
+pnet,plugin,24
+any,builtin,24
+seq date,builtin,24
+to nuon,builtin,23
+prepend,builtin,23
+try,builtin,23
+start,builtin,22
+enumerate,builtin,22
+clear,builtin,22
+to csv,builtin,21
+spwd,custom,21
+query,plugin,21
+filter,builtin,20
+values,builtin,20
+path join,builtin,20
+compact,builtin,20
+metadata,builtin,20
+to tsv,builtin,19
+fill,builtin,19
+math ceil,builtin,19
+help operators,builtin,19
+view,builtin,19
+keybindings listen,builtin,18
+bytes length,builtin,18
+error make,builtin,18
+profile,builtin,18
+nuvermd,custom,17
+range,builtin,17
+path exists,builtin,17
+timeit,builtin,17
+break,builtin,17
+query xml,plugin,17
+bytes,builtin,17
+hist,plugin,16
+str substring,builtin,16
+plot,plugin,16
+math sum,builtin,16
+view files,builtin,15
+fmt,builtin,15
+split words,builtin,15
+git remote,external,15
+hide,keyword,15
+join,builtin,15
+bytes index-of,builtin,14
+def-env,keyword,13
+dfr into-df,builtin,13
+cargo clean,external,13
+get_cargo_downloads,custom,13
+du,builtin,13
+histogram,builtin,13
+headers,builtin,13
+to md,builtin,13
+collect,builtin,13
+path dirname,builtin,12
+hc,custom,12
+keybindings list,builtin,12
+encode,builtin,12
+keybindings default,builtin,11
+into decimal,builtin,11
+std help,custom,11
+nu-highlight,builtin,10
+cargo run,external,10
+into filesize,builtin,10
+cargo list,custom,10
+return,keyword,10
+loop,builtin,10
+items,builtin,10
+help aliases,builtin,10

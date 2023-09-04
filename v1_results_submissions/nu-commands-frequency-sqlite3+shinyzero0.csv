@@ -1,0 +1,214 @@
+name,command_type,count
+vi,alias,1807
+z,alias,1413
+ls,builtin,1381
+o,alias,764
+gst,alias,760
+open,builtin,576
+get,builtin,543
+f,alias,459
+config,builtin,423
+l,custom,355
+rm,builtin,348
+share,custom,334
+gd,alias,323
+lines,builtin,302
+ga,alias,287
+man,external,278
+pkfd,alias,241
+dn,alias,227
+where,builtin,217
+r,alias,206
+gds,alias,195
+each,builtin,190
+describe,builtin,182
+s,alias,152
+gc,alias,151
+pic,alias,148
+from json,builtin,145
+latest,custom,145
+p,alias,144
+pkin,alias,143
+clip,custom,142
+help,builtin,141
+mv,builtin,140
+which,builtin,136
+echo,builtin,126
+let,keyword,126
+update,builtin,120
+print,builtin,116
+last,builtin,113
+save,builtin,113
+find,builtin,112
+sv,external,112
+gcfe,custom,111
+str contains,builtin,109
+fi,alias,109
+n,alias,109
+nq,custom,105
+pkinf,alias,97
+xbps-query,external,96
+pkrm,alias,96
+http get,builtin,94
+zi,alias,93
+parse,builtin,91
+profile,builtin,90
+sv restart,external,90
+ps,builtin,88
+to text,builtin,87
+англ,alias,83
+mkdir,builtin,83
+cp,builtin,82
+path expand,builtin,79
+git log,external,78
+sv status,external,73
+flatten,builtin,70
+ru,alias,70
+http,builtin,70
+any,builtin,69
+yd,alias,63
+path join,builtin,62
+gcf,custom,61
+git restore,external,61
+split row,builtin,60
+str replace,builtin,59
+ansi,builtin,58
+git push,external,53
+for,keyword,52
+table,builtin,52
+sort-by,builtin,52
+cd,builtin,51
+make,external,51
+history,builtin,49
+sv up,external,48
+sleep,builtin,48
+ring ls,custom,47
+str trim,builtin,47
+pkill,external,45
+timeit,builtin,44
+path split,builtin,44
+gch,alias,42
+start,builtin,42
+sudo xbps-install,external,42
+append,builtin,42
+input,builtin,42
+hm,alias,40
+str join,builtin,40
+default,builtin,40
+merge,builtin,39
+skip,builtin,39
+let-env,builtin,38
+length,builtin,38
+nx-init,custom,37
+transpose,builtin,37
+def,keyword,37
+indexate,custom,35
+version,builtin,35
+format,builtin,35
+do,builtin,33
+to,builtin,33
+q,alias,32
+path parse,builtin,31
+path type,builtin,31
+lang-tools,custom,30
+select,builtin,30
+uniq,builtin,30
+glob,builtin,29
+git branch,external,29
+window,builtin,29
+mnt,alias,29
+fii,alias,28
+into record,builtin,28
+use,keyword,28
+udevil mount,external,27
+reject,builtin,27
+if,builtin,26
+pkls,alias,26
+kill,builtin,26
+str starts-with,builtin,25
+fq,custom,25
+skip until,builtin,24
+is-empty,builtin,24
+sys,builtin,24
+while,builtin,24
+from xml,builtin,23
+filter,builtin,23
+git diff,external,23
+udevil umount,external,23
+grss,alias,22
+path relative-to,builtin,22
+hydra,custom,22
+path basename,builtin,22
+ignore,builtin,22
+prepend,builtin,22
+svls,custom,22
+complete,builtin,21
+g,alias,21
+take while,builtin,21
+parse-help,custom,21
+sv down,external,21
+gls,custom,20
+pkup,alias,20
+yf,alias,20
+recent,alias,20
+clone,custom,20
+_focus,custom,19
+plate,custom,19
+touch,builtin,19
+explore,builtin,19
+sudo xbps-pkgdb,external,18
+collect,builtin,17
+git stash list,external,17
+mvnrp,custom,17
+wrap,builtin,17
+rename,builtin,17
+sudo xbps-remove,external,17
+reduce,builtin,17
+all,builtin,17
+move,builtin,17
+zip,builtin,17
+mkcd,custom,16
+lns,custom,16
+to json,builtin,16
+columns,builtin,16
+git merge,external,16
+nq ls,custom,16
+visu,alias,15
+nq clean,custom,15
+items,builtin,15
+source,keyword,15
+size,builtin,15
+gh browse,external,14
+mut,keyword,14
+git rm,external,14
+ring add,custom,14
+zellij list-sessions,external,14
+exit,builtin,13
+try,builtin,13
+First,custom,13
+exec,builtin,13
+git stash pop,external,13
+with-env,builtin,13
+yankfile,custom,13
+gh repo,external,13
+keybindings,builtin,13
+gcl1,alias,12
+git init,external,12
+zellij setup,external,12
+sudo sv status,external,12
+enumerate,builtin,11
+first,builtin,11
+git commit,external,11
+keybindings listen,builtin,11
+git stash show,external,11
+fill,builtin,11
+git fetch,external,11
+hms,alias,11
+date now,builtin,11
+to nuon,builtin,11
+break,builtin,10
+path exists,builtin,10
+ring clean,custom,10
+git checkout,external,10
+_select,custom,10
+from,builtin,10

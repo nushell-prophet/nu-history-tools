@@ -1,0 +1,73 @@
+name,command_type,count
+cd,builtin,1484
+ls,builtin,688
+source,keyword,671
+clear,builtin,539
+git switch,external,456
+open,builtin,436
+get,builtin,404
+help,builtin,290
+where,builtin,276
+update,builtin,265
+input,builtin,221
+select,builtin,214
+rm,builtin,152
+git branch-status,custom,118
+from json,builtin,117
+git push,external,115
+add,alias,105
+merge,builtin,102
+mv,builtin,91
+br,custom,89
+git branch-clean,custom,84
+git branch,external,79
+flatten,builtin,72
+show,alias,70
+all,builtin,70
+mkdir,builtin,66
+metadata,builtin,66
+use,keyword,62
+version,builtin,50
+export,keyword,49
+path,builtin,47
+from,builtin,45
+save,builtin,40
+transpose,builtin,38
+group,builtin,37
+first,builtin,35
+insert,builtin,35
+filter,builtin,34
+http get,builtin,34
+table,builtin,34
+let,keyword,33
+to,builtin,32
+view,builtin,30
+scope,keyword,29
+term size,builtin,28
+sort,builtin,28
+sort-by,builtin,26
+broot,external,26
+lines,builtin,26
+schema,builtin,25
+glob,builtin,24
+help commands,builtin,22
+each,builtin,22
+config,builtin,22
+split column,builtin,21
+columns,builtin,21
+profile,builtin,20
+git checkout,external,18
+rename,builtin,17
+group-by,builtin,16
+timeit,builtin,16
+complete,builtin,15
+ignore,builtin,14
+str,builtin,14
+size,builtin,14
+into int,builtin,13
+from csv,builtin,12
+du,builtin,10
+values,builtin,10
+from tsv,builtin,10
+for,keyword,10
+skip,builtin,10

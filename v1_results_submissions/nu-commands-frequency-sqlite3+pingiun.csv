@@ -1,0 +1,35 @@
+name,command_type,count
+cd,builtin,98
+help,builtin,88
+ls,builtin,67
+echo,builtin,42
+config,builtin,41
+profile,builtin,39
+rm,builtin,39
+which,builtin,32
+ps,builtin,28
+version,builtin,28
+do,builtin,27
+path,builtin,25
+let,keyword,24
+extern,keyword,23
+run-external,builtin,23
+complete,builtin,20
+http get,builtin,19
+let-env,builtin,17
+debug,builtin,17
+print,builtin,16
+source,keyword,16
+open,builtin,15
+ignore,builtin,15
+get,builtin,15
+use,keyword,14
+char,builtin,13
+prepend,builtin,13
+try,builtin,13
+find,builtin,12
+split row,builtin,12
+exec,builtin,11
+def,keyword,11
+transpose,builtin,11
+fmt,builtin,10

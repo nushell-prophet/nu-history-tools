@@ -1,0 +1,42 @@
+name,command_type,count
+g,alias,6738
+cd,builtin,1099
+add,alias,681
+ps,builtin,535
+gg,alias,404
+source,keyword,328
+ex,alias,300
+br,custom,109
+c,custom,82
+update,builtin,72
+config,builtin,68
+find,builtin,67
+for,keyword,55
+replac,alias,53
+all,builtin,47
+to,builtin,47
+broot,external,30
+help,builtin,29
+rm,builtin,26
+git push,external,25
+get,builtin,24
+anonymize,custom,23
+open,builtin,22
+each,builtin,22
+continue,builtin,21
+let,keyword,21
+echo,builtin,19
+lines,builtin,19
+length,builtin,14
+input,builtin,14
+git diff,external,13
+str,builtin,13
+insert,builtin,12
+last,builtin,12
+which,builtin,12
+show,alias,11
+t,alias,11
+math sum,builtin,10
+from,builtin,10
+history,builtin,10
+parse,builtin,10

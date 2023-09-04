@@ -1,0 +1,12 @@
+name,command_type,count
+help,builtin,39
+get,builtin,37
+ls,builtin,36
+open,builtin,31
+sys,builtin,27
+dfr open,builtin,21
+config,builtin,15
+find,builtin,14
+echo,builtin,14
+table,builtin,11
+sort-by,builtin,10

@@ -1,0 +1,67 @@
+name,command_type,count
+help,builtin,219
+ls,builtin,162
+cd,builtin,80
+open,builtin,70
+where,builtin,66
+get,builtin,64
+from json,builtin,57
+echo,builtin,51
+any,builtin,47
+commandline,builtin,46
+url,builtin,46
+each,builtin,46
+n,builtin,45
+from tsv,builtin,43
+into,builtin,42
+fill,builtin,39
+to text,builtin,37
+lines,builtin,37
+if,builtin,36
+all,builtin,36
+describe,builtin,36
+let,keyword,35
+reverse,builtin,31
+def,keyword,30
+table,builtin,29
+transpose,builtin,28
+mkdir,builtin,27
+for,keyword,26
+flatten,builtin,25
+str join,builtin,24
+do,builtin,24
+from nuon,builtin,24
+ps,builtin,22
+to nuon,builtin,21
+sys,builtin,21
+format,builtin,20
+uniq,builtin,19
+first,builtin,18
+explore,builtin,18
+config nu,builtin,18
+du,builtin,18
+save,builtin,18
+try,builtin,17
+each while,builtin,17
+math eval,builtin,16
+print,builtin,16
+str substring,builtin,16
+config,builtin,16
+metadata,builtin,15
+version,builtin,14
+path parse,builtin,14
+history,builtin,14
+error make,builtin,13
+is-empty,builtin,13
+sort-by,builtin,12
+length,builtin,12
+ansi,builtin,12
+path join,builtin,12
+decode hex,builtin,11
+update,builtin,11
+str starts-with,builtin,11
+rm,builtin,11
+date now,builtin,10
+tutor,builtin,10
+find,builtin,10
+from,builtin,10

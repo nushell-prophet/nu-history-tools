@@ -1,0 +1,108 @@
+name,command_type,count
+ls,builtin,791
+cd,builtin,675
+p,builtin,538
+get,builtin,535
+config,builtin,480
+profile,builtin,468
+overlay,keyword,440
+open,builtin,349
+each,builtin,300
+n,builtin,258
+where,builtin,223
+all,builtin,220
+help,builtin,205
+encode,builtin,182
+let,keyword,177
+source,keyword,159
+lines,builtin,148
+extern,keyword,147
+last,builtin,142
+path,builtin,135
+use,keyword,123
+if,builtin,116
+let-env,builtin,110
+rm,builtin,109
+find,builtin,106
+table,builtin,105
+str collect,builtin,104
+skip,builtin,102
+module,keyword,101
+update,builtin,99
+group-by,builtin,91
+def,keyword,91
+drop,builtin,86
+from xml,builtin,81
+length,builtin,77
+flatten,builtin,72
+default,builtin,65
+collect,builtin,62
+echo,builtin,56
+math avg,builtin,55
+export,keyword,54
+mv,builtin,53
+merge,builtin,51
+debug,builtin,50
+sort-by,builtin,49
+size,builtin,48
+fmt,builtin,45
+enter,builtin,44
+mut,keyword,43
+into decimal,builtin,41
+cp,builtin,40
+mkdir,builtin,40
+to,builtin,40
+histogram,builtin,39
+append,builtin,39
+overlay list,builtin,38
+const,keyword,36
+version,builtin,36
+overlay use,keyword,36
+describe,builtin,36
+alias,keyword,36
+save,builtin,34
+which,builtin,30
+view,builtin,29
+do,builtin,28
+transpose,builtin,26
+path join,builtin,26
+math abs,builtin,26
+export def,keyword,26
+insert,builtin,26
+into,builtin,26
+reject,builtin,25
+nu-highlight,builtin,25
+math sum,builtin,25
+char,builtin,23
+dfr group-by,builtin,22
+g,builtin,22
+parse,builtin,22
+du,builtin,20
+dfr as,builtin,20
+into int,builtin,20
+config nu,builtin,19
+dfr agg,builtin,19
+history,builtin,19
+columns,builtin,19
+str trim,builtin,18
+for,keyword,18
+error make,builtin,17
+overlay hide,keyword,17
+to md,builtin,17
+from,builtin,17
+path parse,builtin,16
+print,builtin,15
+overlay new,keyword,15
+help commands,builtin,15
+split row,builtin,15
+dfr sort-by,builtin,14
+hide,keyword,14
+zip,builtin,13
+select,builtin,13
+path expand,builtin,13
+exit,builtin,12
+register,keyword,12
+first,builtin,12
+config env,builtin,11
+path relative-to,builtin,11
+filter,builtin,11
