@@ -16,7 +16,7 @@ let $1_long_stat_with_username = (
         | get count
         | math sum
         | {name: $i, count_sum: $in}}
-        | sort-by count_sum -r # here I sort users by total number of commands execution
+        | sort-by count_sum -r # here I sort users by total number of commands execution, but in output table only builtin commands
         | get name
         | each {
             |i| $0_commands_all
@@ -30,6 +30,9 @@ let $1_long_stat_with_username = (
         }
         | flatten
 );
+
+print $'(ansi green)Users sparkline is ordered by sum of executed commands:(ansi reset)'
+print ($1_long_stat_with_username | group-by user | values | each {|i| {user: $i.user.0 count: ($i.count | math sum)}})
 
 let $2_sparklines = (
     $1_long_stat_with_username
@@ -50,12 +53,10 @@ let $3_analytics = (
             users_count: ($b | length),
             freq_norm_avg: ($b.count_norm | math avg),
             users_sparkline: ($2_sparklines | get $a),
-            freq_norm_max: ($b.count_norm | math max),
-            freq_norm_min: ($b.count_norm | math min),
-            freq_norm_median: ($b.count_norm | math median)
         }
     }
     | sort-by freq_norm_avg -r
+    | upsert freq_norm_avg_bar {|i| bar $i.freq_norm_avg --width 14}
 );
 
 $3_analytics
