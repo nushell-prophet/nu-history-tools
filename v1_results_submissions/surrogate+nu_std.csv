@@ -1,0 +1,107 @@
+name,command_type,count
+if,core,184
+ansi,platform,127
+let,core,126
+is-empty,filters,72
+def,core,52
+get,filters,47
+export def,core,44
+metadata,debug,37
+str join,strings,31
+where,filters,24
+each,filters,23
+error make,core,19
+flatten,filters,17
+mut,core,16
+return,core,15
+append,filters,15
+length,filters,14
+select,filters,11
+char,strings,11
+filter,filters,10
+match,core,10
+do,core,9
+try,core,9
+update,filters,8
+print,strings,8
+export def-env,core,7
+default,filters,7
+insert,filters,7
+describe,core,7
+export alias,core,6
+enumerate,filters,6
+const,core,5
+into int,conversions,5
+path join,path,5
+use,core,5
+scope commands,filters,5
+rename,filters,5
+find,filters,5
+nu-highlight,strings,4
+par-each,filters,4
+reject,filters,4
+reduce,filters,4
+for,core,4
+lines,filters,4
+skip,filters,3
+table,viewers,3
+transpose,filters,3
+export-env,env,3
+sort-by,filters,3
+any,filters,3
+merge,filters,3
+columns,filters,2
+into record,conversions,2
+random chars,random,2
+str trim,strings,2
+zip,filters,2
+view source,debug,2
+to text,formats,2
+seq,generators,2
+scope modules,filters,2
+input listen,platform,2
+last,filters,2
+scope aliases,filters,2
+date now,date,2
+alias,core,2
+open,filesystem,2
+str starts-with,strings,2
+ls,filesystem,2
+date to-timezone,date,2
+first,filters,2
+date to-record,date,2
+cd,filesystem,2
+sys,system,2
+upsert,filters,2
+path expand,path,2
+str substring,strings,2
+headers,filters,1
+into decimal,conversions,1
+path exists,path,1
+path type,path,1
+to nuon,formats,1
+str replace,strings,1
+load-env,filesystem,1
+from json,formats,1
+math stddev,math,1
+drop,filters,1
+format date,date,1
+take,filters,1
+prepend,filters,1
+save,filesystem,1
+values,filters,1
+into duration,conversions,1
+complete,system,1
+str contains,strings,1
+into string,conversions,1
+rm,filesystem,1
+def-env,core,1
+str upcase,strings,1
+which,system,1
+ansi strip,platform,1
+path dirname,path,1
+math avg,math,1
+group-by,filters,1
+loop,core,1
+timeit,debug,1
+path parse,path,1
