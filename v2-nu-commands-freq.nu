@@ -1,5 +1,6 @@
 # Calculate frequencies of use of the "nu" commands in a history
-def nu-hist-stats [] {
+
+export def nu-hist-stats [] {
 
     cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
@@ -14,7 +15,7 @@ def nu-hist-stats [] {
 
 # Calculate frequencies of use of the "nu" commands in a given .nu files
 # glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | nu-files-stats $in
-def nu-files-stats [
+export def nu-files-stats [
     ...file_paths: path
 ] {
     $in
@@ -31,7 +32,7 @@ def nu-files-stats [
 }
 
 
-def nu-commands-stats [
+export def nu-commands-stats [
     path: path
     --normalize_freq    # create a normalized freqency column
     --extra_graphs      # produce frequency histogram and timeline sparklines columns
@@ -213,7 +214,7 @@ export def aggregate-submissions [
     $4_analytics
 }
 
-def make_benchmarks [] {
+export def make_benchmarks [] {
     let $data = $in
 
     cprint --before 1 $'*A note about some columns*:'
@@ -238,7 +239,7 @@ def make_benchmarks [] {
 # █
 # > bar 0.71
 # ███▌
-export def bar [
+def bar [
     percentage: float
     --background (-b): string = 'default'
     --foreground (-f): string = 'default'
@@ -278,7 +279,7 @@ export def bar [
 # ▁▂▆▇▁▄▁█▁▁
 
 # create a small sparkline graph
-export def spark [
+def spark [
     v: list
     --colors
     --color_set = [white, grey, cyan]
@@ -315,7 +316,7 @@ export def spark [
 # ┃ 3 ┃ 4 ┃      1 ┃      1 ┃
 # ┃ a ┃   ┃        ┃        ┃
 # ┗━━━┻━━━┻━━━━━━━━┻━━━━━━━━┛
-export def normalize [
+def normalize [
     ...column_names
     --suffix = '_norm'
 ] {
@@ -345,7 +346,7 @@ export def normalize [
 }
 
 # Print string colourfully
-export def cprint [
+def cprint [
     ...text_args
     --color (-c): any = 'default'
     --highlight_color (-h): any = 'green_bold'
