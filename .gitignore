@@ -1,1 +1,3 @@
 .DS_Store
+nushell_hist_for_ast.nu
+private_data_gitignore
