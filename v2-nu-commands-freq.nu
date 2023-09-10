@@ -1,13 +1,14 @@
 # Calculate frequencies of use of the "nu" commands in a history
 def nu-hist-stats [] {
 
-    cprint 'The script is working with your history. On m1 mac with history of ~40k entries, it runs about a minute.'
+    cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
-    history | get command | str join $';(char nl)' | save nushell_hist_for_ast.nu -f
+    mkdir private_data_gitignore
+    history | get command | str join $';(char nl)' | save private_data_gitignore/nushell_hist_for_ast.nu -f
 
     let $result = (nu-commands-stats nushell_hist_for_ast.nu --extra_graphs --benchmarks)
 
-    # rm nushell_hist_for_ast.nu
+    rm private_data_gitignore -r
     $result
 }
 
