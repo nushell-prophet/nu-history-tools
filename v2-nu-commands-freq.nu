@@ -7,7 +7,7 @@ def nu-hist-stats [] {
 
     let $result = (nu-commands-stats nushell_hist_for_ast.nu --extra_graphs --benchmarks)
 
-    rm nushell_hist_for_ast.nu
+    # rm nushell_hist_for_ast.nu
     $result
 }
 
@@ -117,7 +117,7 @@ def make_benchmarks [] {
 # How to update:
 # source v1-sourced-analytics.nu
 # $3_analytics | rename name | reject category | upsert dummy '' | to csv | pbcopy
-def 'benchmarks' [] {
+export def benchmarks [] {
 
     cprint --before 1 $'*A note about some columns*:'
     cprint '- *timeline* - represents dynamics, showing when the command was used throughout your history'
@@ -144,7 +144,7 @@ def 'benchmarks' [] {
 # █
 # > bar 0.71
 # ███▌
-def 'bar' [
+export def bar [
     percentage: float
     --background (-b): string = 'default'
     --foreground (-f): string = 'default'
@@ -184,7 +184,7 @@ def 'bar' [
 # ▁▂▆▇▁▄▁█▁▁
 
 # create a small sparkline graph
-def spark [v: list] {
+export def spark [v: list] {
     let TICKS = [(char -u "2581")
               (char -u "2582")
               (char -u "2583")
@@ -212,7 +212,7 @@ def spark [v: list] {
 # ┃ 3 ┃ 4 ┃      1 ┃      1 ┃
 # ┃ a ┃   ┃        ┃        ┃
 # ┗━━━┻━━━┻━━━━━━━━┻━━━━━━━━┛
-def normalize [
+export def normalize [
     ...column_names
 ] {
     mut $table = $in
@@ -241,7 +241,7 @@ def normalize [
 }
 
 # Print string colourfully
-export def 'cprint' [
+export def cprint [
     ...text_args
     --color (-c): any = 'default'
     --highlight_color (-h): any = 'green_bold'
