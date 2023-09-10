@@ -6,7 +6,7 @@ def nu-hist-stats [] {
     mkdir private_data_gitignore
     history | get command | str join $';(char nl)' | save private_data_gitignore/nushell_hist_for_ast.nu -f
 
-    let $result = (nu-commands-stats nushell_hist_for_ast.nu --extra_graphs --benchmarks)
+    let $result = (nu-commands-stats private_data_gitignore/nushell_hist_for_ast.nu --extra_graphs | make_benchmarks)
 
     rm private_data_gitignore -r
     $result
@@ -35,7 +35,6 @@ def nu-commands-stats [
     path: path
     --normalize_freq    # create a normalized freqency column
     --extra_graphs      # produce frequency histogram and timeline sparklines columns
-    --benchmarks        # produce benchmarks columns
 ] {
     let $parsed_hist = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -43,7 +42,7 @@ def nu-commands-stats [
         | where shape in ['shape_internalcall' 'keyword']
     )
 
-    let $freq_record = ($parsed_hist | get content | uniq --count | rename command | transpose -idr)
+    let $freq_record = ($parsed_hist | get content | uniq --count | transpose -idr)
 
     let $freq_builtins_only = (
         help commands
@@ -94,50 +93,144 @@ def nu-commands-stats [
         }
     }
 
-    $freq_builtins_only
-    | if $normalize_freq or $extra_graphs {
-        normalize freq
-    } else {}
+    let $output = (
+        $freq_builtins_only
+        | if $normalize_freq or $extra_graphs {
+            normalize freq
+        } else {}
+        | if $extra_graphs {
+            make_extra_graphs
+        } else {}
+    )
+
+    $output
     | if $extra_graphs {
-        make_extra_graphs
-    } else {}
-    | if $benchmarks {
-        make_benchmarks
-    } else {}
+        select name freq timeline
+    } else {
+        select name freq
+    }
+    | save -f $'results_submissions/v2_(date now | format date '%Y-%m-%d')+WriteYourNick.csv'
+
+    $output
+}
+
+# parse submitted stats from a folder
+export def aggregate-submissions [
+    --select    # flag invokes interactive users selection (during script running)
+] {
+
+    let $color_set = [white, grey, cyan]
+
+    let $0_commands_all = (
+        help commands
+        | select name category command_type
+        | rename name
+        | where command_type in ['builtin' 'keyword']
+        | reject command_type
+    );
+
+    let $0_stat = (
+        ls results_submissions/*.csv --full-paths
+        | sort-by size -r
+        | get name
+        | where $it !~ 'WriteYourNick.csv'
+        | if $select {
+            each {|i| $i | path relative-to (pwd)}
+            | input list --multi
+        } else {}
+        | par-each {
+            |filename|
+            open $filename
+            | if ('command_type' in ($in | columns)) {
+                reject command_type
+            } else {}
+            | group-by name
+            | do {
+                |dict|
+                $0_commands_all
+                | upsert count {
+                    |i| $dict | get -i $i.name | get -i count.0 | default 0
+                }
+                | normalize count
+                | upsert count_norm_bar {|i| bar $i.count_norm -w ('count_norm_bar' | str length)}
+            } $in
+            | {commands: $in}
+            | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
+            | upsert executions_total {|i| $i.commands.count | math sum}
+        }
+        | sort-by executions_total -r
+    )
+
+    let $1_users_ordered = (
+        $0_stat
+        | select user executions_total
+        | enumerate
+        | flatten
+        | upsert user {|i| $'(ansi ($color_set | get ($i.index mod ($color_set | length))))($i.user)'}
+    )
+
+    cprint --before 1 '- *users_sparkline* is ordered by *sum of executed commands*:'
+    print $1_users_ordered
+
+    let $2_stat = (
+        $0_stat
+        | select commands user
+        | flatten
+        | flatten
+    )
+
+    let $3_sparklines = (
+        $2_stat
+        | group-by name
+        | values
+        | each {|b| {name: $b.name.0, users_sparkline: (spark $b.count_norm --colors --color_set $color_set)}}
+        | transpose -idr
+    )
+
+    let $4_analytics = (
+        $2_stat
+        | where count > 0
+        | group-by name
+        | items {
+            |name b| {
+                name: $name,
+                category: $b.category.0,
+                users_count: ($b | length),
+                users_freq_norm_avg: ($b.count_norm | math avg),
+                users_sparkline: ($3_sparklines | get $name),
+            }
+        }
+        | upsert users_c_rank {
+            |i| ($i.users_count * $i.users_freq_norm_avg) | math sqrt # geometric mean
+        }
+        | normalize users_c_rank --suffix ''
+        | sort-by users_c_rank -r
+        | upsert users_c_rank_bar {|i| bar $i.users_c_rank --width ('users_c_rank_bar' | str length)}
+    );
+
+    cprint '*users_c_rank* is the normalized geometric mean of *users_count* and *users_freq_norm_avg*.'
+
+    $4_analytics
 }
 
 def make_benchmarks [] {
     let $data = $in
-    let $benchmarks = (benchmarks | group-by name);
+
+    cprint --before 1 $'*A note about some columns*:'
+    cprint '- *timeline* - represents dynamics, showing when the command was used throughout your history'
+    cprint '- *users_c_rank* - is the geometric mean of the number of users who used this command and average_norm_frequency'
+    cprint --after 1 '- *users_sparkline* - each bar in the sparkline column represents 1 user.'
+
+    let $benchmarks = (
+        aggregate-submissions
+        | select name users_c_rank users_c_rank_bar users_sparkline
+        | group-by name
+    );
 
     $data
     | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {})}
 }
 
-# Ready to use benchmarks table.
-# How to update:
-# source v1-sourced-analytics.nu
-# $3_analytics | rename name | reject category | upsert dummy '' | to csv | pbcopy
-export def benchmarks [] {
-
-    cprint --before 1 $'*A note about some columns*:'
-    cprint '- *timeline* - represents dynamics, showing when the command was used throughout your history'
-    cprint '- *users_count* - represents the number of users who shared their stats and used this command'
-    cprint '- *freq_norm_avg* - represents the average normalized frequency among users who shared their stats'
-    cprint --after 1 '- *users_sparkline* - each bar in the sparkline column represents 1 user. Users are ordered in this way:'
-
-    print (
-        [
-            [user, count]; [nu_scripts, 61840], [maximuvarov, 26526], ["shinyzero0", 8796], [fdncred, 17258],
-            [chtenb, 2638], [kubouch, 9159], [dazfuller, 7354], [cptpiepmatz, 4199], [ErichDonGubler, 3382],
-            [zjp, 2643], [sholderbach, 2005], [horasal, 1363], [nu_std, 1139], [pingiun, 884], [nicokosi, 255]
-        ]
-    )
-
-    open 'aggregated_stats/aggregated-freq-stats20230909.csv'
-    | rename name
-    | reject category
-}
 
 # construct bars based of a given percentage from a given width (5 is default)
 # https://github.com/nushell/nu_scripts/blob/main/sourced/progress_bar/bar.nu
