@@ -223,6 +223,7 @@ export def spark [
 # ┗━━━┻━━━┻━━━━━━━━┻━━━━━━━━┛
 export def normalize [
     ...column_names
+    --suffix = '_norm'
 ] {
     mut $table = $in
 
@@ -230,16 +231,16 @@ export def normalize [
         let $max_value = (
             $table
             | get $column
-            | where ($it | describe | $in in ['int' 'decimal'])
+            | where ($it | describe | $in in ['int' 'float'])
             | math max
         )
 
         $table = (
             $table
-            | upsert $'($column)_norm' {
+            | upsert $'($column)($suffix)' {
                 |i| $i
                 | get $column
-                | if ($in | describe | $in in ['int' 'decimal']) {
+                | if ($in | describe | $in in ['int' 'float']) {
                     $in / $max_value
                 } else {}
             }
