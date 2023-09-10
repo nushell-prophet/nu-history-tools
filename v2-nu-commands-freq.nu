@@ -184,7 +184,11 @@ export def bar [
 # ▁▂▆▇▁▄▁█▁▁
 
 # create a small sparkline graph
-export def spark [v: list] {
+export def spark [
+    v: list
+    --colors
+    --color_set = [white, grey, cyan]
+] {
     let TICKS = [(char -u "2581")
               (char -u "2582")
               (char -u "2583")
@@ -200,7 +204,12 @@ export def spark [v: list] {
     $v | each { |e|
         let i = ((($e - $min) * $ratio) | math round)
         $"($TICKS | get $i)"
-    } | str join
+    }
+    | if $colors {
+        enumerate
+        | each {|i| $'(ansi ($color_set | get ($i.index mod ($color_set | length))))($i.item)'}
+    } else {}
+    | str join
 }
 
 # normalize values in given columns
