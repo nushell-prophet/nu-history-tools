@@ -145,6 +145,9 @@ export def aggregate-submissions [
             | if ('command_type' in ($in | columns)) {
                 reject command_type
             } else {}
+            | if ('freq' in ($in | columns)) { # legacy quick fixes
+                rename -c [freq count]
+            } else {}
             | group-by name
             | do {
                 |dict|
