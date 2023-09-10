@@ -1,5 +1,7 @@
 # This script calculates aggregated stats
-source v2-nu-commands-freq.nu
+use v2-nu-commands-freq.nu [normalize bar]
+
+let $start = (date now)
 
 let $0_commands_all = (
     help commands
@@ -47,17 +49,19 @@ let $3_analytics = (
     | where count > 0
     | group-by name
     | items {
-        |a b| {
-            command: $a,
+        |name b| {
+            command: $name,
             category: $b.category.0,
             users_count: ($b | length),
-            freq_norm_avg: ($b.count_norm | math avg),
-            users_sparkline: ($2_sparklines | get $a),
+            users_freq_norm_avg: ($b.count_norm | math avg),
+            users_sparkline: ($2_sparklines | get $name),
         }
     }
-    | sort-by freq_norm_avg -r
-    | upsert freq_norm_avg_bar {|i| bar $i.freq_norm_avg --width 14}
+    | sort-by users_freq_norm_avg -r
+    | upsert users_freq_norm_bar {|i| bar $i.users_freq_norm_avg --width 14}
 );
+
+print $'script runned: ((date now) - $start)'
 
 $3_analytics
 
