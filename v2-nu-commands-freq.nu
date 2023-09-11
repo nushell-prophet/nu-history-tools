@@ -131,8 +131,6 @@ export def aggregate-submissions [
     --pick_users    # the flag invokes interactive users selection (during script running)
 ] {
 
-    let $color_set = [white, grey, cyan]
-
     let $0_commands_all = (
         help commands
         | select name category command_type
@@ -182,7 +180,7 @@ export def aggregate-submissions [
         | select user executions_total
         | enumerate
         | flatten
-        | upsert user {|i| $'(ansi ($color_set | get ($i.index mod ($color_set | length))))($i.user)'}
+        | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
     )
 
     cprint --before 1 '- *users_sparkline* is ordered for all users submitted stats.
@@ -327,7 +325,7 @@ def spark [
     }
     | if $colors {
         enumerate
-        | each {|i| $'(ansi ($color_set | get ($i.index mod ($color_set | length))))($i.item)'}
+        | each {|i| $'(ansi-code $i.index)($i.item)(ansi reset)'}
     } else {}
     | str join
 }
@@ -479,4 +477,11 @@ def 'fill non-exist' [
     )
 
     $table | each {|i| $cols | merge $i}
+}
+
+def ansi-code [
+    index
+    --color_set = [white, grey, cyan]
+] {
+    (ansi ($color_set | get ($index mod ($color_set | length))))
 }
