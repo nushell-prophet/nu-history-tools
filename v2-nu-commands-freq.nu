@@ -12,9 +12,9 @@ export def nu-hist-stats [
     let $result = (
         nu-commands-stats $temp_file --extra_graphs
         | if $pick_users {
-            make_benchmarks --pick_users
+            make-benchmarks --pick_users
         } else {
-            make_benchmarks
+            make-benchmarks
         }
     )
 
@@ -231,7 +231,7 @@ export def aggregate-submissions [
     $4_analytics
 }
 
-export def make_benchmarks [
+export def make-benchmarks [
     --pick_users
 ] {
     let $data = $in
