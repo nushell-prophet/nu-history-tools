@@ -10,14 +10,11 @@
 
 ```sh
 > use v2-nu-commands-freq.nu nu-hist-stats; let $res1 = (nu-hist-stats); $res1
-The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.
+The script is working with your history now. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.
 
-A note about some columns:
-- timeline - represents dynamics, showing when the command was used throughout your history
-- users_c_rank - is the geometric mean of the number of users who used this command and average_norm_frequency
-- users_sparkline - each bar in the sparkline column represents 1 user.
-
-- users_sparkline is ordered by sum of executed commands:
+f_n_by_user (frequency norm by user) includes stats from all users.
+You can pick some of them by providing the --pick_users flag: nu-hist-stats --pick_users or
+aggregate-submissions --pick_users. The current list is:
 ╭─#──┬──────user──────┬executions_total╮
 │ 0  │ nu_scripts     │          61840 │
 │ 1  │ maximuvarov    │          26526 │
@@ -28,31 +25,33 @@ A note about some columns:
 │ 14 │ nicokosi       │            255 │
 ╰────┴────────────────┴────────────────╯
 
-users_c_rank is the normalized geometric mean of users_count and users_freq_norm_avg.
-╭──name──┬─category─┬─freq─┬─freq_norm─┬─freq_norm_bar─┬─────timeline──────┬─users_c_rank─┬─users_c_rank_bar─┬─users_sparkline──╮
-│ alias  │ core     │   27 │      0.01 │               │ ▆▃▁▂▁▁▁▁▁▁▂▁▁▂▁█▁ │         0.10 │ █▋               │ ▃▂▂▆█▁▁▁▁▁▁▁▁▃▁▁ │
-│        │          │      │           │               │ ▁▁▁▁▁▁▁           │              │                  │                  │
-│ all    │ filters  │    2 │      0.00 │               │ ▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁ │         0.28 │ ████▌            │ ▁▁▂▂█▁▂▂▆▁▂▅▁▁▁▁ │
-│        │          │      │           │               │ ▁▁▁▁▁█▁           │              │                  │                  │
-│ ansi   │ platform │  457 │      0.10 │ █             │ ▁▁▅█▁▁▁▁▁▁▁▂▃▁▁▃▂ │         0.34 │ █████▍           │ ▃▂▂▂▁▁▁▁▁▁▁▂▁█▁▁ │
-│        │          │      │           │               │ ▁▃▁▁▁▂▂           │              │                  │                  │
-│ *      │ *        │ *    │ *         │ *             │ *                 │ *            │ *                │ *                │
-│ window │ filters  │   41 │      0.01 │ ▏             │ ▂▁▆▂▁▁▁▁█▂▂▁▁▁▁▁▂ │         0.09 │ █▍               │ ▃▃█▆▁▆▁▁▁▁▁▁▁▁▁▁ │
-│        │          │      │           │               │ ▄▁▁▁▂▁▃           │              │                  │                  │
-│ wrap   │ filters  │  166 │      0.04 │ ▍             │ ▄█▁▅▇▅▂▆▁▁▁▁▃▁▁▁▁ │         0.12 │ █▉               │ ▆▆█▆▁▃▁▁▁▁▁▁▁▁▁▁ │
-│        │          │      │           │               │ ▁▁▆▄▁▁▃           │              │                  │                  │
-│ zip    │ filters  │   14 │      0.00 │               │ ▅▄▅▁▁▁▂▁▁▁▁▁█▁▁▁▁ │         0.10 │ █▋               │ ▂▂█▇▆▅▁▇▁▁▁▁▁▄▁▁ │
-│        │          │      │           │               │ ▁▁▁▁▁▁▁           │              │                  │                  │
-╰────────┴──────────┴──────┴───────────┴───────────────┴───────────────────┴──────────────┴──────────────────┴──────────────────╯
+importance is the normalized geometric mean of users_count and f_n_per_user.
 
-
+A note about some columns:
+- freq - overall frequency of use of the given command for the currently analysed source,
+- freq_norm - overall frequency normalized,
+- freq_norm_bar - overall frequency normalized bar,
+- timeline - represents dynamics, showing when the command was used throughout your history
+- importance - is the geometric mean of the number of users who used this command and average_norm_frequency
+- f_n_by_user (frequency norm by user) - each bar in the sparkline column represents 1 user (order is shown in the table above).
+╭─────name──────┬──category──┬─freq─┬freq_norm┬freq_norm_bar┬─────────timeline─────────┬importance┬─importance_b─┬───f_n_by_user────╮
+│ ls            │ filesystem │ 3363 │    0.71 │ ███████▏    │ ▁▄▂▁▂▁▃█▅▄▃▂▅▂▃▃▃▁▃▆▃▂▁▂ │     1.00 │ ████████████ │ ▆▆▆███▄▄██▁▆█▁▆▇ │
+│ cd            │ filesystem │  813 │    0.17 │ █▊          │ ▃▆▅▅▄▂▇█▃▆▄▂▃▅▃▃▁▂▁▃▂▁▂▁ │     0.83 │ ██████████   │ ▂▂▃▄▇▁██▃▇█▄▄▁█▁ │
+│ get           │ filters    │ 4706 │       1 │ ██████████  │ ▁▂▂▃▃▅▄▄█▂▃▃▄▄▁▂▃▄▁▄▁▂▂▂ │     0.78 │ █████████▍   │ ███▅▆▄▃▁▁▂▁▃▂▃▂█ │
+│ *             │ *          │ *    │ *       │ *           │ *                        │ *        │ *            │ *                │
+│ bytes collect │ bytes      │    0 │       0 │             │                          │        0 │              │                  │
+│ bytes build   │ bytes      │    0 │       0 │             │                          │        0 │              │                  │
+│ bytes add     │ bytes      │    0 │       0 │             │                          │        0 │              │                  │
+╰───────────────┴────────────┴──────┴─────────┴─────────────┴──────────────────────────┴──────────┴──────────────┴──────────────────╯
 ```
 
 ## Analyse submissions separately
 ```sh
 > use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
 
-- users_sparkline is ordered by sum of executed commands:
+f_n_by_user (frequency norm by user) includes stats from all users.
+You can pick some of them by providing the --pick_users flag: nu-hist-stats --pick_users or
+aggregate-submissions --pick_users. The current list is:
 ╭─#──┬──────user──────┬executions_total╮
 │ 0  │ nu_scripts     │          61840 │
 │ 1  │ maximuvarov    │          26526 │
@@ -63,15 +62,15 @@ users_c_rank is the normalized geometric mean of users_count and users_freq_norm
 │ 14 │ nicokosi       │            255 │
 ╰────┴────────────────┴────────────────╯
 
-users_c_rank is the normalized geometric mean of users_count and users_freq_norm_avg.
-╭─────name──────┬──category──┬users_count┬users_freq_norm_avg┬─users_sparkline──┬users_c_rank┬─users_c_rank_bar─╮
-│ ls            │ filesystem │        15 │              0.76 │ ▆▆▆███▄▄██▁▆█▁▆▇ │       1.00 │ ████████████████ │
-│ cd            │ filesystem │        15 │              0.53 │ ▂▂▃▄▇▁██▃▇█▄▄▁█▁ │       0.83 │ █████████████▎   │
-│ get           │ filters    │        16 │              0.43 │ ███▅▆▄▃▁▁▂▁▃▂▃▂█ │       0.78 │ ████████████▌    │
-│ *             │ *          │ *         │ *                 │ *                │ *          │ *                │
-│ random bool   │ random     │         1 │              0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │       0.00 │ ▏                │
-│ math product  │ math       │         1 │              0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │       0.00 │ ▏                │
-│ export extern │ core       │         1 │              0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │       0.00 │ ▏                │
-╰───────────────┴────────────┴───────────┴───────────────────┴──────────────────┴────────────┴──────────────────╯
-
+importance is the normalized geometric mean of users_count and f_n_per_user.
+> use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
+╭─────name──────┬──category──┬freq_overall┬users_count┬f_n_per_user┬───f_n_by_user────┬importance┬─importance_b─╮
+│ ls            │ filesystem │      14632 │        15 │       0.76 │ ▆▆▆███▄▄██▁▆█▁▆▇ │     1.00 │ ████████████ │
+│ cd            │ filesystem │       7723 │        15 │       0.53 │ ▂▂▃▄▇▁██▃▇█▄▄▁█▁ │     0.83 │ ██████████   │
+│ get           │ filters    │      14273 │        16 │       0.43 │ ███▅▆▄▃▁▁▂▁▃▂▃▂█ │     0.78 │ █████████▍   │
+│ *             │ *          │ *          │ *         │ *          │ *                │ *        │ *            │
+│ random bool   │ random     │          1 │         1 │       0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │
+│ math product  │ math       │          1 │         1 │       0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │
+│ export extern │ core       │          1 │         1 │       0.00 │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │
+╰───────────────┴────────────┴────────────┴───────────┴────────────┴──────────────────┴──────────┴──────────────╯
 ```
