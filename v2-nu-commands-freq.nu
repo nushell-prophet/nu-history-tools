@@ -4,7 +4,7 @@ export def nu-hist-stats [] {
 
     cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
-    let $temp_file = ($env.TMPDIR | path join $'nushell_hist_for_ast(random chars).nu')
+    let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
     history | get command | str join $';(char nl)' | save $temp_file -f
 
     let $result = (nu-commands-stats $temp_file --extra_graphs | make_benchmarks)
