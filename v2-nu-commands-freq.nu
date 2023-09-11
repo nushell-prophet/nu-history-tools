@@ -4,12 +4,11 @@ export def nu-hist-stats [] {
 
     cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
-    mkdir private_data_gitignore
-    history | get command | str join $';(char nl)' | save private_data_gitignore/nushell_hist_for_ast.nu -f
+    let $temp_file = ($env.TMPDIR | path join $'nushell_hist_for_ast(random chars).nu')
+    history | get command | str join $';(char nl)' | save $temp_file -f
 
-    let $result = (nu-commands-stats private_data_gitignore/nushell_hist_for_ast.nu --extra_graphs | make_benchmarks)
+    let $result = (nu-commands-stats $temp_file --extra_graphs | make_benchmarks)
 
-    rm private_data_gitignore -r
     $result
 }
 
