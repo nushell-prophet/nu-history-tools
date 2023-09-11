@@ -110,7 +110,10 @@ export def nu-commands-stats [
     } else {
         select name freq
     }
-    | save -f $'results_submissions/v2_(date now | format date '%Y-%m-%d')+WriteYourNick.csv'
+    | save -f (
+        'results_submissions'
+        | path join $'v2_(date now | format date "%Y-%m-%d")+WriteYourNick.csv'
+    )
 
     $output
 }
@@ -131,7 +134,8 @@ export def aggregate-submissions [
     );
 
     let $0_stat = (
-        ls results_submissions/*.csv --full-paths
+        ls results_submissions --full-paths
+        | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv'
