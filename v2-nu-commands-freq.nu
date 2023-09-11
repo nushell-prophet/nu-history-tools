@@ -56,7 +56,7 @@ export def nu-commands-stats [
                 null
             } else {}
         }
-        | where freq != null
+        | upsert freq {|i| if $i.freq == null {0} else {$i.freq}}
     )
 
     def make_extra_graphs [] {
@@ -235,7 +235,9 @@ export def make_benchmarks [] {
     );
 
     $data
-    | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {})}
+    | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'users_c_rank': 0})}
+    | sort-by users_c_rank -r -n
+    | fill non-exist -v ''
 }
 
 
@@ -435,4 +437,29 @@ def cprint [
         } else {}
         | if $echo { } else { newlineit }
     )
+}
+
+# > [{a: 1} {b: 2}] | to nuon
+# [{a: 1}, {b: 2}]
+#
+# > [{a: 1} {b: 2}] | fill non-exist | to nuon
+# [[a, b]; [1, null], [null, 2]]
+def 'fill non-exist' [
+    tbl?
+    --value_to_replace (-v): any = ''
+] {
+    let $table = ($in | default $tbl)
+
+    let $cols = (
+        $table
+        | par-each {|i| $i | columns}
+        | flatten
+        | uniq
+        | reduce --fold {} {|i acc|
+            $acc
+            | merge {$i: $value_to_replace}
+        }
+    )
+
+    $table | each {|i| $cols | merge $i}
 }
