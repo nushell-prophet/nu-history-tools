@@ -1,13 +1,22 @@
 # Calculate frequencies of use of the "nu" commands in a history
 
-export def nu-hist-stats [] {
+export def nu-hist-stats [
+    --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
+] {
 
     cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
     history | get command | str join $';(char nl)' | save $temp_file -f
 
-    let $result = (nu-commands-stats $temp_file --extra_graphs | make_benchmarks)
+    let $result = (
+        nu-commands-stats $temp_file --extra_graphs
+        | if $pick_users {
+            make_benchmarks --pick_users
+        } else {
+            make_benchmarks
+        }
+    )
 
     $result
 }
@@ -119,7 +128,7 @@ export def nu-commands-stats [
 
 # parse submitted stats from a folder
 export def aggregate-submissions [
-    --select    # flag invokes interactive users selection (during script running)
+    --pick_users    # the flag invokes interactive users selection (during script running)
 ] {
 
     let $color_set = [white, grey, cyan]
@@ -137,8 +146,8 @@ export def aggregate-submissions [
         | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
-        | where $it !~ 'WriteYourNick.csv'
-        | if $select {
+        | where $it !~ 'WriteYourNick.csv' # default output
+        | if $pick_users {
             each {|i| $i | path relative-to (pwd)}
             | input list --multi
         } else {}
@@ -176,7 +185,9 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi ($color_set | get ($i.index mod ($color_set | length))))($i.user)'}
     )
 
-    cprint --before 1 '- *users_sparkline* is ordered by *sum of executed commands*:'
+    cprint --before 1 '- *users_sparkline* is ordered for all users submitted stats.
+    You can pick some of the by providing by using *nu-hist-stats --pick_users* or
+    *aggregate-submissions --pick_users*. The current list is:'
     print $1_users_ordered
 
     let $2_stat = (
@@ -220,7 +231,9 @@ export def aggregate-submissions [
     $4_analytics
 }
 
-export def make_benchmarks [] {
+export def make_benchmarks [
+    --pick_users
+] {
     let $data = $in
 
     cprint --before 1 $'*A note about some columns*:'
@@ -229,7 +242,11 @@ export def make_benchmarks [] {
     cprint --after 1 '- *users_sparkline* - each bar in the sparkline column represents 1 user.'
 
     let $benchmarks = (
-        aggregate-submissions
+        if $pick_users {
+            aggregate-submissions --pick_users
+        } else {
+            aggregate-submissions
+        }
         | select name users_c_rank users_c_rank_bar users_sparkline
         | group-by name
     );
