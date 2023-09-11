@@ -4,7 +4,7 @@ export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
 
-    cprint 'The script is working with your history. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
+    cprint 'The script is working with your history now. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
     history | get command | str join $';(char nl)' | save $temp_file -f
@@ -183,8 +183,9 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
     )
 
-    cprint --before 1 '- *f_n_by_user* is ordered for all users submitted stats.
-    You can pick some of the by providing by using *nu-hist-stats --pick_users* or
+    cprint --keep_single_breaks '
+    *f_n_by_user* (frequency norm by user) includes stats from all users.
+    You can pick some of them by providing the --pick_users flag: *nu-hist-stats --pick_users* or
     *aggregate-submissions --pick_users*. The current list is:'
     print $1_users_ordered
 
@@ -222,7 +223,7 @@ export def aggregate-submissions [
         }
         | normalize importance --suffix ''
         | sort-by importance -r
-        | upsert importance_bar {|i| bar $i.importance --width ('importance_bar' | str length)}
+        | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
     );
 
     cprint '*importance* is the normalized geometric mean of *users_count* and *f_n_per_user*.'
@@ -235,10 +236,6 @@ export def make-benchmarks [
 ] {
     let $data = $in
 
-    cprint --before 1 $'*A note about some columns*:'
-    cprint '- *timeline* - represents dynamics, showing when the command was used throughout your history'
-    cprint '- *importance* - is the geometric mean of the number of users who used this command and average_norm_frequency'
-    cprint --after 1 '- *f_n_by_user* - each bar in the sparkline column represents 1 user.'
 
     let $benchmarks = (
         if $pick_users {
@@ -246,9 +243,18 @@ export def make-benchmarks [
         } else {
             aggregate-submissions
         }
-        | select name importance importance_bar f_n_by_user
+        | select name importance importance_b f_n_by_user
         | group-by name
     );
+
+    cprint --keep_single_breaks '
+    *A note about some columns*:
+    - *freq* - overall frequency of use of the given command for the currently analysed source,
+    - *freq_norm* - overall frequency normalized,
+    - *freq_norm_bar* - overall frequency normalized bar,
+    - *timeline* - represents dynamics, showing when the command was used throughout your history
+    - *importance* - is the geometric mean of the number of users who used this command and average_norm_frequency
+    - *f_n_by_user* (frequency norm by user) - each bar in the sparkline column represents 1 user (order is shown in the table above).'
 
     $data
     | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'importance': 0})}
@@ -379,12 +385,17 @@ def cprint [
     --before (-b): int = 0      # A number of new lines before text
     --after (-a): int = 1       # A number of new lines after text
     --echo (-e)                 # Echo text string instead of printing
+    --keep_single_breaks
 ] {
     def compactit [] {
         $in
-        | str replace -r -a '(\n[\t ]*(\n[\t ]*)+)' '⏎'
-        | str replace -r -a '\n?[\t ]+' ' '    # remove single line breaks used for code formatting
-        | str replace -a '⏎' "\n\n"
+        | if $keep_single_breaks {
+            str replace -r -a '^\n?[\t ]+' "\n"
+        } else {
+            str replace -r -a '(\n[\t ]*(\n[\t ]*)+)' '⏎'
+            | str replace -r -a '\n?[\t ]+' ' '    # remove single line breaks used for code formatting
+            | str replace -a '⏎' "\n\n"
+        }
         | lines
         | each {|i| $i | str trim}
         | str join "\n"
