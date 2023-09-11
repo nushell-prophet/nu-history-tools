@@ -146,7 +146,7 @@ export def aggregate-submissions [
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
         | if $pick_users {
-            each {|i| $i | path relative-to (pwd)}
+            each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
         | par-each {
@@ -155,7 +155,7 @@ export def aggregate-submissions [
             | if ('command_type' in ($in | columns)) {
                 reject command_type
             } else {}
-            | if ('freq' in ($in | columns)) { # legacy quick fixes
+            | if ('freq' in ($in | columns)) { # legacy fix
                 rename -c [freq count]
             } else {}
             | group-by name
@@ -183,7 +183,7 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
     )
 
-    cprint --before 1 '- *users_sparkline* is ordered for all users submitted stats.
+    cprint --before 1 '- *f_n_by_user* is ordered for all users submitted stats.
     You can pick some of the by providing by using *nu-hist-stats --pick_users* or
     *aggregate-submissions --pick_users*. The current list is:'
     print $1_users_ordered
@@ -199,7 +199,7 @@ export def aggregate-submissions [
         $2_stat
         | group-by name
         | values
-        | each {|b| {name: $b.name.0, users_sparkline: (spark $b.count_norm --colors --color_set $color_set)}}
+        | each {|b| {name: $b.name.0, f_n_by_user: (spark $b.count_norm --colors)}}
         | transpose -idr
     )
 
@@ -211,20 +211,21 @@ export def aggregate-submissions [
             |name b| {
                 name: $name,
                 category: $b.category.0,
+                freq_overall: ($b.count | math sum),
                 users_count: ($b | length),
-                users_freq_norm_avg: ($b.count_norm | math avg),
-                users_sparkline: ($3_sparklines | get $name),
+                f_n_per_user: ($b.count_norm | math avg),
+                f_n_by_user: ($3_sparklines | get $name),
             }
         }
-        | upsert users_c_rank {
-            |i| ($i.users_count * $i.users_freq_norm_avg) | math sqrt # geometric mean
+        | upsert importance {
+            |i| ($i.users_count * $i.f_n_per_user) | math sqrt # geometric mean
         }
-        | normalize users_c_rank --suffix ''
-        | sort-by users_c_rank -r
-        | upsert users_c_rank_bar {|i| bar $i.users_c_rank --width ('users_c_rank_bar' | str length)}
+        | normalize importance --suffix ''
+        | sort-by importance -r
+        | upsert importance_bar {|i| bar $i.importance --width ('importance_bar' | str length)}
     );
 
-    cprint '*users_c_rank* is the normalized geometric mean of *users_count* and *users_freq_norm_avg*.'
+    cprint '*importance* is the normalized geometric mean of *users_count* and *f_n_per_user*.'
 
     $4_analytics
 }
@@ -236,8 +237,8 @@ export def make-benchmarks [
 
     cprint --before 1 $'*A note about some columns*:'
     cprint '- *timeline* - represents dynamics, showing when the command was used throughout your history'
-    cprint '- *users_c_rank* - is the geometric mean of the number of users who used this command and average_norm_frequency'
-    cprint --after 1 '- *users_sparkline* - each bar in the sparkline column represents 1 user.'
+    cprint '- *importance* - is the geometric mean of the number of users who used this command and average_norm_frequency'
+    cprint --after 1 '- *f_n_by_user* - each bar in the sparkline column represents 1 user.'
 
     let $benchmarks = (
         if $pick_users {
@@ -245,13 +246,13 @@ export def make-benchmarks [
         } else {
             aggregate-submissions
         }
-        | select name users_c_rank users_c_rank_bar users_sparkline
+        | select name importance importance_bar f_n_by_user
         | group-by name
     );
 
     $data
-    | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'users_c_rank': 0})}
-    | sort-by users_c_rank -r -n
+    | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'importance': 0})}
+    | sort-by importance -r -n
     | fill non-exist -v ''
 }
 
