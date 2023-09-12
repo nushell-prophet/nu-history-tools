@@ -4,7 +4,8 @@ export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
 
-    cprint 'The script is working with your history now. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
+    cprint --after 2 'The script is working with your history now.
+    On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
 
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
     history | get command | str join $';(char nl)' | save $temp_file -f
@@ -183,9 +184,9 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
     )
 
-    cprint --keep_single_breaks '
+    cprint '
     *f_n_by_user* (frequency norm by user) includes stats from all users.
-    You can pick some of them by providing the --pick_users flag: *nu-hist-stats --pick_users* or
+    You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
     *aggregate-submissions --pick_users*. The current list is:'
     print $1_users_ordered
 
@@ -226,8 +227,6 @@ export def aggregate-submissions [
         | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
     );
 
-    cprint '*importance* is the normalized geometric mean of *users_count* and *f_n_per_user*.'
-
     $4_analytics
 }
 
@@ -247,8 +246,7 @@ export def make-benchmarks [
         | group-by name
     );
 
-    cprint --keep_single_breaks '
-    *A note about some columns*:
+    cprint --keep_single_breaks '*A note about some columns*:
     - *freq* - overall frequency of use of the given command for the currently analysed source,
     - *freq_norm* - overall frequency normalized,
     - *freq_norm_bar* - overall frequency normalized bar,
@@ -391,11 +389,49 @@ def cprint [
     let $width_safe = (
         term size
         | get columns
-        | ($in / ($frame | str length) | math round)
+        | ($in // ($frame | str length))
         | $in - 1
         | [$in $width] | math min
         | [$in 1] | math max    # term size gives 0 in tests
     )
+
+    def wrapline [
+        line: string
+    ] {
+        if (($width == 0) or ($line | str length | $in <= $width_safe)) {
+            return $line
+        }
+
+        let text = ($line | split chars)
+        mut agg = []
+        mut line_length = 0
+        mut last_space_index = -1
+        mut total_length = 0
+
+        for i in $text {
+            $line_length = ($line_length + 1)
+            if $line_length > $width_safe {
+                if $last_space_index != -1 {
+                    $agg = ($agg | update $last_space_index "\n")
+                    $line_length = $total_length - $last_space_index
+                    $last_space_index = -1
+                } else {
+                    $agg = ($agg | append "\n")
+                    $line_length = 0
+                }
+            }
+
+            if $i == ' ' {
+                $last_space_index = $total_length
+            }
+            $agg = ($agg | append $i)
+            $total_length = ($total_length + 1)
+        }
+
+        $agg
+        | str join ''
+        | $'(ansi $color)($in)(ansi reset)'
+    }
 
     def compactit [] {
         $in
@@ -407,7 +443,7 @@ def cprint [
             | str replace -a '⏎' "\n\n"
         }
         | lines
-        | each {|i| $i | str trim}
+        | each {|i| $i | str trim | wrapline $in}
         | str join "\n"
     }
 
@@ -415,13 +451,9 @@ def cprint [
         let text = ($in | split chars)
         mut agg = []
         mut open_tag = true
-        mut line_length = 0
-        mut last_space_index = -1
-        mut total_length = 0
 
         for i in $text {
             if $i == '*' {
-                $total_length = $total_length + 1
                 if $open_tag {
                     $open_tag = false
                     $agg = ($agg | append $'(ansi reset)(ansi $highlight_color)')
@@ -430,32 +462,12 @@ def cprint [
                     $agg = ($agg | append $'(ansi reset)(ansi $color)')
                 }
             } else {
-                if $i == "\n" {
-                    $line_length = 0
-                    $last_space_index = -1
-                } else {
-                    $line_length = ($line_length + 1)
-                    if $line_length > $width_safe {
-                        if $last_space_index != -1 {
-                            $agg = ($agg | update $last_space_index "\n")
-                            $line_length = $total_length - $last_space_index
-                            $last_space_index = -1
-                        } else {
-                            $agg = ($agg | append "\n")
-                            $line_length = 0
-                        }
-                    }
-                }
-                if $i == ' ' {
-                    $last_space_index = $total_length
-                }
                 $agg = ($agg | append $i)
-                $total_length = ($total_length + 1)
             }
         }
 
         $agg
-        | str join ''
+        | str join
         | $'(ansi $color)($in)(ansi reset)'
     }
 
