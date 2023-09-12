@@ -381,16 +381,26 @@ def cprint [
     --color (-c): any = 'default'
     --highlight_color (-h): any = 'green_bold'
     --frame_color (-r): any = 'dark_gray'
-    --frame (-f): string        # A symbol (or a string) to frame text
+    --frame (-f): string = ' '  # A symbol (or a string) to frame text
     --before (-b): int = 0      # A number of new lines before text
     --after (-a): int = 1       # A number of new lines after text
     --echo (-e)                 # Echo text string instead of printing
     --keep_single_breaks
+    --width (-w): int = 80     # The width of text
 ] {
+    let $width_safe = (
+        term size
+        | get columns
+        | ($in / ($frame | str length) | math round)
+        | $in - 1
+        | [$in $width] | math min
+        | [$in 1] | math max    # term size gives 0 in tests
+    )
+
     def compactit [] {
         $in
         | if $keep_single_breaks {
-            str replace -r -a '^\n?[\t ]+' "\n"
+            str replace -r -a '^[\t ]+' ''
         } else {
             str replace -r -a '(\n[\t ]*(\n[\t ]*)+)' '⏎'
             | str replace -r -a '\n?[\t ]+' ' '    # remove single line breaks used for code formatting
@@ -405,9 +415,13 @@ def cprint [
         let text = ($in | split chars)
         mut agg = []
         mut open_tag = true
+        mut line_length = 0
+        mut last_space_index = -1
+        mut total_length = 0
 
         for i in $text {
             if $i == '*' {
+                $total_length = $total_length + 1
                 if $open_tag {
                     $open_tag = false
                     $agg = ($agg | append $'(ansi reset)(ansi $highlight_color)')
@@ -416,7 +430,27 @@ def cprint [
                     $agg = ($agg | append $'(ansi reset)(ansi $color)')
                 }
             } else {
+                if $i == "\n" {
+                    $line_length = 0
+                    $last_space_index = -1
+                } else {
+                    $line_length = ($line_length + 1)
+                    if $line_length > $width_safe {
+                        if $last_space_index != -1 {
+                            $agg = ($agg | update $last_space_index "\n")
+                            $line_length = $total_length - $last_space_index
+                            $last_space_index = -1
+                        } else {
+                            $agg = ($agg | append "\n")
+                            $line_length = 0
+                        }
+                    }
+                }
+                if $i == ' ' {
+                    $last_space_index = $total_length
+                }
                 $agg = ($agg | append $i)
+                $total_length = ($total_length + 1)
             }
         }
 
@@ -426,18 +460,10 @@ def cprint [
     }
 
     def frameit [] {
-        let $text = $in
-        let $width = (
-            term size
-            | get columns
-            | ($in / ($frame | str length) | math round)
-            | $in - 1
-            | [$in 1]
-            | math max  # term size gives 0 in tests
-        )
+        let $text = $in;
         let $line = (
             ' '
-            | fill -a r -w $width -c $frame
+            | fill -a r -w $width_safe -c $frame
             | $'(ansi $frame_color)($in)(ansi reset)'
         )
 
@@ -459,7 +485,7 @@ def cprint [
         | str join ' '
         | compactit
         | colorit
-        | if $frame != null {
+        | if $frame != ' ' {
             frameit
         } else {}
         | if $echo { } else { newlineit }
