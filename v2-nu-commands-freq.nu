@@ -259,7 +259,7 @@ export def make-benchmarks [
     $data
     | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'importance': 0})}
     | sort-by importance -r -n
-    | fill non-exist -v ''
+    | fill non-exist ''
 }
 
 
@@ -498,10 +498,9 @@ def cprint [
 # > [{a: 1} {b: 2}] | fill non-exist | to nuon
 # [[a, b]; [1, null], [null, 2]]
 def 'fill non-exist' [
-    tbl?
-    --value_to_replace (-v): any = ''
+    value_to_replace: any = ''
 ] {
-    let $table = ($in | default $tbl)
+    let $table = $in
 
     let $cols = (
         $table
