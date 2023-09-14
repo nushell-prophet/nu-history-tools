@@ -45,7 +45,7 @@ A note about some columns:
 ╰───────────────┴────────────┴──────┴─────────┴─────────────┴──────────────────────────┴──────────┴──────────────┴──────────────────╯
 ```
 
-## Analyse submissions separately
+## Analyze submissions separately
 ```sh
 > use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
 
