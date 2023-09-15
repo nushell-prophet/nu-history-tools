@@ -52,21 +52,15 @@ export def nu-commands-stats [
         | where shape in ['shape_internalcall' 'keyword']
     )
 
-    let $freq_record = ($parsed_hist | get content | uniq --count | transpose -idr)
+    let $freq_table = ($parsed_hist | get content | uniq --count | rename name freq)
 
     let $freq_builtins_only = (
         help commands
         | select name category command_type
         | where command_type in ['builtin' 'keyword']
         | reject command_type
-        | upsert freq {
-            |i| $freq_record
-            | get -i $i.name
-            | if $in == [] {
-                null
-            } else {}
-        }
-        | upsert freq {|i| if $i.freq == null {0} else {$i.freq}}
+        | join $freq_table -l name
+        | upsert freq {|i| $i.freq | default 0}
     )
 
     def make_extra_graphs [] {
@@ -255,7 +249,8 @@ export def make-benchmarks [
     - *f_n_by_user* (frequency norm by user) - each bar in the sparkline column represents 1 user (order is shown in the table above).'
 
     $data
-    | each {|i| $i | merge ($benchmarks | get $i.name -i | get 0 -i | default {'importance': 0})}
+    | join -l $benchmarks name
+    | upsert importance {|i| $i | get -i importance | default 0}
     | sort-by importance -r -n
     | fill non-exist ''
 }
