@@ -1,4 +1,4 @@
-command,crate,first_tag,last_tag
+name,crate,first_tag,last_tag
 clip,nu-command,0.39.0,0.40.0
 paste,nu-command,0.39.0,0.40.0
 into column_path,nu-command,0.39.0,0.41.0

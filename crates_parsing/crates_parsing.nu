@@ -8,11 +8,11 @@ def parse_crates [
 
     rg 'PluginSignature::build\("(.*)"\)' -o -r '$1'
     | append (rg 'fn name.*\n +"(.*)"' -U -o -r '$1')
-    | append (rg 'expr_command!.*\n.*\n +"(.*)"' -U -o -r '$1')
+    | append (rg 'expr_name!.*\n.*\n +"(.*)"' -U -o -r '$1')
     | append (rg 'lazy_command!.*\n.*\n +"(.*)"' -U -o -r '$1')
     | flatten
     | lines
-    | parse "{path}:{command}"
+    | parse "{path}:{name}"
     | upsert crate {|i| $i.path | path split | get 0}
     | upsert tag $tag
 }
@@ -21,7 +21,7 @@ let $cmds_in_tags = (git tag | lines | where (($it | str length) == 6) | last 39
 
 let $cmds_agg = (
     $cmds_in_tags
-    | group-by command
+    | group-by name
     | values
     | each {
         |i| $i
@@ -32,14 +32,14 @@ let $cmds_agg = (
         | reject path
     }
     | flatten
-    | sort-by last_tag first_tag crate command
+    | sort-by last_tag first_tag crate name
 );
 
 let $cmds_missing = (
     help commands
     | where command_type in ['builtin' 'keyword']
     | get name
-    | where $it not-in $cmds_agg.command
+    | where $it not-in $cmds_agg.name
 )
 
 
