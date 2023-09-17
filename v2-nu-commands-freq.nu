@@ -81,11 +81,15 @@ export def nu-commands-stats [
         let $sparks = (
             $hist_with_groups
             | group-by content
-            | items { |a b| {
-                $a: ($def_bins
-                    | merge ($b | select start count | transpose -idr)
-                    | values
-                    | spark $in)
+            | items {
+                |a b|
+                {
+                    $a: (
+                        $def_bins
+                        | merge ($b | select start count | transpose -idr)
+                        | values
+                        | spark $in
+                    )
                 }
             }
             | reduce -f {} {|a b| $a | merge $b}
