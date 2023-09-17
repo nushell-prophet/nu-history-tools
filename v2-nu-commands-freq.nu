@@ -5,12 +5,45 @@ use utils [bar spark normalize cprint 'fill non-exist']
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
+    cprint -f '*' 'nu-commands-frequency-stats v2.0'
 
-    cprint --after 2 'The script is working with your history now.
-    On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.'
-
+    let $tested_vesions = ['0.84.0']
+    let $current_version = (version | get version)
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
-    history | get command | str join $';(char nl)' | save $temp_file -f
+
+    if $current_version not-in $tested_vesions {
+        cprint $'This script was tested on *($tested_vesions)*. You have *($current_version)*.
+        If you have problems running this script - consider upgrading.'
+    }
+
+    let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
+
+    mut history_txt = []
+
+    if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
+
+        cprint $'Your history is in sqlite format. It will be used for analysis. Also, you have history
+        in *txt* format. It consists of *($history_txt_path | open | lines | length) entries*. Would you like to include them
+        into analysis too?'
+
+        mut answer = ''
+
+        while ($answer | str downcase) not-in [ y n ] {
+            $answer = (input '[y/n]: ')
+        }
+
+        $history_txt = (
+            if ($answer | str downcase) != 'y' {
+                open $history_txt_path | lines
+            }
+        )
+    }
+
+    cprint --after 2 --before 1 'The script is working with your history now.
+    On an M1 Mac with a history of ~50,000 entries, it runs for about a minute.'
+
+
+    history | get command | prepend $history_txt | str join $';(char nl)' | save $temp_file -f
 
     let $result = (
         nu-commands-stats $temp_file --extra_graphs
@@ -184,6 +217,8 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
     )
 
+    cprint -f '*' 'Aggregated stats for other users'
+
     cprint '*f_n_by_user* (frequency norm by user) includes stats from all users.
     You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
     *aggregate-submissions --pick_users*. The current list is:'
@@ -243,6 +278,8 @@ export def make-benchmarks [
         }
         | select name importance importance_b f_n_by_user
     );
+
+    cprint -f '*' 'Resulting table'
 
     cprint --keep_single_breaks '*A note about some columns*:
     - *freq* - overall frequency of use of the given command for the currently analysed source,
