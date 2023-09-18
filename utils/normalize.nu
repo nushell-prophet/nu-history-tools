@@ -13,7 +13,7 @@ export def main [
 ] {
     mut $table = $in
 
-    for $column in $column_names {
+    for column in $column_names {
         let $max_value = (
             $table
             | get $column
