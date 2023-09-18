@@ -7,13 +7,13 @@ export def nu-hist-stats [
 ] {
     cprint -f '*' 'nu-commands-frequency-stats v2.0'
 
-    let $tested_vesions = ['0.84.0']
+    let $tested_versions = ['0.84.0']
     let $current_version = (version | get version)
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
 
-    if $current_version not-in $tested_vesions {
-        cprint $'This script was tested on *($tested_vesions)*. You have *($current_version)*.
-        If you have problems running this script - consider upgrading.'
+    if $current_version not-in $tested_versions {
+        cprint $'This script was tested on *($tested_versions)*. You have *($current_version)*.
+        If you have problems running this script, consider upgrading.'
     }
 
     let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
@@ -22,9 +22,9 @@ export def nu-hist-stats [
 
     if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
 
-        cprint $'Your history is in sqlite format. It will be used for analysis. Also, you have history
-        in *txt* format. It consists of *($history_txt_path | open | lines | length) entries*. Would you like to include them
-        into analysis too?'
+        cprint $'Your history is in sqlite format. It will be used for analysis. Additionaly, you have history
+        in *txt* format, which consists of *($history_txt_path | open | lines | length) entries*. Would you
+        like to include them in the analysis as well?'
 
         mut answer = ''
 
@@ -100,7 +100,7 @@ export def nu-commands-stats [
 
     def make_extra_graphs [] {
         let $table_in = $in
-        let $hist_with_groups = (
+        let $hist_for_timeline = (
             $parsed_hist
             | upsert start {|i| $i.span.start}
             | select content start
@@ -109,10 +109,16 @@ export def nu-commands-stats [
             | flatten
         );
 
-        let $def_bins = ($hist_with_groups | get start | uniq | sort | reduce -f {} {|a b| $b | merge {$a: 0}})
+        let $def_bins = (
+            $hist_for_timeline
+            | get start
+            | uniq
+            | sort
+            | reduce -f {} {|a b| $b | merge {$a: 0}}
+        )
 
         let $sparks = (
-            $hist_with_groups
+            $hist_for_timeline
             | group-by content
             | items {
                 |a b|
@@ -282,12 +288,12 @@ export def make-benchmarks [
     cprint -f '*' 'Resulting table'
 
     cprint --keep_single_breaks '*A note about some columns*:
-    - *freq* - overall frequency of use of the given command for the currently analysed source,
-    - *freq_norm* - overall frequency normalized,
-    - *freq_norm_bar* - overall frequency normalized bar,
-    - *timeline* - represents dynamics, showing when the command was used throughout your history
-    - *importance* - is the geometric mean of the number of users who used this command and average_norm_frequency
-    - *f_n_by_user* (frequency norm by user) - each bar in the sparkline column represents 1 user (order is shown in the table above).'
+    - *freq* - indicates the overall frequency of use of the given command for the currently analyzed source
+    - *freq_norm* - represents the overall frequency normalized
+    - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
+    - *timeline* - displays the dynamics, indicating when the command was used throughout your history
+    - *importance* - calculated as the geometric mean of the number of users who used this command and the average normalized frequency
+    - *f_n_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
 
     $data
     | join -l $benchmarks name
