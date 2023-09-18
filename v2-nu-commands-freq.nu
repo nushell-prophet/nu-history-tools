@@ -90,10 +90,7 @@ export def nu-commands-stats [
     let $freq_table = ($parsed_hist | get content | uniq --count | rename name freq)
 
     let $freq_builtins_only = (
-        help commands
-        | select name category command_type
-        | where command_type in ['builtin' 'keyword']
-        | reject command_type
+        commands-all
         | join $freq_table -l name
         | upsert freq {|i| $i.freq | default 0}
     )
@@ -170,15 +167,6 @@ export def nu-commands-stats [
 export def aggregate-submissions [
     --pick_users    # the flag invokes interactive users selection (during script running)
 ] {
-
-    let $0_commands_all = (
-        help commands
-        | select name category command_type
-        | rename name
-        | where command_type in ['builtin' 'keyword']
-        | reject command_type
-    );
-
     let $0_stat = (
         ls results_submissions --full-paths
         | where ($it.name | path parse | get extension) == 'csv'
@@ -201,7 +189,8 @@ export def aggregate-submissions [
             | group-by name
             | do {
                 |dict|
-                $0_commands_all
+                commands-all
+                # | select name
                 | upsert count {
                     |i| $dict | get -i $i.name | get -i count.0 | default 0
                 }
@@ -268,6 +257,7 @@ export def aggregate-submissions [
     );
 
     $4_analytics
+    | join -l (commands-all | reject category) name
 }
 
 export def make-benchmarks [
@@ -307,4 +297,30 @@ def ansi-code [
     --color_set = [white, grey, cyan]
 ] {
     (ansi ($color_set | get ($index mod ($color_set | length))))
+}
+
+export def commands-all [] {
+    let $crates_hist = (open crates_parsing/cmds_by_crates_and_tags.csv)
+
+    let $current_commands = (
+        help commands
+        | select name category command_type
+        | where command_type in ['builtin' 'keyword']
+        | reject command_type
+    )
+
+    let $ver = (version | get version)
+
+    let $fallback = (
+        $current_commands
+        | select name
+        | upsert crate not_parsed_yet # you can update the csv by running crates_parsing/crates_parsing.nu
+        | upsert first_tag $ver
+        | upsert last_tag $ver
+    )
+
+    $crates_hist
+    | append $fallback
+    | uniq-by name
+    | join -l $current_commands name
 }
