@@ -52,6 +52,7 @@ export def nu-hist-stats [
         } else {
             make-benchmarks
         }
+        | reject first_tag last_tag crate
     )
 
     $result
