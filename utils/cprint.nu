@@ -1,6 +1,6 @@
 # export def main [] {}
 
-use std repeat
+use 'str repeat.nu'
 
 # Print the string colorfully with bells and whistles.
 export def main [
@@ -34,7 +34,7 @@ export def main [
         | str replace -r -a '[\t ]+$' ''
         | str replace -r -a $"\(.{1,($width_safe - $indent)}\)\(\\s|$\)|\(.{1,($width_safe - $indent)}\)" "$1$3\n"
         | str replace -r $'(char nl)$' ''       # trailing new line
-        | str replace -r -a '(?m)^(.)' $'((char sp) | repeat $indent | str join)$1'
+        | str replace -r -a '(?m)^(.)' $'((char sp) | str repeat $indent)$1'
     }
 
     def colorit [] {
@@ -62,7 +62,7 @@ export def main [
     }
 
     def newlineit [] {
-        $"((char nl) | repeat $before | str join)($in)((char nl) | repeat $after | str join)"
+        $"((char nl) | str repeat $before)($in)((char nl) | str repeat $after)"
     }
 
     (
