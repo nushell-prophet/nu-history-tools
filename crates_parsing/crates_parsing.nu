@@ -17,7 +17,7 @@ def parse_crates [
     | upsert tag $tag
 }
 
-let $cmds_in_tags = (git tag | lines | where (($it | str length) == 6) | last 39 | each {|i| parse_crates $i} | flatten)
+let $cmds_in_tags = (git tag | lines | where $it != '0_5_0' | sort -n | each {|i| parse_crates $i} | flatten)
 
 let $cmds_agg = (
     $cmds_in_tags
@@ -32,7 +32,7 @@ let $cmds_agg = (
         | reject path
     }
     | flatten
-    | sort-by last_tag first_tag crate name
+    | sort-by -n last_tag first_tag crate name
 );
 
 let $cmds_missing = (
