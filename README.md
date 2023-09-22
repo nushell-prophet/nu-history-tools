@@ -2,13 +2,13 @@
 
 ## Installation
 
-```sh
+```nushell
 > git clone https://github.com/maxim-uvarov/nu-commands-frequency-stats; cd nu-commands-frequency-stats
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
 
-```sh
+```nushell
 > use v2-nu-commands-freq.nu nu-hist-stats; let $res1 = (nu-hist-stats); $res1
 The script is working with your history now. On an M1 Mac with a history of ~40,000 entries, it runs for about a minute.
 
@@ -46,7 +46,7 @@ A note about some columns:
 ```
 
 ## Analyze submissions separately
-```sh
+```nushell
 > use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
 
 f_n_by_user (frequency norm by user) includes stats from all users.
@@ -63,7 +63,6 @@ aggregate-submissions --pick_users. The current list is:
 ╰────┴────────────────┴────────────────╯
 
 importance is the normalized geometric mean of users_count and f_n_per_user.
-> use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
 ╭─────name──────┬──category──┬freq_overall┬users_count┬f_n_per_user┬───f_n_by_user────┬importance┬─importance_b─╮
 │ ls            │ filesystem │      14632 │        15 │       0.76 │ ▆▆▆███▄▄██▁▆█▁▆▇ │     1.00 │ ████████████ │
 │ cd            │ filesystem │       7723 │        15 │       0.53 │ ▂▂▃▄▇▁██▃▇█▄▄▁█▁ │     0.83 │ ██████████   │
