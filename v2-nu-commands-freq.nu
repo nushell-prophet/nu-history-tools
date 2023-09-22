@@ -1,6 +1,6 @@
 # Calculate frequencies of use of the "nu" commands in a history
 
-use utils [bar spark normalize cprint 'fill non-exist']
+use nu-utils [bar spark normalize cprint 'fill non-exist']
 
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
