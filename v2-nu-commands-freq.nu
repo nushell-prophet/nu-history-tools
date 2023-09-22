@@ -5,15 +5,16 @@ use nu-utils [bar spark normalize cprint 'fill non-exist']
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
-    cprint -f '*' 'nu-commands-frequency-stats v2.0'
     $env.freq-hist.pick-users = $pick_users
 
-    let $tested_versions = ['0.84.0']
+    cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
+
+    let $tested_versions = ['0.84.0', '0.85.0']
     let $current_version = (version | get version)
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
 
     if $current_version not-in $tested_versions {
-        cprint $'This script was tested on *($tested_versions)*. You have *($current_version)*.
+        cprint --after 2 $'This script was tested on *($tested_versions)*. You have *($current_version)*.
         If you have problems running this script, consider upgrading.'
     }
 
@@ -23,9 +24,9 @@ export def nu-hist-stats [
 
     if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
 
-        cprint $'Your history is in sqlite format. It will be used for analysis. Additionaly, you have history
-        in *txt* format, which consists of *($history_txt_path | open | lines | length) entries*. Would you
-        like to include them in the analysis as well?'
+        cprint --after 2 $'Your history is in *sqlite* format. It will be used for analysis.
+        Additionaly, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
+        entries*. Would you like to include them in the analysis as well?'
 
         mut answer = ''
 
@@ -40,9 +41,8 @@ export def nu-hist-stats [
         )
     }
 
-    cprint --after 2 --before 1 'The script is working with your history now.
+    cprint --before 1 --after 2 'The script is working with your history now.
     On an M1 Mac with a history of ~50,000 entries, it runs for about a minute.'
-
 
     history | get command | prepend $history_txt | str join $';(char nl)' | save $temp_file -f
 
@@ -269,7 +269,7 @@ export def make-benchmarks [] {
 
     cprint -f '*' 'Resulting table'
 
-    cprint --keep_single_breaks '*A note about some columns*:
+    cprint --keep_single_breaks --after 2 '*A note about some columns*:
     - *freq* - indicates the overall frequency of use of the given command for the currently analyzed source
     - *freq_norm* - represents the overall frequency normalized
     - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
