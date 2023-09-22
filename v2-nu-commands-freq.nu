@@ -6,6 +6,7 @@ export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
     cprint -f '*' 'nu-commands-frequency-stats v2.0'
+    $env.freq-hist.pick-users = $pick_users
 
     let $tested_versions = ['0.84.0']
     let $current_version = (version | get version)
@@ -47,11 +48,7 @@ export def nu-hist-stats [
 
     let $result = (
         nu-commands-stats $temp_file --extra_graphs
-        | if $pick_users {
-            make-benchmarks --pick_users
-        } else {
-            make-benchmarks
-        }
+        | make-benchmarks
         | reject first_tag last_tag crate
     )
 
@@ -174,7 +171,7 @@ export def aggregate-submissions [
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
-        | if $pick_users {
+        | if $pick_users or ($env.freq-hist.pick-users | default false) {
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
@@ -261,18 +258,12 @@ export def aggregate-submissions [
     | join -l (commands-all | reject category) name
 }
 
-export def make-benchmarks [
-    --pick_users
-] {
+export def make-benchmarks [] {
     let $data = $in
 
 
     let $benchmarks = (
-        if $pick_users {
-            aggregate-submissions --pick_users
-        } else {
-            aggregate-submissions
-        }
+        aggregate-submissions
         | select name importance importance_b f_n_by_user
     );
 
