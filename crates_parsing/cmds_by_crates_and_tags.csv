@@ -149,7 +149,6 @@ trim,nu-cli,0.11.0,0.19.0
 move column,nu-cli,0.17.0,0.21.0
 str set,nu-cli,0.15.0,0.25.1
 mock,nu-cli,0.21.0,0.25.1
-count,nu-command,0.11.0,0.28.0
 config load,nu-command,0.17.0,0.28.0
 path extension,nu-command,0.18.1,0.29.0
 into-int,nu-command,0.19.0,0.29.0
@@ -285,7 +284,6 @@ dataframe rolling,nu-command,0.36.0,0.44.0
 dataframe strftime,nu-command,0.36.0,0.44.0
 dataframe rename-col,nu-command,0.37.0,0.44.0
 into column-path,nu-command,0.42.0,0.44.0
-dfr list,nu-command,0.60.0,0.62.0
 dfr pivot,nu-command,0.60.0,0.62.0
 dataframe,nu-command,0.33.0,0.63.1
 dfr,nu-command,0.60.0,0.63.1
@@ -365,6 +363,7 @@ from table,nu-command,0.67.0,0.71.0
 fill-na,nu-command,0.64.0,0.73.0
 to url,nu-command,0.14.0,0.74.0
 post,nu-command,0.37.0,0.74.0
+count,nu-command,0.11.0,0.75.0
 sum,nu-command,0.12.0,0.75.0
 from eml,nu-command,0.14.0,0.75.0
 from ics,nu-command,0.14.0,0.75.0
@@ -373,6 +372,7 @@ from vcf,nu-command,0.14.0,0.75.0
 benchmark,nu-command,0.17.0,0.75.0
 fetch,nu-command,0.37.0,0.75.0
 view-source,nu-command,0.60.0,0.75.0
+agg-groups,nu-command,0.64.0,0.75.0
 all-false,nu-command,0.64.0,0.75.0
 all-true,nu-command,0.64.0,0.75.0
 arg-max,nu-command,0.64.0,0.75.0
@@ -393,6 +393,8 @@ df-not,nu-command,0.64.0,0.75.0
 drop-duplicates,nu-command,0.64.0,0.75.0
 drop-nulls,nu-command,0.64.0,0.75.0
 dtypes,nu-command,0.64.0,0.75.0
+explode,nu-command,0.64.0,0.75.0
+expr-not,nu-command,0.64.0,0.75.0
 fill-null,nu-command,0.64.0,0.75.0
 filter-with,nu-command,0.64.0,0.75.0
 get-day,nu-command,0.64.0,0.75.0
@@ -410,6 +412,7 @@ is-in,nu-command,0.64.0,0.75.0
 is-not-null,nu-command,0.64.0,0.75.0
 is-null,nu-command,0.64.0,0.75.0
 is-unique,nu-command,0.64.0,0.75.0
+list,nu-command,0.64.0,0.75.0
 lit,nu-command,0.64.0,0.75.0
 ls-df,nu-command,0.64.0,0.75.0
 max,nu-command,0.64.0,0.75.0
@@ -456,6 +459,7 @@ n,nu-command,0.11.0,0.79.0
 p,nu-command,0.11.0,0.79.0
 shells,nu-command,0.11.0,0.79.0
 g,nu-command,0.38.0,0.79.0
+dfr list,nu-command,0.60.0,0.79.0
 export old-alias,nu-command,0.77.0,0.79.0
 old-alias,nu-command,0.77.0,0.79.0
 str find-replace,nu-command,0.15.0,0.83.1
@@ -467,12 +471,6 @@ math eval,nu-command,0.17.0,0.83.1
 str lpad,nu-command,0.21.0,0.83.1
 str rpad,nu-command,0.21.0,0.83.1
 hash base64,nu-command,0.24.0,0.83.1
-dfr max,nu-cmd-dataframe,0.76.0,0.83.1
-dfr mean,nu-cmd-dataframe,0.76.0,0.83.1
-dfr min,nu-cmd-dataframe,0.76.0,0.83.1
-dfr std,nu-cmd-dataframe,0.76.0,0.83.1
-dfr sum,nu-cmd-dataframe,0.76.0,0.83.1
-dfr var,nu-cmd-dataframe,0.76.0,0.83.1
 math e,nu-cmd-extra,0.73.0,0.84.0
 math pi,nu-cmd-extra,0.73.0,0.84.0
 math tau,nu-cmd-extra,0.73.0,0.84.0
@@ -773,18 +771,28 @@ take,nu-command,0.61.0,0.85.0
 take until,nu-command,0.61.0,0.85.0
 take while,nu-command,0.61.0,0.85.0
 watch,nu-command,0.62.0,0.85.0
+dfr agg-groups,nu-cmd-dataframe,0.63.0,0.85.0
 dfr as,nu-cmd-dataframe,0.63.0,0.85.0
 dfr cache,nu-cmd-dataframe,0.63.0,0.85.0
 dfr col,nu-cmd-dataframe,0.63.0,0.85.0
 dfr collect,nu-cmd-dataframe,0.63.0,0.85.0
+dfr explode,nu-cmd-dataframe,0.63.0,0.85.0
 dfr fetch,nu-cmd-dataframe,0.63.0,0.85.0
 dfr fill-null,nu-cmd-dataframe,0.63.0,0.85.0
+dfr flatten,nu-cmd-dataframe,0.63.0,0.85.0
 dfr lit,nu-cmd-dataframe,0.63.0,0.85.0
 dfr ls,nu-cmd-dataframe,0.63.0,0.85.0
+dfr max,nu-cmd-dataframe,0.63.0,0.85.0
+dfr mean,nu-cmd-dataframe,0.63.0,0.85.0
+dfr median,nu-cmd-dataframe,0.63.0,0.85.0
+dfr min,nu-cmd-dataframe,0.63.0,0.85.0
 dfr quantile,nu-cmd-dataframe,0.63.0,0.85.0
 dfr reverse,nu-cmd-dataframe,0.63.0,0.85.0
 dfr select,nu-cmd-dataframe,0.63.0,0.85.0
 dfr sort-by,nu-cmd-dataframe,0.63.0,0.85.0
+dfr std,nu-cmd-dataframe,0.63.0,0.85.0
+dfr sum,nu-cmd-dataframe,0.63.0,0.85.0
+dfr var,nu-cmd-dataframe,0.63.0,0.85.0
 dfr when,nu-cmd-dataframe,0.63.0,0.85.0
 str title-case,nu-cmd-extra,0.63.0,0.85.0
 overlay,nu-cmd-lang,0.63.0,0.85.0
@@ -896,14 +904,15 @@ dfr agg,nu-cmd-dataframe,0.76.0,0.85.0
 dfr arg-where,nu-cmd-dataframe,0.76.0,0.85.0
 dfr columns,nu-cmd-dataframe,0.76.0,0.85.0
 dfr concat-str,nu-cmd-dataframe,0.76.0,0.85.0
+dfr count,nu-cmd-dataframe,0.76.0,0.85.0
 dfr dummies,nu-cmd-dataframe,0.76.0,0.85.0
+dfr expr-not,nu-cmd-dataframe,0.76.0,0.85.0
 dfr fill-nan,nu-cmd-dataframe,0.76.0,0.85.0
 dfr filter,nu-cmd-dataframe,0.76.0,0.85.0
 dfr into-df,nu-cmd-dataframe,0.76.0,0.85.0
 dfr into-lazy,nu-cmd-dataframe,0.76.0,0.85.0
 dfr into-nu,nu-cmd-dataframe,0.76.0,0.85.0
 dfr lowercase,nu-cmd-dataframe,0.76.0,0.85.0
-dfr median,nu-cmd-dataframe,0.76.0,0.85.0
 dfr n-unique,nu-cmd-dataframe,0.76.0,0.85.0
 dfr otherwise,nu-cmd-dataframe,0.76.0,0.85.0
 dfr query,nu-cmd-dataframe,0.76.0,0.85.0
@@ -940,6 +949,7 @@ encode hex,nu-cmd-extra,0.78.0,0.85.0
 math exp,nu-cmd-extra,0.78.0,0.85.0
 help externs,nu-command,0.78.0,0.85.0
 items,nu-command,0.79.0,0.85.0
+dfr implode,nu-cmd-dataframe,0.80.0,0.85.0
 export module,nu-cmd-lang,0.80.0,0.85.0
 input list,nu-command,0.80.0,0.85.0
 dfr datepart,nu-cmd-dataframe,0.81.0,0.85.0
@@ -957,8 +967,6 @@ into bits,nu-cmd-extra,0.83.0,0.85.0
 extern-wrapped,nu-cmd-lang,0.83.0,0.85.0
 input listen,nu-command,0.83.0,0.85.0
 str expand,nu-command,0.83.0,0.85.0
-dfr explode,nu-cmd-dataframe,0.84.0,0.85.0
-dfr flatten,nu-cmd-dataframe,0.84.0,0.85.0
 dfr to-avro,nu-cmd-dataframe,0.84.0,0.85.0
 export const,nu-cmd-lang,0.84.0,0.85.0
 export extern-wrapped,nu-cmd-lang,0.84.0,0.85.0
