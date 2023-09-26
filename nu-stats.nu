@@ -129,7 +129,7 @@ export def aggregate-submissions [
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
-        | if $pick_users or ($env.freq-hist.pick-users | default false) {
+        | if $pick_users or ($env.freq-hist?.pick-users? | default false) {
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
