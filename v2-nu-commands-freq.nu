@@ -1,6 +1,6 @@
 # Calculate frequencies of use of the "nu" commands in a history
 
-use nu-utils [bar spark normalize cprint 'fill non-exist']
+use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
@@ -207,7 +207,7 @@ export def aggregate-submissions [
         | select user executions_total
         | enumerate
         | flatten
-        | upsert user {|i| $'(ansi-code $i.index)($i.user)(ansi reset)'}
+        | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
     )
 
     cprint -f '*' 'Aggregated stats for other users'
@@ -282,13 +282,6 @@ export def make-benchmarks [] {
     | upsert importance {|i| $i | get -i importance | default 0}
     | sort-by importance -r -n
     | fill non-exist ''
-}
-
-def ansi-code [
-    index
-    --color_set = [white, grey, cyan]
-] {
-    (ansi ($color_set | get ($index mod ($color_set | length))))
 }
 
 export def commands-all [] {
