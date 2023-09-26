@@ -93,57 +93,13 @@ export def nu-commands-stats [
         | upsert freq {|i| $i.freq | default 0}
     )
 
-    def make_extra_graphs [] {
-        let $table_in = $in
-        let $hist_for_timeline = (
-            $parsed_hist
-            | upsert start {|i| $i.span.start}
-            | select content start
-            | upsert start {|i| $i.start // 100_000}
-            | uniq --count
-            | flatten
-        );
-
-        let $def_bins = (
-            $hist_for_timeline
-            | get start
-            | uniq
-            | sort
-            | reduce -f {} {|a b| $b | merge {$a: 0}}
-        )
-
-        let $sparks = (
-            $hist_for_timeline
-            | group-by content
-            | items {
-                |a b|
-                {
-                    $a: (
-                        $def_bins
-                        | merge ($b | select start count | transpose -idr)
-                        | values
-                        | spark $in
-                    )
-                }
-            }
-            | reduce -f {} {|a b| $a | merge $b}
-        )
-
-        $table_in
-        | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
-        | upsert timeline {
-            |i| $sparks
-            | get -i $i.name
-        }
-    }
-
     let $output = (
         $freq_builtins_only
         | if $normalize_freq or $extra_graphs {
             normalize freq
         } else {}
         | if $extra_graphs {
-            make_extra_graphs
+            make_extra_graphs $parsed_hist
         } else {}
     )
 
@@ -308,4 +264,50 @@ export def commands-all [] {
     | append $fallback
     | uniq-by name
     | join -l $current_commands name
+}
+
+def make_extra_graphs [
+    $parsed_hist
+] {
+    let $table_in = $in
+    let $hist_for_timeline = (
+        $parsed_hist
+        | upsert start {|i| $i.span.start}
+        | select content start
+        | upsert start {|i| $i.start // 100_000}
+        | uniq --count
+        | flatten
+    );
+
+    let $def_bins = (
+        $hist_for_timeline
+        | get start
+        | uniq
+        | sort
+        | reduce -f {} {|a b| $b | merge {$a: 0}}
+    )
+
+    let $sparks = (
+        $hist_for_timeline
+        | group-by content
+        | items {
+            |a b|
+            {
+                $a: (
+                    $def_bins
+                    | merge ($b | select start count | transpose -idr)
+                    | values
+                    | spark $in
+                )
+            }
+        }
+        | reduce -f {} {|a b| $a | merge $b}
+    )
+
+    $table_in
+    | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
+    | upsert timeline {
+        |i| $sparks
+        | get -i $i.name
+    }
 }
