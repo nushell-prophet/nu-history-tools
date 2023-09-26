@@ -74,18 +74,19 @@ export def nu-files-stats [
 }
 
 
+# Calculate stats of commands in a given .nu file
 export def nu-commands-stats [
     path: path
     --normalize_freq    # create a normalized freqency column
     --extra_graphs      # produce frequency histogram and timeline sparklines columns
 ] {
-    let $parsed_hist = (
+    let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
         | from json
         | where shape in ['shape_internalcall' 'keyword']
     )
 
-    let $freq_table = ($parsed_hist | get content | uniq --count | rename name freq)
+    let $freq_table = ($ast_data | get content | uniq --count | rename name freq)
 
     let $freq_builtins_only = (
         commands-all
@@ -99,7 +100,7 @@ export def nu-commands-stats [
             normalize freq
         } else {}
         | if $extra_graphs {
-            make_extra_graphs $parsed_hist
+            make_extra_graphs $ast_data
         } else {}
     )
 
@@ -267,11 +268,11 @@ export def commands-all [] {
 }
 
 def make_extra_graphs [
-    $parsed_hist
+    $ast_data
 ] {
     let $table_in = $in
     let $hist_for_timeline = (
-        $parsed_hist
+        $ast_data
         | upsert start {|i| $i.span.start}
         | select content start
         | upsert start {|i| $i.start // 100_000}
