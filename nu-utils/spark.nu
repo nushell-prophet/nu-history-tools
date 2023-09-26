@@ -4,6 +4,8 @@
 # > spark $v
 # ▁▂▆▇▁▄▁█▁▁
 
+use ansi-alternate.nu
+
 # create a small sparkline graph
 export def main [
     v: list
@@ -28,7 +30,7 @@ export def main [
     }
     | if $colors {
         enumerate
-        | each {|i| $'(ansi-code $i.index)($i.item)(ansi reset)'}
+        | each {|i| $'(ansi-alternate $i.index)($i.item)(ansi reset)'}
     } else {}
     | str join
 }
