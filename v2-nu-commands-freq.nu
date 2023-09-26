@@ -1,7 +1,9 @@
-# Calculate frequencies of use of the "nu" commands in a history
+# Calculate the frequency of use of the "nu" commands in a history.
+# https://github.com/Nushell101/nu-stats
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
+# Calculate stats for the current user's command history.
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
 ] {
@@ -15,7 +17,7 @@ export def nu-hist-stats [
 
     if $current_version not-in $tested_versions {
         cprint --after 2 $'This script was tested on *($tested_versions)*. You have *($current_version)*.
-        If you have problems running this script, consider upgrading.'
+        If you have problems running this script, consider upgrading NuShell.'
     }
 
     let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
@@ -41,22 +43,22 @@ export def nu-hist-stats [
         )
     }
 
-    cprint --before 1 --after 2 'The script is working with your history now.
+    cprint --before 1 --after 2 'The script is calculating stats now.
     On an M1 Mac with a history of ~50,000 entries, it runs for about a minute.'
 
     history | get command | prepend $history_txt | str join $';(char nl)' | save $temp_file -f
 
     let $result = (
-        nu-commands-stats $temp_file --extra_graphs
-        | make-benchmarks
+        nu-commands-stats --extra_graphs $temp_file
         | reject first_tag last_tag crate
+        | make-benchmarks
     )
 
     $result
 }
 
-# Calculate frequencies of use of the "nu" commands in a given .nu files
-# glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | nu-files-stats $in
+# Calculate stats of commands in a given .nu files
+# > glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | nu-files-stats
 export def nu-files-stats [
     ...file_paths: path
 ] {
@@ -72,7 +74,6 @@ export def nu-files-stats [
     | upsert freq_norm_bar {|i| bar $i.freq_norm --width ('freq_norm_bar' | str length)}
     | sort-by freq -r
 }
-
 
 # Calculate stats of commands in a given .nu file
 export def nu-commands-stats [
@@ -215,9 +216,9 @@ export def aggregate-submissions [
     | join -l (commands-all | reject category) name
 }
 
+# Create benchmark columns for piped in stats.
 export def make-benchmarks [] {
     let $data = $in
-
 
     let $benchmarks = (
         aggregate-submissions
@@ -241,6 +242,7 @@ export def make-benchmarks [] {
     | fill non-exist ''
 }
 
+# This command provide a list with all commands and their crates
 export def commands-all [] {
     let $crates_hist = (open crates_parsing/cmds_by_crates_and_tags.csv)
 
@@ -253,10 +255,12 @@ export def commands-all [] {
 
     let $ver = (version | get version)
 
+    # The $fallback is used if ther is no crates parsing history.
+    # You can update the csv by running crates_parsing/crates_parsing.nu
     let $fallback = (
         $current_commands
         | select name
-        | upsert crate not_parsed_yet # you can update the csv by running crates_parsing/crates_parsing.nu
+        | upsert crate not_parsed_yet
         | upsert first_tag $ver
         | upsert last_tag $ver
     )
