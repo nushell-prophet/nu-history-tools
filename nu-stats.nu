@@ -3,36 +3,6 @@
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
-# Combine all history and save it as a `.nu` file to the specified destination.
-def history-save [
-    destination_path: path
-] {
-    let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
-
-    mut history_txt = []
-
-    if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
-
-        cprint --after 2 $'Your history is in *sqlite* format. It will be used for analysis.
-        Additionaly, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
-        entries*. Would you like to include them in the analysis as well?'
-
-        mut answer = ''
-
-        while ($answer | str downcase) not-in [ y n ] {
-            $answer = (input '[y/n]: ')
-        }
-
-        $history_txt = (
-            if ($answer | str downcase) != 'y' {
-                open $history_txt_path | lines
-            }
-        )
-    }
-
-    history | get command | prepend $history_txt | str join $';(char nl)' | save -f $destination_path
-}
-
 # Calculate stats for the current user's command history.
 export def nu-hist-stats [
     --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
@@ -323,4 +293,37 @@ def make_extra_graphs [
         |i| $sparks
         | get -i $i.name
     }
+
+# Combine all history and save it as a `.nu` file to the specified destination.
+def history-save [
+    destination_path: path
+] {
+    let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
+
+    mut history_txt = []
+
+    if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
+
+        cprint --after 2 $'Your history is in *sqlite* format. It will be used for analysis.
+        Additionaly, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
+        entries*. Would you like to include them in the analysis as well?'
+
+        mut answer = ''
+
+        while ($answer | str downcase) not-in [ y n ] {
+            $answer = (input '[y/n]: ')
+        }
+
+        $history_txt = (
+            if ($answer | str downcase) != 'y' {
+                open $history_txt_path | lines
+            }
+        )
+    }
+
+    history
+    | get command
+    | prepend $history_txt
+    | str join $';(char nl)'
+    | save -f $destination_path
 }
