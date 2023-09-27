@@ -194,7 +194,7 @@ export def aggregate-submissions [
         $2_stat
         | group-by name
         | values
-        | each {|b| {name: $b.name.0, f_n_by_user: (spark $b.count_norm --colors)}}
+        | each {|b| {name: $b.name.0, freq_by_user: (spark $b.count_norm --colors)}}
         | transpose -idr
     )
 
@@ -209,7 +209,7 @@ export def aggregate-submissions [
                 freq_overall: ($b.count | math sum),
                 users_count: ($b | length),
                 f_n_per_user: ($b.count_norm | math avg),
-                f_n_by_user: ($3_sparklines | get $name),
+                freq_by_user: ($3_sparklines | get $name),
             }
         }
         | upsert importance {
@@ -230,7 +230,7 @@ export def make-benchmarks [] {
 
     let $benchmarks = (
         aggregate-submissions
-        | select name importance importance_b f_n_by_user
+        | select name importance importance_b freq_by_user
     );
 
     cprint -f '*' 'Resulting table'
@@ -241,7 +241,7 @@ export def make-benchmarks [] {
     - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
     - *timeline* - displays the dynamics, indicating when the command was used throughout your history
     - *importance* - calculated as the geometric mean of the number of users who used this command and the average normalized frequency
-    - *f_n_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
+    - *freq_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
 
     $data
     | join -l $benchmarks name
