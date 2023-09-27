@@ -126,13 +126,17 @@ export def nu-commands-stats [
 export def aggregate-submissions [
     --pick_users    # the flag invokes interactive users selection (during script running)
 ] {
+    cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
+
+    let $pick_users_dialogue = $pick_users or ($env.freq-hist?.pick-users? | default false)
+
     let $0_stat = (
         ls results_submissions --full-paths
         | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
-        | if $pick_users or ($env.freq-hist?.pick-users? | default false) {
+        | if $pick_users_dialogue {
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
@@ -171,11 +175,12 @@ export def aggregate-submissions [
         | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
     )
 
-    cprint -f '*' 'Aggregated stats for other users'
+    if not $pick_users_dialogue {
+        cprint --after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
+        You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
+        *aggregate-submissions --pick_users*.'
+    }
 
-    cprint '*f_n_by_user* (frequency norm by user) includes stats from all users.
-    You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
-    *aggregate-submissions --pick_users*. The current list is:'
     print $1_users_ordered
 
     let $2_stat = (
