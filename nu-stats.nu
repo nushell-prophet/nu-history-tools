@@ -3,23 +3,10 @@
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
-# Calculate stats for the current user's command history.
-export def nu-hist-stats [
-    --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
+# Combine all history and save it as a `.nu` file to the specified destination.
+def history-save [
+    destination_path: path
 ] {
-    $env.freq-hist.pick-users = $pick_users
-
-    cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
-
-    let $tested_versions = ['0.84.0', '0.85.0']
-    let $current_version = (version | get version)
-    let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
-
-    if $current_version not-in $tested_versions {
-        cprint --after 2 $'This script was tested on *($tested_versions)*. You have *($current_version)*.
-        If you have problems running this script, consider upgrading NuShell.'
-    }
-
     let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
 
     mut history_txt = []
@@ -43,18 +30,34 @@ export def nu-hist-stats [
         )
     }
 
+    history | get command | prepend $history_txt | str join $';(char nl)' | save -f $destination_path
+}
+
+# Calculate stats for the current user's command history.
+export def nu-hist-stats [
+    --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
+] {
+    $env.freq-hist.pick-users = $pick_users
+
+    cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
+
+    let $tested_versions = ['0.84.0', '0.85.0']
+    let $current_version = (version | get version)
+    let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
+
+    history-save $temp_file
+
+    if $current_version not-in $tested_versions {
+        cprint --after 2 $'This script was tested on *($tested_versions)*. You have *($current_version)*.
+        If you have problems running this script, consider upgrading NuShell.'
+    }
+
     cprint --before 1 --after 2 'The script is calculating stats now.
-    On an M1 Mac with a history of ~50,000 entries, it runs for about a minute.'
+    On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    history | get command | prepend $history_txt | str join $';(char nl)' | save $temp_file -f
-
-    let $result = (
-        nu-commands-stats --extra_graphs $temp_file
-        | reject first_tag last_tag crate
-        | make-benchmarks
-    )
-
-    $result
+    nu-commands-stats --extra_graphs $temp_file
+    | reject first_tag last_tag crate
+    | make-benchmarks
 }
 
 # Calculate stats of commands in a given .nu files
