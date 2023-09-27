@@ -25,8 +25,9 @@ export def nu-hist-stats [
     cprint --before 1 --after 2 'The script is calculating stats now.
     On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    nu-commands-stats --extra_graphs $temp_file
+    nu-file-stats --extra_graphs $temp_file
     | reject first_tag last_tag crate
+    | upsert '' 'x'     # To separate data from others and current user's data
     | make-benchmarks
 }
 
@@ -37,7 +38,7 @@ export def nu-files-stats [
 ] {
     $in
     | default $file_paths
-    | par-each {|i| nu-commands-stats $i}
+    | par-each {|i| nu-file-stats $i}
     | flatten
     | where freq != null
     | group-by name
@@ -48,11 +49,12 @@ export def nu-files-stats [
     | sort-by freq -r
 }
 
-# Calculate stats of commands in a given .nu file
-export def nu-commands-stats [
+# Calculate stats of commands in a specified `.nu` file
+export def nu-file-stats [
     path: path
     --normalize_freq    # create a normalized freqency column
     --extra_graphs      # produce frequency histogram and timeline sparklines columns
+    --submissions_path: path = 'results_submissions' # a path to a folder that contains submitted results
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -85,7 +87,7 @@ export def nu-commands-stats [
         select name freq
     }
     | save -f (
-        'results_submissions'
+        $submissions_path
         | path join $'v2_(date now | format date "%Y-%m-%d")+WriteYourNick.csv'
     )
 
@@ -95,13 +97,14 @@ export def nu-commands-stats [
 # parse submitted stats from a folder
 export def aggregate-submissions [
     --pick_users    # the flag invokes interactive users selection (during script running)
+    --submissions_path: path = 'results_submissions' # a path to a folder that contains submitted results
 ] {
     cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
 
     let $pick_users_dialogue = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
-    let $0_stat = (
-        ls results_submissions --full-paths
+    let $submissions_stats = (
+        ls $submissions_path --full-paths
         | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
@@ -123,7 +126,6 @@ export def aggregate-submissions [
             | do {
                 |dict|
                 commands-all
-                # | select name
                 | upsert count {
                     |i| $dict | get -i $i.name | get -i count.0 | default 0
                 }
@@ -132,14 +134,14 @@ export def aggregate-submissions [
             } $in
             | {commands: $in}
             | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
-            | upsert executions_total {|i| $i.commands.count | math sum}
+            | upsert command_entries {|i| $i.commands.count | math sum} # The total count of command entries in history of current user
         }
-        | sort-by executions_total -r
+        | sort-by command_entries -r
     )
 
-    let $1_users_ordered = (
-        $0_stat
-        | select user executions_total
+    let $users_ordered = (
+        $submissions_stats
+        | select user command_entries
         | enumerate
         | flatten
         | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
@@ -151,33 +153,31 @@ export def aggregate-submissions [
         *aggregate-submissions --pick_users*.'
     }
 
-    print $1_users_ordered
+    print $users_ordered
 
-    let $2_stat = (
-        $0_stat
+    let $stat_grouped = (
+        $submissions_stats
         | select commands user
         | flatten
         | flatten
+        | group-by name
     )
 
     let $3_sparklines = (
-        $2_stat
-        | group-by name
+        $stat_grouped
         | values
         | each {|b| {name: $b.name.0, freq_by_user: (spark $b.count_norm --colors)}}
         | transpose -idr
     )
 
-    let $4_analytics = (
-        $2_stat
-        | where count > 0
-        | group-by name
+    let $fin_analytics = (
+        $stat_grouped
         | items {
             |name b| {
                 name: $name,
                 category: $b.category.0,
                 freq_overall: ($b.count | math sum),
-                users_count: ($b | length),
+                users_count: ($b.count | where $it > 0 | length),
                 f_n_per_user: ($b.count_norm | math avg),
                 freq_by_user: ($3_sparklines | get $name),
             }
@@ -190,8 +190,8 @@ export def aggregate-submissions [
         | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
     );
 
-    $4_analytics
-    | join -l (commands-all | reject category) name
+    $fin_analytics
+    | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands was introduced
 }
 
 # Create benchmark columns for piped in stats.
@@ -293,6 +293,7 @@ def make_extra_graphs [
         |i| $sparks
         | get -i $i.name
     }
+}
 
 # Combine all history and save it as a `.nu` file to the specified destination.
 def history-save [
