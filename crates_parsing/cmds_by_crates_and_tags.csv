@@ -1,87 +1,92 @@
 name,crate,first_tag,last_tag
+from-array,commands,0.2.0,0.2.0
+to-array,commands,0.2.0,0.2.0
+vtable,commands,0.2.0,0.2.0
+what?,commands,0.6.0,0.6.1
+ExternalExpression,parser,0.6.0,0.6.1
+AnyBlockShape,nu-parser,0.6.0,0.8.0
+AnyExpressionShape,nu-parser,0.6.0,0.8.0
+AnyExpressionStartShape,nu-parser,0.6.0,0.8.0
+BareShape,nu-parser,0.6.0,0.8.0
+BareTailShape,nu-parser,0.6.0,0.8.0
+ColorableDotShape,nu-parser,0.6.0,0.8.0
+ColumnPathShape,nu-parser,0.6.0,0.8.0
+CommandHeadShape,nu-parser,0.6.0,0.8.0
+CommandShape,nu-parser,0.6.0,0.8.0
+CommandTailShape,nu-parser,0.6.0,0.8.0
+DelimitedShape,nu-parser,0.6.0,0.8.0
+ExpressionContinuationShape,nu-parser,0.6.0,0.8.0
+ExpressionListShape,nu-parser,0.6.0,0.8.0
+ExternalTokensShape,nu-parser,0.6.0,0.8.0
+FilePathShape,nu-parser,0.6.0,0.8.0
+InfixShape,nu-parser,0.6.0,0.8.0
+IntShape,nu-parser,0.6.0,0.8.0
+InternalCommandHeadShape,nu-parser,0.6.0,0.8.0
+MaybeSpaceShape,nu-parser,0.6.0,0.8.0
+MemberShape,nu-parser,0.6.0,0.8.0
+NumberShape,nu-parser,0.6.0,0.8.0
+PathTailShape,nu-parser,0.6.0,0.8.0
+PatternShape,nu-parser,0.6.0,0.8.0
+PipelineShape,nu-parser,0.6.0,0.8.0
+ShorthandBlock,nu-parser,0.6.0,0.8.0
+ShorthandPath,nu-parser,0.6.0,0.8.0
+SpaceShape,nu-parser,0.6.0,0.8.0
+SyntaxShape,nu-parser,0.6.0,0.8.0
+VariablePathShape,nu-parser,0.6.0,0.8.0
+VariableShape,nu-parser,0.6.0,0.8.0
+WhitespaceShape,nu-parser,0.6.0,0.8.0
+external argument,nu-parser,0.6.0,0.8.0
+external command,nu-parser,0.6.0,0.8.0
+internal command head,nu-parser,0.6.0,0.8.0
+maybe space,nu-parser,0.6.0,0.8.0
+spaced expression,nu-parser,0.6.0,0.8.0
+word continuation,nu-parser,0.6.0,0.8.0
 ..,nu-parser,0.7.0,0.8.0
-AnyBlockShape,nu-parser,0.7.0,0.8.0
-AnyExpressionShape,nu-parser,0.7.0,0.8.0
-AnyExpressionStartShape,nu-parser,0.7.0,0.8.0
-BareShape,nu-parser,0.7.0,0.8.0
-BareTailShape,nu-parser,0.7.0,0.8.0
-ColorableDotShape,nu-parser,0.7.0,0.8.0
-ColumnPathShape,nu-parser,0.7.0,0.8.0
-CommandHeadShape,nu-parser,0.7.0,0.8.0
-CommandShape,nu-parser,0.7.0,0.8.0
-CommandTailShape,nu-parser,0.7.0,0.8.0
-DelimitedShape,nu-parser,0.7.0,0.8.0
-ExpressionContinuationShape,nu-parser,0.7.0,0.8.0
-ExpressionListShape,nu-parser,0.7.0,0.8.0
 ExternalExpressionShape,nu-parser,0.7.0,0.8.0
-ExternalTokensShape,nu-parser,0.7.0,0.8.0
-FilePathShape,nu-parser,0.7.0,0.8.0
-InfixShape,nu-parser,0.7.0,0.8.0
-IntShape,nu-parser,0.7.0,0.8.0
-InternalCommandHeadShape,nu-parser,0.7.0,0.8.0
-MaybeSpaceShape,nu-parser,0.7.0,0.8.0
-MemberShape,nu-parser,0.7.0,0.8.0
-NumberShape,nu-parser,0.7.0,0.8.0
-PathTailShape,nu-parser,0.7.0,0.8.0
-PatternShape,nu-parser,0.7.0,0.8.0
-PipelineShape,nu-parser,0.7.0,0.8.0
 RangeShape,nu-parser,0.7.0,0.8.0
-ShorthandBlock,nu-parser,0.7.0,0.8.0
-ShorthandPath,nu-parser,0.7.0,0.8.0
-SpaceShape,nu-parser,0.7.0,0.8.0
-SyntaxShape,nu-parser,0.7.0,0.8.0
-VariablePathShape,nu-parser,0.7.0,0.8.0
-VariableShape,nu-parser,0.7.0,0.8.0
-WhitespaceShape,nu-parser,0.7.0,0.8.0
-external argument,nu-parser,0.7.0,0.8.0
-external command,nu-parser,0.7.0,0.8.0
-internal command head,nu-parser,0.7.0,0.8.0
-maybe space,nu-parser,0.7.0,0.8.0
-spaced expression,nu-parser,0.7.0,0.8.0
-word continuation,nu-parser,0.7.0,0.8.0
-BackoffColoringMode,nu-parser,0.7.0,0.12.0
-SimplestExpression,nu-parser,0.7.0,0.12.0
-StringShape,nu-parser,0.7.0,0.12.0
-any block,nu-parser,0.7.0,0.12.0
-any expression,nu-parser,0.7.0,0.12.0
-any expression start,nu-parser,0.7.0,0.12.0
-bare path,nu-parser,0.7.0,0.12.0
-bare pattern,nu-parser,0.7.0,0.12.0
-classified command,nu-parser,0.7.0,0.12.0
-column,nu-parser,0.7.0,0.12.0
-column path,nu-parser,0.7.0,0.12.0
-command head,nu-parser,0.7.0,0.12.0
+BackoffColoringMode,nu-parser,0.6.0,0.12.0
+SimplestExpression,nu-parser,0.6.0,0.12.0
+StringShape,nu-parser,0.6.0,0.12.0
+any block,nu-parser,0.6.0,0.12.0
+any expression,nu-parser,0.6.0,0.12.0
+any expression start,nu-parser,0.6.0,0.12.0
+bare path,nu-parser,0.6.0,0.12.0
+bare pattern,nu-parser,0.6.0,0.12.0
+classified command,nu-parser,0.6.0,0.12.0
+column,nu-parser,0.6.0,0.12.0
+column path,nu-parser,0.6.0,0.12.0
+command head,nu-parser,0.6.0,0.12.0
+dot,nu-parser,0.6.0,0.12.0
+expression continuation,nu-parser,0.6.0,0.12.0
+expression list,nu-parser,0.6.0,0.12.0
+external expression,nu-parser,0.6.0,0.12.0
+file path,nu-parser,0.6.0,0.12.0
+glob pattern,nu-parser,0.6.0,0.12.0
+infix inner,nu-parser,0.6.0,0.12.0
+infix operator,nu-parser,0.6.0,0.12.0
+integer,nu-parser,0.6.0,0.12.0
+integer member,nu-parser,0.6.0,0.12.0
+number,nu-parser,0.6.0,0.12.0
+path continuation,nu-parser,0.6.0,0.12.0
+pipeline,nu-parser,0.6.0,0.12.0
+shorthand block,nu-parser,0.6.0,0.12.0
+shorthand head,nu-parser,0.6.0,0.12.0
+shorthand path,nu-parser,0.6.0,0.12.0
+string,nu-parser,0.6.0,0.12.0
+unit,nu-parser,0.6.0,0.12.0
+variable,nu-parser,0.6.0,0.12.0
+variable path,nu-parser,0.6.0,0.12.0
+whitespace,nu-parser,0.6.0,0.12.0
+word,nu-parser,0.6.0,0.12.0
 comment,nu-parser,0.7.0,0.12.0
-dot,nu-parser,0.7.0,0.12.0
-expression continuation,nu-parser,0.7.0,0.12.0
-expression list,nu-parser,0.7.0,0.12.0
-external expression,nu-parser,0.7.0,0.12.0
-file path,nu-parser,0.7.0,0.12.0
-glob pattern,nu-parser,0.7.0,0.12.0
 identifier,nu-parser,0.7.0,0.12.0
-infix inner,nu-parser,0.7.0,0.12.0
-infix operator,nu-parser,0.7.0,0.12.0
-integer,nu-parser,0.7.0,0.12.0
-integer member,nu-parser,0.7.0,0.12.0
 keyword,nu-parser,0.7.0,0.12.0
-number,nu-parser,0.7.0,0.12.0
 pair,nu-parser,0.7.0,0.12.0
-path continuation,nu-parser,0.7.0,0.12.0
-pipeline,nu-parser,0.7.0,0.12.0
 positional param,nu-parser,0.7.0,0.12.0
 separator,nu-parser,0.7.0,0.12.0
-shorthand block,nu-parser,0.7.0,0.12.0
-shorthand head,nu-parser,0.7.0,0.12.0
-shorthand path,nu-parser,0.7.0,0.12.0
 signature,nu-parser,0.7.0,0.12.0
-string,nu-parser,0.7.0,0.12.0
 type,nu-parser,0.7.0,0.12.0
 type annotation,nu-parser,0.7.0,0.12.0
-unit,nu-parser,0.7.0,0.12.0
-variable,nu-parser,0.7.0,0.12.0
-variable path,nu-parser,0.7.0,0.12.0
-whitespace,nu-parser,0.7.0,0.12.0
-word,nu-parser,0.7.0,0.12.0
 <whitespace? eof>,nu-parser,0.9.0,0.12.0
 bare expression,nu-parser,0.9.0,0.12.0
 block,nu-parser,0.9.0,0.12.0
@@ -99,43 +104,43 @@ unit expression,nu-parser,0.9.0,0.12.0
 whitespace?,nu-parser,0.9.0,0.12.0
 any string line separated by,nu-parser,0.12.0,0.12.0
 separated,nu-parser,0.12.0,0.12.0
+from-csv,nu-cli,0.2.0,0.13.0
+from-ini,nu-cli,0.2.0,0.13.0
+from-json,nu-cli,0.2.0,0.13.0
+from-toml,nu-cli,0.2.0,0.13.0
+from-xml,nu-cli,0.2.0,0.13.0
+from-yaml,nu-cli,0.2.0,0.13.0
+pick,nu-cli,0.2.0,0.13.0
+to-json,nu-cli,0.2.0,0.13.0
+to-toml,nu-cli,0.2.0,0.13.0
+to-yaml,nu-cli,0.2.0,0.13.0
+from-bson,nu-cli,0.3.0,0.13.0
+from-db,nu-cli,0.3.0,0.13.0
+from-sqlite,nu-cli,0.3.0,0.13.0
+from-tsv,nu-cli,0.3.0,0.13.0
+from-url,nu-cli,0.3.0,0.13.0
+from-yml,nu-cli,0.3.0,0.13.0
+to-bson,nu-cli,0.3.0,0.13.0
+to-db,nu-cli,0.3.0,0.13.0
+to-sqlite,nu-cli,0.3.0,0.13.0
+to-tsv,nu-cli,0.3.0,0.13.0
+to-url,nu-cli,0.3.0,0.13.0
+from-xlsx,nu-cli,0.6.0,0.13.0
 edit,nu-cli,0.11.0,0.13.0
-from-bson,nu-cli,0.11.0,0.13.0
-from-csv,nu-cli,0.11.0,0.13.0
-from-db,nu-cli,0.11.0,0.13.0
-from-ini,nu-cli,0.11.0,0.13.0
-from-json,nu-cli,0.11.0,0.13.0
 from-ods,nu-cli,0.11.0,0.13.0
-from-sqlite,nu-cli,0.11.0,0.13.0
-from-toml,nu-cli,0.11.0,0.13.0
-from-tsv,nu-cli,0.11.0,0.13.0
-from-url,nu-cli,0.11.0,0.13.0
-from-xlsx,nu-cli,0.11.0,0.13.0
-from-xml,nu-cli,0.11.0,0.13.0
-from-yaml,nu-cli,0.11.0,0.13.0
-from-yml,nu-cli,0.11.0,0.13.0
-pick,nu-cli,0.11.0,0.13.0
-to-bson,nu-cli,0.11.0,0.13.0
-to-db,nu-cli,0.11.0,0.13.0
-to-json,nu-cli,0.11.0,0.13.0
-to-sqlite,nu-cli,0.11.0,0.13.0
-to-toml,nu-cli,0.11.0,0.13.0
-to-tsv,nu-cli,0.11.0,0.13.0
-to-url,nu-cli,0.11.0,0.13.0
-to-yaml,nu-cli,0.11.0,0.13.0
 from-ics,nu-cli,0.12.0,0.13.0
 from-vcf,nu-cli,0.12.0,0.13.0
 to-html,nu-cli,0.12.0,0.13.0
 to-md,nu-cli,0.12.0,0.13.0
-split-column,nu-cli,0.11.0,0.14.0
-split-row,nu-cli,0.11.0,0.14.0
+split-column,nu-cli,0.2.0,0.14.0
+split-row,nu-cli,0.2.0,0.14.0
 average,nu-cli,0.15.0,0.15.0
+skip-while,nu-cli,0.2.0,0.16.0
+evaluate-by,nu-cli,0.6.0,0.16.0
+map-max-by,nu-cli,0.6.0,0.16.0
+reduce-by,nu-cli,0.6.0,0.16.0
+t-sort-by,nu-cli,0.6.0,0.16.0
 calc,nu-cli,0.11.0,0.16.0
-evaluate-by,nu-cli,0.11.0,0.16.0
-map-max-by,nu-cli,0.11.0,0.16.0
-reduce-by,nu-cli,0.11.0,0.16.0
-skip-while,nu-cli,0.11.0,0.16.0
-t-sort-by,nu-cli,0.11.0,0.16.0
 from bson,nu-cli,0.14.0,0.16.0
 from db,nu-cli,0.14.0,0.16.0
 from sqlite,nu-cli,0.14.0,0.16.0
@@ -145,7 +150,7 @@ skip-until,nu-cli,0.14.0,0.16.0
 to bson,nu-cli,0.14.0,0.16.0
 to db,nu-cli,0.14.0,0.16.0
 to sqlite,nu-cli,0.14.0,0.16.0
-trim,nu-cli,0.11.0,0.19.0
+trim,nu-cli,0.2.0,0.19.0
 move column,nu-cli,0.17.0,0.21.0
 str set,nu-cli,0.15.0,0.25.1
 mock,nu-cli,0.21.0,0.25.1
@@ -175,13 +180,13 @@ dataframe load,nu-command,0.33.0,0.33.0
 dataframe tail,nu-command,0.33.0,0.33.0
 hash md5,nu-command,0.29.0,0.34.0
 dataframe to-series,nu-command,0.33.0,0.34.0
-clip,nu-command,0.11.0,0.40.0
+clip,nu-command,0.2.0,0.40.0
 paste,nu-command,0.34.0,0.40.0
 into column_path,nu-command,0.38.0,0.41.0
-autoview,nu-command,0.11.0,0.44.0
-pwd,nu-command,0.11.0,0.44.0
-tags,nu-command,0.11.0,0.44.0
-filesystem,nu-engine,0.11.0,0.44.0
+autoview,nu-command,0.2.0,0.44.0
+tags,nu-command,0.2.0,0.44.0
+filesystem,nu-engine,0.2.0,0.44.0
+pwd,nu-command,0.3.0,0.44.0
 run_external,nu-command,0.13.0,0.44.0
 group-by date,nu-command,0.15.0,0.44.0
 autoenv,nu-command,0.17.0,0.44.0
@@ -300,7 +305,7 @@ dfr to-nu,nu-command,0.60.0,0.63.1
 dfr to-uppercase,nu-command,0.60.0,0.63.1
 dfr fill-na,nu-command,0.63.0,0.63.1
 dfr to-lazy,nu-command,0.63.0,0.63.1
-to-csv,nu-command,0.11.0,0.64.0
+to-csv,nu-command,0.2.0,0.64.0
 db,nu-command,0.62.0,0.64.0
 db and,nu-command,0.62.0,0.64.0
 db as,nu-command,0.62.0,0.64.0
@@ -328,8 +333,8 @@ to-lowercase,nu-command,0.64.0,0.64.0
 to-nu,nu-command,0.64.0,0.64.0
 to-parquet,nu-command,0.64.0,0.64.0
 to-uppercase,nu-command,0.64.0,0.64.0
-nth,nu-command,0.11.0,0.66.2
-pivot,nu-command,0.11.0,0.66.2
+nth,nu-command,0.2.0,0.66.2
+pivot,nu-command,0.3.0,0.66.2
 keep,nu-command,0.14.0,0.66.2
 keep until,nu-command,0.17.0,0.66.2
 keep while,nu-command,0.17.0,0.66.2
@@ -361,16 +366,16 @@ over,nu-command,0.65.0,0.71.0
 testing-db,nu-command,0.65.0,0.71.0
 from table,nu-command,0.67.0,0.71.0
 fill-na,nu-command,0.64.0,0.73.0
+post,nu-command,0.3.0,0.74.0
 to url,nu-command,0.14.0,0.74.0
-post,nu-command,0.37.0,0.74.0
-count,nu-command,0.11.0,0.75.0
+fetch,nu-command,0.3.0,0.75.0
+count,nu-command,0.4.0,0.75.0
 sum,nu-command,0.12.0,0.75.0
 from eml,nu-command,0.14.0,0.75.0
 from ics,nu-command,0.14.0,0.75.0
 from ini,nu-command,0.14.0,0.75.0
 from vcf,nu-command,0.14.0,0.75.0
 benchmark,nu-command,0.17.0,0.75.0
-fetch,nu-command,0.37.0,0.75.0
 view-source,nu-command,0.60.0,0.75.0
 agg-groups,nu-command,0.64.0,0.75.0
 all-false,nu-command,0.64.0,0.75.0
@@ -453,11 +458,11 @@ to arrow,nu-command,0.69.0,0.75.0
 query df,nu-command,0.70.0,0.75.0
 summary,nu-command,0.72.0,0.75.0
 fill-nan,nu-command,0.74.0,0.75.0
-env,nu-command,0.60.0,0.76.0
-enter,nu-command,0.11.0,0.79.0
-n,nu-command,0.11.0,0.79.0
-p,nu-command,0.11.0,0.79.0
-shells,nu-command,0.11.0,0.79.0
+env,nu-command,0.3.0,0.76.0
+enter,nu-command,0.2.0,0.79.0
+n,nu-command,0.2.0,0.79.0
+p,nu-command,0.2.0,0.79.0
+shells,nu-command,0.2.0,0.79.0
 g,nu-command,0.38.0,0.79.0
 dfr list,nu-command,0.60.0,0.79.0
 export old-alias,nu-command,0.77.0,0.79.0
@@ -476,53 +481,54 @@ math pi,nu-cmd-extra,0.73.0,0.84.0
 math tau,nu-cmd-extra,0.73.0,0.84.0
 math egamma,nu-cmd-extra,0.81.0,0.84.0
 math phi,nu-cmd-extra,0.81.0,0.84.0
+version,nu-cmd-lang,0.2.0,0.85.0
+cd,nu-command,0.2.0,0.85.0
+config,nu-command,0.2.0,0.85.0
+cp,nu-command,0.2.0,0.85.0
+date,nu-command,0.2.0,0.85.0
+debug,nu-command,0.2.0,0.85.0
+exit,nu-command,0.2.0,0.85.0
+first,nu-command,0.2.0,0.85.0
+get,nu-command,0.2.0,0.85.0
+lines,nu-command,0.2.0,0.85.0
+mkdir,nu-command,0.2.0,0.85.0
+mv,nu-command,0.2.0,0.85.0
+open,nu-command,0.2.0,0.85.0
+ps,nu-command,0.2.0,0.85.0
+reject,nu-command,0.2.0,0.85.0
+rm,nu-command,0.2.0,0.85.0
+save,nu-command,0.2.0,0.85.0
+size,nu-command,0.2.0,0.85.0
+sort-by,nu-command,0.2.0,0.85.0
+table,nu-command,0.2.0,0.85.0
+where,nu-command,0.2.0,0.85.0
+which,nu-command,0.2.0,0.85.0
+ls,nu-parser,0.2.0,0.85.0
+echo,nu-cmd-lang,0.3.0,0.85.0
+help,nu-command,0.3.0,0.85.0
+last,nu-command,0.3.0,0.85.0
+reverse,nu-command,0.3.0,0.85.0
+history,nu-cli,0.6.0,0.85.0
+append,nu-command,0.6.0,0.85.0
+compact,nu-command,0.6.0,0.85.0
+default,nu-command,0.6.0,0.85.0
+histogram,nu-command,0.6.0,0.85.0
+prepend,nu-command,0.6.0,0.85.0
+split-by,nu-command,0.6.0,0.85.0
+group-by,nu-parser,0.6.0,0.85.0
 range,nu-command,0.7.0,0.85.0
-history,nu-cli,0.11.0,0.85.0
 format,nu-cmd-extra,0.11.0,0.85.0
 describe,nu-cmd-lang,0.11.0,0.85.0
-echo,nu-cmd-lang,0.11.0,0.85.0
-version,nu-cmd-lang,0.11.0,0.85.0
-append,nu-command,0.11.0,0.85.0
-cd,nu-command,0.11.0,0.85.0
 clear,nu-command,0.11.0,0.85.0
-compact,nu-command,0.11.0,0.85.0
-config,nu-command,0.11.0,0.85.0
-cp,nu-command,0.11.0,0.85.0
-date,nu-command,0.11.0,0.85.0
-debug,nu-command,0.11.0,0.85.0
-default,nu-command,0.11.0,0.85.0
-exit,nu-command,0.11.0,0.85.0
-first,nu-command,0.11.0,0.85.0
-get,nu-command,0.11.0,0.85.0
-help,nu-command,0.11.0,0.85.0
-histogram,nu-command,0.11.0,0.85.0
 insert,nu-command,0.11.0,0.85.0
 kill,nu-command,0.11.0,0.85.0
-last,nu-command,0.11.0,0.85.0
-lines,nu-command,0.11.0,0.85.0
-mkdir,nu-command,0.11.0,0.85.0
-mv,nu-command,0.11.0,0.85.0
-open,nu-command,0.11.0,0.85.0
 parse,nu-command,0.11.0,0.85.0
-prepend,nu-command,0.11.0,0.85.0
-reject,nu-command,0.11.0,0.85.0
 rename,nu-command,0.11.0,0.85.0
-reverse,nu-command,0.11.0,0.85.0
-rm,nu-command,0.11.0,0.85.0
-save,nu-command,0.11.0,0.85.0
 shuffle,nu-command,0.11.0,0.85.0
-size,nu-command,0.11.0,0.85.0
 skip,nu-command,0.11.0,0.85.0
-sort-by,nu-command,0.11.0,0.85.0
-split-by,nu-command,0.11.0,0.85.0
-table,nu-command,0.11.0,0.85.0
 touch,nu-command,0.11.0,0.85.0
 uniq,nu-command,0.11.0,0.85.0
-where,nu-command,0.11.0,0.85.0
-which,nu-command,0.11.0,0.85.0
 wrap,nu-command,0.11.0,0.85.0
-group-by,nu-parser,0.11.0,0.85.0
-ls,nu-parser,0.11.0,0.85.0
 headers,nu-command,0.12.0,0.85.0
 alias,nu-cmd-lang,0.13.0,0.85.0
 each,nu-command,0.13.0,0.85.0
@@ -656,7 +662,6 @@ zip,nu-command,0.36.0,0.85.0
 error make,nu-cmd-lang,0.37.0,0.85.0
 find,nu-command,0.37.0,0.85.0
 into filesize,nu-command,0.37.0,0.85.0
-ps,nu-command,0.37.0,0.85.0
 sys,nu-command,0.37.0,0.85.0
 update cells,nu-cmd-extra,0.38.0,0.85.0
 detect columns,nu-command,0.40.0,0.85.0

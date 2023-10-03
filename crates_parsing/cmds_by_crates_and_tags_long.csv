@@ -1,4 +1,501 @@
 name,crate,tag
+autoview,commands,0.2.0
+cd,commands,0.2.0
+clip,commands,0.2.0
+config,commands,0.2.0
+cp,commands,0.2.0
+date,commands,0.2.0
+debug,commands,0.2.0
+enter,commands,0.2.0
+exit,commands,0.2.0
+filesystem,shell,0.2.0
+first,commands,0.2.0
+from-array,commands,0.2.0
+from-csv,commands,0.2.0
+from-ini,commands,0.2.0
+from-json,commands,0.2.0
+from-toml,commands,0.2.0
+from-xml,commands,0.2.0
+from-yaml,commands,0.2.0
+get,commands,0.2.0
+lines,commands,0.2.0
+ls,commands,0.2.0
+mkdir,commands,0.2.0
+mv,commands,0.2.0
+n,commands,0.2.0
+nth,commands,0.2.0
+open,commands,0.2.0
+p,commands,0.2.0
+pick,commands,0.2.0
+ps,commands,0.2.0
+reject,commands,0.2.0
+rm,commands,0.2.0
+save,commands,0.2.0
+shells,commands,0.2.0
+size,commands,0.2.0
+skip-while,commands,0.2.0
+sort-by,commands,0.2.0
+split-column,commands,0.2.0
+split-row,commands,0.2.0
+table,commands,0.2.0
+tags,commands,0.2.0
+to-array,commands,0.2.0
+to-csv,commands,0.2.0
+to-json,commands,0.2.0
+to-toml,commands,0.2.0
+to-yaml,commands,0.2.0
+trim,commands,0.2.0
+version,commands,0.2.0
+vtable,commands,0.2.0
+where,commands,0.2.0
+which,commands,0.2.0
+autoview,commands,0.3.0
+cd,commands,0.3.0
+clip,commands,0.3.0
+config,commands,0.3.0
+cp,commands,0.3.0
+date,commands,0.3.0
+debug,commands,0.3.0
+echo,commands,0.3.0
+enter,commands,0.3.0
+env,commands,0.3.0
+exit,commands,0.3.0
+fetch,commands,0.3.0
+filesystem,shell,0.3.0
+first,commands,0.3.0
+from-bson,commands,0.3.0
+from-csv,commands,0.3.0
+from-db,commands,0.3.0
+from-ini,commands,0.3.0
+from-json,commands,0.3.0
+from-sqlite,commands,0.3.0
+from-toml,commands,0.3.0
+from-tsv,commands,0.3.0
+from-url,commands,0.3.0
+from-xml,commands,0.3.0
+from-yaml,commands,0.3.0
+from-yml,commands,0.3.0
+get,commands,0.3.0
+help,commands,0.3.0
+last,commands,0.3.0
+lines,commands,0.3.0
+ls,commands,0.3.0
+mkdir,commands,0.3.0
+mv,commands,0.3.0
+n,commands,0.3.0
+nth,commands,0.3.0
+open,commands,0.3.0
+p,commands,0.3.0
+pick,commands,0.3.0
+pivot,commands,0.3.0
+post,commands,0.3.0
+pwd,commands,0.3.0
+reject,commands,0.3.0
+reverse,commands,0.3.0
+rm,commands,0.3.0
+save,commands,0.3.0
+shells,commands,0.3.0
+size,commands,0.3.0
+skip-while,commands,0.3.0
+sort-by,commands,0.3.0
+split-column,commands,0.3.0
+split-row,commands,0.3.0
+table,commands,0.3.0
+tags,commands,0.3.0
+to-bson,commands,0.3.0
+to-csv,commands,0.3.0
+to-db,commands,0.3.0
+to-json,commands,0.3.0
+to-sqlite,commands,0.3.0
+to-toml,commands,0.3.0
+to-tsv,commands,0.3.0
+to-url,commands,0.3.0
+to-yaml,commands,0.3.0
+trim,commands,0.3.0
+version,commands,0.3.0
+where,commands,0.3.0
+which,commands,0.3.0
+autoview,commands,0.4.0
+cd,commands,0.4.0
+clip,commands,0.4.0
+config,commands,0.4.0
+count,commands,0.4.0
+cp,commands,0.4.0
+date,commands,0.4.0
+debug,commands,0.4.0
+echo,commands,0.4.0
+enter,commands,0.4.0
+env,commands,0.4.0
+exit,commands,0.4.0
+fetch,commands,0.4.0
+filesystem,shell,0.4.0
+first,commands,0.4.0
+from-bson,commands,0.4.0
+from-csv,commands,0.4.0
+from-db,commands,0.4.0
+from-ini,commands,0.4.0
+from-json,commands,0.4.0
+from-sqlite,commands,0.4.0
+from-toml,commands,0.4.0
+from-tsv,commands,0.4.0
+from-url,commands,0.4.0
+from-xml,commands,0.4.0
+from-yaml,commands,0.4.0
+from-yml,commands,0.4.0
+get,commands,0.4.0
+help,commands,0.4.0
+last,commands,0.4.0
+lines,commands,0.4.0
+ls,commands,0.4.0
+mkdir,commands,0.4.0
+mv,commands,0.4.0
+n,commands,0.4.0
+nth,commands,0.4.0
+open,commands,0.4.0
+p,commands,0.4.0
+pick,commands,0.4.0
+pivot,commands,0.4.0
+post,commands,0.4.0
+pwd,commands,0.4.0
+reject,commands,0.4.0
+reverse,commands,0.4.0
+rm,commands,0.4.0
+save,commands,0.4.0
+shells,commands,0.4.0
+size,commands,0.4.0
+skip-while,commands,0.4.0
+sort-by,commands,0.4.0
+split-column,commands,0.4.0
+split-row,commands,0.4.0
+table,commands,0.4.0
+tags,commands,0.4.0
+to-bson,commands,0.4.0
+to-csv,commands,0.4.0
+to-db,commands,0.4.0
+to-json,commands,0.4.0
+to-sqlite,commands,0.4.0
+to-toml,commands,0.4.0
+to-tsv,commands,0.4.0
+to-url,commands,0.4.0
+to-yaml,commands,0.4.0
+trim,commands,0.4.0
+version,commands,0.4.0
+where,commands,0.4.0
+which,commands,0.4.0
+AnyBlockShape,parser,0.6.0
+AnyExpressionShape,parser,0.6.0
+AnyExpressionStartShape,parser,0.6.0
+BackoffColoringMode,parser,0.6.0
+BareShape,parser,0.6.0
+BareTailShape,parser,0.6.0
+ColorableDotShape,parser,0.6.0
+ColumnPathShape,parser,0.6.0
+CommandHeadShape,parser,0.6.0
+CommandShape,parser,0.6.0
+CommandTailShape,parser,0.6.0
+DelimitedShape,parser,0.6.0
+ExpressionContinuationShape,parser,0.6.0
+ExpressionListShape,parser,0.6.0
+ExternalExpression,parser,0.6.0
+ExternalTokensShape,parser,0.6.0
+FilePathShape,parser,0.6.0
+InfixShape,parser,0.6.0
+IntShape,parser,0.6.0
+InternalCommandHeadShape,parser,0.6.0
+MaybeSpaceShape,parser,0.6.0
+MemberShape,parser,0.6.0
+NumberShape,parser,0.6.0
+PathTailShape,parser,0.6.0
+PatternShape,parser,0.6.0
+PipelineShape,parser,0.6.0
+ShorthandBlock,parser,0.6.0
+ShorthandPath,parser,0.6.0
+SimplestExpression,parser,0.6.0
+SpaceShape,parser,0.6.0
+StringShape,parser,0.6.0
+SyntaxShape,parser,0.6.0
+VariablePathShape,parser,0.6.0
+VariableShape,parser,0.6.0
+WhitespaceShape,parser,0.6.0
+any block,parser,0.6.0
+any expression,parser,0.6.0
+any expression start,parser,0.6.0
+append,commands,0.6.0
+autoview,commands,0.6.0
+bare path,parser,0.6.0
+bare pattern,parser,0.6.0
+cd,commands,0.6.0
+classified command,parser,0.6.0
+clip,commands,0.6.0
+column,parser,0.6.0
+column path,parser,0.6.0
+command head,parser,0.6.0
+compact,commands,0.6.0
+config,commands,0.6.0
+count,commands,0.6.0
+cp,commands,0.6.0
+date,commands,0.6.0
+debug,commands,0.6.0
+default,commands,0.6.0
+dot,parser,0.6.0
+echo,commands,0.6.0
+enter,commands,0.6.0
+env,commands,0.6.0
+evaluate-by,commands,0.6.0
+exit,commands,0.6.0
+expression continuation,parser,0.6.0
+expression list,parser,0.6.0
+external argument,parser,0.6.0
+external argument,parser,0.6.0
+external command,parser,0.6.0
+external expression,parser,0.6.0
+external expression,parser,0.6.0
+fetch,commands,0.6.0
+file path,parser,0.6.0
+filesystem,shell,0.6.0
+first,commands,0.6.0
+from-bson,commands,0.6.0
+from-csv,commands,0.6.0
+from-db,commands,0.6.0
+from-ini,commands,0.6.0
+from-json,commands,0.6.0
+from-sqlite,commands,0.6.0
+from-toml,commands,0.6.0
+from-tsv,commands,0.6.0
+from-url,commands,0.6.0
+from-xlsx,commands,0.6.0
+from-xml,commands,0.6.0
+from-yaml,commands,0.6.0
+from-yml,commands,0.6.0
+get,commands,0.6.0
+glob pattern,parser,0.6.0
+group-by,commands,0.6.0
+help,commands,0.6.0
+histogram,commands,0.6.0
+history,commands,0.6.0
+infix inner,parser,0.6.0
+infix operator,parser,0.6.0
+integer,parser,0.6.0
+integer member,parser,0.6.0
+internal command head,parser,0.6.0
+last,commands,0.6.0
+lines,commands,0.6.0
+ls,commands,0.6.0
+map-max-by,commands,0.6.0
+maybe space,parser,0.6.0
+maybe space,parser,0.6.0
+mkdir,commands,0.6.0
+mv,commands,0.6.0
+n,commands,0.6.0
+nth,commands,0.6.0
+number,parser,0.6.0
+open,commands,0.6.0
+p,commands,0.6.0
+path continuation,parser,0.6.0
+pick,commands,0.6.0
+pipeline,parser,0.6.0
+pipeline,parser,0.6.0
+pivot,commands,0.6.0
+post,commands,0.6.0
+prepend,commands,0.6.0
+pwd,commands,0.6.0
+reduce-by,commands,0.6.0
+reject,commands,0.6.0
+reverse,commands,0.6.0
+rm,commands,0.6.0
+save,commands,0.6.0
+shells,commands,0.6.0
+shorthand block,parser,0.6.0
+shorthand head,parser,0.6.0
+shorthand path,parser,0.6.0
+size,commands,0.6.0
+skip-while,commands,0.6.0
+sort-by,commands,0.6.0
+spaced expression,parser,0.6.0
+split-by,commands,0.6.0
+split-column,commands,0.6.0
+split-row,commands,0.6.0
+string,parser,0.6.0
+t-sort-by,commands,0.6.0
+table,commands,0.6.0
+tags,commands,0.6.0
+to-bson,commands,0.6.0
+to-csv,commands,0.6.0
+to-db,commands,0.6.0
+to-json,commands,0.6.0
+to-sqlite,commands,0.6.0
+to-toml,commands,0.6.0
+to-tsv,commands,0.6.0
+to-url,commands,0.6.0
+to-yaml,commands,0.6.0
+trim,commands,0.6.0
+unit,parser,0.6.0
+variable,parser,0.6.0
+variable path,parser,0.6.0
+version,commands,0.6.0
+what?,commands,0.6.0
+where,commands,0.6.0
+which,commands,0.6.0
+whitespace,parser,0.6.0
+word,parser,0.6.0
+word continuation,parser,0.6.0
+AnyBlockShape,parser,0.6.1
+AnyExpressionShape,parser,0.6.1
+AnyExpressionStartShape,parser,0.6.1
+BackoffColoringMode,parser,0.6.1
+BareShape,parser,0.6.1
+BareTailShape,parser,0.6.1
+ColorableDotShape,parser,0.6.1
+ColumnPathShape,parser,0.6.1
+CommandHeadShape,parser,0.6.1
+CommandShape,parser,0.6.1
+CommandTailShape,parser,0.6.1
+DelimitedShape,parser,0.6.1
+ExpressionContinuationShape,parser,0.6.1
+ExpressionListShape,parser,0.6.1
+ExternalExpression,parser,0.6.1
+ExternalTokensShape,parser,0.6.1
+FilePathShape,parser,0.6.1
+InfixShape,parser,0.6.1
+IntShape,parser,0.6.1
+InternalCommandHeadShape,parser,0.6.1
+MaybeSpaceShape,parser,0.6.1
+MemberShape,parser,0.6.1
+NumberShape,parser,0.6.1
+PathTailShape,parser,0.6.1
+PatternShape,parser,0.6.1
+PipelineShape,parser,0.6.1
+ShorthandBlock,parser,0.6.1
+ShorthandPath,parser,0.6.1
+SimplestExpression,parser,0.6.1
+SpaceShape,parser,0.6.1
+StringShape,parser,0.6.1
+SyntaxShape,parser,0.6.1
+VariablePathShape,parser,0.6.1
+VariableShape,parser,0.6.1
+WhitespaceShape,parser,0.6.1
+any block,parser,0.6.1
+any expression,parser,0.6.1
+any expression start,parser,0.6.1
+append,commands,0.6.1
+autoview,commands,0.6.1
+bare path,parser,0.6.1
+bare pattern,parser,0.6.1
+cd,commands,0.6.1
+classified command,parser,0.6.1
+clip,commands,0.6.1
+column,parser,0.6.1
+column path,parser,0.6.1
+command head,parser,0.6.1
+compact,commands,0.6.1
+config,commands,0.6.1
+count,commands,0.6.1
+cp,commands,0.6.1
+date,commands,0.6.1
+debug,commands,0.6.1
+default,commands,0.6.1
+dot,parser,0.6.1
+echo,commands,0.6.1
+enter,commands,0.6.1
+env,commands,0.6.1
+evaluate-by,commands,0.6.1
+exit,commands,0.6.1
+expression continuation,parser,0.6.1
+expression list,parser,0.6.1
+external argument,parser,0.6.1
+external argument,parser,0.6.1
+external command,parser,0.6.1
+external expression,parser,0.6.1
+external expression,parser,0.6.1
+fetch,commands,0.6.1
+file path,parser,0.6.1
+filesystem,shell,0.6.1
+first,commands,0.6.1
+from-bson,commands,0.6.1
+from-csv,commands,0.6.1
+from-db,commands,0.6.1
+from-ini,commands,0.6.1
+from-json,commands,0.6.1
+from-sqlite,commands,0.6.1
+from-toml,commands,0.6.1
+from-tsv,commands,0.6.1
+from-url,commands,0.6.1
+from-xlsx,commands,0.6.1
+from-xml,commands,0.6.1
+from-yaml,commands,0.6.1
+from-yml,commands,0.6.1
+get,commands,0.6.1
+glob pattern,parser,0.6.1
+group-by,commands,0.6.1
+help,commands,0.6.1
+histogram,commands,0.6.1
+history,commands,0.6.1
+infix inner,parser,0.6.1
+infix operator,parser,0.6.1
+integer,parser,0.6.1
+integer member,parser,0.6.1
+internal command head,parser,0.6.1
+last,commands,0.6.1
+lines,commands,0.6.1
+ls,commands,0.6.1
+map-max-by,commands,0.6.1
+maybe space,parser,0.6.1
+maybe space,parser,0.6.1
+mkdir,commands,0.6.1
+mv,commands,0.6.1
+n,commands,0.6.1
+nth,commands,0.6.1
+number,parser,0.6.1
+open,commands,0.6.1
+p,commands,0.6.1
+path continuation,parser,0.6.1
+pick,commands,0.6.1
+pipeline,parser,0.6.1
+pipeline,parser,0.6.1
+pivot,commands,0.6.1
+post,commands,0.6.1
+prepend,commands,0.6.1
+pwd,commands,0.6.1
+reduce-by,commands,0.6.1
+reject,commands,0.6.1
+reverse,commands,0.6.1
+rm,commands,0.6.1
+save,commands,0.6.1
+shells,commands,0.6.1
+shorthand block,parser,0.6.1
+shorthand head,parser,0.6.1
+shorthand path,parser,0.6.1
+size,commands,0.6.1
+skip-while,commands,0.6.1
+sort-by,commands,0.6.1
+spaced expression,parser,0.6.1
+split-by,commands,0.6.1
+split-column,commands,0.6.1
+split-row,commands,0.6.1
+string,parser,0.6.1
+t-sort-by,commands,0.6.1
+table,commands,0.6.1
+tags,commands,0.6.1
+to-bson,commands,0.6.1
+to-csv,commands,0.6.1
+to-db,commands,0.6.1
+to-json,commands,0.6.1
+to-sqlite,commands,0.6.1
+to-toml,commands,0.6.1
+to-tsv,commands,0.6.1
+to-url,commands,0.6.1
+to-yaml,commands,0.6.1
+trim,commands,0.6.1
+unit,parser,0.6.1
+variable,parser,0.6.1
+variable path,parser,0.6.1
+version,commands,0.6.1
+what?,commands,0.6.1
+where,commands,0.6.1
+which,commands,0.6.1
+whitespace,parser,0.6.1
+word,parser,0.6.1
+word continuation,parser,0.6.1
 ..,nu-parser,0.7.0
 AnyBlockShape,nu-parser,0.7.0
 AnyExpressionShape,nu-parser,0.7.0
