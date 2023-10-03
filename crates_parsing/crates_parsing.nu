@@ -21,7 +21,9 @@ let $out_csv_short = ($OUTPUT_DIR | path join 'cmds_by_crates_and_tags.csv')
 def parse_crates_from_tag [
     tag?
 ] {
-    git checkout ($tag | default (git tag | lines | last));
+    if $tag != null {
+        git checkout $tag
+    }
 
     if $tag in ["0.2.0", "0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.6.1"] {
         cd ../src
@@ -61,7 +63,10 @@ let $parsed_tags = (
     | lines
     | where $it not-in $parsed_tags
     | sort -n
-    | each {|i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)'; parse_crates_from_tag $i}
+    | each {
+        |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
+        parse_crates_from_tag $i
+    }
     | flatten
     | to csv --noheaders
     | save -ar ($out_csv_long);
