@@ -54,7 +54,7 @@ export def nu-file-stats [
     path: path
     --normalize_freq    # create a normalized freqency column
     --extra_graphs      # produce frequency histogram and timeline sparklines columns
-    --submissions_path: path = 'results_submissions' # a path to a folder that contains submitted results
+    --submissions_path: path = 'stats_submissions' # a path to a folder that contains submitted results
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -97,7 +97,7 @@ export def nu-file-stats [
 # parse submitted stats from a folder
 export def aggregate-submissions [
     --pick_users    # the flag invokes interactive users selection (during script running)
-    --submissions_path: path = 'results_submissions' # a path to a folder that contains submitted results
+    --submissions_path: path = 'stats_submissions' # a path to a folder that contains submitted results
 ] {
     cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
 
