@@ -82,7 +82,7 @@ let $cmds_agg = (
     | each {
         |i| $i
         | last
-        | rename -c [tag last_tag]
+        | rename -c {tag: last_tag}
         | merge ($i | first | select tag | rename first_tag)
         | move first_tag --before last_tag
     }

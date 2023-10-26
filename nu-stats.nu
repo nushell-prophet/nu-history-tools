@@ -11,7 +11,7 @@ export def nu-hist-stats [
 
     cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
 
-    let $tested_versions = ['0.84.0', '0.85.0']
+    let $tested_versions = ['0.86.0']
     let $current_version = (version | get version)
     let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
 
@@ -120,7 +120,7 @@ export def aggregate-submissions [
                 reject command_type
             } else {}
             | if ('freq' in ($in | columns)) { # legacy fix
-                rename -c [freq count]
+                rename -c {freq: count}
             } else {}
             | group-by name
             | do {
