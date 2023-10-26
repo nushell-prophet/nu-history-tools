@@ -1,41 +1,280 @@
 name,freq,timeline
-clip,6,▁▁▁▁▁▁▁▆▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▃
+from-array,0,
+to-array,0,
+vtable,0,
+what?,0,
+ExternalExpression,0,
+AnyBlockShape,0,
+AnyExpressionShape,0,
+AnyExpressionStartShape,0,
+BareShape,0,
+BareTailShape,0,
+ColorableDotShape,0,
+ColumnPathShape,0,
+CommandHeadShape,0,
+CommandShape,0,
+CommandTailShape,0,
+DelimitedShape,0,
+ExpressionContinuationShape,0,
+ExpressionListShape,0,
+ExternalTokensShape,0,
+FilePathShape,0,
+InfixShape,0,
+IntShape,0,
+InternalCommandHeadShape,0,
+MaybeSpaceShape,0,
+MemberShape,0,
+NumberShape,0,
+PathTailShape,0,
+PatternShape,0,
+PipelineShape,0,
+ShorthandBlock,0,
+ShorthandPath,0,
+SpaceShape,0,
+SyntaxShape,0,
+VariablePathShape,0,
+VariableShape,0,
+WhitespaceShape,0,
+external argument,0,
+external command,0,
+internal command head,0,
+maybe space,0,
+spaced expression,0,
+word continuation,0,
+..,0,
+ExternalExpressionShape,0,
+RangeShape,0,
+BackoffColoringMode,0,
+SimplestExpression,0,
+StringShape,0,
+any block,0,
+any expression,0,
+any expression start,0,
+bare path,0,
+bare pattern,0,
+classified command,0,
+column,0,
+column path,0,
+command head,0,
+dot,0,
+expression continuation,0,
+expression list,0,
+external expression,0,
+file path,0,
+glob pattern,0,
+infix inner,0,
+infix operator,0,
+integer,0,
+integer member,0,
+number,0,
+path continuation,0,
+pipeline,0,
+shorthand block,0,
+shorthand head,0,
+shorthand path,0,
+string,0,
+unit,0,
+variable,0,
+variable path,0,
+whitespace,0,
+word,0,
+comment,0,
+identifier,0,
+keyword,0,
+pair,0,
+positional param,0,
+separator,0,
+signature,0,
+type,0,
+type annotation,0,
+<whitespace? eof>,0,
+bare expression,0,
+block,0,
+decimal,0,
+delimited square,0,
+dotdot,0,
+eof,0,
+external boundary,0,
+external start token,0,
+external tokens,0,
+external word,0,
+fallible,0,
+pattern,0,
+unit expression,0,
+whitespace?,0,
+any string line separated by,0,
+separated,0,
+from-csv,0,
+from-ini,0,
+from-json,0,
+from-toml,0,
+from-xml,0,
+from-yaml,0,
+pick,0,
+to-json,0,
+to-toml,0,
+to-yaml,0,
+from-bson,0,
+from-db,0,
+from-sqlite,0,
+from-tsv,0,
+from-url,0,
+from-yml,0,
+to-bson,0,
+to-db,0,
+to-sqlite,0,
+to-tsv,0,
+to-url,0,
+from-xlsx,0,
+edit,0,
+from-ods,0,
+from-ics,0,
+from-vcf,0,
+to-html,0,
+to-md,0,
+split-column,0,
+split-row,0,
+average,0,
+skip-while,0,
+evaluate-by,0,
+map-max-by,0,
+reduce-by,0,
+t-sort-by,0,
+calc,0,
+from bson,0,
+from db,0,
+from sqlite,0,
+keep-until,0,
+keep-while,0,
+skip-until,0,
+to bson,0,
+to db,0,
+to sqlite,0,
+trim,0,
+move column,0,
+str set,0,
+mock,0,
+config load,0,
+path extension,0,
+into-int,0,
+path filestem,0,
+str from,0,
+date utc,0,
+pls,0,
+pls aggregate,0,
+pls convert,0,
+pls drop,0,
+pls dtypes,0,
+pls groupby,0,
+pls join,0,
+pls list,0,
+pls load,0,
+pls sample,0,
+pls select,0,
+pls show,0,
+str ltrim,0,
+str rtrim,0,
+dataframe filter,0,
+dataframe head,0,
+dataframe load,0,
+dataframe tail,0,
+hash md5,7,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██▁▁▁▅▁▁▁▁▁▁▁
+dataframe to-series,0,
+clip,8,▁▁▁▁▁▁▁▆▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▆▃▁▁▁▁
 paste,0,
 into column_path,0,
+autoview,0,
+tags,0,
+filesystem,0,
+pwd,81,▂▁▂▁▁▁▂▇▂▂▂▁▃▃▁▁▃▂▂▄▅▁▁▆▄█▂▁▃▂
+run_external,0,
+group-by date,0,
 autoenv,0,
 autoenv trust,0,
 autoenv untrust,0,
-autoview,0,
-chart,0,
 config clear,0,
 config get,0,
 config path,0,
 config remove,0,
 config set,0,
 config set_into,0,
+each group,0,
+each window,0,
+nu plugin,0,
+chart,0,
+stub open,0,
+roll column,0,
+rotate counter-clockwise,0,
 dataframe aggregate,0,
 dataframe all-false,0,
 dataframe all-true,0,
-dataframe append,0,
 dataframe arg-max,0,
 dataframe arg-min,0,
 dataframe arg-sort,0,
 dataframe arg-true,0,
 dataframe arg-unique,0,
 dataframe column,0,
-dataframe concatenate,0,
-dataframe contains,0,
 dataframe count-null,0,
 dataframe count-unique,0,
-dataframe cum,0,
-dataframe describe,0,
 dataframe drop,0,
 dataframe drop-duplicates,0,
 dataframe drop-nulls,0,
 dataframe dtypes,0,
+dataframe get,0,
+dataframe group-by,0,
+dataframe is-duplicated,0,
+dataframe is-in,0,
+dataframe is-not-null,0,
+dataframe is-null,0,
+dataframe is-unique,0,
+dataframe join,0,
+dataframe list,0,
+dataframe melt,0,
+dataframe pivot,0,
+dataframe rename,0,
+dataframe sample,0,
+dataframe select,0,
+dataframe set,0,
+dataframe shift,0,
+dataframe show,0,
+dataframe slice,0,
+dataframe sort,0,
+dataframe to-csv,0,
+dataframe to-df,0,
+dataframe to-dummies,0,
+dataframe to-parquet,0,
+dataframe unique,0,
+dataframe value-counts,0,
+dataframe where,0,
+dataframe with-column,0,
+nu,0,
+unlet-env,0,
 dataframe filter-with,0,
 dataframe first,0,
-dataframe get,0,
+dataframe last,0,
+dataframe not,0,
+dataframe open,0,
+dataframe set-with-idx,0,
+dataframe take,0,
+pathvar,0,
+pathvar add,0,
+pathvar append,0,
+pathvar remove,0,
+pathvar reset,0,
+pathvar save,0,
+dataframe append,0,
+dataframe concatenate,0,
+dataframe contains,0,
+dataframe replace,0,
+dataframe replace-all,0,
+dataframe shape,0,
+dataframe str-lengths,0,
+dataframe str-slice,0,
+dataframe to-lowercase,0,
+dataframe to-uppercase,0,
+into path,0,
+dataframe cum,0,
+dataframe describe,0,
 dataframe get-day,0,
 dataframe get-hour,0,
 dataframe get-minute,0,
@@ -46,71 +285,12 @@ dataframe get-second,0,
 dataframe get-week,0,
 dataframe get-weekday,0,
 dataframe get-year,0,
-dataframe group-by,0,
-dataframe is-duplicated,0,
-dataframe is-in,0,
-dataframe is-not-null,0,
-dataframe is-null,0,
-dataframe is-unique,0,
-dataframe join,0,
-dataframe last,0,
-dataframe list,0,
-dataframe melt,0,
-dataframe not,0,
-dataframe open,0,
-dataframe pivot,0,
-dataframe rename,0,
-dataframe rename-col,0,
-dataframe replace,0,
-dataframe replace-all,0,
 dataframe rolling,0,
-dataframe sample,0,
-dataframe select,0,
-dataframe set,0,
-dataframe set-with-idx,0,
-dataframe shape,0,
-dataframe shift,0,
-dataframe show,0,
-dataframe slice,0,
-dataframe sort,0,
-dataframe str-lengths,0,
-dataframe str-slice,0,
 dataframe strftime,0,
-dataframe take,0,
-dataframe to-csv,0,
-dataframe to-df,0,
-dataframe to-dummies,0,
-dataframe to-lowercase,0,
-dataframe to-parquet,0,
-dataframe to-uppercase,0,
-dataframe unique,0,
-dataframe value-counts,0,
-dataframe where,0,
-dataframe with-column,0,
-each group,0,
-each window,0,
-group-by date,0,
-into path,0,
-nu,0,
-nu plugin,0,
-pathvar,0,
-pathvar add,0,
-pathvar append,0,
-pathvar remove,0,
-pathvar reset,0,
-pathvar save,0,
-pwd,60,▂▁▂▁▁▁▂█▂▂▂▁▃▃▁▁▃▂▂▄▆▁▁▆▃
-roll column,0,
-rotate counter-clockwise,0,
-run_external,0,
-stub open,0,
-tags,0,
-unlet-env,0,
-filesystem,0,
+dataframe rename-col,0,
 into column-path,0,
 dfr pivot,0,
 dataframe,0,
-dfr,0,
 dfr aggregate,0,
 dfr column,0,
 dfr count-unique,0,
@@ -124,6 +304,7 @@ dfr to-nu,0,
 dfr to-uppercase,0,
 dfr fill-na,0,
 dfr to-lazy,0,
+to-csv,0,
 db,0,
 db and,0,
 db as,0,
@@ -144,7 +325,6 @@ db fn,0,
 db group-by,0,
 db join,0,
 db over,0,
-to-csv,0,
 to-df,0,
 to-dummies,0,
 to-lazy,0,
@@ -152,15 +332,15 @@ to-lowercase,0,
 to-nu,0,
 to-parquet,0,
 to-uppercase,0,
+nth,0,
+pivot,0,
 keep,0,
 keep until,0,
 keep while,0,
-nth,0,
-pivot,0,
 unalias,0,
+empty?,0,
 all?,0,
 any?,0,
-empty?,0,
 overlay add,0,
 overlay remove,0,
 Capnp Serializer,0,
@@ -187,12 +367,14 @@ from table,0,
 fill-na,0,
 post,0,
 to url,0,
-benchmark,0,
 fetch,0,
+count,0,
+sum,0,
 from eml,0,
 from ics,0,
 from ini,0,
 from vcf,0,
+benchmark,0,
 view-source,0,
 agg-groups,0,
 all-false,0,
@@ -209,7 +391,6 @@ cache,0,
 col,0,
 concatenate,0,
 contains,0,
-count,0,
 count-null,0,
 cumulative,0,
 df-not,0,
@@ -259,7 +440,6 @@ std,0,
 str-lengths,0,
 str-slice,0,
 strftime,0,
-sum,0,
 unique,0,
 value-counts,0,
 var,0,
@@ -279,363 +459,370 @@ summary,0,
 fill-nan,0,
 env,0,
 enter,0,
-g,4,▁▁▁▁▁▁▁█▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁
-n,3,▁▁▁▁▁▁█▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁
-p,2,▁▁▁▁▁▁▁▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁
+n,3,▁▁▁▁▁▁█▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+p,2,▁▁▁▁▁▁▁▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 shells,0,
+g,4,▁▁▁▁▁▁▁█▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr list,0,
 export old-alias,0,
 old-alias,0,
-hash base64,0,
-math eval,0,
-str collect,0,
 str find-replace,0,
-str lpad,0,
-str rpad,0,
 str to-datetime,0,
 str to-decimal,0,
 str to-int,0,
-history,488,▁▁▁▁▂▂▂▃▂▁▅▅▃▅▂▆▂▅█▂▁█▃▂▂
-ansi gradient,27,▁▁▅█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▂▁
-format,4,▁▁▁▅▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁█▁▁▁▁
+str collect,0,
+math eval,0,
+str lpad,0,
+str rpad,0,
+hash base64,0,
+math e,0,
+math pi,0,
+math tau,0,
+math egamma,0,
+math phi,0,
+random decimal,0,
+into decimal,0,
+ucp,0,
+version,71,▁▁█▁▂▁▁▂▁▂▁▁▁▂█▂▆▂▂█▆▅▁▂▅▂▂▁▁▁
+cd,881,▃▆▅▆▄▂▇█▄▆▄▂▃▅▄▄▁▂▂▃▂▁▂▂▂▂▃▂▂▁
+config,8,▁▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+cp,122,▁▄▁▁▁▁▃█▃▄▄▂▁▃▃▂▃▂▁▆▆▂▁▁▄▄▁▂▂▁
+date,0,
+debug,32,▁▃▅█▃▁▁▂▁▁▁▄▁▁▁▂▁▁▁▁▂▁▂▃▁▇▃▁▁▁
+exit,173,▄▂▂▅▄▄▁▂▁▅█▆▁▃▄▄▅▃▇▆▂▂▂▁▁▁▂▁▃▁
+first,1872,▂▄▂▁▃▇▂▇▆▆▅█▄▂▃▅▇▃▃▄▂▂▁▁▁▇▅▁▃▁
+get,5546,▂▂▂▃▃▆▄▄█▂▃▃▄▅▁▂▃▄▁▄▂▂▂▃▃▂▂▃▃▁
+lines,886,▁▂▂▃▂▁▂▁▆▂▂▃▃▁▁▁▃█▁▂▂▄▂▂▄▂▆▂▂▁
+mkdir,106,▂▅▃▃█▁▂▅▃▄▄▂▄▃▂▆▂▂▁▅▃▂▁▃▂▃▃▂▃▁
+mv,215,▁▃▁▁▂▁▂▃▂▂▃▂▂▃▃▇▂▃▄█▃▃▂▃▄▅▃▂▄▁
+open,3408,▂▂▃▃▃▃▃▇█▄▂▃▅▅▂▂▂▃▂▃▂▂▂▂▂▂▁▁▃▁
+ps,52,▁▆▃▁▁▁▁▁▁▁▁▃▁▁▄▁█▁▂▁▇▁▂▇▂▁▁▁▁▃
+reject,593,▁▁▁▁▁▁▁▁█▁▄▂▁▁▃▂█▁▁▁▁█▄▄▇▁▃▁▂▁
+rm,264,▂▆▂▁▄▁▄▆▂▆▃▄▄▃▃▅▃▁▁▅▃▂▁▂▂█▄▂▄▃
+save,629,▃▃▃▃▂▅▄█▅▅▂▂▃▁▂▂▂▃▆▂▃▄▃▃▂▁▂▁▃▁
+size,8,▁▂▁▁█▁▁▁▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+sort-by,942,▁▄▁▂▃▃▂▆▃▅▅▃█▂▂▁▇▂▁▃▂▂▁▄▂▅▂▁▅▂
+table,152,▁▁▅▃█▃▁▂▃▂▂▂▂▁▁▁▁▁▁▁▂▄▁▁▄▂▁▁▂▁
+where,1840,▁▂▂▂▃▄▅█▇▂▄▁▃▄▂▁▃▁▁▃▃▂▄▅▇▃▃▄▅▂
+which,325,▁▁▆▃▂▁▂▂▁▅▂▁▁▁▃▁▄▁█▃▂▃▂▁▁▁▁▁▂▂
+ls,4019,▁▄▂▂▂▁▃█▆▅▃▂▅▃▃▃▃▁▃▆▃▂▂▃▂▃▃▁▃▂
+echo,266,▂█▆▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁
+help,854,▅███▄▃▂▄▂▂▂▂▂▃▃▂▁▃▅▂▃▁▁▃▁▂▂▁▁▁
+last,791,▁▁▁▁▅▂▁▁▁▂▂▁█▅▂▅▃▄▂▂▁▃▂▂▂▃▃▁▂▁
+reverse,213,▃▁▁▁▁▁▁▁▂▁▁▁▁▃▁▁▁▁▁▂▁▁▃▂▁▂▁█▁▁
+history,590,▁▁▁▁▂▂▂▃▂▁▅▅▃▅▂▆▂▅█▂▁█▃▂▂▃▇▁▄▁
+append,512,▃▂▃▃█▆▇▅▃▃▃▂▁▁▇▁▃▂▆▁▁▁▁▂▃▆▂▅▁▁
+compact,7,▁▁▁█▁▁▁▃▁▃▁▁▁▁▁▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁
+default,257,▁▁▁▂▁▅▁▃▂▃▁▁▁▁▃▃▂▁▁▇▂▁▆▇▁▁▆█▄▂
+histogram,11,▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+prepend,71,▁▁▁▁▁▁▂▁▁▁▁▁▂▁▁▁▁█▆▅▁▁▁▂▂▁▁▁▁▂
+split-by,7,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▅▅▅▁
+group-by,339,▁▂▁▂▁▄▂▃▁▂▃▁▁▃▁▁▁▂▁▁▁▇█▃▂▃▁▁▁▁
+range,0,
+format,0,
+describe,407,▃▁▁▁▁▂▁▂▅▆▂▂▁▁▂▁▂▂█▂▁▂▃▃▂▂▂▂▂▂
+clear,113,▄▃▄▂▂▂▁▂▂▁▃▁▁▁▂▂▁▂▅▂▁█▁▂▁▁▁▁▃▁
+insert,171,▁▂▁▂▁▁▁▁▁▁▁█▁▆▁▁▁▁▁▂▁▁▁▁▁▁▂▃▂▁
+kill,0,
+parse,576,▂▃▃▇▂▁▁▁█▁▁▁▂▁▁▂▂▂▁▁▁▁▁▂▁▂▁▂▁▁
+rename,371,▁▂▁▁▅▁▅█▁▂▂▁▁▁▂▁▁▁▁▂▁▅▃▆▆▁▅▃▂▃
+shuffle,0,
+skip,354,▁▁▁▁▁▃▂▄█▂▁▂▂▁▁▁▂▅▁▁▂▁▁▁▁▁▁▁▁▁
+touch,23,▂▆▁▁▁▃▂▁▂▁▁▃▃▁▁▁▁▁▁▁▁▁▁▂▃█▁▁▂▁
+uniq,380,▁▁▁▁▂▆▄█▄▅▃▂▃▃▃▁▃▂▁▃▃▁▆▁▃▂▁▄▄▂
+wrap,221,▄█▁▅▇▅▂▆▁▁▁▁▃▁▁▁▁▁▁▆▄▁▁▄▄▂▄▃▆▁
+headers,44,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▁▁▁▁▁▁▁
+alias,27,▆▃▁▂▁▁▁▁▁▁▂▁▁▂▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+each,2289,▂▂▂▂▂▃▃▃▅▃▂▃▃█▁▁▂▂▃▅▂▃▄▃▂▃▃▃▂▁
 from url,0,
-roll,0,
-roll up,0,
-rotate,4,▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-str,43,▂▁▂█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+to html,0,
+cal,0,
+drop,78,▄▂▃█▁▁▁▁▁▁▁▁▁▂▁▁▁▄▅▁▁▁▁▄▁▁▁▁▁▁
+from,3,▁▁▅█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+from csv,106,▁▂▁▁▁▁▁▁▁▆▁▁▁▁▁▁▁▁▁▂▁█▂▁▁▂▁▁▁▁
+from json,1079,▃▄█▂▆▇▇▂▃▂▁▁▁▁▂▂▆▂▂▂▄▄▂▁▆▂▃▃▅▁
+from ods,0,
+from toml,1,▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+from tsv,56,▁█▁▁▁▁▁▁▁▁▁▁▄▁▁▂▃▁▄▁▁▁▂▁▁▁▁▁▁▁
+from xlsx,0,
+from xml,20,▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
+from yaml,262,▁▁▁▁▁▁▁▁▁▁▂▅▁▃▁▁▂█▄▅▁▁▁▂▁▂▃▃▆▁
+from yml,0,
+merge,355,▁▃▁▁▁▅▃▃▁▃▁▁▂▂▂▁▂▁▂▂▁▁█▃▄▁▁▁▁▁
+select,1318,▂▁▂▁█▄▄▅▅▂▃▁▁▆▁▁▂▁▁▆▁▁▃▃▅▁▂▃▄▂
+to,48,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆▃█▂
+to csv,94,▁▁▁▁▁▁▁▁▁▃▁▄▄▅▁▆▇▄█▂▁▅▁▃▂▂▂▁▁▁
+to json,148,▂▄▂▁▁▁▃▁▁▂▁▁▁▁▁▄█▁▆▅▃▃▁▄▁▁▁▁▄▁
+to md,33,▁▁█▁▂▁▁▂▁▂▁▁▃▂▁▁▁▁▁▁▂▁▃▂▁▂▂▁▁▂
+to toml,30,▁▁▁▁▁▁▁▁▁▃▁▁▃▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁
+to tsv,16,▁▁▁▁▃▁▁▁▁▁▂▁▁▁█▁▁▁▁▄▁▁▁▁▃▁▁▁▁▁
+to yaml,574,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▂▂▂▂▁▁▁▁▁▁▁
+update,14,▁▁▁▁▁▂▁▁▁▅█▁▁▁▁▁▁▁▂▂▁▁▁▂▂▁▁▁▁▁
+with-env,0,
+str,43,▂▁▂█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+split,5,█▁▁▅▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁
+split column,42,▁▁▁▁█▂▁▁▁▂▄▃▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▂▁▁
+split row,434,▁▁▁█▂▁▁▁▁▁▁▁▂▃▁▁▁▁▁▁▁▁▂▁▁▁▁▂▁▁
+str capitalize,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+str downcase,0,
+str substring,265,▁▂▂▁▂▂▁▁▃▅▁█▂▂▁▁▂▁▁▁▁▁▁▆▁▃▅▂▄▁
+str trim,94,▁▁▁▁▁▁▁█▂▁▁▁▂▁▁▁▁▂▁▁▁▁▁▆▂▄▄▁▂▂
+str upcase,29,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▃▁▁▁▁▆▁▁▆█▁▁
+every,0,
+math,0,
+math avg,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁
+math max,49,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▇▁▁█▄▁▁▁▁▄▁
+math median,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁
+math min,28,▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁█▁▁▄▄▁▁▁▁▁▁
+math mode,0,
+math sum,135,▁▁▂▁▁▃▁▁▁▁▆▁▅▂▁▁▂▁▁▁▁▁▆█▁▃▁▁▁▁
+random,4,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁
+random uuid,0,
+do,291,█▁▅▂▃▂▅▁▂▁▁▂▂▁▂▁▂▂▁▄▁▁▁▂▁▁▂▁▂▃
+ansi,522,▁▁▅█▁▁▁▁▁▁▁▂▃▁▁▃▂▁▃▁▁▁▂▃▁▁▁▃▁▁
+char,246,▁▁▁▂▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▇▃█▁▅▇▁█▂
+random bool,0,
+random dice,6,▁▅▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+if,537,▂▂▄▂▅▁▁▂▅▄▂▂▁▂█▂▆▃▆▃▂▄▂▂▁▁▂▂▃▂
+math stddev,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁
+math variance,0,
+move,86,▁▁▁▁▁▃▁▁▁▃▁▃▁▁▂▃▅▁▁▁▁▁█▁▁▁▃▂▁▁
+skip until,93,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▂▁▁▁▁▁▂▁
+skip while,1,▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+split chars,128,▁▁▁▁▆▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁▁▁▁▄▁▁▃█▁▁
+str length,91,▂█▁▁▂▁▁▁▄▂▁▁▁▁▁▂▁▁▂▃▁▁▁▁▃▁▂▁▁▁
+str reverse,0,
+path,0,
+path basename,122,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▄▅▁▂▃▁▁▁
+path exists,36,▁▄▂▃▁▁▃▂▁▂▁▁▁▁▁▁▂▁▁▂▃█▁▁▁▁▁▄▁▁
+path expand,43,▁▁▁▁▁▁▁█▂▁▁▃▁▅▁▁▁▁▁▁▂▁▁▁▁▃▁▁▁▁
+path type,3,▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+reduce,257,▁▁▂▃▁█▄▂▂▂▂▂▁▁▅▁▂▂▂▁▁▁▄▂▂▁▁▁▁▁
+str contains,55,▁▁▁▁█▁▁▁▁▁▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+str ends-with,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+str index-of,6,▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▆▁▁▁
+str starts-with,58,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▃▁▂▁▁▁▁▁▁▁▁▁
+to xml,0,
+url,0,
 str camel-case,0,
 str kebab-case,0,
 str pascal-case,0,
 str screaming-snake-case,0,
 str snake-case,0,
-to html,0,
-update cells,0,
-alias,27,▆▃▁▂▁▁▁▁▁▁▂▁▁▂▁█▁▁▁▁▁▁▁▁▁
-collect,24,▁▇▁▁▁▁▂▂▃▃▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-def,330,▄█▄▃▂▃▁▁▂▂▃▁▂▁▁▄▂▂▃▂▁▃▂▃▁
-describe,349,▃▁▁▁▁▂▁▂▅▆▂▂▁▁▂▁▂▂█▂▁▂▃▃▁
-do,249,█▁▅▂▃▂▅▁▂▁▁▂▂▁▂▁▂▂▁▄▁▁▁▂▁
-echo,257,▂█▆▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁
-error make,14,▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▅▆▁▃▁▁
-for,65,▁▅▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▃▂▁▁▁▁▁
-if,507,▂▂▅▂▅▁▁▂▅▄▂▂▁▂█▂▆▃▆▃▂▄▂▂▁
-ignore,4,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-let,2465,▁▂▃▃▄▄▃▃▃▅▅▄▄▁▃▂▂▂▃▃▁▂▃█▄
-version,66,▁▁█▁▂▁▁▂▁▂▁▁▁▂█▂▆▂▂█▆▅▁▂▅
-ansi,460,▁▁▆█▁▁▁▁▁▁▁▂▃▁▁▃▂▁▃▁▁▁▂▃▁
-ansi strip,61,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▂▁▅▆▁
-append,418,▃▂▃▃█▆▇▅▃▃▃▂▁▁▇▁▃▂▆▁▁▁▁▂▃
-cal,0,
-cd,820,▃▆▅▅▄▂▇█▄▆▄▂▃▅▄▃▁▂▂▃▂▁▂▂▁
-char,131,▁▁▁▂▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▃█▁
-clear,106,▄▃▄▂▂▂▁▂▂▁▃▁▁▁▂▂▁▂▅▂▁█▁▂▁
-compact,7,▁▁▁█▁▁▁▃▁▃▁▁▁▁▁▁▁▆▁▁▁▁▁▁▁
-config,8,▁▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
-cp,107,▁▄▁▁▁▁▃█▃▄▄▂▁▃▃▂▃▂▁▆▆▂▁▁▃
-date,0,
-date format,64,▆▂▁▁▄▂▇▂▁▁▂▁▁▄█▁▁▁▁▁▂▁▁▁▁
-date humanize,13,▄▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▄▁▁▁▁
-date list-timezone,0,
-date now,266,▃▃▁▁▇▄▆▆▂▂▅▃▇▃▇▁▃▂▆█▃▂▂▇▂
-date to-table,2,█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-date to-timezone,5,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-debug,24,▁▃▅█▃▁▁▂▁▁▁▄▁▁▁▂▁▁▁▁▂▁▂▃▁
-default,178,▁▁▁▃▁▆▁▃▂▃▁▁▁▁▃▃▂▁▁█▂▁▇█▁
-drop,76,▄▂▃█▁▁▁▁▁▁▁▁▁▂▁▁▁▄▅▁▁▁▁▄▁
-drop column,2,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-drop nth,4,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-each,1934,▂▂▂▂▂▃▃▃▅▃▂▃▃█▁▁▂▂▃▅▂▃▄▃▁
-every,0,
-exec,15,▁▁▁▁▁▁▁▁▁█▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁
-exit,163,▄▂▂▅▄▄▁▂▁▅█▆▁▃▄▄▅▃▇▆▂▂▂▁▁
-find,154,▁▁▁▂▁▁▁▂▁▁█▃▁▃▁▁▁▁█▅▅▂▄▂▂
-first,1578,▂▄▂▁▃▇▂▇▆▆▅█▅▂▃▅▇▃▃▄▂▂▁▁▁
-flatten,885,▁▁▂▁▂▃▂▁█▃▃▁▁▃▁▁▁▁▂▁▁▃▄▂▃
-format filesize,0,
-from,3,▁▁▅█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-from csv,101,▁▂▁▁▁▁▁▁▁▆▁▁▁▁▁▁▁▁▁▂▁█▂▁▁
-from json,922,▃▄█▂▆▇▇▂▃▂▁▁▁▁▂▂▆▂▂▂▄▄▂▁▅
-from ods,0,
-from toml,1,▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-from tsv,56,▁█▁▁▁▁▁▁▁▁▁▁▄▁▁▂▃▁▄▁▁▁▂▁▁
-from xlsx,0,
-from xml,20,▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
-from yaml,184,▁▁▁▁▁▁▁▁▁▁▂▅▁▃▁▁▂█▄▅▁▁▁▂▁
-from yml,0,
-get,4910,▁▂▂▃▃▅▄▄█▂▃▃▄▄▁▂▃▄▁▄▁▂▂▃▂
-hash,0,
-headers,44,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▁▁
-help,820,▅███▄▃▂▄▂▂▂▂▂▃▃▂▁▂▅▂▃▁▁▂▁
-histogram,11,▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁█▁
-insert,136,▁▂▁▂▁▁▁▁▁▁▁█▁▆▁▁▁▁▁▂▁▁▁▁▁
-into,54,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-into binary,42,▁▁▁▁█▁▅▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-into filesize,5,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-into int,356,▃▁▃▁▅█▃▃▂▂▂▁▂▂▁▃▂▁▁▁▁▂▁▅▂
-into string,109,▃▂▂▁▁▁▁█▂▄▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁
-kill,0,
-last,681,▁▁▁▁▅▂▁▁▁▂▂▁█▅▂▅▃▄▂▂▁▃▂▂▂
-length,1041,▂▁▁▂▁▂▂▃▃█▅▅█▂▂▂▃▁▂▃▃▃▁▁▂
-let-env,117,▁▃▂▁▁▁▂▁▁▁▁▁▂▁█▁▁▁▂▁▁▁▁▁▁
-lines,715,▁▂▂▃▂▁▂▁▆▂▂▃▃▁▁▁▃█▁▂▂▄▂▂▄
-load-env,0,
-math,0,
-math abs,0,
-math avg,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁
-math ceil,1,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-math floor,30,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-math max,43,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▇▁▁█▄▁
-math median,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁
-math min,28,▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁█▁▁▄▄▁
-math mode,0,
+date format,65,▆▂▁▁▄▂▇▂▁▁▂▁▁▄█▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+date now,277,▃▃▁▁▇▄▆▆▂▂▅▃▇▃▇▁▃▂▆█▃▂▂▇▂▁▁▂▂▂
 math product,0,
-math round,33,▁▁▇▁▁▁▁▁▁▁▃▁▅▂▁▂▁▁▁▁▁▁▆█▁
-math sqrt,19,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂
-math stddev,0,
-math sum,122,▁▁▂▁▁▃▁▁▁▁▆▁▅▂▁▁▂▁▁▁▁▁▆█▁
-math variance,0,
+path dirname,17,▁▁▁▁▁▁▁▃▁▁█▅▁▁▁▅▁▁▁▁▃▁▁▁▁█▆▁▁▁
+sleep,8,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▅▁█▁▁▁▃
+exec,15,▁▁▁▁▁▁▁▁▁█▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+random integer,45,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
+flatten,979,▁▁▂▁▂▃▂▁█▃▃▁▁▃▁▁▁▁▂▁▁▃▄▂▃▂▁▂▂▁
+format filesize,0,
+math ceil,1,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+math floor,41,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁
+math round,41,▁▁▇▁▁▁▁▁▁▁▃▁▅▂▁▂▁▁▁▁▁▁▆█▇▁▁▁▁▁
+seq,50,▁▁▃▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▂█▁
+seq date,50,█▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁
+date list-timezone,0,
+date to-table,2,█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+date to-timezone,5,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+hash,0,
+math abs,0,
+random chars,25,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▁▁▁▁▄▁▁
+def,341,▄█▄▃▂▃▁▁▃▂▃▂▂▂▁▄▂▂▃▂▁▃▂▃▁▁▁▁▁▁
+let,2743,▁▂▃▃▄▄▃▃▄▅▅▄▄▂▃▂▃▂▃▃▁▂▃█▄▃▂▂▂▁
+let-env,117,▁▃▂▁▁▁▂▁▁▁▁▁▂▁█▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁
+source,1720,▇▄▄█▃▂▄▁▁▂▂▄▃▅▂▁▃▂▃▄▂▂▄█▆▃▃▁▂▁
+term size,32,▁▁▄▄█▂▁▁▁▁▁▁▁▁▂▆▁▁▁▁▁▁▁▂▁▁▁▁▁▁
+roll,0,
+roll up,0,
+rotate,0,
+ansi strip,82,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▂▁▅▅▂▁▂▂▂▂
+drop column,3,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁
+path join,53,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▂▁▁▁▁█▁
+length,1186,▂▁▁▂▁▂▂▃▃█▅▅█▂▂▂▃▁▂▃▃▃▁▁▂▃▂▁▃▁
+into,86,▂█▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▂▁
+into int,487,▃▁▃▁▅█▃▃▂▂▂▁▂▂▁▃▂▁▁▁▁▂▁▅▃▂▆▄▃▂
+math sqrt,19,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁
+path parse,85,▁▁▁▂▁▁▁▁▄▁▁▂█▁▁▁▁▁▄▁▁▁▁▁▂▁▁▁█▁
+path split,27,▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁
+into binary,44,▁▁▁▁█▁▅▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁
+into string,155,▃▂▂▁▁▁▁█▂▄▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▄▄▁▁
+for,69,▁▅▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▃▂▁▁▁▁▁▁▁▂▁▁
+load-env,0,
+path relative-to,20,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▆▁▁▁▆
+ansi gradient,0,
+collect,38,▁▅▁▁▁▁▂▂▂▃▁▁▁▁▁▁▁▁▁▁▁▁▁▆▁▁▁▁█▁
+ignore,4,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+date humanize,14,▄▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▄▁▁▁▁▁▁▁▁▂
 md5,0,
-merge,327,▁▃▁▁▁▅▃▃▁▃▁▁▂▂▂▁▂▁▂▂▁▁█▃▂
-mkdir,95,▂▅▃▃█▁▂▅▃▄▄▂▄▃▂▆▂▂▁▅▃▂▁▃▂
-move,73,▁▁▁▁▁▃▁▁▁▃▁▃▁▁▂▃▅▁▁▁▁▁█▁▁
-mv,170,▁▃▁▁▂▁▂▃▂▂▃▂▂▃▃▇▂▃▄█▃▃▂▃▃
-open,3185,▁▂▃▃▃▂▃▇█▄▂▃▅▅▂▁▁▃▂▃▁▁▂▁▁
-parse,542,▂▃▃▇▂▁▁▁█▁▁▁▂▁▁▂▂▂▁▁▁▁▁▂▁
-path,0,
-path basename,102,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▄▅▁
-path dirname,10,▁▁▁▁▁▁▁▃▁▁█▅▁▁▁▅▁▁▁▁▃▁▁▁▁
-path exists,32,▁▄▂▃▁▁▃▂▁▂▁▁▁▁▁▁▂▁▁▂▃█▁▁▁
-path expand,39,▁▁▁▁▁▁▁█▂▁▁▃▁▅▁▁▁▁▁▁▂▁▁▁▁
-path join,14,▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁█▁▁▃▂
-path parse,58,▁▁▁▂▁▁▁▁▄▁▁▂█▁▁▁▁▁▄▁▁▁▁▁▂
-path relative-to,8,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-path split,22,▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█
-path type,3,▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁█▁
-prepend,64,▁▁▁▁▁▁▂▁▁▁▁▁▂▁▁▁▁█▆▅▁▁▁▂▁
-ps,49,▁▆▃▁▁▁▁▁▁▁▁▃▁▁▄▁█▁▂▁▇▁▂▇▂
-random,3,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-random bool,0,
-random chars,20,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃▁▁
-random decimal,0,
-random dice,6,▁▅▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-random integer,0,
-random uuid,0,
-range,0,
-reduce,250,▁▁▂▃▁█▄▂▂▂▂▂▁▁▅▁▂▂▁▁▁▁▄▂▂
-reject,521,▁▁▁▁▁▁▁▁█▁▄▂▁▁▃▂█▁▁▁▁█▄▄▅
-rename,272,▁▂▁▁▅▁▅█▁▂▂▁▁▁▂▁▁▁▁▂▁▅▃▆▃
-reverse,122,█▂▂▁▁▁▂▁▃▁▁▁▁▇▁▁▁▁▂▃▁▁▅▃▂
-rm,200,▃█▃▁▅▁▅█▃▇▄▆▆▃▄▆▃▁▁▆▄▃▁▂▂
-save,581,▂▃▂▃▂▅▄█▅▅▂▂▂▁▂▁▂▃▆▂▂▃▃▂▁
-select,1113,▂▁▂▁█▄▄▅▅▂▃▁▁▆▁▁▂▁▁▆▁▁▃▃▃
-seq,15,▁▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁
-seq date,50,█▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁
 sha256,0,
-shuffle,0,
-size,8,▁▂▁▁█▁▁▁▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁
-skip,342,▁▁▁▁▁▃▂▄█▂▁▂▂▁▁▁▂▅▁▁▂▁▁▁▁
-skip until,87,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▂▁▁
-skip while,1,▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-sleep,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁█▁
-sort-by,775,▁▄▁▂▃▃▂▆▃▅▅▃█▂▂▁▇▂▁▃▂▂▁▄▂
-source,1593,▇▄▄█▃▂▄▁▁▂▂▄▃▅▂▁▂▂▃▄▁▂▃█▅
-split,4,█▁▁▅▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-split chars,73,▁▁▁▁█▁▁▁▁▂▁▁▁▁▁▁▃▁▃▁▁▁▁▆▂
-split column,35,▁▁▁▁█▂▁▁▁▂▄▃▁▁▁▁▁▁▁▁▁▁▁▁▁
-split row,370,▁▁▁█▂▁▁▁▁▁▁▁▂▃▁▁▁▁▁▁▁▁▂▁▁
-split-by,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-str capitalize,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
-str contains,52,▁▁▁▁█▁▁▁▁▁▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁
-str downcase,0,
-str ends-with,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁
-str index-of,4,▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁
-str length,81,▂█▁▁▂▁▁▁▄▂▁▁▁▁▁▂▁▁▂▃▁▁▁▁▂
-str reverse,0,
-str starts-with,57,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▃▁▂▁▁▁▁
-str substring,196,▁▂▂▁▂▂▁▁▃▅▁█▂▂▁▁▂▁▁▁▁▁▁▆▁
-str trim,61,▁▁▁▁▁▁▁█▂▁▁▁▂▁▁▁▁▂▁▁▁▁▁▆▂
-str upcase,14,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▄▁▁▁▁█▁
-sys,32,▁▆▂▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁
-table,132,▁▁▅▃█▃▁▂▃▂▂▂▂▁▁▁▁▁▁▁▂▄▁▁▂
-term size,32,▁▁▄▄█▂▁▁▁▁▁▁▁▁▂▆▁▁▁▁▁▁▁▂▁
-to,2,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
-to csv,87,▁▁▁▁▁▁▁▁▁▃▁▄▄▅▁▆▇▄█▂▁▅▁▃▁
-to json,136,▂▄▂▁▁▁▃▁▁▂▁▁▁▁▁▄█▁▆▅▃▃▁▄▁
-to md,27,▁▁█▁▂▁▁▂▁▂▁▁▃▂▁▁▁▁▁▁▂▁▃▂▁
-to toml,30,▁▁▁▁▁▁▁▁▁▃▁▁▃▁▁▁█▂▁▁▁▁▁▁▁
-to tsv,14,▁▁▁▁▃▁▁▁▁▁▂▁▁▁█▁▁▁▁▄▁▁▁▁▁
-to xml,0,
-to yaml,555,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▂▂▂▂▁▁
-touch,16,▃█▁▁▁▅▃▁▃▁▁▅▅▁▁▁▁▁▁▁▁▁▁▃▅
-tutor,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-uniq,318,▁▁▁▁▂▆▄█▄▅▃▂▃▃▃▁▃▂▁▃▃▁▆▁▂
-update,14,▁▁▁▁▁▂▁▁▁▅█▁▁▁▁▁▁▁▂▂▁▁▁▂▂
-url,0,
-where,1473,▁▂▂▂▃▄▅█▇▂▄▁▃▄▂▁▃▁▁▃▃▂▄▅▅
-which,307,▁▁▆▃▂▁▂▂▁▅▂▁▁▁▃▁▄▁█▃▂▃▂▁▁
-with-env,0,
-wrap,183,▄█▁▅▇▅▂▆▁▁▁▁▃▁▁▁▁▁▁▆▄▁▁▄▄
-zip,14,▅▄▅▁▁▁▂▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-group-by,313,▁▂▁▂▁▄▂▃▁▂▃▁▁▃▁▁▁▂▁▁▁▇█▃▂
-ls,3457,▁▄▂▁▂▁▃█▅▄▃▂▅▂▃▃▃▁▃▆▃▂▁▃▁
-detect columns,3,▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-keybindings,6,▁▁▅▁▁▁▁▁█▁▁▁▁▅▁▁▁▁▅▁▅▁▁▁▁
-keybindings default,8,▁▁█▁▁▅▁▁██▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁
-keybindings list,10,▁▁▅▁▁▅▅▅█▅▅▁▁▁▁▁▁▁▁▅▅▁▁▁▁
-keybindings listen,9,▁▁▁▁▁▁▁▁▃▆█▁▁▁▁▁▁▁▃▆▁▁▁▁▁
-nu-highlight,11,▁▁▆▁▁▁▁█▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁
-print,466,▁▁█▂▁▁▂▂▂▂▃▃▆▃▁▃▂▂▂▄▁▁▃▅▁
+drop nth,4,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+tutor,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+zip,17,▅▄▅▁▁▁▂▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁
+error make,27,▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▃▃▁▂▁▁▃▂█▂▁
+find,170,▁▁▁▂▁▁▁▂▁▁█▃▁▃▁▁▁▁█▅▅▂▄▂▂▁▄▁▁▂
+into filesize,5,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+sys,34,▁▆▂▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+update cells,0,
+detect columns,3,▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+keybindings,8,▁▁▅▁▁▁▁▁█▁▁▁▁▅▁▁▁▁▅▁▅▁▁▁▁▁▁▅▁▅
+keybindings default,14,▁▁▅▁▁▃▁▁▅▅▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁█
+keybindings list,15,▁▁▃▁▁▃▃▃▆▃▃▁▁▁▁▁▁▁▁▃▃▁▁▁▁▁▁█▁▆
+keybindings listen,11,▁▁▁▁▁▁▁▁▃▆█▁▁▁▁▁▁▁▃▆▁▁▁▁▁▁▁▆▁▁
+nu-highlight,14,▁▁▆▁▁▁▁█▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁
+print,499,▁▁█▂▁▁▂▂▂▂▃▃▆▃▁▃▂▂▂▄▁▁▃▅▁▁▂▁▂▁
+dfr,41,▁▁▁▁▁▁▁▂▂▇█▅▂▂▂▂▁▁▁▁▁▁▂▂▁▁▂▁▁▁
 dfr all-false,0,
 dfr all-true,0,
-dfr append,129,▁▁▁▁▁▁▁▁▁▃▁▄▁▁█▂▁▁▁▁▂▁▁▁▁
+dfr append,129,▁▁▁▁▁▁▁▁▁▃▁▄▁▁█▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁
 dfr arg-max,0,
 dfr arg-min,0,
 dfr arg-sort,0,
 dfr arg-true,0,
-dfr arg-unique,3,▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
-dfr as-date,27,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁
-dfr as-datetime,19,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-dfr concatenate,14,▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▂▁▁█▁▁
-dfr contains,21,▁▁▁▁▁▁▁▁▄▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁
-dfr count-null,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
-dfr cumulative,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-dfr drop,130,▁▁▁▁▁▁▁▁▁▁▂█▁▁▂▂▁▁▁▁▁▂▁▁▁
-dfr drop-duplicates,22,▁▁▁▁▁▁▁▅▁▁█▁▁▁▆▁▁▁▁▁▁▁▁▁▁
-dfr drop-nulls,11,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁█▁▁▁▁
-dfr dtypes,48,▁▁▁▁▁▁▁▁▁▁▂▂▂▁▁▁▅▁▁▁█▂▃▅▁
-dfr filter-with,285,▁▁▁▁▁▁▁▁▂▅▃▄█▃▂▂▁▁▁▂▂▃▁▃▁
-dfr first,76,▁▁▁▁▁▁▁▃▁▄█▆▁▁▃▃▁▂▃▁▁▁▁▁▁
-dfr get,123,▁▁▁▁▁▁▁▁▁█▃▅▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr arg-unique,3,▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr as-date,27,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁▁▁▁▁▁
+dfr as-datetime,19,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+dfr concatenate,14,▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▂▁▁█▁▁▁▁▁▁▁
+dfr contains,21,▁▁▁▁▁▁▁▁▄▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr count-null,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr cumulative,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+dfr drop,150,▁▁▁▁▁▁▁▁▁▁▂█▁▁▂▂▁▁▁▁▁▂▁▁▁▁▃▁▁▁
+dfr drop-duplicates,22,▁▁▁▁▁▁▁▅▁▁█▁▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr drop-nulls,11,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁█▁▁▁▁▁▁▁▁▁
+dfr dtypes,54,▁▁▁▁▁▁▁▁▁▁▂▂▂▁▁▁▅▁▁▁█▂▃▅▁▁▄▁▁▁
+dfr filter-with,377,▁▁▁▁▁▁▁▁▂▅▃▄█▃▂▂▁▁▁▂▂▃▁▃▁▅▁▁▆▁
+dfr first,84,▁▁▁▁▁▁▁▃▁▄█▆▁▁▃▃▁▂▃▁▁▁▁▁▁▁▄▁▁▁
+dfr get,123,▁▁▁▁▁▁▁▁▁█▃▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr get-day,0,
 dfr get-hour,0,
 dfr get-minute,0,
 dfr get-month,0,
-dfr get-nanosecond,9,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
+dfr get-nanosecond,9,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr get-ordinal,0,
 dfr get-second,0,
 dfr get-week,0,
 dfr get-weekday,0,
 dfr get-year,0,
-dfr group-by,79,▁▁▁▁▁▁▁▄▁█▃▁▁▁▇▁▁▁▃▂▁▁▁▁▁
-dfr is-duplicated,1,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr is-in,41,▁▁▁▁▁▁▁▁▁▁▆▁▄▁▁█▁▁▁▄▁▁▁▁▁
-dfr is-not-null,2,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr is-null,18,▁▁▁▁▁▁▁▂▁▅▂▂▁▃▁▁▁▁▁▂▁█▁▁▁
-dfr is-unique,4,▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁▁▁▁▁▁▁▁▁▁
-dfr join,250,▁▁▁▁▁▁▁▂▁▃▂▃▂▂█▆▃▁▁▃▃▂▁▁▁
-dfr last,10,▁▁▁▁▁▁▁▁▆▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-dfr melt,8,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▆█▁▁▁
-dfr not,45,▁▁▁▁▁▁▁▁▁▁▁▆█▃▅▇▁▁▁▄▃▄▁▁▁
-dfr open,161,▁▁▁▁▁▁▁▃▁█▂▁▅▂▂▁▁▁▁▆▁▁▁▃▁
-dfr rename,194,▁▁▁▁▁▁▁▁▁▂▂█▂▁▂▃▁▁▂▁▁▁▁▂▁
-dfr replace,10,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▂▁▁▁▁
-dfr replace-all,4,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▅▅▁▁▁▁
+dfr group-by,86,▁▁▁▁▁▁▁▄▁█▃▁▁▁▇▁▁▁▃▂▁▁▁▁▁▁▃▁▁▁
+dfr is-duplicated,1,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr is-in,39,▁▁▁▁▁▁▁▁▁▁▅▁▄▁▁█▁▁▁▄▁▁▁▁▁▁▁▁▁▁
+dfr is-not-null,2,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr is-null,40,▁▁▁▁▁▁▁▁▁▃▁▁▁▂▁▁▁▁▁▁▁▄▁▁▁█▁▁▂▁
+dfr is-unique,4,▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr join,311,▁▁▁▁▁▁▁▂▁▃▂▃▂▂█▆▃▁▁▃▃▂▁▁▁▁█▁▁▁
+dfr last,10,▁▁▁▁▁▁▁▁▆▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr melt,8,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁
+dfr not,45,▁▁▁▁▁▁▁▁▁▁▁▆█▃▅▇▁▁▁▄▃▄▁▁▁▁▁▁▁▁
+dfr open,161,▁▁▁▁▁▁▁▃▁█▂▁▅▂▂▁▁▁▁▆▁▁▁▃▁▁▁▁▁▁
+dfr rename,194,▁▁▁▁▁▁▁▁▁▂▂█▂▁▂▃▁▁▂▁▁▁▁▂▁▁▁▁▁▁
+dfr replace,10,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+dfr replace-all,4,▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▅▅▁▁▁▁▁▁▁▁▁
 dfr rolling,0,
 dfr sample,0,
-dfr set,44,▁▁▁▁▁▁▁▁▁▁▁█▁▂▁▁▁▁▁▁▁▁▁▁▁
+dfr set,38,▁▁▁▁▁▁▁▁▁▁▁█▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr set-with-idx,0,
-dfr shape,44,▁▁▁▁▁▁▁▃▁▁▁█▅▁█▁▁▁▁▁▁▁▁▁▁
-dfr shift,4,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
+dfr shape,52,▁▁▁▁▁▁▁▃▁▁▁█▅▁█▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁
+dfr shift,4,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
 dfr slice,0,
-dfr str-lengths,20,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▇▁▁▁▁▁
-dfr str-slice,38,▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁█▁▁▁▁▁
-dfr strftime,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-dfr take,9,▁▁▁▁▁▁▁▁▁▂█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr to-csv,12,▁▁▁▁▁▁▁▁▁▁▁█▃▁▆▁▁▁▁▁█▁▁█▁
-dfr to-parquet,6,▁▁▁▁▁▁▁▁▁▁█▁▆▁▁▁▁▁▁▃▁▁▁▁▁
-dfr unique,170,▁▁▁▁▁▁▁▃▁▂▃▆▁▁▅█▃▁▁▅▃▁▁▁▁
-dfr value-counts,56,▁▁▁▁▁▁▁▃█▅▁██▁▁▁▁▁▁▁▁▁▁▁▁
-dfr with-column,391,▁▁▁▁▁▁▁▃▁▂▂█▂▂▇▂▁▁▂▄▄▁▄▃▁
-fmt,3,▁▁█▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-roll down,1,▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr str-lengths,20,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁
+dfr str-slice,38,▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
+dfr strftime,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+dfr take,9,▁▁▁▁▁▁▁▁▁▂█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr to-csv,12,▁▁▁▁▁▁▁▁▁▁▁█▃▁▆▁▁▁▁▁█▁▁█▁▁▁▁▁▁
+dfr to-parquet,6,▁▁▁▁▁▁▁▁▁▁█▁▆▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁
+dfr unique,191,▁▁▁▁▁▁▁▃▁▂▃▆▁▁▅█▃▁▁▅▃▁▁▁▁▁▄▁▁▂
+dfr value-counts,56,▁▁▁▁▁▁▁▃█▅▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr with-column,411,▁▁▁▁▁▁▁▃▁▂▂█▂▂▇▂▁▁▂▄▄▁▄▃▁▁▃▁▁▁
+fmt,0,
+roll down,0,
 roll left,0,
 roll right,0,
-def-env,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
-export,2,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-export alias,1,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-export def,17,▁▂█▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁
-export def-env,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
+def-env,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
+export,2,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+export alias,1,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+export def,18,▁▂█▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▂▁▁▁▁▁
+export def-env,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
 export extern,0,
 extern,0,
-hide,4,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-match,24,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▃▂▂▁▁▂▁▂▂▃
-module,5,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁
-register,19,▁▁▃▅▁█▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁
-use,370,▁▃▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▅▂▃▂▃▁▅█
-columns,281,▁▁▃▁▂▄▄██▄▆▂▁▃▁▂▂▁▄▄▂▁▁▂▁
-complete,132,▆▄█▃▆▃█▃▁▃▂▂▁▁▅▂▂▁▁▁▂▁▁▁▁
-decode,12,▁▁▁▁▃▁▁▁▁▁▁▁█▂▁▁▁▅▁▁▁▁▁▁▁
-du,15,▁▁▁▁▁▁█▆▁▅▃▁▃▁▁▁▁▃▁▆▁▁▁▁▁
-from nuon,35,▁▁▃▁▁▁▁▁▁▂▁▁▁▁▁█▁▁▁▁▃▂▁▁▂
+hide,4,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+match,54,▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▂▁▁▁▁▁▁▁▁▂▂█▂▁▁
+module,7,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▅▁▁▁
+register,19,▁▁▃▅▁█▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+use,649,▁▃▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▄▂▃▂▂▁▄█▇▄▄▄▃
+columns,341,▁▁▃▁▂▄▄██▄▆▂▁▃▁▂▂▁▄▄▂▁▁▂▆▂▁▄▂▁
+complete,171,▆▄█▃▆▃█▃▁▃▂▂▁▁▅▂▂▁▁▁▂▁▁▁▁▁▆▁▆▄
+decode,12,▁▁▁▁▃▁▁▁▁▁▁▁█▂▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁
+du,17,▁▁▁▁▁▁█▆▁▅▃▁▃▁▁▁▁▃▁▆▁▁▁▁▁▁▅▁▁▁
+from nuon,54,▁▁▃▁▁▁▁▁▁▂▁▁▁▁▁█▁▁▁▁▃▂▁▁▃▁█▁▁▁
 from ssv,0,
-grid,19,▁▂▂▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-group,1,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-input,19,▁▁▁▇▁▁▁█▁▁▄▁▁▁▂▁▁▁▁▁▁▁▄▁█
+grid,19,▁▂▂▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+group,8,▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁█▁
+input,22,▁▁▁▇▁▁▁█▁▁▄▁▁▁▂▁▁▁▁▁▁▁▄▁█▁▁▁▁▅
 into bool,0,
-into datetime,211,▃▁▁▁▂▃▃▂▁▁▂▁▂▁▁▁█▁▁▁▁▁▁▃▂
-into decimal,13,▂▁▂▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-into duration,6,▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁
-metadata,10,▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁█▁▂▁▁
-par-each,444,▁▁▅▁▁▂▁▃▅▆█▅▃▁▂▁▄▁▂▂▁▂▁▄▃
-run-external,2,▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁
-to nuon,79,▁▂▆▁▂▂▁▃▃▃▃▁▁▃▄█▃▃▁▁█▃▁▄▁
-transpose,410,▁▁▃▁▃▅▂▂█▂▃▂▂▃▁▂▂▁▁▂▁▁▅▂▂
-upsert,1918,▂▂▁▃▆▇▂▃█▄▄▂▂▆▂▂▅▁▃▂▂▁▆▆▅
-window,41,▂▁▆▂▁▁▁▁█▂▂▁▁▁▁▁▂▄▁▁▁▂▁▃▁
-date to-record,1,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-glob,447,▁▁▁▁▂▁▂▁▁▁▄▂▂▆▂▁▁▁▂▂▃▂█▅▂
-sort,54,▁▂▁▃▃▂▁▂▁▂▄▄▁▁▁█▂▁▁▄▁▁▃▄▂
-str replace,886,▁▂▂▄█▃▂▂▁▂▃▇▃▇▁▆▆▇▁▂▃▁▄▃▄
-take,7,▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁█▃▁▁▁▁▁▁
-take until,36,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
+into datetime,227,▃▁▁▁▂▃▃▂▁▁▂▁▂▁▁▁█▁▁▁▁▁▁▃▂▁▁▁▃▁
+into duration,6,▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁
+metadata,13,▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁█▁▂▁▁▅▁▁▁▁
+par-each,490,▁▁▅▁▁▂▁▃▅▆█▅▃▁▂▁▄▁▂▂▁▂▁▄▃▂▁▁▄▁
+run-external,2,▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁
+to nuon,115,▁▂▆▁▂▂▁▃▃▃▃▁▁▃▄█▃▃▁▁█▃▁▄▁▇█▁▇▁
+transpose,566,▁▁▃▁▃▅▂▂█▂▃▂▂▃▁▂▂▁▁▂▁▁▅▂▄▄▁▄▅▁
+upsert,2590,▂▂▁▃▆▆▂▃▇▃▃▂▂▅▂▂▅▁▃▂▂▁▆▅▆▂█▇▅▁
+window,82,▁▁▃▁▁▁▁▁▄▁▁▁▁▁▁▁▁▂▁▁▁▁▁▂▁▁▁█▁▁
+date to-record,3,▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
+glob,557,▁▁▁▁▂▁▂▁▁▁▄▂▂▆▂▁▁▁▂▂▃▂█▅▂▅▂▁▃▂
+sort,109,▁▂▁▂▂▁▁▁▁▂▃▃▁▁▁▆▁▁▁▃▁▁▃▃▅█▆▄▁▄
+str replace,1022,▁▂▂▄█▃▂▂▁▂▃▇▃▇▁▆▆▇▁▂▃▁▄▃▅▂▇▃▂▁
+take,9,▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁█▃▁▁▁▁▁▁▅▁▁▁▁
+take until,36,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
 take while,0,
-watch,1,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+watch,2,▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
 dfr agg-groups,0,
-dfr as,255,▁▁▁▁▁▁▁▃▁▂▂▃▁▁█▁▁▁▂▁▂▁▃▁▁
+dfr as,259,▁▁▁▁▁▁▁▃▁▂▂▃▁▁█▁▁▁▂▁▂▁▃▁▁▁▁▁▁▁
 dfr cache,0,
-dfr col,651,▁▁▁▁▁▁▁▃▁▄▃▃▁▁█▂▁▁▂▂▂▁▃▂▁
-dfr collect,106,▁▁▁▁▁▁▁▂▁▅▄█▁▁▁▂▁▁▂▃▁▁▁▁▁
-dfr explode,8,▁▁▁▁▁▁▁█▆▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
-dfr fetch,52,▁▁▁▁▁▁▁▁▁▁▁▂▃▂█▆▁▁▁▁▂▁▁▁▁
-dfr fill-null,38,▁▁▁▁▁▁▁▃▁▁▁▇▁▁▁▁▄▁▁▁█▁▂▂▁
-dfr flatten,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
-dfr lit,55,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▃▁▃▁▁
-dfr ls,3,▁▁▁▁▁▁▁▁▁█▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁
-dfr max,31,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▄▁▁▁▁
+dfr col,738,▁▁▁▁▁▁▁▃▁▄▃▃▁▁█▂▁▁▂▂▂▁▃▂▁▂▂▁▃▁
+dfr collect,120,▁▁▁▁▁▁▁▂▁▅▄█▁▁▁▂▁▁▂▃▁▁▁▁▁▁▃▁▁▂
+dfr explode,8,▁▁▁▁▁▁▁█▆▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
+dfr fetch,52,▁▁▁▁▁▁▁▁▁▁▁▂▃▂█▆▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+dfr fill-null,38,▁▁▁▁▁▁▁▃▁▁▁▇▁▁▁▁▄▁▁▁█▁▂▂▁▁▁▁▁▁
+dfr flatten,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
+dfr lit,55,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▃▁▃▁▁▁▁▁▁▁
+dfr ls,3,▁▁▁▁▁▁▁▁▁█▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr max,37,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▄▁▁▁▁▁▃▁▁▁
 dfr mean,0,
 dfr median,0,
-dfr min,24,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▂▃▁▁▁▁▁
+dfr min,24,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▂▃▁▁▁▁▁▁▁▁▁▁
 dfr quantile,0,
-dfr reverse,15,▁▁▁▁▁▁▁▁▁▆▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-dfr select,348,▁▁▁▁▁▁▁▅▁▂▂▂▄▁▆█▄▁▁█▄▃▁▁▁
-dfr sort-by,227,▁▁▁▁▁▁▁▃▃██▇▅▂▄▁▁▁▁▁▁▄▁▁▁
+dfr reverse,15,▁▁▁▁▁▁▁▁▁▆▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr select,376,▁▁▁▁▁▁▁▅▁▂▂▂▄▁▆█▄▁▁█▄▃▁▁▁▃▂▁▁▁
+dfr sort-by,246,▁▁▁▁▁▁▁▃▃██▇▅▂▄▁▁▁▁▁▁▄▁▁▁▁▄▁▁▁
 dfr std,0,
-dfr sum,16,▁▁▁▁▁▁▁▁▁█▄▁▂▁▃▁▁▁▁▁▁▁▁▁▁
-dfr var,6,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr when,30,▁▁▁▁▁▁▁█▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr sum,16,▁▁▁▁▁▁▁▁▁█▄▁▂▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr var,6,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr when,30,▁▁▁▁▁▁▁█▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 str title-case,0,
-overlay,8,█▄▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-overlay list,29,▅█▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-config env,45,▁▃▂▁▂▂▃█▂▃▄▃▂▅▁▁▃▃▂▄▁▁▃▂▁
-config nu,282,▄▆█▃▆▃▃▅▂▆▆█▂█▅▃▄▂▂▅▂▂▂▃▁
-seq char,4,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
-to text,49,▁▁▁▂▁▁▁█▂▁▁▁▁▁▁▁▁▃▁▂▁▁▂▁▁
-overlay new,3,█▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-each while,14,▁▁█▁▁▁▅▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+overlay,8,█▄▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+overlay list,29,▅█▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+config env,58,▁▃▂▁▂▂▃█▂▃▄▃▂▅▁▁▃▃▂▄▁▁▃▂▁▂▁▂▆▄
+config nu,333,▄▆█▃▆▃▃▅▂▆▆█▂█▅▃▄▂▂▅▂▂▂▃▁▄▂▃▇▃
+seq char,6,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▅▁
+to text,52,▁▁▁▂▁▁▁█▂▁▁▁▁▁▁▁▁▃▁▂▁▁▂▁▁▁▂▁▁▁
+overlay new,3,█▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+each while,0,
 is-admin,0,
-join,14,▁█▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▆
+join,136,▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▆█▃▄
 agg,0,
 min,0,
 to-custom,0,
 with-column,0,
 bytes length,0,
 bytes starts-with,0,
-decode base64,13,▁▁▁▁▁▁▁▁█▁▁▁▁▃▁▁▁▃▁▁▁▁▁▁▁
-encode,17,▁▁▁▁▄▁▁▂▁▁▁▁▁▁▁▁▁█▁▁▁▁▂▁▁
-encode base64,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
-nu-check,8,▁▁▅█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁
+decode base64,13,▁▁▁▁▁▁▁▁█▁▁▁▁▃▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁
+encode,17,▁▁▁▁▄▁▁▂▁▁▁▁▁▁▁▁▁█▁▁▁▁▂▁▁▁▁▁▁▁
+encode base64,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
+nu-check,9,▁▁▅█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▃▁▁▁▁
 port,0,
-schema,2,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+schema,2,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 query,0,
 bytes,0,
 bytes add,0,
@@ -648,7 +835,7 @@ bytes remove,0,
 bytes replace,0,
 bytes reverse,0,
 config reset,0,
-split list,2,▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+split list,15,▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂█▁
 bits,0,
 bits and,0,
 bits not,0,
@@ -660,34 +847,34 @@ bits shr,0,
 bits xor,0,
 export use,0,
 hide-env,0,
-filter,100,▁▁▂▁█▂▁▂▆▅▅▁▄▃▁▁▂▂▇▂▁▁▁▁▁
+filter,106,▁▁▂▁█▂▁▂▆▅▅▁▄▃▁▁▂▂▇▂▁▁▁▁▁▁▁▁▃▁
 into sqlite,0,
 query db,0,
-overlay hide,46,▂█▃▁▁▁▄▄▁▂▂▁▁▃▁▁▁▁▁▁▁▁▁▁▁
-overlay use,573,▂█▄▆▂▃▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-all,2,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁
+overlay hide,47,▂█▃▁▁▁▄▄▁▂▂▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+overlay use,622,▂█▄▆▂▃▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁
+all,2,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
 any,0,
-ast,20,▁▁▂▂▁▁▁▁▁▁▁▁█▅▁▂▁▁▁▁▁▁▁▁▁
-export-env,5,▁█▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-is-empty,59,▁▁▆▁▂▁▂▁▁▁▁▁▁▂▁▁▂▁█▁▁▁▁▁▁
+ast,31,▁▁▂▂▁▁▁▁▁▁▁▁█▅▁▂▁▁▁▁▁▁▁▁▆▁▄▁▁▁
+export-env,5,▁█▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+is-empty,60,▁▁▆▁▂▁▂▁▁▁▁▁▁▂▁▁▂▁█▁▁▁▁▁▁▁▁▁▁▁
 source-env,0,
 split words,0,
-str distance,2,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+str distance,2,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 json,0,
 msgpack,0,
-commandline,46,▁▂▃▃▁▁▁▁▁▁▁▁▁▄▁█▁▁▁▁▁▁▁▁▁
-history session,18,▁▁▁▁▅█▁▆▁▁▁▁█▁▆▁▃▃▁▁▁▁▁▁▁
-str join,297,▁▂▁▅▃▂▃▁▆▁▃▁▄▃▁▂▂█▃█▁▄▂▄▂
+commandline,50,▁▂▃▃▁▁▁▁▁▁▁▁▁▄▁█▁▁▁▁▁▁▁▁▁▁▁▂▁▁
+history session,25,▁▁▁▁▃▅▁▄▁▁▁▁▅▁▄▁▂▂▁▁▁▁▁▁▁▁█▁▁▁
+str join,393,▁▂▁▅▃▂▃▁▆▁▃▁▄▃▁▂▂█▃▇▁▃▂▄▂▃▅█▃▁
 registry query,0,
-break,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+break,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁
 continue,0,
-loop,0,
-mut,87,▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▄▃▁▁▁▁▂
-return,21,▁▁▁▁▁▁▁▇█▅▁▁▁▁▁▁▆▁▁▅▁▁▁▁▁
-try,87,▁▁▂▁▁█▁▅▅▃▅▂▁▃▄▁▆▁▄▁▂▄▁▁▁
-while,0,
-help operators,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
-into record,84,▁▁▁▂▂█▅▁▃▃▁▁▁▁▁▁▇▁▂▂▁▁▂▁▁
+loop,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▅▁▁▁
+mut,87,▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▄▃▁▁▁▁▂▁▁▁▁▁
+return,21,▁▁▁▁▁▁▁▇█▅▁▁▁▁▁▁▆▁▁▅▁▁▁▁▁▁▁▁▁▁
+try,90,▁▁▂▁▁█▁▅▅▃▅▂▁▃▄▁▆▁▄▁▂▄▁▁▁▁▁▁▁▂
+while,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█
+help operators,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+into record,85,▁▁▁▂▂█▅▁▃▃▁▁▁▁▁▁▇▁▂▂▁▁▂▁▁▁▁▁▁▁
 url parse,0,
 math arccos,0,
 math arccosh,0,
@@ -697,59 +884,56 @@ math arctan,0,
 math arctanh,0,
 math cos,0,
 math cosh,0,
-math e,0,
 math ln,0,
-math pi,0,
 math sin,0,
 math sinh,0,
 math tan,0,
 math tanh,0,
-math tau,0,
-math log,9,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁
-uniq-by,18,▁▁▁▁▁▁▁▁▁▁▁▁▇▁▁▁▁▁▁▂▁▁▁▁█
-explore,100,▁▁▆▄▃▂▁▄▇▁▁▂▁▃▂█▂▁▂▁▁▁▂▂▁
-const,1,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-help aliases,2,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁
-help commands,115,▁▂▁▁▁▂▁▁▁▁▆▂▁▁▁▁▁▁▂▁▂▁█▃▄
-help modules,8,▁▁▁▁▁▁▃▁▁▁▁▁▁▃▃▁▁▁▁▁▁▁▁▆█
-start,53,▁▁▁▁▁▁▁▁▃█▂▅▂▄▃▂▂▁▃▃▂▃▄▃▁
+math log,9,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+uniq-by,57,▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▅▇▃█▅▁
+explore,103,▁▁▆▄▃▂▁▄▇▁▁▂▁▃▂█▂▁▂▁▁▁▂▂▁▂▁▁▁▁
+const,1,▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+help aliases,2,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
+help commands,120,▁▂▁▁▁▂▁▁▁▁▆▂▁▁▁▁▁▁▂▁▂▁█▃▄▁▂▁▁▁
+help modules,8,▁▁▁▁▁▁▃▁▁▁▁▁▁▃▃▁▁▁▁▁▁▁▁▆█▁▁▁▁▁
+start,60,▁▁▁▁▁▁▁▁▃█▂▅▂▄▃▂▂▁▃▃▂▃▄▃▁▂▂▂▂▁
 url encode,0,
-values,202,▁▁▁▁▂▂▁▂▁▁▃▁▁▂▁▁█▂▂▁▁▁▄▂▂
+values,222,▁▁▁▁▂▂▁▂▁▁▃▁▁▂▁▁█▂▂▁▁▁▄▂▂▂▁▂▁▁
 ansi link,0,
-enumerate,161,▁▁▁▁▁▁▂▂▄▂▃▁▂▁▅▂▂█▁▄▁▃▁▄▁
+enumerate,193,▁▁▁▁▁▁▂▂▄▂▃▁▂▁▅▂▂█▁▄▁▃▁▄▁▁▆▂▁▁
 http,0,
-http get,145,▁▁▁▁▁▁▂▁▃▃▂▁▁▂▁▂▁█▁▂▆▂▅▄▂
-http post,20,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁▁▁
+http get,186,▁▁▁▁▁▁▂▁▃▃▂▁▁▂▁▂▁▇▁▂▅▂▄▄▂▁█▁▁▁
+http post,20,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁█▁▁▁▁▁▁▁▁
 url build-query,0,
-url join,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
-dfr agg,64,▁▁▁▁▁▁▁▃▁█▁▁▁▁▇▁▁▁▂▂▁▁▁▁▁
-dfr arg-where,44,▁▁▁▁▁▁▁▄▁▁▁▃▁▁█▄▁▁▂▁▄▁▅▁▁
-dfr columns,49,▁▁▁▁▁▁▁▂▃▁▃▁▁▁▁█▂▁▃▁▄▃▁▁▁
-dfr concat-str,78,▁▁▁▁▁▁▁▇▁▁▁▁▁▁█▁▁▁▄▅▃▁▇▁▁
-dfr count,54,▁▁▁▁▁▁▁▂▁█▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁
-dfr dummies,2,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁▁
-dfr expr-not,9,▁▁▁▁▁▁▁▁▁▁▁▁▆▁▁█▁▁▃█▁▁▁▁▁
-dfr fill-nan,7,▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁█▁▁▁▁
-dfr filter,171,▁▁▁▁▁▁▁▁▁▂▃▂▂▁█▂▁▁▁▂▁▁▁▁▁
-dfr into-df,1102,▁▁▁▁▁▁▁▂▂▁▃▄▄▂█▅▅▁▂▃▂▁▂▂▁
-dfr into-lazy,231,▁▁▁▁▁▁▁▂▁▃▃█▂▁▁▂▁▁▁▃▁▁▂▁▁
-dfr into-nu,437,▁▁▁▁▁▁▁▁▁▃▂▆▄▁▃▄█▂▄▂▃▅▁▂▁
+url join,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
+dfr agg,71,▁▁▁▁▁▁▁▃▁█▁▁▁▁▇▁▁▁▂▂▁▁▁▁▁▁▃▁▁▁
+dfr arg-where,47,▁▁▁▁▁▁▁▄▁▁▁▃▁▁█▄▁▁▂▁▄▁▅▁▁▁▁▁▃▁
+dfr columns,49,▁▁▁▁▁▁▁▂▃▁▃▁▁▁▁█▂▁▃▁▄▃▁▁▁▁▁▁▁▁
+dfr concat-str,78,▁▁▁▁▁▁▁▇▁▁▁▁▁▁█▁▁▁▄▅▃▁▇▁▁▁▁▁▁▁
+dfr count,61,▁▁▁▁▁▁▁▂▁█▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁
+dfr dummies,2,▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁
+dfr expr-not,9,▁▁▁▁▁▁▁▁▁▁▁▁▆▁▁█▁▁▃█▁▁▁▁▁▁▁▁▁▁
+dfr fill-nan,7,▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁
+dfr filter,182,▁▁▁▁▁▁▁▁▁▂▃▂▂▁█▂▁▁▁▂▁▁▁▁▁▂▁▁▁▁
+dfr into-df,1175,▁▁▁▁▁▁▁▂▂▁▃▄▄▂█▅▅▁▂▃▂▁▂▂▁▁▃▁▁▁
+dfr into-lazy,249,▁▁▁▁▁▁▁▂▁▃▃█▂▁▁▂▁▁▁▃▁▁▂▁▁▁▂▁▁▁
+dfr into-nu,450,▁▁▁▁▁▁▁▁▁▃▂▆▄▁▃▄█▂▄▂▃▅▁▂▁▂▁▁▁▁
 dfr lowercase,0,
-dfr n-unique,3,▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr otherwise,12,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr n-unique,5,▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆▁▁▁
+dfr otherwise,12,▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr query,0,
-dfr summary,7,▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-dfr to-arrow,2,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
+dfr summary,7,▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+dfr to-arrow,2,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 dfr uppercase,0,
-explain,27,▁▁▁▁▁▁▄▁▁▂▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-fill,81,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▄▁▁▁▁▁▁▁▁▂
-inspect,82,▁▁▁▁▃▁▂▁▃▃▇▃▁█▁▁▂▁▂▄▁▁▁▂▁
-profile,53,▁▁▁▁▁▁▁▁▁▁▄█▁▁▁▂▆▁▃▁▁▁▁▁▁
-timeit,349,▁▁▁▁▁▁▁▃▁▄▄▅▃▁█▄▂▂▃▂▂▁▁▁▁
-view,2,█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
-view files,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
-view source,80,▁▁▁▂▁▁▄█▁▂▅▃▃▂▃▃▁▁▃▃▃▁▁▂▃
-view span,1,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁
+explain,31,▁▁▁▁▁▁▄▁▁▂▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁
+fill,84,▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▄▁▁▁▁▁▁▁▁▂▁▁▁▁▁
+inspect,90,▁▁▁▁▃▁▂▁▃▃▇▃▁█▁▁▂▁▂▄▁▁▁▂▁▃▁▁▁▁
+profile,53,▁▁▁▁▁▁▁▁▁▁▄█▁▁▁▂▆▁▃▁▁▁▁▁▁▁▁▁▁▁
+timeit,362,▁▁▁▁▁▁▁▃▁▄▄▅▃▁█▄▂▂▃▂▂▁▁▁▁▂▁▁▁▁
+view,3,█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
+view files,4,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁█
+view source,106,▁▁▁▂▁▁▄█▁▂▅▃▃▂▃▃▁▁▃▃▃▁▁▂▆▆▄▂▁▁
+view span,4,▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
 nu-plugin,0,
 custom-value generate,0,
 custom-value generate2,0,
@@ -769,36 +953,39 @@ http put,0,
 decode hex,0,
 encode hex,0,
 math exp,0,
-help externs,1,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁
-items,178,▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▂▂▂▂▁█▅▁▁
+help externs,1,▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+items,187,▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▂▂▂▂▁█▅▁▁▁▁▁▁▁
 dfr implode,0,
 export module,0,
-input list,23,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▄▂▁▅▁▁▁▆▂
+input list,29,▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▄▂▁▅▁▁▁▆▂▁▁▁▁▆
 dfr datepart,0,
 dfr to-jsonl,0,
-math egamma,0,
-math phi,0,
-lazy make,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁
-scope,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
+lazy make,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁
+scope,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
 scope aliases,0,
 scope commands,0,
-scope engine-stats,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█
-scope modules,0,
-scope variables,54,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁█▁
-http options,0,
+scope engine-stats,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
+scope modules,2,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
+scope variables,61,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁█▁▂▁▁▁▁
+http options,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
 hello,0,
 into bits,0,
 extern-wrapped,0,
 input listen,0,
-str expand,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁
+str expand,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁
 dfr to-avro,0,
 export const,0,
 export extern-wrapped,0,
 scope externs,0,
-format date,15,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁█▁
-format duration,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁
-hash md5,7,▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██▁▁▁▅▁▁
-hash sha256,27,▃▅▁▁▁▁▁▁▁▁▁▁▅▁▆▂▁▁▁█▁▁▂▁▁
-into float,0,
-random float,0,
-ucp,0,
+format date,29,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁█▁▁▁▂▇▁
+format duration,3,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁█▁▁▁
+into float,92,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁█▃▁
+random float,26,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁
+cp-old,0,
+debug info,0,
+help escapes,0,
+into value,0,
+random int,0,
+unfold,1,▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
+url decode,0,
+hash sha256,35,▃▅▁▁▁▁▁▁▁▁▁▁▅▁▆▂▁▁▁█▁▁▂▁▁█▁▁▁▁
