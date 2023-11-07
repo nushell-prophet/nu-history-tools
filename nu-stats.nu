@@ -16,21 +16,21 @@ export def nu-hist-stats [
 
     cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
 
-    let $tested_versions = ['0.86.0']
-    let $current_version = (version | get version)
-    let $temp_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
+    let $compatible_versions = ['0.86.0']
+    let $running_version = (version | get version)
+    let $temp_history_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
 
-    history-save $temp_file
+    history-save $temp_history_file
 
-    if $current_version not-in $tested_versions {
-        cprint --after 2 $'This script was tested on *($tested_versions)*. You have *($current_version)*.
+    if $running_version not-in $compatible_versions {
+        cprint --after 2 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
         If you have problems running this script, consider upgrading NuShell.'
     }
 
     cprint --before 1 --after 2 'The script is calculating stats now.
     On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    nu-file-stats --extra_graphs $temp_file
+    nu-file-stats --extra_graphs $temp_history_file
     | reject first_tag last_tag crate
     | upsert '' 'x'     # To separate data from others and current user's data
     | make-benchmarks
@@ -109,15 +109,15 @@ export def aggregate-submissions [
 ] {
     cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
 
-    let $pick_users_dialogue = $pick_users or ($env.freq-hist?.pick-users? | default false)
+    let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
-    let $submissions_stats = (
+    let $aggregated_submissions = (
         ls $submissions_path --full-paths
         | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
-        | if $pick_users_dialogue {
+        | if $user_selection_dialog {
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
@@ -147,39 +147,39 @@ export def aggregate-submissions [
         | sort-by command_entries -r
     )
 
-    let $users_ordered = (
-        $submissions_stats
+    let $ordered_users = (
+        $aggregated_submissions
         | select user command_entries
         | enumerate
         | flatten
         | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
     )
 
-    if not $pick_users_dialogue {
+    if not $user_selection_dialog {
         cprint --after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
         You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
         *aggregate-submissions --pick_users*.'
     }
 
-    print $users_ordered
+    print $ordered_users
 
-    let $stat_grouped = (
-        $submissions_stats
+    let $grouped_statistics = (
+        $aggregated_submissions
         | select commands user
         | flatten
         | flatten
         | group-by name
     )
 
-    let $3_sparklines = (
-        $stat_grouped
+    let $user_sparklines = (
+        $grouped_statistics
         | values
         | each {|b| {name: $b.name.0, freq_by_user: (spark $b.count_norm --colors)}}
         | transpose -idr
     )
 
-    let $fin_analytics = (
-        $stat_grouped
+    let $final_analytics = (
+        $grouped_statistics
         | items {
             |name b| {
                 name: $name,
@@ -187,7 +187,7 @@ export def aggregate-submissions [
                 freq_overall: ($b.count | math sum),
                 users_count: ($b.count | where $it > 0 | length),
                 f_n_per_user: ($b.count_norm | math avg),
-                freq_by_user: ($3_sparklines | get $name),
+                freq_by_user: ($user_sparklines | get $name),
             }
         }
         | upsert importance {
@@ -198,7 +198,7 @@ export def aggregate-submissions [
         | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
     );
 
-    $fin_analytics
+    $final_analytics
     | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands was introduced
 }
 
@@ -232,9 +232,9 @@ export def make-benchmarks [] {
 # Provides a list with all commands ever implemented in NuShell and their crates.
 # Useful for cross-referencing current commands against historical data.
 export def commands-all [] {
-    let $crates_hist = (open crates_parsing/cmds_by_crates_and_tags.csv)
+    let $crate_history = (open crates_parsing/cmds_by_crates_and_tags.csv)
 
-    let $current_commands = (
+    let $current_command_list = (
         help commands
         | select name category command_type
         | where command_type in ['builtin' 'keyword']
@@ -243,20 +243,20 @@ export def commands-all [] {
 
     let $ver = (version | get version)
 
-    # The $fallback is used if there is no crates parsing history.
+    # The $default_command_data is used if there is no crates parsing history.
     # You can update the CSV file by running crates_parsing/crates_parsing.nu
-    let $fallback = (
-        $current_commands
+    let $default_command_data = (
+        $current_command_list
         | select name
         | upsert crate not_parsed_yet
         | upsert first_tag $ver
         | upsert last_tag $ver
     )
 
-    $crates_hist
-    | append $fallback
+    $crate_history
+    | append $default_command_data
     | uniq-by name
-    | join -l $current_commands name
+    | join -l $current_command_list name
 }
 
 # Creates extra graphical representations for command usage over time.
@@ -274,7 +274,7 @@ def make_extra_graphs [
         | flatten
     );
 
-    let $def_bins = (
+    let $default_bins = (
         $hist_for_timeline
         | get start
         | uniq
@@ -282,14 +282,14 @@ def make_extra_graphs [
         | reduce -f {} {|a b| $b | merge {$a: 0}}
     )
 
-    let $sparks = (
+    let $sparkline_data = (
         $hist_for_timeline
         | group-by content
         | items {
             |a b|
             {
                 $a: (
-                    $def_bins
+                    $default_bins
                     | merge ($b | select start count | transpose -idr)
                     | values
                     | spark $in
@@ -302,13 +302,12 @@ def make_extra_graphs [
     $table_in
     | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
     | upsert timeline {
-        |i| $sparks
+        |i| $sparkline_data
         | get -i $i.name
     }
 }
 
-# Combine all history and save it as a `.nu` file to the specified destination.
-# Saves history from sql and txt files as a `.nu` file to the specified destination.
+# Combine history from sql and txt files and save it as a `.nu` file to the specified destination.
 def history-save [
     destination_path: path
 ] {
@@ -320,11 +319,11 @@ def history-save [
 
         cprint --after 2 $'Your history is in *sqlite* format and will be used for analysis.
         Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
-        entries*. Would you like to include them in the analysis as well?
+        entries*. Would you like to include them in the analysis as well?'
 
         mut answer = ''
 
-        while ($answer | str downcase) not in [y, n] {
+        while ($answer | str downcase) not-in [y, n] {
             $answer = (input '[y/n]: ')
         }
 
