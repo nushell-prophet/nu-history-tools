@@ -121,8 +121,7 @@ export def aggregate-submissions [
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
-        | par-each {
-            |filename|
+        | par-each { |filename|
             open $filename
             | if ('command_type' in ($in | columns)) {
                 reject command_type
@@ -180,8 +179,8 @@ export def aggregate-submissions [
 
     let $final_analytics = (
         $grouped_statistics
-        | items {
-            |name b| {
+        | items { |name b|
+            {
                 name: $name,
                 category: $b.category.0,
                 freq_overall: ($b.count | math sum),
@@ -285,16 +284,12 @@ def make_extra_graphs [
     let $sparkline_data = (
         $hist_for_timeline
         | group-by content
-        | items {
-            |a b|
-            {
-                $a: (
-                    $default_bins
-                    | merge ($b | select start count | transpose -idr)
-                    | values
-                    | spark $in
-                )
-            }
+        | items {|a b|
+            $default_bins
+            | merge ($b | select start count | transpose -idr)
+            | values
+            | spark $in
+            | { $a: $in }
         }
         | reduce -f {} {|a b| $a | merge $b}
     )
