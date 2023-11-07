@@ -1,11 +1,16 @@
-# Calculate the frequency of use of the "nu" commands in a history.
+# This NuShell module contains utilities to analyze the usage statistics of NuShell commands based on user history.
+
+# Calculates and aggregates statistics for NuShell command usage across .nu files and command histories.
+# It includes features for normalization of data, creation of visual graphs and bars to represent data,
+# and benchmarking command usage against submissions from other users.
+
 # https://github.com/Nushell101/nu-stats
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 # Calculate stats for the current user's command history.
 export def nu-hist-stats [
-    --pick_users    # the flag invokes interactive users selection (during script running) for filtering benchmarks
+    --pick_users    # The flag invokes interactive user selection for filtering benchmarks during script execution.
 ] {
     $env.freq-hist.pick-users = $pick_users
 
@@ -49,12 +54,14 @@ export def nu-files-stats [
     | sort-by freq -r
 }
 
-# Calculate stats of commands in a specified `.nu` file
+# Calculate stats of command usage in a specified `.nu` file.
+# Generates additional graphs and normalizes frequency data if requested.
+# Saves the output to a user-defined path.
 export def nu-file-stats [
     path: path
-    --normalize_freq    # create a normalized freqency column
-    --extra_graphs      # produce frequency histogram and timeline sparklines columns
-    --submissions_path: path = 'stats_submissions' # a path to a folder that contains submitted results
+    --normalize_freq    # Adds a normalized frequency column to the output.
+    --extra_graphs      # Includes frequency histogram and timeline sparklines in the output.
+    --submissions_path: path = 'stats_submissions' # A path to a folder for submitted results.
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -94,10 +101,11 @@ export def nu-file-stats [
     $output
 }
 
-# parse submitted stats from a folder
+# Parses submitted stats from a folder and aggregates them for benchmarking.
+# Can interactively select users to include in the analysis.
 export def aggregate-submissions [
-    --pick_users    # the flag invokes interactive users selection (during script running)
-    --submissions_path: path = 'stats_submissions' # a path to a folder that contains submitted results
+    --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
+    --pick_users                                    # The flag invokes interactive user selection during script execution.
 ] {
     cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
 
@@ -194,7 +202,8 @@ export def aggregate-submissions [
     | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands was introduced
 }
 
-# Create benchmark columns for piped in stats.
+# Create benchmark columns for piped-in stats.
+# Adds additional columns to the data for visual representation and importance calculation.
 export def make-benchmarks [] {
     let $data = $in
 
@@ -220,7 +229,8 @@ export def make-benchmarks [] {
     | fill non-exist ''
 }
 
-# This command provide a list with all commands and their crates
+# Provides a list with all commands ever implemented in NuShell and their crates.
+# Useful for cross-referencing current commands with historical data.
 export def commands-all [] {
     let $crates_hist = (open crates_parsing/cmds_by_crates_and_tags.csv)
 
@@ -249,6 +259,8 @@ export def commands-all [] {
     | join -l $current_commands name
 }
 
+# Creates extra graphical representations for command usage over time.
+# Intended to be used as a helper function within the script for visual data analysis.
 def make_extra_graphs [
     $ast_data
 ] {
@@ -296,6 +308,7 @@ def make_extra_graphs [
 }
 
 # Combine all history and save it as a `.nu` file to the specified destination.
+# Saves history from sql and txt files as a `.nu` file to the specified destination.
 def history-save [
     destination_path: path
 ] {
