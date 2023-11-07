@@ -8,9 +8,9 @@
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
-# Calculate stats for the current user's command history.
+# Calculates statistics for the current user's command history.
 export def nu-hist-stats [
-    --pick_users    # The flag invokes interactive user selection for filtering benchmarks during script execution.
+    --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution.
 ] {
     $env.freq-hist.pick-users = $pick_users
 
@@ -55,13 +55,13 @@ export def nu-files-stats [
 }
 
 # Calculate stats of command usage in a specified `.nu` file.
-# Generates additional graphs and normalizes frequency data if requested.
+# Generates additional graphs and normalizes frequency data upon request.
 # Saves the output to a user-defined path.
 export def nu-file-stats [
     path: path
     --normalize_freq    # Adds a normalized frequency column to the output.
     --extra_graphs      # Includes frequency histogram and timeline sparklines in the output.
-    --submissions_path: path = 'stats_submissions' # A path to a folder for submitted results.
+    --submissions_path: path = 'stats_submissions' # Specifies the path to a folder containing submitted results.
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -105,7 +105,7 @@ export def nu-file-stats [
 # Can interactively select users to include in the analysis.
 export def aggregate-submissions [
     --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
-    --pick_users                                    # The flag invokes interactive user selection during script execution.
+    --pick_users                                    # This flag triggers interactive user selection during script execution.
 ] {
     cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
 
@@ -203,7 +203,7 @@ export def aggregate-submissions [
 }
 
 # Create benchmark columns for piped-in stats.
-# Adds additional columns to the data for visual representation and importance calculation.
+# Adds extra columns to the data for visual representation and calculation of importance.
 export def make-benchmarks [] {
     let $data = $in
 
@@ -230,7 +230,7 @@ export def make-benchmarks [] {
 }
 
 # Provides a list with all commands ever implemented in NuShell and their crates.
-# Useful for cross-referencing current commands with historical data.
+# Useful for cross-referencing current commands against historical data.
 export def commands-all [] {
     let $crates_hist = (open crates_parsing/cmds_by_crates_and_tags.csv)
 
@@ -243,8 +243,8 @@ export def commands-all [] {
 
     let $ver = (version | get version)
 
-    # The $fallback is used if ther is no crates parsing history.
-    # You can update the csv by running crates_parsing/crates_parsing.nu
+    # The $fallback is used if there is no crates parsing history.
+    # You can update the CSV file by running crates_parsing/crates_parsing.nu
     let $fallback = (
         $current_commands
         | select name
@@ -260,7 +260,7 @@ export def commands-all [] {
 }
 
 # Creates extra graphical representations for command usage over time.
-# Intended to be used as a helper function within the script for visual data analysis.
+# Serves as a helper function within the script for visual data analysis.
 def make_extra_graphs [
     $ast_data
 ] {
@@ -318,13 +318,13 @@ def history-save [
 
     if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
 
-        cprint --after 2 $'Your history is in *sqlite* format. It will be used for analysis.
-        Additionaly, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
-        entries*. Would you like to include them in the analysis as well?'
+        cprint --after 2 $'Your history is in *sqlite* format and will be used for analysis.
+        Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
+        entries*. Would you like to include them in the analysis as well?
 
         mut answer = ''
 
-        while ($answer | str downcase) not-in [ y n ] {
+        while ($answer | str downcase) not in [y, n] {
             $answer = (input '[y/n]: ')
         }
 
