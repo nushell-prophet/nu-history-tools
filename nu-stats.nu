@@ -101,6 +101,31 @@ export def nu-file-stats [
     $output
 }
 
+def open_submission [
+    filename: path
+] {
+    open $filename
+    | if ('command_type' in ($in | columns)) {
+        reject command_type
+    } else {}
+    | if ('freq' in ($in | columns)) { # legacy fix
+        rename -c {freq: count}
+    } else {}
+    | group-by name
+    | do {
+        |dict|
+        commands-all
+        | upsert count {
+            |i| $dict | get -i $i.name | get -i count.0 | default 0
+        }
+        | normalize count
+        | upsert count_norm_bar {|i| bar $i.count_norm -w ('count_norm_bar' | str length)}
+    } $in
+    | {commands: $in}
+    | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
+    | upsert command_entries {|i| $i.commands.count | math sum} # The total count of command entries in history of the current user
+}
+
 # Parses submitted stats from a folder and aggregates them for benchmarking.
 # Can interactively select users to include in the analysis.
 export def aggregate-submissions [
@@ -121,28 +146,7 @@ export def aggregate-submissions [
             each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
             | input list --multi
         } else {}
-        | par-each { |filename|
-            open $filename
-            | if ('command_type' in ($in | columns)) {
-                reject command_type
-            } else {}
-            | if ('freq' in ($in | columns)) { # legacy fix
-                rename -c {freq: count}
-            } else {}
-            | group-by name
-            | do {
-                |dict|
-                commands-all
-                | upsert count {
-                    |i| $dict | get -i $i.name | get -i count.0 | default 0
-                }
-                | normalize count
-                | upsert count_norm_bar {|i| bar $i.count_norm -w ('count_norm_bar' | str length)}
-            } $in
-            | {commands: $in}
-            | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
-            | upsert command_entries {|i| $i.commands.count | math sum} # The total count of command entries in history of current user
-        }
+        | par-each {|filename| open_submission $filename}
         | sort-by command_entries -r
     )
 
