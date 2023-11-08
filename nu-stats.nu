@@ -79,7 +79,7 @@ export def nu-file-stats [
         | if $include_0_freq_commands {
             default 0 freq
         } else {
-            filter {|i| $i.freq? | is-empty | not $in}
+            where freq? != null
         }
     )
 
