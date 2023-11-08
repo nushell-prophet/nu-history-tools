@@ -120,7 +120,7 @@ def open_submission [
     | normalize freq
     | upsert freq_norm_bar {|i| bar $i.freq_norm -w ('freq_norm_bar' | str length)}
     | {commands: $in}
-    | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
+    | upsert user ($filename | path basename | str replace -r '.*\+(.*)\.csv' '$1')
     | upsert command_entries {|i| $i.commands.freq | math sum} # The total count of command entries in history of the current user
 }
 
@@ -200,7 +200,7 @@ export def aggregate-submissions [
     );
 
     $final_analytics
-    | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands was introduced
+    | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands were introduced
 }
 
 # Create benchmark columns for piped-in stats.
