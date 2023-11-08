@@ -107,6 +107,7 @@ export def nu-file-stats [
     $output
 }
 
+# Helper function to open a submission file and shape the data for further needs
 def open_submission [
     filename: path
 ] {
@@ -117,16 +118,10 @@ def open_submission [
     | if ('freq' in ($in | columns)) { # legacy fix
         rename -c {freq: count}
     } else {}
-    | group-by name
-    | do {
-        |dict|
-        commands-all
-        | upsert count {
-            |i| $dict | get -i $i.name | get -i count.0 | default 0
-        }
-        | normalize count
-        | upsert count_norm_bar {|i| bar $i.count_norm -w ('count_norm_bar' | str length)}
-    } $in
+    | join (commands-all) --right name
+    | default 0 count
+    | normalize count
+    | upsert count_norm_bar {|i| bar $i.count_norm -w ('count_norm_bar' | str length)}
     | {commands: $in}
     | upsert user ($filename | path basename | str replace -r '(.*)\+(.*)\.csv' '$2')
     | upsert command_entries {|i| $i.commands.count | math sum} # The total count of command entries in history of the current user
