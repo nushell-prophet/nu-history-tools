@@ -56,12 +56,14 @@ export def nu-files-stats [
 
 # Calculate stats of command usage in a specified `.nu` file.
 # Generates additional graphs and normalizes frequency data upon request.
-# Saves the output to a user-defined path.
+# Saves the output to a user-defined path for contributing results to the `nu-stats` repo.
 export def nu-file-stats [
     path: path
-    --normalize_freq    # Adds a normalized frequency column to the output.
-    --extra_graphs      # Includes frequency histogram and timeline sparklines in the output.
-    --submissions_path: path = 'stats_submissions' # Specifies the path to a folder containing submitted results.
+    --normalize_freq                                # Adds a normalized frequency column to the output.
+    --extra_graphs                                  # Includes frequency histogram and timeline sparklines in the output.
+    --submissions_path: path = 'stats_submissions'  # Specifies the path to a folder containing submitted results.
+    --output_filename: string = 'WriteYourNick'
+    --include_0_freq_commands                       # Include all the historical NuShell commands
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -74,7 +76,11 @@ export def nu-file-stats [
     let $freq_builtins_only = (
         commands-all
         | join $freq_table -l name
-        | upsert freq {|i| $i.freq | default 0}
+        | if $include_0_freq_commands {
+            default 0 freq
+        } else {
+            filter {|i| $i.freq? | is-empty | not $in}
+        }
     )
 
     let $output = (
@@ -95,7 +101,7 @@ export def nu-file-stats [
     }
     | save -f (
         $submissions_path
-        | path join $'v2_(date now | format date "%Y-%m-%d")+WriteYourNick.csv'
+        | path join $'v2_(date now | format date "%Y-%m-%d")+($output_filename).csv'
     )
 
     $output
