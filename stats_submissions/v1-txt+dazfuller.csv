@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 cd,builtin,1484
 ls,builtin,688
 source,keyword,671
@@ -71,3 +71,6 @@ values,builtin,10
 from tsv,builtin,10
 for,keyword,10
 skip,builtin,10
+
+
+

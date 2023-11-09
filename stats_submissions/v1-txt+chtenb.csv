@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 g,alias,6738
 cd,builtin,1099
 add,alias,681
@@ -40,3 +40,6 @@ math sum,builtin,10
 from,builtin,10
 history,builtin,10
 parse,builtin,10
+
+
+

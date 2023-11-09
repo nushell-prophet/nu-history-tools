@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 ls,builtin,791
 cd,builtin,675
 p,builtin,538
@@ -106,3 +106,6 @@ first,builtin,12
 config env,builtin,11
 path relative-to,builtin,11
 filter,builtin,11
+
+
+

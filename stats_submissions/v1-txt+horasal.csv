@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 ls,builtin,292
 encode,builtin,145
 cd,builtin,135
@@ -36,3 +36,6 @@ dfr open,builtin,10
 random integer,builtin,10
 version,builtin,10
 fmt,builtin,10
+
+
+

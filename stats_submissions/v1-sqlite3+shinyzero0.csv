@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 vi,alias,1807
 z,alias,1413
 ls,builtin,1381
@@ -212,3 +212,6 @@ ring clean,custom,10
 git checkout,external,10
 _select,custom,10
 from,builtin,10
+
+
+

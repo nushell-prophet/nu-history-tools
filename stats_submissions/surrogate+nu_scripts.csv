@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 get,filters,4918
 let,core,3759
 ls,filesystem,3268
@@ -337,3 +337,6 @@ help operators,core,1
 date to-record,date,1
 help aliases,core,1
 dfr is-duplicated,dataframe,1
+
+
+

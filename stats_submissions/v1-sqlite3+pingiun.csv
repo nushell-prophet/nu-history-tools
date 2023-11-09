@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 cd,builtin,98
 help,builtin,88
 ls,builtin,67
@@ -33,3 +33,6 @@ exec,builtin,11
 def,keyword,11
 transpose,builtin,11
 fmt,builtin,10
+
+
+

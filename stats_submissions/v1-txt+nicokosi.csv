@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 help,builtin,39
 get,builtin,37
 ls,builtin,36
@@ -10,3 +10,6 @@ find,builtin,14
 echo,builtin,14
 table,builtin,11
 sort-by,builtin,10
+
+
+

@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 ls,builtin,393
 cd,builtin,343
 ll,custom,335
@@ -45,3 +45,6 @@ str replace,builtin,11
 inspect,builtin,11
 save,builtin,11
 describe,builtin,10
+
+
+

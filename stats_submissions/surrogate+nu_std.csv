@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 if,core,184
 ansi,platform,127
 let,core,126
@@ -105,3 +105,6 @@ group-by,filters,1
 loop,core,1
 timeit,debug,1
 path parse,path,1
+
+
+

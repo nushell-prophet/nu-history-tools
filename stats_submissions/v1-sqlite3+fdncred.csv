@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 ls,builtin,1525
 help,builtin,818
 get,builtin,792
@@ -209,3 +209,6 @@ return,keyword,10
 loop,builtin,10
 items,builtin,10
 help aliases,builtin,10
+
+
+

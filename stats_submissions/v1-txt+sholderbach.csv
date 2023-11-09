@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 help,builtin,219
 ls,builtin,162
 cd,builtin,80
@@ -65,3 +65,6 @@ date now,builtin,10
 tutor,builtin,10
 find,builtin,10
 from,builtin,10
+
+
+

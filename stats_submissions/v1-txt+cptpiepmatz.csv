@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 cd,builtin,719
 open,builtin,491
 highlight,plugin,350
@@ -53,3 +53,6 @@ to md,builtin,12
 columns,builtin,12
 reject,builtin,11
 into datetime,builtin,10
+
+
+

@@ -1,4 +1,4 @@
-name,command_type,count
+name,command_type,freq
 ls,builtin,849
 p,alias,287
 cd,builtin,208
@@ -52,3 +52,6 @@ ansi,builtin,13
 path join,builtin,13
 which,builtin,13
 url,builtin,10
+
+
+
