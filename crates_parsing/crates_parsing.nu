@@ -1,10 +1,10 @@
 # This script parses sources of nushell for the last x tags to extract nushell commands
 
 # A path to output `.csv` results
-let $OUTPUT_DIR = '/Users/user/apps-files/github/nu-commands-frequency-stats/crates_parsing/'
+let $OUTPUT_DIR = '/Users/user/git/nu-stats/crates_parsing/'
 
 # A path to a Nushell's git repository
-let $CRATES_DIR = '/Users/user/apps-files/github/nushell/crates/'
+let $CRATES_DIR = '/Users/user/git/nushell/crates/'
 
 if not ($OUTPUT_DIR | path exists) {
     error make {msg: 'set an `$OUTPUT_DIR` variable in the body of `crates_parsing.nu` script'}

@@ -61,7 +61,7 @@ export def save-stats-for-submission [
         to the original repository *https://github.com/Nushell101/nu-stats/tree/main/stats_submissions*.'
 }
 
-# Calculate stats of commands in a given .nu files
+# Calculate stats of commands in given .nu files
 # > glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | nu-files-stats
 export def nu-files-stats [
     ...file_paths: path
