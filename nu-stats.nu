@@ -23,12 +23,12 @@ export def nu-hist-stats [
     history-save $temp_history_file
 
     if $running_version not-in $compatible_versions {
-        cprint --after 2 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
-        If you have problems running this script, consider upgrading Nushell.'
+        cprint --after 1 --before 1 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
+            If you have problems running this script, consider upgrading Nushell.'
     }
 
     cprint --before 1 --after 2 'The script is calculating stats now.
-    On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
+        On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
     nu-file-stats --extra_graphs $temp_history_file
     | reject first_tag last_tag crate
@@ -130,7 +130,8 @@ export def aggregate-submissions [
     --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
     --pick_users                                    # This flag triggers interactive user selection during script execution.
 ] {
-    cprint -f '*' --after 2 -h grey 'Aggregated stats of other users for benchmarks. *Will be displayed in the final table*'
+    cprint -f '*' --after 2 -h grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
+        *They will be displayed in the final table*.'
 
     let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
