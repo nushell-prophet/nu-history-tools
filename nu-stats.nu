@@ -1,6 +1,6 @@
-# This NuShell module contains utilities to analyze the usage statistics of NuShell commands based on user history.
+# This Nushell module contains utilities to analyze the usage statistics of Nushell commands based on user history.
 
-# Calculates and aggregates statistics for NuShell command usage across .nu files and command histories.
+# Calculates and aggregates statistics for Nushell command usage across .nu files and command histories.
 # It includes features for normalization of data, creation of visual graphs and bars to represent data,
 # and benchmarking command usage against submissions from other users.
 
@@ -24,7 +24,7 @@ export def nu-hist-stats [
 
     if $running_version not-in $compatible_versions {
         cprint --after 2 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
-        If you have problems running this script, consider upgrading NuShell.'
+        If you have problems running this script, consider upgrading Nushell.'
     }
 
     cprint --before 1 --after 2 'The script is calculating stats now.
@@ -63,7 +63,7 @@ export def nu-file-stats [
     --extra_graphs                                  # Includes frequency histogram and timeline sparklines in the output.
     --submissions_path: path = 'stats_submissions'  # Specifies the path to a folder containing submitted results.
     --output_filename: string = 'WriteYourNick'
-    --include_0_freq_commands                       # Include all the historical NuShell commands
+    --include_0_freq_commands                       # Include all the historical Nushell commands
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -230,7 +230,7 @@ export def make-benchmarks [] {
     | fill non-exist ''
 }
 
-# Provides a list with all commands ever implemented in NuShell and their crates.
+# Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
 # > use nu-stats.nu commands-all; let $res = commands-all; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
