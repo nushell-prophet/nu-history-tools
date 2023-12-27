@@ -1,6 +1,6 @@
-<h1 align="center">nu-stats module</h1>
+<h1 align="center">nu-stats: Nushell module for history analytics</h1>
 
-A NuShell module to analyze the command frequencies in NuShell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
+A Nushell module to analyze the command frequencies in Nushell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
 
 Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/Nushell101/nu-stats/tree/main/script_results/aggregated-submissions.csv)
 
@@ -17,7 +17,7 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> use nu-stats.nu [nu-hist-stats aggregate-submissions]; let $res = nu-hist-stats
+> use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res
 
 *******************************************************************************
 Resulting table
@@ -62,7 +62,7 @@ aggregate-submissions --pick_users. The current list is:
 │ 14 │ nicokosi       │            255 │
 ╰────┴────────────────┴────────────────╯
 
-> use nu-stats.nu [nu-hist-stats aggregate-submissions]; let $res = aggregate-submissions
+> use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res
 ╭────name────┬──category──┬freq_overall┬users_count┬f_n_per_user┬──freq_by_user───┬importance┬─importance_b─┬───crate────┬first_tag┬last_tag╮
 │ ls         │ filesystem │      13252 │        14 │       0.71 │ ▆▆██▁█▄▄██▆█▁▆▇ │     1.00 │ ████████████ │ nu-parser  │ 0.2.0   │ 0.85.0 │
 │ cd         │ filesystem │       7195 │        14 │       0.45 │ ▂▂▄▇▂▁██▃▇▄▄▁█▁ │     0.80 │ █████████▋   │ nu-command │ 0.2.0   │ 0.85.0 │
