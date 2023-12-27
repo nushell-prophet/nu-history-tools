@@ -16,7 +16,7 @@ export def nu-hist-stats [
 
     cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
 
-    let $compatible_versions = ['0.86.0']
+    let $compatible_versions = ['0.88.1']
     let $running_version = (version | get version)
     let $temp_history_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
 
