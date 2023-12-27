@@ -1,4 +1,5 @@
-<h1 align="center">nu-stats: Nushell module for history analytics</h1>
+<h1 align="center">nu-stats</h1>
+<h3 align="center">Nushell🚀 module for commands history analytics</h3>
 
 A Nushell module to analyze the command frequencies in Nushell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
 
