@@ -10,7 +10,8 @@ use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 # Calculates statistics for the current user's command history.
 export def nu-hist-stats [
-    --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution.
+    --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
+    --nickname: string = 'WriteYourNick' # The nick to use for resulting stats (can be submitted to common stats repo)
 ] {
     $env.freq-hist.pick-users = $pick_users
 
@@ -30,9 +31,24 @@ export def nu-hist-stats [
     cprint --before 1 --after 2 'The script is calculating stats now.
         On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    nu-file-stats --extra_graphs $temp_history_file
-    | reject first_tag last_tag crate
-    | upsert '' 'x'     # To separate data from others and current user's data
+    let $res = (nu-file-stats --extra_graphs $temp_history_file)
+
+    let $submissions_path = (
+        pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-stats module, there should be a 'submissions' folder
+        | if ($in | path exists) { } else {
+            error make {msg: `Please run this script for the root of it's git repositor folder`}
+        }
+        | path join $'v2+($nickname).csv'
+    )
+
+    $res
+    | select -i name freq
+    | save -f $submissions_path
+
+    cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
+        to the original repository *https://github.com/Nushell101/nu-stats/tree/main/stats_submissions*.'
+
+    $res
     | make-benchmarks
 }
 
