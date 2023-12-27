@@ -331,7 +331,7 @@ def history-save [
         }
 
         $history_txt = (
-            if ($answer | str downcase) != 'y' {
+            if ($answer | str downcase) == 'y' {
                 open $history_txt_path | lines
             }
         )
