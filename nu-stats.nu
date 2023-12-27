@@ -59,11 +59,9 @@ export def nu-files-stats [
 # Saves the output to a user-defined path for contributing results to the `nu-stats` repo.
 export def nu-file-stats [
     path: path
-    --normalize_freq                                # Adds a normalized frequency column to the output.
-    --extra_graphs                                  # Includes frequency histogram and timeline sparklines in the output.
-    --submissions_path: path = 'stats_submissions'  # Specifies the path to a folder containing submitted results.
-    --output_filename: string = 'WriteYourNick'
-    --include_0_freq_commands                       # Include all the historical Nushell commands
+    --normalize_freq            # Adds a normalized frequency column to the output.
+    --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
+    --include_0_freq_commands   # Include all the historical Nushell commands
 ] {
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
@@ -75,7 +73,8 @@ export def nu-file-stats [
 
     let $freq_builtins_only = (
         commands-all
-        | join $freq_table -l name
+        | reject first_tag last_tag crate
+        | join $freq_table -l name # but left join we make sure that only standard commands are included into results
         | if $include_0_freq_commands {
             default 0 freq
         } else {
@@ -83,28 +82,13 @@ export def nu-file-stats [
         }
     )
 
-    let $output = (
-        $freq_builtins_only
-        | if $normalize_freq or $extra_graphs {
-            normalize freq
-        } else {}
-        | if $extra_graphs {
-            make_extra_graphs $ast_data
-        } else {}
-    )
-
-    $output
+    $freq_builtins_only
+    | if $normalize_freq or $extra_graphs {
+        normalize freq
+    } else {}
     | if $extra_graphs {
-        select name freq timeline
-    } else {
-        select name freq
-    }
-    | save -f (
-        $submissions_path
-        | path join $'v2_(date now | format date "%Y-%m-%d")+($output_filename).csv'
-    )
-
-    $output
+        make_extra_graphs $ast_data
+    } else {}
 }
 
 # Helper function to open a submission file and shape the data for further needs
