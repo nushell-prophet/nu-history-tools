@@ -43,7 +43,7 @@ export def main [
     }
 
     def frameit [] {
-        let $text = $in;
+        let $text = ($in | fill --alignment center --width $width)
         let $width_frame = (
             $width_safe
             | ($in // ($frame | str length))
@@ -56,9 +56,7 @@ export def main [
             | $'(ansi $frame_color)($in)(ansi reset)'
         )
 
-        (
-            $frame_line + "\n" + $text + "\n" + $frame_line
-        )
+        $frame_line + (char nl) + $text + (char nl) + $frame_line
     }
 
     def newlineit [] {
