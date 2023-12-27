@@ -1,10 +1,12 @@
-# nu-stats
+<h1 align="center">nu-stats module</h1>
 
 A NuShell module to analyze the command frequencies in NuShell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
 
 Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/Nushell101/nu-stats/tree/main/script_results/aggregated-submissions.csv)
 
 The history of nushell commands by releases can be found in [this csv](https://github.com/Nushell101/nu-stats/blob/main/crates_parsing/cmds_by_crates_and_tags.csv)
+
+![nu-stats2](https://github.com/Nushell101/nu-stats/assets/4896754/5053ede0-d53a-46be-bd71-7f066eca7025)
 
 ## Installation
 
