@@ -1,0 +1,192 @@
+name,freq
+pwd,59
+n,2
+p,3
+g,1
+version,3
+cd,766
+config,2
+cp,57
+date,7
+exit,322
+first,8
+get,3126
+lines,793
+ls,1343
+mkdir,75
+mv,87
+open,3208
+ps,3
+reject,5
+rm,171
+save,423
+sort-by,837
+table,121
+where,1682
+which,51
+echo,172
+help,270
+last,9
+reverse,62
+history,42
+append,47
+default,324
+group-by,308
+range,22
+describe,11
+insert,441
+kill,4
+parse,617
+rename,290
+shuffle,128
+skip,81
+touch,28
+uniq,200
+alias,7
+each,3054
+drop,21
+from,8
+from csv,536
+from json,840
+from toml,2
+from tsv,116
+from xml,5
+from yaml,19
+from yml,1
+merge,86
+select,754
+to,13
+to csv,118
+to json,443
+to md,53
+to toml,2
+to tsv,32
+to yaml,12
+update,2
+str,32
+split,4
+split column,7
+split row,66
+str downcase,8
+str substring,30
+str trim,180
+math,1
+math sum,76
+random,5
+do,39
+ansi,6
+char,12
+random dice,2
+if,292
+move,61
+skip until,1
+str length,23
+reduce,101
+str contains,61
+str ends-with,1
+str starts-with,28
+to xml,1
+date format,43
+date now,73
+sleep,175
+flatten,286
+seq,7
+random chars,22
+let,995
+let-env,174
+source,918
+def,43
+drop column,3
+length,346
+into,12
+into int,40
+into binary,4
+into string,37
+for,49
+load-env,1
+ignore,3
+date humanize,3
+error make,5
+find,637
+sys,4
+detect columns,1
+keybindings,2
+keybindings default,1
+keybindings list,8
+keybindings listen,28
+print,244
+export def,194
+export extern,9
+extern,6
+match,5
+use,22
+columns,145
+complete,14
+decode,8
+from nuon,63
+from ssv,54
+group,27
+input,3
+into datetime,197
+into duration,21
+metadata,1
+par-each,160
+run-external,2
+to nuon,22
+transpose,154
+upsert,575
+window,28
+date to-record,1
+sort,86
+str replace,157
+take,1376
+take while,7
+overlay,1
+overlay list,5
+to text,425
+join,32
+schema,6
+split list,9
+filter,1
+query db,22
+overlay use,65
+all,12
+any,30
+ast,3
+export-env,1
+is-empty,295
+source-env,1
+commandline,23
+str join,386
+break,2
+mut,43
+try,43
+while,20
+into record,54
+uniq-by,10
+explore,86
+help commands,7
+values,82
+enumerate,18
+http,929
+explain,1
+fill,11
+view,5
+view files,2
+view source,82
+view span,2
+items,1
+input list,9
+scope,1
+scope aliases,2
+scope commands,12
+hello,8
+format date,92
+random int,5
+stor,6
+stor create,6
+stor delete,3
+stor insert,10
+stor open,72
+stor reset,1
+stor update,2
