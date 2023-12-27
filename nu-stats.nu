@@ -33,6 +33,18 @@ export def nu-hist-stats [
 
     let $res = (nu-file-stats --extra_graphs $temp_history_file)
 
+    $res
+    | save-stats-for-submission $nickname
+
+    $res
+    | make-benchmarks
+}
+
+export def save-stats-for-submission [
+    nickname: string
+] {
+    let $input = $in
+
     let $submissions_path = (
         pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-stats module, there should be a 'submissions' folder
         | if ($in | path exists) { } else {
@@ -41,15 +53,12 @@ export def nu-hist-stats [
         | path join $'v2+($nickname).csv'
     )
 
-    $res
+    $input
     | select -i name freq
     | save -f $submissions_path
 
     cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
         to the original repository *https://github.com/Nushell101/nu-stats/tree/main/stats_submissions*.'
-
-    $res
-    | make-benchmarks
 }
 
 # Calculate stats of commands in a given .nu files
