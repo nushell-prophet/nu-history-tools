@@ -1,0 +1,141 @@
+name,freq
+clip,11
+pwd,26
+enter,15
+n,6
+p,1
+shells,2
+g,33
+cd,776
+config,2
+cp,44
+date,3
+debug,20
+exit,2495
+first,112
+get,232
+lines,616
+ls,636
+mkdir,68
+mv,140
+open,240
+ps,2
+reject,13
+rm,448
+save,228
+sort-by,47
+table,3
+where,217
+which,22
+echo,188
+help,11
+history,2
+append,161
+default,19
+group-by,4
+prepend,1
+range,11
+describe,1
+clear,18
+insert,33
+kill,2
+parse,120
+rename,66
+touch,16
+uniq,6
+wrap,1
+alias,1
+each,344
+drop,2
+from,1
+from csv,4
+from json,13
+merge,38
+select,47
+to,2
+to csv,1
+to json,2
+update,105
+with-env,77
+str,5
+split,6
+split column,66
+split row,10
+str substring,8
+str trim,43
+do,7
+ansi,32
+char,8
+if,64
+str length,6
+path basename,10
+path expand,281
+reduce,20
+str contains,4
+str index-of,1
+str starts-with,17
+date now,30
+path dirname,1
+sleep,67
+flatten,21
+seq,2
+date to-timezone,4
+let,119
+source,1
+def,9
+term size,2
+path join,18
+length,64
+into,1
+into int,52
+into string,20
+for,28
+path relative-to,1
+date humanize,1
+find,2
+keybindings list,1
+print,64
+export alias,2
+export extern,8
+extern,4
+use,212
+columns,2
+complete,12
+du,3
+input,14
+into bool,2
+into datetime,1
+metadata,6
+run-external,15
+upsert,7
+date to-record,1
+sort,96
+str replace,128
+watch,6
+config env,7
+config nu,18
+is-admin,1
+split list,4
+filter,31
+any,51
+is-empty,22
+split words,1
+commandline,7
+str join,269
+break,9
+loop,66
+mut,1
+return,1
+try,24
+explore,12
+help commands,4
+start,42
+timeit,95
+view,4
+view source,3
+view span,5
+scope,3
+scope aliases,3
+scope commands,4
+scope modules,1
+str expand,43
