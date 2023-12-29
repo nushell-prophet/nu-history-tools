@@ -1,342 +1,219 @@
-name,command_type,freq
-get,filters,4918
-let,core,3759
-ls,filesystem,3268
-open,filesystem,3142
-each,filters,2088
-upsert,filters,1721
-first,filters,1601
-source,core,1396
-where,filters,1366
-if,core,1281
-length,filters,1094
-dfr into-df,dataframe,1063
-select,filters,1044
-ansi,platform,923
-from json,formats,874
-str replace,strings,872
-cd,filesystem,820
-flatten,filters,804
-help,core,791
-sort-by,filters,727
-def,core,705
-lines,filters,698
-last,filters,670
-print,strings,653
-dfr col,expression,630
-save,filesystem,598
-overlay use,core,568
-to yaml,formats,550
-parse,strings,528
-append,filters,487
-history,misc,479
-str join,strings,464
-reject,filters,433
-dfr into-nu,dataframe,432
-split row,strings,431
-transpose,filters,425
-par-each,filters,402
-glob,filesystem,377
-timeit,debug,364
-dfr with-column,dataframe or lazyframe,363
-dfr select,lazyframe,348
-skip,filters,348
-echo,core,339
-describe,core,337
-into int,conversions,324
-uniq,filters,319
-char,strings,316
-which,system,307
-do,core,305
-merge,filters,301
-date now,date,289
-columns,filters,289
-group-by,filters,284
-config nu,env,274
-export def,core,271
-reduce,filters,265
-dfr filter-with,dataframe or lazyframe,262
-dfr as,expression,252
-dfr join,lazyframe,250
-rename,filters,241
-use,core,236
-dfr into-lazy,lazyframe,231
-dfr sort-by,lazyframe,228
-is-empty,filters,224
-str substring,strings,212
-rm,filesystem,206
-into datetime,conversions,205
-values,filters,186
-dfr rename,dataframe or lazyframe,184
-from yaml,formats,181
-items,filters,177
-dfr filter,lazyframe,170
-dfr unique,dataframe or lazyframe,170
-export alias,core,168
-into string,conversions,167
-wrap,filters,165
-find,filters,165
-exit,shells,164
-mv,filesystem,159
-http get,network,158
-default,filters,158
-enumerate,filters,157
-dfr open,dataframe,147
-insert,filters,145
-mut,core,139
-complete,system,135
-to json,formats,133
-dfr drop,dataframe,130
-table,viewers,129
-reverse,filters,129
-dfr append,dataframe,129
-dfr get,dataframe,122
-let-env,removed,117
-str starts-with,strings,113
-clear,platform,109
-str length,strings,107
-dfr collect,lazyframe,107
-filter,filters,106
-from csv,formats,101
-cp,filesystem,101
-for,core,100
-mkdir,filesystem,98
-explore,viewers,98
-help commands,core,95
-fill,conversions,93
-math sum,math,90
-try,core,90
-str trim,strings,88
-skip until,filters,88
-to csv,formats,85
-into record,conversions,84
-path basename,path,83
-dfr group-by,lazyframe,80
-dfr concat-str,expression,78
-inspect,debug,78
-prepend,filters,77
-move,filters,77
-dfr first,dataframe,76
-view source,debug,74
-to nuon,formats,74
-drop,filters,72
-seq,generators,71
-date format,removed,65
-dfr agg,lazyframe,65
-split chars,strings,64
-path parse,path,61
-version,core,60
-str contains,strings,60
-from tsv,formats,59
-split column,strings,59
-dfr value-counts,dataframe,56
-into,conversions,56
-path exists,path,55
-dfr lit,expression,55
-dfr count,expression,54
-alias,core,54
-profile,debug,53
-path expand,path,53
-update,filters,53
-dfr fetch,lazyframe,52
-ansi strip,platform,51
-start,filesystem,50
-return,core,50
-to text,formats,50
-commandline,core,49
-dfr columns,dataframe,49
-sort,filters,47
-path join,path,47
-overlay hide,core,46
-headers,filters,46
-dfr not,dataframe,45
-str,strings,44
-math round,math,44
-dfr arg-where,expression,44
-config env,env,44
-dfr shape,dataframe,44
-dfr set,dataframe,44
-seq date,generators,43
-ps,system,43
-into binary,conversions,42
-dfr is-in,expression,41
-math max,math,41
-term size,platform,41
-format date,date,40
-sys,system,40
-dfr dtypes,dataframe,39
-match,core,39
-from ssv,formats,38
-dfr str-slice,dataframe,38
-take until,filters,37
-window,filters,37
-dfr fill-null,lazyframe,36
-from nuon,formats,33
-error make,core,31
-math floor,math,31
-dfr max,expression,31
-overlay list,core,31
-to toml,formats,30
-dfr when,expression,30
-into decimal,conversions,27
-hash sha256,hash,27
-explain,debug,27
-to md,formats,25
-input list,platform,25
-input,platform,25
-math min,math,24
-dfr min,expression,24
-metadata,debug,23
-export def-env,core,23
-debug,debug,22
-dfr drop-duplicates,dataframe,22
-history session,misc,22
-scope variables,filters,21
-random chars,random,21
-dfr contains,dataframe,21
-export-env,env,20
-dfr str-lengths,dataframe,20
-ast,debug,20
-http post,network,20
-from xml,formats,20
-math avg,math,20
-register,core,19
-dfr is-null,dataframe,18
-dfr sum,expression,17
-path dirname,path,17
-encode,strings,17
-zip,filters,16
-range,filters,16
-dfr reverse,lazyframe,16
-exec,system,15
-collect,filters,15
-to tsv,formats,15
-du,core,15
-decode base64,hash,15
-def-env,core,15
-nu-highlight,strings,14
-dfr concatenate,dataframe,14
-hide-env,core,14
-touch,filesystem,13
-str downcase,strings,13
-decode,strings,13
-date humanize,date,13
-dfr otherwise,expression,12
-load-env,filesystem,11
-dfr drop-nulls,dataframe,11
-take,filters,11
-into duration,conversions,11
-keybindings list,platform,10
-join,filters,10
-str upcase,strings,10
-grid,viewers,10
-dfr last,dataframe,10
-dfr replace,dataframe,10
-dfr take,dataframe,9
-dfr get-nanosecond,dataframe,9
-dfr to-csv,dataframe,9
-uniq-by,filters,9
-math log,math,9
-keybindings listen,platform,9
-dfr expr-not,expression,9
-size,strings,9
-dfr melt,dataframe,8
-compact,filters,8
-dfr explode,lazyframe,8
-overlay,core,8
-keybindings default,platform,8
-config,env,8
-nu-check,strings,8
-random dice,random,7
-module,core,7
-hash md5,hash,7
-random integer,random,7
-dfr summary,dataframe,7
-dfr as-date,dataframe,7
-dfr fill-nan,lazyframe,7
-into filesize,conversions,7
-str capitalize,strings,7
-dfr to-parquet,dataframe,6
-sleep,platform,6
-ignore,core,6
-dfr var,expression,6
-keybindings,platform,6
-str ends-with,strings,6
-math median,math,5
-encode base64,hash,5
-math abs,math,5
-drop nth,filters,5
-path split,path,5
-path type,path,5
-hide,core,5
-is-admin,core,5
-math sqrt,math,4
-detect columns,strings,4
-dfr replace-all,dataframe,4
-dfr is-unique,dataframe,4
-break,core,4
-seq char,generators,4
-split list,filters,4
-const,core,4
-str index-of,strings,4
-run-external,system,4
-split,strings,4
-scope commands,filters,4
-dfr ls,dataframe,3
-dfr n-unique,dataframe,3
-histogram,chart,3
-random,random,3
-path relative-to,path,3
-help modules,core,3
-dfr arg-unique,dataframe,3
-overlay new,core,3
-skip while,filters,3
-str distance,strings,3
-from,formats,3
-view,debug,2
-to,formats,2
-date to-table,date,2
-while,core,2
-from toml,formats,2
-loop,core,2
-group,filters,2
-shuffle,filters,2
-url build-query,network,2
-dfr is-not-null,dataframe,2
-dfr flatten,lazyframe,2
-path,path,2
-random decimal,random,2
-all,filters,2
-str expand,strings,2
-math ceil,math,2
-dfr to-arrow,dataframe,2
-export,core,2
-drop column,filters,2
-dfr count-null,dataframe,2
-export use,core,2
-schema,database,2
-dfr dummies,dataframe,2
-http,network,2
-help externs,core,1
-format duration,strings,1
-random bool,random,1
-take while,filters,1
-url join,network,1
-dfr as-datetime,dataframe,1
-export extern,core,1
-kill,platform,1
-lazy make,core,1
-with-env,env,1
-scope,core,1
-random uuid,random,1
-bytes length,bytes,1
-watch,filesystem,1
-math product,math,1
-view span,debug,1
-help operators,core,1
-date to-record,date,1
-help aliases,core,1
-dfr is-duplicated,dataframe,1
-
-
-
+name,freq
+let,1748
+if,965
+ansi,458
+def,437
+get,368
+export def,304
+each,248
+char,237
+export alias,215
+print,215
+is-empty,195
+str join,174
+where,105
+source,102
+length,101
+append,91
+echo,89
+do,80
+mut,76
+lines,74
+upsert,73
+str replace,68
+into string,65
+split row,63
+str starts-with,60
+path join,58
+str substring,56
+str trim,55
+seq,53
+open,51
+prepend,50
+return,50
+update,50
+first,47
+date now,42
+from ssv,40
+save,40
+for,40
+reduce,38
+transpose,37
+format date,37
+from json,36
+describe,35
+flatten,35
+select,34
+path exists,33
+into int,32
+str length,31
+match,29
+rename,26
+ls,25
+use,25
+http get,24
+split column,24
+parse,23
+last,22
+merge,21
+error make,21
+range,21
+columns,20
+hide-env,20
+export-env,19
+fill,18
+math round,18
+find,17
+str contains,16
+into datetime,16
+str downcase,16
+cd,16
+default,15
+math avg,15
+load-env,15
+skip,15
+metadata,14
+filter,14
+timeit,14
+into float,14
+par-each,14
+insert,14
+reverse,13
+path expand,13
+run-external,12
+split chars,12
+path basename,11
+sort-by,11
+rm,11
+sort,10
+which,10
+enumerate,10
+input,9
+input list,9
+random int,8
+to json,8
+path dirname,8
+mkdir,8
+sys,8
+wrap,7
+uniq,7
+term size,7
+list,7
+str ends-with,7
+table,6
+clear,5
+ansi strip,5
+is-admin,5
+math abs,5
+sleep,5
+into duration,5
+while,5
+path split,5
+path parse,5
+take,4
+from yaml,4
+ps,4
+edit,4
+path relative-to,4
+query db,4
+pwd,4
+mv,4
+group-by,4
+math sqrt,4
+reject,4
+complete,4
+str upcase,3
+loop,3
+help,3
+format duration,3
+zip,3
+const,3
+module,3
+nu-highlight,3
+decode base64,3
+scope commands,3
+break,3
+to yaml,3
+split list,2
+headers,2
+path type,2
+try,2
+into filesize,2
+path,2
+from tsv,2
+into binary,2
+histogram,2
+ignore,2
+overlay list,2
+math max,2
+random float,2
+dfr,2
+url build-query,2
+all,2
+random uuid,2
+shuffle,2
+to csv,2
+export use,2
+random chars,2
+glob,2
+to text,2
+seq date,2
+math min,2
+http,2
+touch,1
+decode,1
+drop nth,1
+random dice,1
+skip while,1
+skip until,1
+from toml,1
+any,1
+detect columns,1
+kill,1
+mktemp,1
+version,1
+dfr into-df,1
+dfr agg,1
+dfr sort-by,1
+dfr group-by,1
+math ceil,1
+hide,1
+help commands,1
+to tsv,1
+export extern,1
+uniq-by,1
+items,1
+drop,1
+take while,1
+group,1
+watch,1
+summary,1
+set,1
+str kebab-case,1
+random bool,1
+bytes add,1
+with-env,1
+view source,1
+encode base64,1
+shells,1
+dfr sum,1
+move,1
+from nuon,1
+scope variables,1
+str distance,1
+format,1
+alias,1
+dfr into-nu,1
+dfr reverse,1
+dfr collect,1
+dfr col,1
+dfr as,1
+join,1
+compact,1
+str stats,1
+bytes length,1
+str capitalize,1
+into record,1
+math product,1
+str expand,1
+update cells,1
