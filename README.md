@@ -12,14 +12,16 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Installation
 
 ```nushell
-> git clone https://github.com/Nushell101/nu-stats; cd nu-stats
+git clone https://github.com/Nushell101/nu-stats; cd nu-stats
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res
+use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res
+```
 
+```numd-output
 *******************************************************************************
 Resulting table
 *******************************************************************************
@@ -48,8 +50,9 @@ represents one user (order is shown in the table above).
 
 ## Analyze submissions separately
 ```nushell
-> use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
-
+use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
+```
+```numd-output
 f_n_by_user (frequency norm by user) includes stats from all users.
 You can pick some of them by providing the --pick_users flag: nu-hist-stats --pick_users or
 aggregate-submissions --pick_users. The current list is:
@@ -62,8 +65,12 @@ aggregate-submissions --pick_users. The current list is:
 │ 13 │ pingiun        │            884 │
 │ 14 │ nicokosi       │            255 │
 ╰────┴────────────────┴────────────────╯
+```
 
-> use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res
+```nushell
+use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res
+```
+```numd-output
 ╭────name────┬──category──┬freq_overall┬users_count┬f_n_per_user┬──freq_by_user───┬importance┬─importance_b─┬───crate────┬first_tag┬last_tag╮
 │ ls         │ filesystem │      13252 │        14 │       0.71 │ ▆▆██▁█▄▄██▆█▁▆▇ │     1.00 │ ████████████ │ nu-parser  │ 0.2.0   │ 0.85.0 │
 │ cd         │ filesystem │       7195 │        14 │       0.45 │ ▂▂▄▇▂▁██▃▇▄▄▁█▁ │     0.80 │ █████████▋   │ nu-command │ 0.2.0   │ 0.85.0 │
