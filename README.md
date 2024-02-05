@@ -11,18 +11,30 @@ The history of nushell commands by releases can be found in [this csv](https://g
 
 ## Installation
 
-```nushell
+```
 > git clone https://github.com/Nushell101/nu-stats; cd nu-stats
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res
+> use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res | first 10
+******************************************************************************* 
+                        nu-commands-frequency-stats v2.0                        
+******************************************************************************* 
 
-*******************************************************************************
-Resulting table
-*******************************************************************************
+
+The script is calculating stats now. On an M1 Mac with a history of ~50,000
+entries, It runs for about a minute. Please wait
+
+Your stats have been saved to
+/Users/user/git/nu-stats/stats_submissions/v2+WriteYourNick.csv. Please
+consider donating them to the original repository
+https://github.com/Nushell101/nu-stats/tree/main/stats_submissions.
+
+******************************************************************************* 
+                                Resulting table                                 
+******************************************************************************* 
 A note about some columns:
 - freq - indicates the overall frequency of use of the given command for the
 currently analyzed source
@@ -35,20 +47,25 @@ used this command and the average normalized frequency
 - freq_by_user (frequency norm by user) - each bar in the sparkline column
 represents one user (order is shown in the table above).
 
-╭────name────┬──category──┬─freq─┬freq_norm┬freq_norm_bar┬──────────timeline───────────┬───┬importance┬─importance_b─┬──freq_by_user───╮
-│ ls         │ filesystem │ 3743 │    0.73 │ ███████▎    │ ▁▄▂▁▂▁▃█▅▄▃▂▅▂▃▃▃▁▃▆▃▂▁▃▂▃▂ │ x │     1.00 │ ████████████ │ ▆▆██▁█▄▄██▆█▁▆▇ │
-│ cd         │ filesystem │  854 │    0.17 │ █▋          │ ▃▆▅▅▄▂▇█▃▆▄▂▃▅▃▃▁▂▁▃▂▁▂▂▁▂▂ │ x │     0.80 │ █████████▋   │ ▂▂▄▇▂▁██▃▇▄▄▁█▁ │
-│ get        │ filters    │ 5135 │       1 │ ██████████  │ ▁▂▂▃▃▅▄▄█▂▃▃▄▄▁▂▃▄▁▄▁▂▂▃▂▂▁ │ x │     0.77 │ █████████▎   │ ██▅▆▁▄▃▁▁▂▃▂▃▂█ │
-│ …          │ …          │ …    │ …       │ …           │ …                           │ … │ …        │ …            │ …               │
-│ vtable     │            │    0 │       0 │             │                             │ x │     0.00 │              │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
-│ to-array   │            │    0 │       0 │             │                             │ x │     0.00 │              │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
-│ from-array │            │    0 │       0 │             │                             │ x │     0.00 │              │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
-╰────────────┴────────────┴──────┴─────────┴─────────────┴─────────────────────────────┴───┴──────────┴──────────────┴─────────────────╯
+╭──name──┬──category──┬─freq─┬freq_norm┬freq_norm_bar┬────────────────timeline────────────────┬importance┬─importance_b─┬───freq_by_user───╮
+│ ls     │ filesystem │ 5159 │    0.81 │ ████████▏   │ ▂▄▂▂▂▁▃█▆▅▃▂▅▃▃▃▃▁▃▆▃▂▂▃▂▃▃▁▃▄▅▂▃▁▃▅▃▃ │     1.00 │ ████████████ │ ▆▄██▃▁█▁▄▄█▆█▁▆▇ │
+│ cd     │ filesystem │ 1094 │    0.17 │ █▊          │ ▃▆▅▆▅▂▇█▄▆▄▂▃▆▄▄▂▂▂▃▂▂▂▂▂▂▃▂▂▂▅▂▃▁▂▄▄▃ │     0.84 │ ██████████▏  │ ▂▃▄▇▃▂▁▁██▇▄▄▁█▁ │
+│ get    │ filters    │ 6376 │       1 │ ██████████  │ ▁▂▂▃▃▆▄▄█▂▃▃▄▄▁▂▂▄▁▄▂▂▂▃▃▂▂▃▃▂▂▂▃▁▁▂▂▁ │     0.82 │ █████████▊   │ ██▅▆▂▁▄▂▃▁▂▃▂▃▂█ │
+│ open   │ filesystem │ 4282 │    0.67 │ ██████▊     │ ▂▂▃▃▃▃▃▇█▄▂▃▅▅▂▂▂▃▂▃▂▂▂▂▂▂▁▁▃▂▄▃▂▁▂▄▃▂ │     0.79 │ █████████▌   │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │
+│ help   │ core       │  899 │    0.14 │ █▍          │ ▅███▄▃▂▄▂▂▂▂▂▃▃▂▁▃▅▂▃▁▁▃▁▂▂▁▁▁▁▁▁▁▁▂▁▁ │     0.67 │ ████████▏    │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │
+│ let    │ core       │ 3298 │    0.52 │ █████▏      │ ▂▂▃▃▄▄▃▃▄▅▅▄▄▂▄▂▃▂▃▃▁▂▄█▅▃▂▂▂▃▄▃▃▁▂▂▂▁ │     0.62 │ ███████▌     │ ▅▃▄▃▁▁▂█▁▁▂▂▂▆▃▁ │
+│ each   │ filters    │ 2771 │    0.43 │ ████▍       │ ▂▂▂▂▂▃▃▃▅▃▂▃▃█▁▁▂▂▃▅▂▃▄▃▂▃▃▃▂▂▄▂▃▁▃▃▂▂ │     0.54 │ ██████▌      │ ▄█▃▄▂▁▂▂▁▁▂▃▂▂▁▁ │
+│ config │ env        │    9 │    0.00 │             │ ▁▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁ │     0.49 │ █████▉       │ ▁▁▃█▁▁▅▁▁▂▆▂▂▁▆▅ │
+│ where  │ filters    │ 2464 │    0.39 │ ███▉        │ ▁▂▂▂▃▄▅█▇▂▄▁▃▄▂▁▃▁▁▃▃▂▄▅▇▃▃▄▅▄▆▅▃▁▃▅▂▃ │     0.49 │ █████▉       │ ▆█▅▅▂▁▃▂▃▂▂▅▃▃▁▁ │
+│ lines  │ filters    │ 1169 │    0.18 │ █▉          │ ▁▂▂▃▂▁▂▁▆▂▂▃▃▁▁▁▃█▁▂▂▄▂▂▄▂▆▂▂▂▄▂▂▁▁▃▅▄ │     0.43 │ █████▏       │ ▆█▆▆█▁▇▂▁▅▇▆▃▂▁▁ │
+╰────────┴────────────┴──────┴─────────┴─────────────┴────────────────────────────────────────┴──────────┴──────────────┴──────────────────╯
+
 ```
 
 ## Analyze submissions separately
+
 ```nushell
-> use v2-nu-commands-freq.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2
+> use nu-stats.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2 | first 5
 
 f_n_by_user (frequency norm by user) includes stats from all users.
 You can pick some of them by providing the --pick_users flag: nu-hist-stats --pick_users or
@@ -63,14 +80,54 @@ aggregate-submissions --pick_users. The current list is:
 │ 14 │ nicokosi       │            255 │
 ╰────┴────────────────┴────────────────╯
 
-> use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res
-╭────name────┬──category──┬freq_overall┬users_count┬f_n_per_user┬──freq_by_user───┬importance┬─importance_b─┬───crate────┬first_tag┬last_tag╮
-│ ls         │ filesystem │      13252 │        14 │       0.71 │ ▆▆██▁█▄▄██▆█▁▆▇ │     1.00 │ ████████████ │ nu-parser  │ 0.2.0   │ 0.85.0 │
-│ cd         │ filesystem │       7195 │        14 │       0.45 │ ▂▂▄▇▂▁██▃▇▄▄▁█▁ │     0.80 │ █████████▋   │ nu-command │ 0.2.0   │ 0.85.0 │
-│ get        │ filters    │      12474 │        15 │       0.39 │ ██▅▆▁▄▃▁▁▂▃▂▃▂█ │     0.77 │ █████████▎   │ nu-command │ 0.2.0   │ 0.85.0 │
-│ …          │ …          │ …          │ …         │ …          │ …               │ …        │ …            │ …          │ …       │ …      │
-│ vtable     │            │          0 │         0 │          0 │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │ commands   │ 0.2.0   │ 0.2.0  │
-│ to-array   │            │          0 │         0 │          0 │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │ commands   │ 0.2.0   │ 0.2.0  │
-│ from-array │            │          0 │         0 │          0 │ ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │     0.00 │              │ commands   │ 0.2.0   │ 0.2.0  │
-╰────────────┴────────────┴────────────┴───────────┴────────────┴─────────────────┴──────────┴──────────────┴────────────┴─────────┴────────╯
+╭─name─┬──category──┬freq_overall┬users_count┬f_n_per_user┬───freq_by_user───┬importance┬─importance_b─┬───crate────┬first_tag┬last_tag╮
+│ ls   │ filesystem │      12467 │        15 │       0.61 │ ▆▄██▃▁█▁▄▄█▆█▁▆▇ │     1.00 │ ████████████ │ nu-command │ 0.2.0   │ 0.88.1 │
+│ cd   │ filesystem │       7911 │        15 │       0.43 │ ▂▃▄▇▃▂▁▁██▇▄▄▁█▁ │     0.84 │ ██████████▏  │ nu-command │ 0.2.0   │ 0.88.1 │
+│ get  │ filters    │      12461 │        16 │       0.38 │ ██▅▆▂▁▄▂▃▁▂▃▂▃▂█ │     0.82 │ █████████▊   │ nu-command │ 0.2.0   │ 0.88.1 │
+│ open │ filesystem │      10290 │        16 │       0.36 │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │     0.79 │ █████████▌   │ nu-command │ 0.2.0   │ 0.88.1 │
+│ help │ core       │       3273 │        14 │       0.30 │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │     0.67 │ ████████▏    │ nu-command │ 0.3.0   │ 0.88.1 │
+╰──────┴────────────┴────────────┴───────────┴────────────┴──────────────────┴──────────┴──────────────┴────────────┴─────────┴────────╯
+
+> use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res | first 10
+******************************************************************************* 
+Aggregated stats of other users for benchmarks.
+They will be displayed in the final table.
+******************************************************************************* 
+
+freq_by_user (frequency norm by user) includes stats from all users. You can
+pick some of them by providing the --pick_users flag: nu-hist-stats
+--pick_users or aggregate-submissions --pick_users.
+
+╭─#──┬──────user──────┬command_entries╮
+│ 0  │ maximuvarov    │         79655 │
+│ 1  │ vinlet         │         33817 │
+│ 2  │ fdncred        │         18500 │
+│ 3  │ kubouch        │         10170 │
+│ 4  │ ErichDonGubler │         10101 │
+│ 5  │ chtenb         │          9376 │
+│ 6  │ shinyzero0     │          9247 │
+│ 7  │ nu_scripts     │          8622 │
+│ 8  │ dazfuller      │          7354 │
+│ 9  │ cptpiepmatz    │          4199 │
+│ 10 │ zjp            │          2764 │
+│ 11 │ sholderbach    │          2114 │
+│ 12 │ horasal        │          1373 │
+│ 13 │ nu_std         │          1202 │
+│ 14 │ pingiun        │           894 │
+│ 15 │ nicokosi       │           255 │
+╰────┴────────────────┴───────────────╯
+
+╭──name──┬──category──┬freq_overall┬users_count┬f_n_per_user┬───freq_by_user───┬importance┬─importance_b─┬────crate────┬first_tag┬last_tag╮
+│ ls     │ filesystem │      12467 │        15 │       0.61 │ ▆▄██▃▁█▁▄▄█▆█▁▆▇ │     1.00 │ ████████████ │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ cd     │ filesystem │       7911 │        15 │       0.43 │ ▂▃▄▇▃▂▁▁██▇▄▄▁█▁ │     0.84 │ ██████████▏  │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ get    │ filters    │      12461 │        16 │       0.38 │ ██▅▆▂▁▄▂▃▁▂▃▂▃▂█ │     0.82 │ █████████▊   │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ open   │ filesystem │      10290 │        16 │       0.36 │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │     0.79 │ █████████▌   │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ help   │ core       │       3273 │        14 │       0.30 │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │     0.67 │ ████████▏    │ nu-command  │ 0.3.0   │ 0.88.1 │
+│ let    │ core       │       7308 │        14 │       0.25 │ ▅▃▄▃▁▁▂█▁▁▂▂▂▆▃▁ │     0.62 │ ███████▌     │ nu-cmd-lang │ 0.25.0  │ 0.88.1 │
+│ each   │ filters    │       7376 │        14 │       0.19 │ ▄█▃▄▂▁▂▂▁▁▂▃▂▂▁▁ │     0.54 │ ██████▌      │ nu-command  │ 0.13.0  │ 0.88.1 │
+│ config │ env        │       1587 │        14 │       0.16 │ ▁▁▃█▁▁▅▁▁▂▆▂▂▁▆▅ │     0.49 │ █████▉       │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ where  │ filters    │       5750 │        13 │       0.17 │ ▆█▅▅▂▁▃▂▃▂▂▅▃▃▁▁ │     0.49 │ █████▉       │ nu-command  │ 0.2.0   │ 0.88.1 │
+│ lines  │ filters    │       3501 │        14 │       0.12 │ ▆█▆▆█▁▇▂▁▅▇▆▃▂▁▁ │     0.43 │ █████▏       │ nu-command  │ 0.2.0   │ 0.88.1 │
+╰────────┴────────────┴────────────┴───────────┴────────────┴──────────────────┴──────────┴──────────────┴─────────────┴─────────┴────────╯
+
 ```
