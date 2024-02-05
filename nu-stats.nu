@@ -332,19 +332,9 @@ def history-save [
 
         cprint --after 2 $'Your history is in *sqlite* format and will be used for analysis.
         Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
-        entries*. Would you like to include them in the analysis as well?'
+        entries*. It will be used for analysis as well.'
 
-        mut answer = ''
-
-        while ($answer | str downcase) not-in [y, n] {
-            $answer = (input '[y/n]: ')
-        }
-
-        $history_txt = (
-            if ($answer | str downcase) == 'y' {
-                open $history_txt_path | lines
-            }
-        )
+        $history_txt = ( open $history_txt_path | lines )
     }
 
     history
