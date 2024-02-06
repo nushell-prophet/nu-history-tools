@@ -4,7 +4,7 @@
 # It includes features for normalization of data, creation of visual graphs and bars to represent data,
 # and benchmarking command usage against submissions from other users.
 
-# https://github.com/Nushell101/nu-stats
+# https://github.com/Nushell101/nu-history-tools
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
@@ -46,7 +46,7 @@ export def save-stats-for-submission [
     let $input = $in
 
     let $submissions_path = (
-        pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-stats module, there should be a 'submissions' folder
+        pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
         | if ($in | path exists) { } else {
             error make {msg: `Please run this script for the root of it's git repositor folder`}
         }
@@ -58,7 +58,7 @@ export def save-stats-for-submission [
     | save -f $submissions_path
 
     cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
-        to the original repository *https://github.com/Nushell101/nu-stats/tree/main/stats_submissions*.'
+        to the original repository *https://github.com/Nushell101/nu-history-tools/tree/main/stats_submissions*.'
 }
 
 # Calculate stats of commands in given .nu files
@@ -81,7 +81,7 @@ export def nu-files-stats [
 
 # Calculate stats of command usage in a specified `.nu` file.
 # Generates additional graphs and normalizes frequency data upon request.
-# Saves the output to a user-defined path for contributing results to the `nu-stats` repo.
+# Saves the output to a user-defined path for contributing results to the `nu-history-tools` repo.
 export def nu-file-stats [
     path: path
     --normalize_freq            # Adds a normalized frequency column to the output.
@@ -242,7 +242,7 @@ export def make-benchmarks [] {
 
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
-# > use nu-stats.nu commands-all; let $res = commands-all; $res | last 3
+# > use nuht.nu commands-all; let $res = commands-all; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
 # │ unfold      │ nu-command     │ 0.86.0  │ 0.86.0 │ generators │
 # │ url decode  │ nu-command     │ 0.86.0  │ 0.86.0 │ strings    │

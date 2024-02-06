@@ -1,40 +1,68 @@
-<h1 align="center">nu-stats</h1>
+<h1 align="center">nu-history-tools</h1>
 <h3 align="center">Nushell🚀 module for commands history analytics</h3>
 
 A Nushell module to analyze the command frequencies in Nushell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
 
-Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/Nushell101/nu-stats/tree/main/script_results/aggregated-submissions.csv)
+Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/Nushell101/nu-history-tools/tree/main/script_results/aggregated-submissions.csv)
 
-The history of nushell commands by releases can be found in [this csv](https://github.com/Nushell101/nu-stats/blob/main/crates_parsing/cmds_by_crates_and_tags.csv)
+The history of nushell commands by releases can be found in [this csv](https://github.com/Nushell101/nu-history-tools/blob/main/crates_parsing/cmds_by_crates_and_tags.csv)
 
-![nu-stats2](https://github.com/Nushell101/nu-stats/assets/4896754/5053ede0-d53a-46be-bd71-7f066eca7025)
+![nu-history-tools2](https://github.com/Nushell101/nu-history-tools/assets/4896754/5053ede0-d53a-46be-bd71-7f066eca7025)
 
 ## Installation
 
 ```
-> git clone https://github.com/Nushell101/nu-stats; cd nu-stats
+> git clone https://github.com/Nushell101/nu-history-tools; cd nu-history-tools
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> use nu-stats.nu [nu-hist-stats]; let $res = nu-hist-stats; $res | first 10
-******************************************************************************* 
-                        nu-commands-frequency-stats v2.0                        
-******************************************************************************* 
+> use nuht.nu [nu-hist-stats]; let $res = nu-hist-stats; $res | first 10
+*******************************************************************************
+                        nu-commands-frequency-stats v2.0
+*******************************************************************************
 
 
 The script is calculating stats now. On an M1 Mac with a history of ~50,000
 entries, It runs for about a minute. Please wait
 
 Your stats have been saved to
-/Users/user/git/nu-stats/stats_submissions/v2+WriteYourNick.csv. Please
+/Users/user/git/nu-history-tools/stats_submissions/v2+WriteYourNick.csv. Please
 consider donating them to the original repository
-https://github.com/Nushell101/nu-stats/tree/main/stats_submissions.
+https://github.com/Nushell101/nu-history-tools/tree/main/stats_submissions.
 
-******************************************************************************* 
-                                Resulting table                                 
-******************************************************************************* 
+*******************************************************************************
+Aggregated stats of other users for benchmarks.
+They will be displayed in the final table.
+*******************************************************************************
+
+freq_by_user (frequency norm by user) includes stats from all users. You can
+pick some of them by providing the --pick_users flag: nu-hist-stats
+--pick_users or aggregate-submissions --pick_users.
+
+╭─#──┬──────user──────┬command_entries╮
+│ 0  │ maximuvarov    │         79655 │
+│ 1  │ vinlet         │         33817 │
+│ 2  │ fdncred        │         18500 │
+│ 3  │ kubouch        │         10170 │
+│ 4  │ ErichDonGubler │         10101 │
+│ 5  │ chtenb         │          9376 │
+│ 6  │ shinyzero0     │          9247 │
+│ 7  │ nu_scripts     │          8622 │
+│ 8  │ dazfuller      │          7354 │
+│ 9  │ cptpiepmatz    │          4199 │
+│ 10 │ zjp            │          2764 │
+│ 11 │ sholderbach    │          2114 │
+│ 12 │ horasal        │          1373 │
+│ 13 │ nu_std         │          1202 │
+│ 14 │ pingiun        │           894 │
+│ 15 │ nicokosi       │           255 │
+╰────┴────────────────┴───────────────╯
+
+*******************************************************************************
+                                Resulting table
+*******************************************************************************
 A note about some columns:
 - freq - indicates the overall frequency of use of the given command for the
 currently analyzed source
@@ -65,20 +93,34 @@ represents one user (order is shown in the table above).
 ## Analyze submissions separately
 
 ```nushell
-> use nu-stats.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2 | first 5
+> use nuht.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2 | first 5
+*******************************************************************************
+Aggregated stats of other users for benchmarks.
+They will be displayed in the final table.
+*******************************************************************************
 
-f_n_by_user (frequency norm by user) includes stats from all users.
-You can pick some of them by providing the --pick_users flag: nu-hist-stats --pick_users or
-aggregate-submissions --pick_users. The current list is:
-╭─#──┬──────user──────┬executions_total╮
-│ 0  │ nu_scripts     │          61840 │
-│ 1  │ maximuvarov    │          26526 │
-│ 2  │ fdncred        │          17258 │
-│ *  | *              | *              │
-│ 12 │ nu_std         │           1139 │
-│ 13 │ pingiun        │            884 │
-│ 14 │ nicokosi       │            255 │
-╰────┴────────────────┴────────────────╯
+freq_by_user (frequency norm by user) includes stats from all users. You can
+pick some of them by providing the --pick_users flag: nu-hist-stats
+--pick_users or aggregate-submissions --pick_users.
+
+╭─#──┬──────user──────┬command_entries╮
+│ 0  │ maximuvarov    │         79655 │
+│ 1  │ vinlet         │         33817 │
+│ 2  │ fdncred        │         18500 │
+│ 3  │ kubouch        │         10170 │
+│ 4  │ ErichDonGubler │         10101 │
+│ 5  │ chtenb         │          9376 │
+│ 6  │ shinyzero0     │          9247 │
+│ 7  │ nu_scripts     │          8622 │
+│ 8  │ dazfuller      │          7354 │
+│ 9  │ cptpiepmatz    │          4199 │
+│ 10 │ zjp            │          2764 │
+│ 11 │ sholderbach    │          2114 │
+│ 12 │ horasal        │          1373 │
+│ 13 │ nu_std         │          1202 │
+│ 14 │ pingiun        │           894 │
+│ 15 │ nicokosi       │           255 │
+╰────┴────────────────┴───────────────╯
 
 ╭─name─┬──category──┬freq_overall┬users_count┬f_n_per_user┬───freq_by_user───┬importance┬─importance_b─┬───crate────┬first_tag┬last_tag╮
 │ ls   │ filesystem │      12467 │        15 │       0.61 │ ▆▄██▃▁█▁▄▄█▆█▁▆▇ │     1.00 │ ████████████ │ nu-command │ 0.2.0   │ 0.88.1 │
@@ -88,11 +130,11 @@ aggregate-submissions --pick_users. The current list is:
 │ help │ core       │       3273 │        14 │       0.30 │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │     0.67 │ ████████▏    │ nu-command │ 0.3.0   │ 0.88.1 │
 ╰──────┴────────────┴────────────┴───────────┴────────────┴──────────────────┴──────────┴──────────────┴────────────┴─────────┴────────╯
 
-> use nu-stats.nu [aggregate-submissions]; let $res = aggregate-submissions; $res | first 10
-******************************************************************************* 
+> use nuht.nu [aggregate-submissions]; let $res = aggregate-submissions; $res | first 10
+*******************************************************************************
 Aggregated stats of other users for benchmarks.
 They will be displayed in the final table.
-******************************************************************************* 
+*******************************************************************************
 
 freq_by_user (frequency norm by user) includes stats from all users. You can
 pick some of them by providing the --pick_users flag: nu-hist-stats

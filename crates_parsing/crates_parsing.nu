@@ -1,7 +1,7 @@
 # This script parses sources of nushell for the last x tags to extract nushell commands
 
 # A path to output `.csv` results
-let $OUTPUT_DIR = '/Users/user/git/nu-stats/crates_parsing/'
+let $OUTPUT_DIR = '/Users/user/git/nu-history-tools/crates_parsing/'
 
 # A path to a Nushell's git repository
 let $CRATES_DIR = '/Users/user/git/nushell/crates/'
