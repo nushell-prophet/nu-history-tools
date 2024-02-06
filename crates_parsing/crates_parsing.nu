@@ -57,6 +57,7 @@ let $parsed_tags = (
 
 (
     cd $CRATES_DIR;
+    git pull origin main;
     mut $current_commit = (git rev-parse HEAD);
 
     git tag
