@@ -4,7 +4,7 @@
 # It includes features for normalization of data, creation of visual graphs and bars to represent data,
 # and benchmarking command usage against submissions from other users.
 
-# https://github.com/Nushell101/nu-history-tools
+# https://github.com/nushell-prophet/nu-history-tools
 
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
@@ -58,7 +58,7 @@ export def save-stats-for-submission [
     | save -f $submissions_path
 
     cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
-        to the original repository *https://github.com/Nushell101/nu-history-tools/tree/main/stats_submissions*.'
+        to the original repository *https://github.com/nushell-prophet/nu-history-tools/tree/main/stats_submissions*.'
 }
 
 # Calculate stats of commands in given .nu files
