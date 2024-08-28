@@ -91,7 +91,7 @@ export def nu-file-stats [
     let $ast_data = (
         nu --ide-ast $path --no-config-file --no-std-lib
         | from json
-        | where shape in ['shape_internalcall' 'keyword']
+        | where shape in ['shape_internalcall' 'keyword' 'shape_external']
     )
 
     let $freq_table = ($ast_data | get content | uniq --count | rename name freq)
