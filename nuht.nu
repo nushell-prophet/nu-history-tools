@@ -38,6 +38,7 @@ export def nu-hist-stats [
 
     $res
     | make-benchmarks
+    | sort-by freq -r
 }
 
 export def save-stats-for-submission [
