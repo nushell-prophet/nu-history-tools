@@ -56,6 +56,7 @@ export def save-stats-for-submission [
 
     $input
     | select -i name freq
+    | sort-by name
     | save -f $submissions_path
 
     cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
