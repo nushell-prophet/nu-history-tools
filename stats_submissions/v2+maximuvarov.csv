@@ -1,349 +1,386 @@
 name,freq
-alias,27
+..,4
+agg,23
+alias,24
 all,2
-ansi,526
-ansi gradient,131
-ansi strip,85
-append,564
-ast,32
+ansi,989
+ansi gradient,312
+ansi strip,372
+any,11
+append,784
+as,9
+as-datetime,3
+ast,254
+benchmark,34
 break,3
-cd,1007
-char,398
-clear,144
-clip,9
-collect,39
-columns,390
-commandline,50
-compact,7
-complete,180
-config,8
-config env,68
-config nu,385
-const,2
-cp,153
-date format,69
+build-string,2
+bytes,1
+bytes index-of,4
+cal,8
+cd,1668
+char,1238
+chunks,1
+clear,532
+clip,10
+col,10
+collect,130
+columns,461
+commandline,96
+commandline edit,88
+commandline set-cursor,4
+compact,57
+complete,329
+concatenate,2
+config,14
+config env,109
+config nu,574
+config reset,1
+const,3
+count,7
+cp,243
+dataframe,2
+date,7
+date format,79
 date humanize,14
-date now,369
-date to-record,3
+date now,993
+date to-record,6
 date to-table,2
 date to-timezone,5
-debug,51
-debug info,1
-decode,13
+debug,60
+debug info,3
+debug profile,154
+decode,15
 decode base64,14
-def,381
-default,492
-describe,484
+def,740
+def-env,2
+default,648
+describe,666
 detect columns,3
-dfr,51
-dfr agg,127
-dfr append,129
-dfr arg-sort,1
-dfr arg-unique,5
-dfr arg-where,90
-dfr as,333
-dfr as-date,27
-dfr as-datetime,19
-dfr col,941
-dfr collect,152
-dfr columns,65
-dfr concat-str,83
-dfr concatenate,14
-dfr contains,21
-dfr count,84
-dfr count-null,2
-dfr cumulative,6
-dfr drop,151
-dfr drop-duplicates,22
-dfr drop-nulls,11
-dfr dtypes,54
-dfr dummies,2
-dfr explode,8
-dfr expr-not,10
-dfr fetch,59
-dfr fill-nan,7
-dfr fill-null,38
-dfr filter,182
-dfr filter-with,465
-dfr first,101
-dfr flatten,2
-dfr get,130
-dfr get-nanosecond,9
-dfr group-by,143
-dfr into-df,1262
-dfr into-lazy,294
-dfr into-nu,572
-dfr is-duplicated,1
-dfr is-in,61
-dfr is-not-null,2
-dfr is-null,47
-dfr is-unique,4
-dfr join,398
-dfr last,14
-dfr lit,55
-dfr ls,3
-dfr max,39
-dfr melt,9
-dfr min,31
-dfr n-unique,19
-dfr not,53
-dfr open,214
-dfr otherwise,12
-dfr rename,197
-dfr replace,10
-dfr replace-all,4
-dfr reverse,15
-dfr select,520
-dfr set,38
-dfr shape,54
-dfr shift,4
-dfr sort-by,288
-dfr str-lengths,20
-dfr str-slice,38
-dfr strftime,2
-dfr sum,50
-dfr summary,14
-dfr take,9
-dfr to-arrow,2
-dfr to-csv,17
-dfr to-jsonl,2
-dfr to-parquet,6
-dfr unique,249
-dfr value-counts,57
-dfr var,6
-dfr when,30
-dfr with-column,464
-do,305
-drop,82
+dfr,10970
+do,407
+dot,16
+drop,215
 drop column,3
 drop nth,4
-du,17
-each,2643
+drop-duplicates,8
+du,26
+each,4490
 each while,14
-echo,267
-encode,17
-encode base64,3
-encode hex,2
-enumerate,223
-error make,32
+echo,306
+edit,7
+encode,21
+encode base64,5
+encode hex,26
+enumerate,517
+env,5
+error make,40
+example,119
 exec,15
-exit,225
-explain,35
-explore,134
-export,3
+exit,652
+explain,40
+explode,1
+explore,176
+export,5
 export alias,1
-export def,25
-export-env,5
-fill,93
-filter,114
-find,177
-first,2071
-flatten,1190
-fmt,3
-for,71
-format,5
-format date,76
-format duration,3
-from,4
-from csv,106
-from json,1197
-from nuon,61
-from toml,1
-from tsv,56
-from xml,20
-from yaml,360
+export def,118
+export extern,2
+export module,1
+export use,2
+export-env,16
+fetch,203
+fill,629
+filter,147
+filter-with,3
+find,203
+first,2619
+flatten,1483
+fmt,5
+fn,6
+for,77
+format,33
+format date,513
+format duration,52
+format pattern,10
+from,11
+from csv,114
+from json,1615
+from msgpack,1
+from msgpackz,3
+from nuon,121
+from ssv,4
+from toml,17
+from tsv,74
+from xml,21
+from yaml,429
 g,4
-generate,34
-get,6153
-glob,648
-grid,24
-group,8
-group-by,447
-hash md5,7
-hash sha256,40
+generate,63
+get,8178
+get-weekday,3
+glob,1410
+grid,36
+group,11
+group-by,542
+hash,1
+hash md5,10
 headers,44
-help,905
+hello,3
+help,1117
 help aliases,2
-help commands,159
-help escapes,1
+help commands,401
+help escapes,25
 help externs,1
-help modules,8
-help operators,1
+help modules,71
+help operators,14
 hide,4
-histogram,13
-history,663
-history session,29
-http get,215
+histogram,14
+history,826
+history session,30
+http get,267
 http options,1
-http post,20
-if,654
-ignore,4
-input,24
-input list,59
-insert,166
-inspect,103
-into,85
-into binary,45
-into bits,1
-into bool,2
-into datetime,293
-into duration,6
+http post,55
+if,1257
+ignore,5
+inc,11
+input,32
+input list,76
+input listen,5
+insert,733
+inspect,174
+into,88
+into binary,120
+into bits,2
+into bool,6
+into cell-path,2
+into datetime,319
+into duration,90
 into filesize,9
-into float,108
-into int,622
-into record,88
-into string,208
+into float,166
+into glob,7
+into int,929
+into record,109
+into sqlite,2
+into string,412
 into value,3
-is-empty,71
-items,229
-join,280
-keybindings,8
-keybindings default,14
-keybindings list,20
-keybindings listen,13
-last,931
-lazy make,1
-length,1414
-let,3203
-let-env,117
-lines,1023
-loop,3
-ls,4785
-match,56
-math avg,12
+is-empty,92
+is-not-empty,8
+items,329
+join,413
+json,102
+keybindings,11
+keybindings default,16
+keybindings list,39
+keybindings listen,20
+last,1319
+length,1846
+let,4757
+let-env,119
+lines,2198
+list,2
+lit,1
+load-env,1
+loop,4
+ls,7720
+match,98
+math,111
+math abs,13
+math avg,14
 math ceil,24
-math floor,41
-math log,9
-math max,70
-math median,15
-math min,34
-math round,54
-math sqrt,19
-math stddev,1
-math sum,170
-merge,413
-metadata,14
-mkdir,127
-module,9
-move,93
-mut,82
-mv,285
-n,8
-nu-check,9
-nu-highlight,14
-open,4003
-overlay,9
-overlay hide,105
-overlay list,31
-overlay new,3
-overlay use,710
+math exp,2
+math floor,81
+math log,53
+math max,142
+math median,70
+math min,88
+math product,23
+math round,210
+math sqrt,74
+math stddev,42
+math sum,249
+md5,6
+merge,592
+metadata,37
+metadata set,3
+mkdir,205
+mktemp,25
+module,15
+move,97
+mut,113
+mv,426
+n,10
+nu,4054
+nu-check,44
+nu-highlight,98
+open,6934
+open-df,15
+or,1
+over,1
+overlay,10
+overlay hide,180
+overlay list,47
+overlay new,6
+overlay use,871
 p,2
-par-each,577
-parse,603
-path basename,146
-path dirname,20
-path exists,49
-path expand,49
-path join,109
-path parse,87
-path relative-to,20
-path split,28
-path type,8
-prepend,86
-print,587
-ps,63
-pwd,121
+par-each,614
+parse,1273
+path,1
+path basename,191
+path dirname,29
+path exists,126
+path expand,156
+path join,294
+path parse,201
+path relative-to,69
+path split,90
+path type,22
+pivot,1
+plugin,2
+plugin add,52
+plugin list,13
+plugin rm,3
+plugin stop,1
+plugin use,4
+polars,2797
+prepend,173
+print,1778
+profile,54
+ps,99
+pwd,259
+query,3
+query db,78
 random,49
-random chars,36
-random dice,6
-random float,26
-reduce,283
-register,19
-reject,784
-rename,429
-return,26
-reverse,214
-rm,300
-roll down,1
+random bool,1
+random chars,44
+random dice,8
+random float,32
+random int,99
+random uuid,36
+reduce,343
+register,38
+reject,1180
+rename,673
+return,37
+reverse,253
+rm,432
+roll down,2
+roll up,5
 rotate,5
-run-external,2
-save,844
-schema,2
+run-external,5
+save,1432
+schema,3
 scope,1
+scope commands,72
 scope engine-stats,1
-scope modules,7
-scope variables,69
-select,1478
-seq,129
+scope modules,58
+scope variables,86
+select,1953
+seq,324
 seq char,6
 seq date,72
-skip,381
-skip until,95
+shape,2
+size,8
+skip,522
+skip until,219
 skip while,1
-sleep,22
-sort,122
-sort-by,1099
-source,1806
-split,5
-split chars,154
-split column,39
-split list,15
-split row,469
+sleep,163
+slice,1
+sort,226
+sort-by,1662
+source,2309
+split,8
+split chars,219
+split column,42
+split list,96
+split row,1008
 split words,3
-split-by,7
-start,63
-stor,1
-str,45
-str capitalize,6
-str contains,60
-str distance,2
-str ends-with,4
-str expand,5
-str index-of,7
-str join,454
-str length,108
-str replace,1156
-str starts-with,67
-str substring,287
-str trim,141
-str upcase,29
-sys,38
-table,239
-take,9
-take until,36
-term size,43
-timeit,368
-to,49
-to csv,96
-to json,175
-to md,40
-to nuon,135
-to text,64
-to toml,32
-to tsv,16
-to yaml,601
-touch,34
-transpose,600
-try,99
+split-by,14
+start,213
+std,60
+stor,2
+stor create,27
+stor delete,1
+stor import,6
+stor insert,29
+stor open,39
+stor reset,14
+stor update,9
+str,70
+str capitalize,36
+str contains,77
+str distance,18
+str downcase,1
+str ends-with,7
+str expand,11
+str index-of,24
+str join,1371
+str length,191
+str replace,2196
+str starts-with,71
+str stats,68
+str substring,469
+str trim,336
+str upcase,159
+string,1
+sum,16
+summary,1
+sys,47
+sys cpu,5
+sys host,4
+sys mem,1
+table,1154
+take,13
+take until,145
+take while,2
+tee,18
+term size,584
+test,27
+timeit,615
+to,138
+to csv,106
+to html,5
+to json,215
+to md,107
+to msgpack,23
+to msgpackz,26
+to nuon,248
+to text,94
+to toml,54
+to tsv,38
+to xml,3
+to yaml,816
+to-custom,1
+touch,49
+transpose,772
+trim,4
+try,185
 tutor,3
-uniq,507
-uniq-by,144
-update,17
-update cells,1
-upsert,3050
-url join,1
-use,783
-values,246
-version,89
+type,16
+ulimit,1
+uname,1
+unfold,1
+uniq,671
+uniq-by,200
+update,614
+update cells,45
+upsert,3275
+url join,2
+use,2426
+value-counts,15
+values,394
+var,1
+version,177
 view,3
-view files,4
-view source,111
-view span,4
-watch,2
-where,2311
-which,376
-while,14
-whoami,2
-window,88
-wrap,264
-zip,17
+view files,7
+view ir,14
+view source,280
+view span,89
+view-source,38
+watch,10
+where,3907
+which,482
+while,15
+whoami,3
+window,188
+with-column,12
+with-env,3
+wrap,555
+zip,132
