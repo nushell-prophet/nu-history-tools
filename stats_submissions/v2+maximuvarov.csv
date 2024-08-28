@@ -1,179 +1,78 @@
 name,freq
-hash md5,7
-clip,9
-pwd,121
-n,8
-p,2
-g,4
-version,89
-cd,1007
-config,8
-cp,153
-debug,51
-exit,225
-first,2071
-get,6153
-lines,1023
-ls,4785
-mkdir,127
-mv,285
-open,4003
-ps,63
-reject,784
-rm,300
-save,844
-sort-by,1099
-table,239
-where,2311
-which,376
-echo,267
-help,905
-last,931
-reverse,214
-history,663
-append,564
-compact,7
-default,492
-group-by,447
-histogram,13
-prepend,86
-split-by,7
-format,5
-describe,484
-clear,144
-insert,166
-parse,603
-rename,429
-skip,381
-touch,34
-uniq,507
-wrap,264
-headers,44
 alias,27
-each,2643
-drop,82
-from,4
-from csv,106
-from json,1197
-from toml,1
-from tsv,56
-from xml,20
-from yaml,360
-merge,413
-select,1478
-to,49
-to csv,96
-to json,175
-to md,40
-to toml,32
-to tsv,16
-to yaml,601
-update,17
-str,45
-split,5
-split column,39
-split row,469
-str capitalize,6
-str substring,287
-str trim,141
-str upcase,29
-math avg,12
-math max,70
-math median,15
-math min,34
-math sum,170
-random,49
-do,305
+all,2
 ansi,526
+ansi gradient,131
+ansi strip,85
+append,564
+ast,32
+break,3
+cd,1007
 char,398
-random dice,6
-if,654
-math stddev,1
-move,93
-skip until,95
-skip while,1
-split chars,154
-str length,108
-path basename,146
-path exists,49
-path expand,49
-path type,8
-reduce,283
-str contains,60
-str ends-with,4
-str index-of,7
-str starts-with,67
+clear,144
+clip,9
+collect,39
+columns,390
+commandline,50
+compact,7
+complete,180
+config,8
+config env,68
+config nu,385
+const,2
+cp,153
 date format,69
+date humanize,14
 date now,369
-path dirname,20
-sleep,22
-exec,15
-flatten,1190
-math ceil,24
-math floor,41
-math round,54
-seq,129
-seq date,72
+date to-record,3
 date to-table,2
 date to-timezone,5
-random chars,36
-let,3203
-let-env,117
-source,1806
+debug,51
+debug info,1
+decode,13
+decode base64,14
 def,381
-term size,43
-rotate,5
-ansi strip,85
-drop column,3
-path join,109
-length,1414
-into,85
-into int,622
-math sqrt,19
-path parse,87
-path split,28
-into binary,45
-into string,208
-for,71
-path relative-to,20
-ansi gradient,131
-collect,39
-ignore,4
-date humanize,14
-drop nth,4
-tutor,3
-zip,17
-error make,32
-find,177
-into filesize,9
-sys,38
-update cells,1
+default,492
+describe,484
 detect columns,3
-keybindings,8
-keybindings default,14
-keybindings list,20
-keybindings listen,13
-nu-highlight,14
-print,587
 dfr,51
+dfr agg,127
 dfr append,129
 dfr arg-sort,1
 dfr arg-unique,5
+dfr arg-where,90
+dfr as,333
 dfr as-date,27
 dfr as-datetime,19
+dfr col,941
+dfr collect,152
+dfr columns,65
+dfr concat-str,83
 dfr concatenate,14
 dfr contains,21
+dfr count,84
 dfr count-null,2
 dfr cumulative,6
 dfr drop,151
 dfr drop-duplicates,22
 dfr drop-nulls,11
 dfr dtypes,54
+dfr dummies,2
+dfr explode,8
+dfr expr-not,10
+dfr fetch,59
+dfr fill-nan,7
+dfr fill-null,38
+dfr filter,182
 dfr filter-with,465
 dfr first,101
+dfr flatten,2
 dfr get,130
 dfr get-nanosecond,9
 dfr group-by,143
+dfr into-df,1262
+dfr into-lazy,294
+dfr into-nu,572
 dfr is-duplicated,1
 dfr is-in,61
 dfr is-not-null,2
@@ -181,169 +80,270 @@ dfr is-null,47
 dfr is-unique,4
 dfr join,398
 dfr last,14
-dfr melt,9
-dfr not,53
-dfr open,214
-dfr rename,197
-dfr replace,10
-dfr replace-all,4
-dfr set,38
-dfr shape,54
-dfr shift,4
-dfr str-lengths,20
-dfr str-slice,38
-dfr strftime,2
-dfr take,9
-dfr to-csv,17
-dfr to-parquet,6
-dfr unique,249
-dfr value-counts,57
-dfr with-column,464
-fmt,3
-roll down,1
-export,3
-export alias,1
-export def,25
-hide,4
-match,56
-module,9
-register,19
-use,783
-columns,390
-complete,180
-decode,13
-du,17
-from nuon,61
-grid,24
-group,8
-input,24
-into bool,2
-into datetime,293
-into duration,6
-metadata,14
-par-each,577
-run-external,2
-to nuon,135
-transpose,600
-upsert,3050
-window,88
-date to-record,3
-glob,648
-sort,122
-str replace,1156
-take,9
-take until,36
-watch,2
-dfr as,333
-dfr col,941
-dfr collect,152
-dfr explode,8
-dfr fetch,59
-dfr fill-null,38
-dfr flatten,2
 dfr lit,55
 dfr ls,3
 dfr max,39
+dfr melt,9
 dfr min,31
+dfr n-unique,19
+dfr not,53
+dfr open,214
+dfr otherwise,12
+dfr rename,197
+dfr replace,10
+dfr replace-all,4
 dfr reverse,15
 dfr select,520
+dfr set,38
+dfr shape,54
+dfr shift,4
 dfr sort-by,288
+dfr str-lengths,20
+dfr str-slice,38
+dfr strftime,2
 dfr sum,50
+dfr summary,14
+dfr take,9
+dfr to-arrow,2
+dfr to-csv,17
+dfr to-jsonl,2
+dfr to-parquet,6
+dfr unique,249
+dfr value-counts,57
 dfr var,6
 dfr when,30
-overlay,9
-overlay list,31
-config env,68
-config nu,385
-seq char,6
-to text,64
-overlay new,3
+dfr with-column,464
+do,305
+drop,82
+drop column,3
+drop nth,4
+du,17
+each,2643
 each while,14
-join,280
-decode base64,14
+echo,267
 encode,17
 encode base64,3
-nu-check,9
-schema,2
-split list,15
-filter,114
-overlay hide,105
-overlay use,710
-all,2
-ast,32
-export-env,5
-is-empty,71
-split words,3
-str distance,2
-commandline,50
-history session,29
-str join,454
-break,3
-loop,3
-mut,82
-return,26
-try,99
-while,14
-help operators,1
-into record,88
-math log,9
-uniq-by,144
+encode hex,2
+enumerate,223
+error make,32
+exec,15
+exit,225
+explain,35
 explore,134
-const,2
+export,3
+export alias,1
+export def,25
+export-env,5
+fill,93
+filter,114
+find,177
+first,2071
+flatten,1190
+fmt,3
+for,71
+format,5
+format date,76
+format duration,3
+from,4
+from csv,106
+from json,1197
+from nuon,61
+from toml,1
+from tsv,56
+from xml,20
+from yaml,360
+g,4
+generate,34
+get,6153
+glob,648
+grid,24
+group,8
+group-by,447
+hash md5,7
+hash sha256,40
+headers,44
+help,905
 help aliases,2
 help commands,159
-help modules,8
-start,63
-values,246
-enumerate,223
-http get,215
-http post,20
-url join,1
-dfr agg,127
-dfr arg-where,90
-dfr columns,65
-dfr concat-str,83
-dfr count,84
-dfr dummies,2
-dfr expr-not,10
-dfr fill-nan,7
-dfr filter,182
-dfr into-df,1262
-dfr into-lazy,294
-dfr into-nu,572
-dfr n-unique,19
-dfr otherwise,12
-dfr summary,14
-dfr to-arrow,2
-explain,35
-fill,93
-inspect,103
-timeit,368
-view,3
-view files,4
-view source,111
-view span,4
-encode hex,2
+help escapes,1
 help externs,1
-items,229
+help modules,8
+help operators,1
+hide,4
+histogram,13
+history,663
+history session,29
+http get,215
+http options,1
+http post,20
+if,654
+ignore,4
+input,24
 input list,59
-dfr to-jsonl,2
+insert,166
+inspect,103
+into,85
+into binary,45
+into bits,1
+into bool,2
+into datetime,293
+into duration,6
+into filesize,9
+into float,108
+into int,622
+into record,88
+into string,208
+into value,3
+is-empty,71
+items,229
+join,280
+keybindings,8
+keybindings default,14
+keybindings list,20
+keybindings listen,13
+last,931
 lazy make,1
+length,1414
+let,3203
+let-env,117
+lines,1023
+loop,3
+ls,4785
+match,56
+math avg,12
+math ceil,24
+math floor,41
+math log,9
+math max,70
+math median,15
+math min,34
+math round,54
+math sqrt,19
+math stddev,1
+math sum,170
+merge,413
+metadata,14
+mkdir,127
+module,9
+move,93
+mut,82
+mv,285
+n,8
+nu-check,9
+nu-highlight,14
+open,4003
+overlay,9
+overlay hide,105
+overlay list,31
+overlay new,3
+overlay use,710
+p,2
+par-each,577
+parse,603
+path basename,146
+path dirname,20
+path exists,49
+path expand,49
+path join,109
+path parse,87
+path relative-to,20
+path split,28
+path type,8
+prepend,86
+print,587
+ps,63
+pwd,121
+random,49
+random chars,36
+random dice,6
+random float,26
+reduce,283
+register,19
+reject,784
+rename,429
+return,26
+reverse,214
+rm,300
+roll down,1
+rotate,5
+run-external,2
+save,844
+schema,2
 scope,1
 scope engine-stats,1
 scope modules,7
 scope variables,69
-http options,1
-into bits,1
-str expand,5
-format date,76
-format duration,3
-into float,108
-random float,26
-debug info,1
-help escapes,1
-into value,3
-generate,34
-whoami,2
+select,1478
+seq,129
+seq char,6
+seq date,72
+skip,381
+skip until,95
+skip while,1
+sleep,22
+sort,122
+sort-by,1099
+source,1806
+split,5
+split chars,154
+split column,39
+split list,15
+split row,469
+split words,3
+split-by,7
+start,63
 stor,1
-hash sha256,40
+str,45
+str capitalize,6
+str contains,60
+str distance,2
+str ends-with,4
+str expand,5
+str index-of,7
+str join,454
+str length,108
+str replace,1156
+str starts-with,67
+str substring,287
+str trim,141
+str upcase,29
+sys,38
+table,239
+take,9
+take until,36
+term size,43
+timeit,368
+to,49
+to csv,96
+to json,175
+to md,40
+to nuon,135
+to text,64
+to toml,32
+to tsv,16
+to yaml,601
+touch,34
+transpose,600
+try,99
+tutor,3
+uniq,507
+uniq-by,144
+update,17
+update cells,1
+upsert,3050
+url join,1
+use,783
+values,246
+version,89
+view,3
+view files,4
+view source,111
+view span,4
+watch,2
+where,2311
+which,376
+while,14
+whoami,2
+window,88
+wrap,264
+zip,17
