@@ -202,7 +202,7 @@ export def aggregate-submissions [
 # Create benchmark columns for piped-in stats.
 # Adds extra columns to the data for visual representation and calculation of importance.
 export def make-benchmarks [] {
-    let $data = $in
+    let $input = $in
 
     let $benchmarks = aggregate-submissions
         | select name importance importance_b freq_by_user
@@ -217,7 +217,7 @@ export def make-benchmarks [] {
     - *importance* - calculated as the geometric mean of the number of users who used this command and the average normalized frequency
     - *freq_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
 
-    $data
+    $input
     | join -l $benchmarks name
     | upsert importance {|i| $i | get -i importance | default 0}
     | sort-by importance -r -n
@@ -261,7 +261,7 @@ export def commands-all [] {
 def make_extra_graphs [
     $ast_data
 ] {
-    let $table_in = $in
+    let $input = $in
     let $hist_for_timeline = $ast_data
         | upsert start {|i| $i.span.start}
         | select content start
@@ -286,7 +286,7 @@ def make_extra_graphs [
         }
         | reduce -f {} {|a b| $a | merge $b}
 
-    $table_in
+    $input
     | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
     | upsert timeline {
         |i| $sparkline_data
