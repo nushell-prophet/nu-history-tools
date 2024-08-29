@@ -14,16 +14,13 @@ export def main [
     mut $table = $in
 
     for column in $column_names {
-        let $max_value = (
-            $table
+        let $max_value = $table
             | get $column
             | where ($it | describe | $in in ['int' 'float'])
             | math max
             | into float
-        )
 
-        $table = (
-            $table
+        $table = ( $table
             | upsert $'($column)($suffix)' {
                 |i| $i
                 | get $column

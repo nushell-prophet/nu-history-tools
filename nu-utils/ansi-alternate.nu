@@ -9,5 +9,5 @@ export def main [
     index
     --color_set = [white, grey, cyan]
 ] {
-    (ansi ($color_set | get ($index mod ($color_set | length))))
+    $color_set | get ($index mod ($color_set | length)) | ansi $in
 }

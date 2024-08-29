@@ -14,23 +14,19 @@ export def main [
     --width (-w): int = 5
 ] {
     let blocks = [null "▏" "▎" "▍" "▌" "▋" "▊" "▉" "█"]
-    let $whole_part = (($blocks | last) | repeat ($percentage * $width // 1)) | str join
-    let $fraction = (
-        $blocks
+    let $whole_part = ($blocks | last) | repeat ($percentage * $width // 1) | str join
+    let $fraction = $blocks
         | get (
             ($percentage * $width) mod 1
             | $in * ($blocks | length | $in - 1)
             | math round
         )
-    )
 
-    let result = (
-        $"($whole_part)($fraction)"
+    let result = $"($whole_part)($fraction)"
         | fill -c $' ' -w $width
         | if ($foreground == 'default') and ($background == 'default') {} else {
             $"(ansi -e {fg: ($foreground), bg: ($background)})($in)(ansi reset)"
         }
-    )
 
     if $progress {
         print -n $"($result)\r"
