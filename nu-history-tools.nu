@@ -136,9 +136,14 @@ def open_submission [
 # Parses submitted stats from a folder and aggregates them for benchmarking.
 # Can interactively select users to include in the analysis.
 export def aggregate-submissions [
+    --quiet (-q) # Suppress information messages
     --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
     --pick_users                                    # This flag triggers interactive user selection during script execution.
 ]: nothing -> table {
+    if $quiet {
+        $env.freq-hist.quiet = true
+    }
+
     if $env.freq-hist?.quiet? != true {
         cprint -f '*' --align 'center' --lines_after 2 -H grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
             *They will be displayed in the final table*.'
