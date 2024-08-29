@@ -246,9 +246,9 @@ export def commands-all []: nothing -> table {
     # You can update the CSV file by running crates_parsing/crates_parsing.nu
     let $default_command_data = $current_command_list
         | select name
-        | upsert crate not_parsed_yet
-        | upsert first_tag $ver
-        | upsert last_tag $ver
+        | insert crate not_parsed_yet
+        | insert first_tag $ver
+        | insert last_tag $ver
 
     $crate_history
     | append $default_command_data
@@ -263,9 +263,8 @@ def make_extra_graphs [
 ]: table -> table {
     let $input = $in
     let $hist_for_timeline = $ast_data
-        | upsert start {|i| $i.span.start}
+        | insert start {|i| $i.span.start // 100_000}
         | select content start
-        | upsert start {|i| $i.start // 100_000}
         | uniq --count
         | flatten
 
@@ -287,8 +286,8 @@ def make_extra_graphs [
         | reduce -f {} {|a b| $a | merge $b}
 
     $input
-    | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
-    | upsert timeline {
+    | insert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
+    | insert timeline {
         |i| $sparkline_data
         | get -i $i.name
     }
