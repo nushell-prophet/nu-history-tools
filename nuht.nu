@@ -15,7 +15,7 @@ export def nu-hist-stats [
 ] {
     $env.freq-hist.pick-users = $pick_users
 
-    cprint --after 2 --frame '*' 'nu-commands-frequency-stats v2.0'
+    cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.0'
 
     let $compatible_versions = ['0.88.1']
     let $running_version = (version | get version)
@@ -24,11 +24,11 @@ export def nu-hist-stats [
     history-save $temp_history_file
 
     if $running_version not-in $compatible_versions {
-        cprint --after 1 --before 1 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
+        cprint --lines_after 1 --lines_before 1 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
             If you have problems running this script, consider upgrading Nushell.'
     }
 
-    cprint --before 1 --after 2 'The script is calculating stats now.
+    cprint --lines_before 1 --lines_after 2 'The script is calculating stats now.
         On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
     let $res = (nu-file-stats --extra_graphs $temp_history_file)
@@ -59,7 +59,7 @@ export def save-stats-for-submission [
     | sort-by name
     | save -f $submissions_path
 
-    cprint --after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
+    cprint --lines_after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
         to the original repository *https://github.com/nushell-prophet/nu-history-tools/tree/main/stats_submissions*.'
 }
 
@@ -141,7 +141,7 @@ export def aggregate-submissions [
     --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
     --pick_users                                    # This flag triggers interactive user selection during script execution.
 ] {
-    cprint -f '*' --after 2 -h grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
+    cprint -f '*' --align 'center' --lines_after 2 -H grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
         *They will be displayed in the final table*.'
 
     let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
@@ -169,7 +169,7 @@ export def aggregate-submissions [
     )
 
     if not $user_selection_dialog {
-        cprint --after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
+        cprint --lines_after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
         You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
         *aggregate-submissions --pick_users*.'
     }
@@ -225,9 +225,9 @@ export def make-benchmarks [] {
         | select name importance importance_b freq_by_user
     );
 
-    cprint -f '*' 'Resulting table'
+    cprint -f '*' --align 'center' 'Resulting table'
 
-    cprint --keep_single_breaks --after 2 '*A note about some columns*:
+    cprint --keep_single_breaks --lines_after 2 '*A note about some columns*:
     - *freq* - indicates the overall frequency of use of the given command for the currently analyzed source
     - *freq_norm* - represents the overall frequency normalized
     - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
@@ -332,7 +332,7 @@ def history-save [
 
     if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
 
-        cprint --after 2 $'Your history is in *sqlite* format and will be used for analysis.
+        cprint --lines_after 2 $'Your history is in *sqlite* format and will be used for analysis.
         Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
         entries*. It will be used for analysis as well.'
 
