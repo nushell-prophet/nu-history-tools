@@ -12,7 +12,7 @@ export def main [
     --width (-w): int = 80 # the total width of text to wrap it
     --indent (-i): int = 0 # indent output by number of spaces
     --align: string = 'left' # alignment of text
-]: [nothing -> string, string -> string] {
+]: [string -> nothing, nothing -> nothing, nothing -> string, string -> string] {
     let $text = if $text == null {} else {$text}
 
     let $width_safe = width-safe $width $indent

@@ -12,7 +12,7 @@ use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 export def nu-hist-stats [
     --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
     --nickname: string = 'WriteYourNick' # The nick to use for resulting stats (can be submitted to common stats repo)
-] {
+]: nothing -> table {
     $env.freq-hist.pick-users = $pick_users
 
     cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.0'
@@ -43,7 +43,7 @@ export def nu-hist-stats [
 
 export def save-stats-for-submission [
     nickname: string
-] {
+]: table -> nothing {
     let $input = $in
 
     let $submissions_path = pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
@@ -65,7 +65,7 @@ export def save-stats-for-submission [
 # > glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | nu-files-stats
 export def nu-files-stats [
     ...file_paths: path
-] {
+]: [list<path> -> table, nothing -> table] {
     $in
     | default $file_paths
     | par-each {|i| nu-file-stats $i}
@@ -87,7 +87,7 @@ export def nu-file-stats [
     --normalize_freq            # Adds a normalized frequency column to the output.
     --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
     --include_0_freq_commands   # Include all the historical Nushell commands
-] {
+]: nothing -> table {
     let $ast_data = nu --ide-ast $path --no-config-file --no-std-lib
         | from json
         | where shape in ['shape_internalcall' 'keyword' 'shape_external']
@@ -115,7 +115,7 @@ export def nu-file-stats [
 # Helper function to open a submission file and shape the data for further needs
 def open_submission [
     filename: path
-] {
+]: nothing -> record {
     open $filename
     | if ('command_type' in ($in | columns)) {
         reject command_type
@@ -134,7 +134,7 @@ def open_submission [
 export def aggregate-submissions [
     --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
     --pick_users                                    # This flag triggers interactive user selection during script execution.
-] {
+]: nothing -> table {
     cprint -f '*' --align 'center' --lines_after 2 -H grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
         *They will be displayed in the final table*.'
 
@@ -201,7 +201,7 @@ export def aggregate-submissions [
 
 # Create benchmark columns for piped-in stats.
 # Adds extra columns to the data for visual representation and calculation of importance.
-export def make-benchmarks [] {
+export def make-benchmarks []: table -> table {
     let $input = $in
 
     let $benchmarks = aggregate-submissions
@@ -226,13 +226,14 @@ export def make-benchmarks [] {
 
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
+#
 # > use nu-history-tools.nu commands-all; let $res = commands-all; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
 # │ unfold      │ nu-command     │ 0.86.0  │ 0.86.0 │ generators │
 # │ url decode  │ nu-command     │ 0.86.0  │ 0.86.0 │ strings    │
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
-export def commands-all [] {
+export def commands-all []: nothing -> table {
     let $crate_history = open crates_parsing/cmds_by_crates_and_tags.csv
 
     let $current_command_list = help commands
@@ -260,7 +261,7 @@ export def commands-all [] {
 # Serves as a helper function within the script for visual data analysis.
 def make_extra_graphs [
     $ast_data
-] {
+]: table -> table {
     let $input = $in
     let $hist_for_timeline = $ast_data
         | upsert start {|i| $i.span.start}
@@ -297,7 +298,7 @@ def make_extra_graphs [
 # Combine history from sql and txt files and save it as a `.nu` file to the specified destination.
 def history-save [
     destination_path: path
-] {
+]: nothing -> nothing {
     let $history_txt_path = $nu.history-path | str replace sqlite3 'txt'
 
     mut history_txt = []
