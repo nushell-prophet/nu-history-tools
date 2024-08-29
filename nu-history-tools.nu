@@ -28,9 +28,6 @@ export def stats [
             If you have problems running this script, consider upgrading Nushell.'
     }
 
-    cprint --lines_before 1 --lines_after 2 'The script is calculating stats now.
-        On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
-
     let $res = calculate-file-stats --extra_graphs $temp_history_file
 
     $res
