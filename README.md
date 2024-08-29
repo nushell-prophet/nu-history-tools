@@ -18,14 +18,14 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> overlay use nu-history-tools.nu; let $res = nu-hist-stats; $res | first 10
+> overlay use nu-history-tools.nu; let $res = stats; $res | first 10
 *******************************************************************************
                         nu-commands-frequency-stats v2.0
 *******************************************************************************
 
 Your history is in sqlite format and will be used for analysis. Additionally,
-you have history in txt format, which consists of 489 entries. It will be
-used for analysis as well.
+you have history in txt format, which consists of 491 lines. It will be used
+for analysis as well.
 
 The script is calculating stats now. On an M1 Mac with a history of ~50,000
 entries, It runs for about a minute. Please wait
@@ -42,8 +42,8 @@ https://github.com/nushell-prophet/nu-history-tools/tree/main/stats_submissions
 *******************************************************************************
 
 freq_by_user (frequency norm by user) includes stats from all users. You can
-pick some of them by providing the --pick_users flag: nu-hist-stats
---pick_users or aggregate-submissions --pick_users.
+pick some of them by providing the --pick_users flag: stats --pick_users or
+aggregate-submissions --pick_users.
 
 ╭─#──┬──────user──────┬─command_entries─╮
 │ 0  │ maximuvarov    │          120938 │
@@ -80,13 +80,13 @@ represents one user (order is shown in the table above).
 
 ╭─#─┬──name──┬──category──┬─freq─┬─freq_norm─┬─freq_norm_bar─┬──────────────────────timeline──────────────────────┬─importance─┬─importance_b─┬───freq_by_user───╮
 │ 0 │ dfr    │            │ 8182 │      1.00 │ ██████████    │ ▁▁▁▁▁▁▃▃▇█▄▇█▃▁▂▄▃▃▂▁▄▁▂▂▅▂▁▂▆▄▄▅▂▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │       0.12 │ █▍           │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
-│ 1 │ ls     │ filesystem │ 7347 │      0.90 │ █████████     │ ▃▄▁▃▂▄█▅▃▃▅▃▄▄▂▄▅▃▂▃▃▄▂▃▄▅▄▁▃▅▄▃▂▃▃▃▄▄▆▂▃▆▂▃▄▁▂▁▁▁ │       1.00 │ ████████████ │ ▇▄██▃▁█▁▄▄█▆█▁▆▇ │
+│ 1 │ ls     │ filesystem │ 7351 │      0.90 │ █████████     │ ▃▄▁▃▂▄█▅▃▃▅▃▄▄▂▄▅▃▂▃▃▄▂▃▄▅▄▁▃▅▄▃▂▃▃▃▄▄▆▂▃▆▂▃▄▁▂▁▁▁ │       1.00 │ ████████████ │ ▇▄██▃▁█▁▄▄█▆█▁▆▇ │
 │ 2 │ get    │ filters    │ 7325 │      0.90 │ █████████     │ ▂▄▄▄▇▆██▄▅▆▄▂▃▅▄▃▃▂▅▄▃▂▅▃▂▃▂▃▂▃▁▂▂▁▃▃▃▁▁▁▂▂▃▃▂▃▂▁▃ │       0.80 │ █████████▋   │ ▇█▅▆▂▁▄▂▃▁▂▃▂▃▂█ │
-│ 3 │ open   │ filesystem │ 6262 │      0.77 │ ███████▋      │ ▂▃▃▃▃▇█▅▄▃█▃▂▂▃▃▂▂▂▂▂▂▁▂▂▄▂▁▂▅▃▂▃▂▂▃▄▄▅▂▂▃▄▆▂▅▄▃▁▁ │       0.79 │ █████████▌   │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │
+│ 3 │ open   │ filesystem │ 6263 │      0.77 │ ███████▋      │ ▂▃▃▃▃▇█▅▄▃█▃▂▂▃▃▂▂▂▂▂▂▁▂▂▄▂▁▂▅▃▂▃▂▂▃▄▄▅▂▂▃▄▆▂▅▄▃▁▁ │       0.79 │ █████████▌   │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │
 │ 4 │ let    │ core       │ 4249 │      0.52 │ █████▎        │ ▂▃▄▅▅▄▃▅▅▅▄▃▃▃▂▃▃▂▄█▄▃▂▂▃▅▃▁▂▃▂▁▂▂▂▁▄▄▅▃▆▂▁▃▂▁▂▁▅▄ │       0.62 │ ███████▍     │ ▅▃▄▃▁▁▂█▁▁▂▂▂▆▃▁ │
-│ 5 │ each   │ filters    │ 4075 │      0.50 │ █████         │ ▂▃▂▂▃▃▅▆▂▄▅▆▁▂▃▅▃▃▄▄▂▅▂▄▃▃▂▂▃▃▂▂▃▃▂▂▄▆▃▄▂▃█▅▂▄▄▂▃▁ │       0.54 │ ██████▌      │ ▅█▃▄▂▁▂▂▁▁▂▃▂▂▁▁ │
+│ 5 │ each   │ filters    │ 4077 │      0.50 │ █████         │ ▂▃▂▂▃▃▅▆▂▄▅▆▁▁▃▅▃▃▄▄▂▅▂▄▃▃▂▂▃▃▂▂▃▃▂▂▄▆▃▄▂▃█▅▂▃▄▂▃▁ │       0.54 │ ██████▌      │ ▅█▃▄▂▁▂▂▁▁▂▃▂▂▁▁ │
 │ 6 │ where  │ filters    │ 3641 │      0.45 │ ████▌         │ ▂▃▁▃▄▆▆▅▃▂▅▂▁▂▁▃▂▃▃▅▆▃▂▆▅▅▄▂▃▄▂▃▄▅▃▃█▄▂▁▃▂▂▂▂▃▇▆▂▂ │       0.49 │ █████▉       │ ▇█▅▅▂▁▃▂▃▂▂▅▃▃▁▁ │
-│ 7 │ nu     │            │ 3607 │      0.44 │ ████▍         │ ▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂▁▁▂▁▁▁▁▂▁▁▂▃██▃▅▆▄▃▅▆▅▅█▅▂▃▄ │       0.05 │ ▋            │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
+│ 7 │ nu     │            │ 3617 │      0.44 │ ████▍         │ ▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂▁▁▂▁▁▁▁▂▁▁▂▃██▃▅▆▄▃▅▆▅▅█▅▂▃▄ │       0.05 │ ▋            │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
 │ 8 │ upsert │ filters    │ 2848 │      0.35 │ ███▌          │ ▂▂▂▅▅▃▃█▃▂▂▄▂▅▁▂▂▁▅▅▆▅█▅▄▄▄▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │       0.17 │ ██           │ █▅▃▁▁▁▁▂▁▁▁▁▁▁▁▁ │
 │ 9 │ first  │ filters    │ 2394 │      0.29 │ ██▉           │ ▂▄▁▃▆▄▅█▅▇▄▃▂▇▃▄▃▁▂▁▁▇▃▃▄▃▃▂▁▃▂▂▂▂▂▁▁▅▂▃▁▂▂▅▃▂▁▁▁▂ │       0.26 │ ███▏         │ █▁▄▁▂▁▁▂▂▄▃▃▁▁▁▁ │
 ╰─#─┴──name──┴──category──┴─freq─┴─freq_norm─┴─freq_norm_bar─┴──────────────────────timeline──────────────────────┴─importance─┴─importance_b─┴───freq_by_user───╯
@@ -102,8 +102,8 @@ represents one user (order is shown in the table above).
 *******************************************************************************
 
 freq_by_user (frequency norm by user) includes stats from all users. You can
-pick some of them by providing the --pick_users flag: nu-hist-stats
---pick_users or aggregate-submissions --pick_users.
+pick some of them by providing the --pick_users flag: stats --pick_users or
+aggregate-submissions --pick_users.
 
 ╭─#──┬──────user──────┬─command_entries─╮
 │ 0  │ maximuvarov    │          120938 │
@@ -138,8 +138,8 @@ pick some of them by providing the --pick_users flag: nu-hist-stats
 *******************************************************************************
 
 freq_by_user (frequency norm by user) includes stats from all users. You can
-pick some of them by providing the --pick_users flag: nu-hist-stats
---pick_users or aggregate-submissions --pick_users.
+pick some of them by providing the --pick_users flag: stats --pick_users or
+aggregate-submissions --pick_users.
 
 ╭─#──┬──────user──────┬─command_entries─╮
 │ 0  │ maximuvarov    │          120938 │

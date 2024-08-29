@@ -9,7 +9,7 @@
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 # Calculates statistics for the current user's command history.
-export def nu-hist-stats [
+export def stats [
     --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
     --nickname: string = 'WriteYourNick' # The nick to use for resulting stats (can be submitted to common stats repo)
 ]: nothing -> table {
@@ -31,7 +31,7 @@ export def nu-hist-stats [
     cprint --lines_before 1 --lines_after 2 'The script is calculating stats now.
         On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    let $res = nu-file-stats --extra_graphs $temp_history_file
+    let $res = calculate-file-stats --extra_graphs $temp_history_file
 
     $res
     | save-stats-for-submission $nickname
@@ -68,7 +68,7 @@ export def nu-files-stats [
 ]: [list<path> -> table, nothing -> table] {
     $in
     | default $file_paths
-    | par-each {|i| nu-file-stats $i}
+    | par-each {|i| calculate-file-stats $i}
     | flatten
     | where freq != null
     | group-by name
@@ -82,7 +82,7 @@ export def nu-files-stats [
 # Calculate stats of command usage in a specified `.nu` file.
 # Generates additional graphs and normalizes frequency data upon request.
 # Saves the output to a user-defined path for contributing results to the `nu-history-tools` repo.
-export def nu-file-stats [
+export def calculate-file-stats [
     path: path
     --normalize_freq            # Adds a normalized frequency column to the output.
     --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
@@ -160,7 +160,7 @@ export def aggregate-submissions [
 
     if not $user_selection_dialog {
         cprint --lines_after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
-        You can pick some of them by providing the *--pick_users* flag: *nu-hist-stats --pick_users* or
+        You can pick some of them by providing the *--pick_users* flag: *stats --pick_users* or
         *aggregate-submissions --pick_users*.'
     }
 
