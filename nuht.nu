@@ -127,7 +127,7 @@ def open_submission [
         reject command_type
     } else {}
     | join (commands-all) --right name
-    | default 0 freq
+    | default 0.0 freq
     | normalize freq
     | upsert freq_norm_bar {|i| bar $i.freq_norm -w ('freq_norm_bar' | str length)}
     | {commands: $in}
