@@ -9,7 +9,7 @@
 use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 # Calculates statistics for the current user's command history.
-export def stats [
+export def analyze-history [
     --quiet (-q) # Suppress information messages
     --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
     --nickname: string = 'WriteYourNick' # The nick to use for resulting stats (can be submitted to common stats repo)
@@ -32,7 +32,7 @@ export def stats [
 
     let $temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
 
-    save-local-history-for-ast $temp_history_file
+    export-history $temp_history_file
 
     let $res = calculate-commands-frequency-in-nu-file --extra_graphs $temp_history_file
 
@@ -40,7 +40,7 @@ export def stats [
     | save-stats-for-submission $nickname
 
     $res
-    | make-benchmarks
+    | generate-benchmarks
     | sort-by freq -r
 }
 
@@ -112,7 +112,7 @@ export def calculate-commands-frequency-in-nu-file [
         normalize freq
     } else {}
     | if $extra_graphs {
-        make_extra_graphs $ast_data
+        generate-graphs $ast_data
     } else {}
 }
 
@@ -214,7 +214,7 @@ export def aggregate-submissions [
 
 # Create benchmark columns for piped-in stats.
 # Adds extra columns to the data for visual representation and calculation of importance.
-export def make-benchmarks []: table -> table {
+export def generate-benchmarks []: table -> table {
     let $input = $in
 
     let $benchmarks = aggregate-submissions
@@ -274,7 +274,7 @@ export def list-all-commands []: nothing -> table {
 
 # Creates extra graphical representations for command usage over time.
 # Serves as a helper function within the script for visual data analysis.
-def make_extra_graphs [
+def generate-graphs [
     $ast_data
 ]: table -> table {
     let $input = $in
@@ -310,7 +310,7 @@ def make_extra_graphs [
 }
 
 # Combine history from sql and txt files and save it as a `.nu` file to the specified destination.
-def save-local-history-for-ast [
+def export-history [
     destination_path: path
 ]: nothing -> nothing {
     let $history_txt_path = $nu.history-path | str replace 'sqlite3' 'txt'
