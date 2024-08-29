@@ -23,8 +23,8 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> use nuht.nu [nu-hist-stats]; let $res = nu-hist-stats; $res | first 10
 *******************************************************************************
+> overlay use nuht.nu; let $res = nu-hist-stats; $res | first 10
                         nu-commands-frequency-stats v2.0
 *******************************************************************************
 
