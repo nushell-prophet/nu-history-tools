@@ -66,9 +66,8 @@ export def save-stats-for-submission [
 export def nu-files-stats [
     ...file_paths: path
 ]: [list<path> -> table, nothing -> table] {
-    $in
-    | default $file_paths
-    | par-each {|i| calculate-file-stats $i}
+    default $file_paths
+    | par-each {calculate-file-stats $in}
     | flatten
     | where freq != null
     | group-by name
@@ -189,7 +188,7 @@ export def aggregate-submissions [
             }
         }
         | upsert importance {
-            |i| ($i.users_count * $i.f_n_per_user) | math sqrt # geometric mean
+            |i| $i.users_count * $i.f_n_per_user | math sqrt # geometric mean
         }
         | normalize importance --suffix ''
         | sort-by importance -r
