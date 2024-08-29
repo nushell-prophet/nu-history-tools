@@ -256,7 +256,7 @@ export def commands-all [] {
     let $current_command_list = (
         help commands
         | select name category command_type
-        | where command_type in ['builtin' 'keyword']
+        | where command_type in ['built-in' 'keyword' 'plugin']
         | reject command_type
     )
 
