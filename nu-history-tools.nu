@@ -122,10 +122,10 @@ def open_submission [
     | join (commands-all) --right name
     | default 0 freq
     | normalize freq
-    | upsert freq_norm_bar {|i| bar $i.freq_norm -w ('freq_norm_bar' | str length)}
+    | insert freq_norm_bar {|i| bar $i.freq_norm -w ('freq_norm_bar' | str length)}
     | {commands: $in}
-    | upsert user ($filename | path basename | str replace -r '.*\+(.*)\.csv' '$1')
-    | upsert command_entries {|i| $i.commands.freq | math sum} # The total count of command entries in history of the current user
+    | insert user ($filename | path basename | str replace -r '.*\+(.*)\.csv' '$1')
+    | insert command_entries {|i| $i.commands.freq | math sum} # The total count of command entries in history of the current user
 }
 
 # Parses submitted stats from a folder and aggregates them for benchmarking.
@@ -155,7 +155,7 @@ export def aggregate-submissions [
         | select user command_entries
         | enumerate
         | flatten
-        | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
+        | update user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
 
     if not $user_selection_dialog {
         cprint --lines_after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
@@ -187,12 +187,12 @@ export def aggregate-submissions [
                 freq_by_user: ($user_sparklines | get $name),
             }
         }
-        | upsert importance {
+        | insert importance {
             |i| $i.users_count * $i.f_n_per_user | math sqrt # geometric mean
         }
         | normalize importance --suffix ''
         | sort-by importance -r
-        | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
+        | insert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
 
     $final_analytics
     | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands were introduced
@@ -218,7 +218,7 @@ export def make-benchmarks []: table -> table {
 
     $input
     | join -l $benchmarks name
-    | upsert importance {|i| $i | get -i importance | default 0}
+    | default 0 importance
     | sort-by importance -r -n
     | fill non-exist ''
 }
@@ -273,7 +273,7 @@ def make_extra_graphs [
         | get start
         | uniq
         | sort
-        | reduce -f {} {|a b| $b | merge {$a: 0}}
+        | reduce -f {} {|a| merge {$a: 0}}
 
     let $sparkline_data = $hist_for_timeline
         | group-by content
