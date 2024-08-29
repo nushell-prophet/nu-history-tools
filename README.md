@@ -18,7 +18,7 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Analyze your stats and benchmark them with other users' submissions.
 
 ```nushell
-> overlay use nu-history-tools.nu; let $res = stats; $res | first 10
+> use nu-history-tools.nu; let $res = nu-history-tools stats; $res | first 10
 *******************************************************************************
                         nu-commands-frequency-stats v2.0
 *******************************************************************************
@@ -95,7 +95,7 @@ represents one user (order is shown in the table above).
 ## Analyze submissions separately
 
 ```nushell
-> use nu-history-tools.nu aggregate-submissions; let $res2 = (aggregate-submissions); $res2 | first 5
+> use nu-history-tools.nu; let $res2 = nu-history-tools aggregate-submissions; $res2 | first 5
 *******************************************************************************
                 Aggregated stats of other users for benchmarks.
                    They will be displayed in the final table.
@@ -130,45 +130,4 @@ aggregate-submissions --pick_users.
 │ 3 │ open │ filesystem │        12549 │          16 │         0.36 │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │       0.79 │ █████████▌   │ nu-command │ 0.2.0     │ 0.97.1   │
 │ 4 │ help │ core       │         3395 │          14 │         0.29 │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │       0.67 │ ████████     │ nu-command │ 0.3.0     │ 0.97.1   │
 ╰─#─┴─name─┴──category──┴─freq_overall─┴─users_count─┴─f_n_per_user─┴───freq_by_user───┴─importance─┴─importance_b─┴───crate────┴─first_tag─┴─last_tag─╯
-
-> use nu-history-tools.nu [aggregate-submissions]; let $res = aggregate-submissions; $res | first 10
-*******************************************************************************
-                Aggregated stats of other users for benchmarks.
-                   They will be displayed in the final table.
-*******************************************************************************
-
-freq_by_user (frequency norm by user) includes stats from all users. You can
-pick some of them by providing the --pick_users flag: stats --pick_users or
-aggregate-submissions --pick_users.
-
-╭─#──┬──────user──────┬─command_entries─╮
-│ 0  │ maximuvarov    │          120938 │
-│ 1  │ vinlet         │           33817 │
-│ 2  │ fdncred        │           18538 │
-│ 3  │ kubouch        │           10170 │
-│ 4  │ ErichDonGubler │           10101 │
-│ 5  │ chtenb         │            9376 │
-│ 6  │ shinyzero0     │            9247 │
-│ 7  │ nu_scripts     │            8622 │
-│ 8  │ dazfuller      │            7354 │
-│ 9  │ cptpiepmatz    │            4199 │
-│ 10 │ zjp            │            2764 │
-│ 11 │ sholderbach    │            2114 │
-│ 12 │ horasal        │            1373 │
-│ 13 │ nu_std         │            1202 │
-│ 14 │ pingiun        │             894 │
-│ 15 │ nicokosi       │             255 │
-╰─#──┴──────user──────┴─command_entries─╯
-╭─#─┬──name──┬──category──┬─freq_overall─┬─users_count─┬─f_n_per_user─┬───freq_by_user───┬─importance─┬─importance_b─┬───crate────┬─first_tag─┬─last_tag─╮
-│ 0 │ ls     │ filesystem │        15029 │          15 │         0.62 │ ▇▄██▃▁█▁▄▄█▆█▁▆▇ │       1.00 │ ████████████ │ nu-parser  │ 0.2.0     │ 0.97.1   │
-│ 1 │ cd     │ filesystem │         8489 │          15 │         0.43 │ ▂▃▄▇▃▂▁▁██▇▄▄▁█▁ │       0.84 │ ██████████   │ nu-command │ 0.2.0     │ 0.97.1   │
-│ 2 │ get    │ filters    │        13633 │          16 │         0.37 │ ▇█▅▆▂▁▄▂▃▁▂▃▂▃▂█ │       0.80 │ █████████▋   │ nu-command │ 0.2.0     │ 0.97.1   │
-│ 3 │ open   │ filesystem │        12549 │          16 │         0.36 │ ▆█▄▄▂▁▄▁▃▆▂▃▃▁▂▇ │       0.79 │ █████████▌   │ nu-command │ 0.2.0     │ 0.97.1   │
-│ 4 │ help   │ core       │         3395 │          14 │         0.29 │ ▂▂▅▃▁▁▂▁▂▂▃█▁▁▇█ │       0.67 │ ████████     │ nu-command │ 0.3.0     │ 0.97.1   │
-│ 5 │ let    │ core       │         8354 │          14 │         0.25 │ ▅▃▄▃▁▁▂█▁▁▂▂▂▆▃▁ │       0.62 │ ███████▍     │ nu-parser  │ 0.25.0    │ 0.97.1   │
-│ 6 │ each   │ filters    │         8808 │          14 │         0.20 │ ▅█▃▄▂▁▂▂▁▁▂▃▂▂▁▁ │       0.54 │ ██████▌      │ nu-command │ 0.13.0    │ 0.97.1   │
-│ 7 │ where  │ filters    │         7080 │          13 │         0.17 │ ▇█▅▅▂▁▃▂▃▂▂▅▃▃▁▁ │       0.49 │ █████▉       │ nu-command │ 0.2.0     │ 0.97.1   │
-│ 8 │ config │ env        │         1582 │          14 │         0.16 │ ▁▁▃█▁▁▅▁▁▂▆▂▂▁▆▅ │       0.49 │ █████▉       │ nu-command │ 0.2.0     │ 0.97.1   │
-│ 9 │ lines  │ filters    │         4509 │          14 │         0.12 │ ██▆▆█▁▇▂▁▅▇▆▃▂▁▁ │       0.43 │ █████▎       │ nu-command │ 0.2.0     │ 0.97.1   │
-╰─#─┴──name──┴──category──┴─freq_overall─┴─users_count─┴─f_n_per_user─┴───freq_by_user───┴─importance─┴─importance_b─┴───crate────┴─first_tag─┴─last_tag─╯
 ```
