@@ -244,7 +244,7 @@ export def make-benchmarks [] {
 
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
-# > use nuht.nu commands-all; let $res = commands-all; $res | last 3
+# > use nu-history-tools.nu commands-all; let $res = commands-all; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
 # │ unfold      │ nu-command     │ 0.86.0  │ 0.86.0 │ generators │
 # │ url decode  │ nu-command     │ 0.86.0  │ 0.86.0 │ strings    │
