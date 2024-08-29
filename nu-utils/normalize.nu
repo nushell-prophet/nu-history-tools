@@ -23,7 +23,6 @@ export def main [
 
         $table = (
             $table
-            | into float freq
             | upsert $'($column)($suffix)' {
                 |i| $i
                 | get $column
