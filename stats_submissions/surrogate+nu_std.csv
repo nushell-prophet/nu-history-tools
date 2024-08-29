@@ -1,110 +1,93 @@
 name,freq
-if,183
-ansi,152
-let,130
-is-empty,72
-export def,58
-def,51
-get,46
-metadata,39
-str join,32
-each,27
-where,23
-error make,21
-print,21
-flatten,17
-return,16
-append,15
-length,14
-mut,14
-char,13
-match,11
-filter,10
-select,10
-update,9
-do,9
-try,9
-default,7
-export alias,6
-rename,6
-enumerate,6
-describe,6
-to nuon,6
-scope commands,5
-path join,5
-find,5
-into int,5
+alias,2
+ansi,112
+append,13
+cd,1
+char,5
 const,5
-insert,5
-use,5
-reject,5
-to text,4
-lines,4
-path expand,4
-reduce,4
-for,4
-nu-highlight,4
-par-each,4
-sort-by,3
-skip,3
-table,3
-export-env,3
-str replace,2
-to json,2
-scope modules,2
-input listen,2
-fmt,2
-seq,2
-str trim,2
-view source,2
-from json,2
-scope aliases,2
-zip,2
-transpose,2
-open,2
+date now,2
 date to-record,2
 date to-timezone,2
-random chars,2
-alias,2
-sys,2
-upsert,2
-any,2
-ls,2
-into record,2
-date now,2
-first,2
-str upcase,1
-str substring,1
-into string,1
-complete,1
-rm,1
+def,42
+default,13
+describe,6
+do,9
 drop,1
-str contains,1
-timeit,1
-math avg,1
-path parse,1
-path exists,1
-split column,1
-last,1
+each,26
+enumerate,5
+error make,16
+export alias,6
+export def,60
+export module,10
+export-env,3
+filter,3
+find,5
+first,2
+flatten,12
+fmt,2
+for,4
 format date,1
+from json,2
+get,37
+if,157
+input listen,2
+insert,2
 into duration,1
-columns,1
-save,1
-loop,1
-math stddev,1
-take,1
-str starts-with,1
-str downcase,1
-prepend,1
-which,1
-merge,1
-group-by,1
-path type,1
-cd,1
-headers,1
-load-env,1
-split row,1
 into float,1
-ansi strip,1
-path dirname,1
+into int,5
+into record,1
+is-empty,58
+is-not-empty,1
+last,1
+length,10
+let,113
+lines,2
+load-env,1
+loop,1
+match,8
+math avg,1
+math max,1
+math min,1
+math stddev,1
+metadata,36
+mut,14
+nu-highlight,4
+path expand,4
+path type,1
+prepend,1
+print,7
+reduce,4
+reject,1
+rename,5
+return,13
+scope aliases,2
+scope commands,5
+scope modules,2
+select,9
+seq,1
+skip,3
+sort-by,3
+split row,1
+str contains,1
+str downcase,1
+str join,27
+str replace,2
+str starts-with,1
+str substring,1
+str trim,1
+str upcase,1
+table,1
+take,1
+timeit,1
+to json,2
+to nuon,6
+to text,5
+transpose,1
+try,8
+update,2
+upsert,1
+use,3
 values,1
+view source,2
+where,20
+zip,3
