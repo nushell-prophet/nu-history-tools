@@ -1,9 +1,12 @@
 # A helper to provide ansi code color alternations
-# > ansi-alternate 2 | pbcopy
+# > ansi-alternate 2
+#
 # [36m
-# > ansi-alternate 5 | pbcopy
+# > ansi-alternate 5
+#
 # [36m
-# > ansi-alternate 3 | pbcopy
+# > ansi-alternate 3
+#
 # [37m
 export def main [
     index
