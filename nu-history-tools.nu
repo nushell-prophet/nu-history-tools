@@ -32,9 +32,9 @@ export def stats [
 
     let $temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
 
-    history-save $temp_history_file
+    save-local-history-for-ast $temp_history_file
 
-    let $res = calculate-file-stats --extra_graphs $temp_history_file
+    let $res = calculate-commands-frequency-in-nu-file --extra_graphs $temp_history_file
 
     $res
     | save-stats-for-submission $nickname
@@ -72,7 +72,7 @@ export def nu-files-stats [
     ...file_paths: path
 ]: [list<path> -> table, nothing -> table] {
     default $file_paths
-    | par-each {calculate-file-stats $in}
+    | par-each {calculate-commands-frequency-in-nu-file $in}
     | flatten
     | where freq != null
     | group-by name
@@ -86,7 +86,7 @@ export def nu-files-stats [
 # Calculate stats of command usage in a specified `.nu` file.
 # Generates additional graphs and normalizes frequency data upon request.
 # Saves the output to a user-defined path for contributing results to the `nu-history-tools` repo.
-export def calculate-file-stats [
+export def calculate-commands-frequency-in-nu-file [
     path: path
     --normalize_freq            # Adds a normalized frequency column to the output.
     --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
@@ -98,7 +98,7 @@ export def calculate-file-stats [
 
     let $freq_table = $ast_data | get content | uniq --count | rename name freq
 
-    let $freq_builtins_only = commands-all
+    let $freq_builtins_only = list-all-commands
         | reject first_tag last_tag crate
         | join $freq_table -l name # but left join we make sure that only standard commands are included into results
         | if $include_0_freq_commands {
@@ -124,7 +124,7 @@ def open_submission [
     | if ('command_type' in ($in | columns)) {
         reject command_type
     } else {}
-    | join (commands-all) --right name
+    | join (list-all-commands) --right name
     | default 0 freq
     | normalize freq
     | insert freq_norm_bar {|i| bar $i.freq_norm -w ('freq_norm_bar' | str length)}
@@ -209,7 +209,7 @@ export def aggregate-submissions [
         | insert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
 
     $final_analytics
-    | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands were introduced
+    | join -l (list-all-commands | reject category) name     # here we join table to have info about github tags, when commands were introduced
 }
 
 # Create benchmark columns for piped-in stats.
@@ -242,13 +242,13 @@ export def make-benchmarks []: table -> table {
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
 #
-# > use nu-history-tools.nu commands-all; let $res = commands-all; $res | last 3
+# > use nu-history-tools.nu list-all-commands; let $res = list-all-commands; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
 # │ unfold      │ nu-command     │ 0.86.0  │ 0.86.0 │ generators │
 # │ url decode  │ nu-command     │ 0.86.0  │ 0.86.0 │ strings    │
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
-export def commands-all []: nothing -> table {
+export def list-all-commands []: nothing -> table {
     let $crate_history = open crates_parsing/cmds_by_crates_and_tags.csv
 
     let $current_command_list = help commands
@@ -310,10 +310,10 @@ def make_extra_graphs [
 }
 
 # Combine history from sql and txt files and save it as a `.nu` file to the specified destination.
-def history-save [
+def save-local-history-for-ast [
     destination_path: path
 ]: nothing -> nothing {
-    let $history_txt_path = $nu.history-path | str replace sqlite3 'txt'
+    let $history_txt_path = $nu.history-path | str replace 'sqlite3' 'txt'
 
     mut history_txt = []
 
