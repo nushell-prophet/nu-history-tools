@@ -307,7 +307,7 @@ def history-save [
     if $use_sqlite and ($history_txt_path | path exists) {
         cprint --lines_after 2 $'Your history is in *sqlite* format and will be used for analysis.
         Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
-        entries*. It will be used for analysis as well.'
+        lines*. It will be used for analysis as well.'
 
         $history_txt = ( open $history_txt_path | lines )
     }
