@@ -19,6 +19,7 @@ export def main [
             | get $column
             | where ($it | describe | $in in ['int' 'float'])
             | math max
+            | into float
         )
 
         $table = (
