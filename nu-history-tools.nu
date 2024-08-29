@@ -15,7 +15,7 @@ export def stats [
 ]: nothing -> table {
     $env.freq-hist.pick-users = $pick_users
 
-    cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.0'
+    cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.1'
 
     let $compatible_versions = ['0.97.1']
     let $running_version = version | get version
