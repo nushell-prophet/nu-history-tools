@@ -298,12 +298,13 @@ def make_extra_graphs [
 def history-save [
     destination_path: path
 ] {
-    let $history_txt_path = ($nu.history-path | str replace sqlite3 'txt')
+    let $history_txt_path = $nu.history-path | str replace sqlite3 'txt'
 
     mut history_txt = []
 
-    if (($env.config.history.file_format == 'sqlite') and ($history_txt_path | path exists)) {
+    let $use_sqlite = $env.config.history.file_format == 'sqlite'
 
+    if $use_sqlite and ($history_txt_path | path exists) {
         cprint --lines_after 2 $'Your history is in *sqlite* format and will be used for analysis.
         Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
         entries*. It will be used for analysis as well.'
@@ -311,7 +312,12 @@ def history-save [
         $history_txt = ( open $history_txt_path | lines )
     }
 
-    history
+    if $use_sqlite {
+        history
+        | where exit_status == 0
+    } else {
+        history
+    }
     | get command
     | prepend $history_txt
     | str join $';(char nl)'
