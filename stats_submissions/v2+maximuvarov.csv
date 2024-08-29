@@ -3,7 +3,7 @@ name,freq
 agg,23
 alias,24
 all,2
-ansi,989
+ansi,921
 ansi gradient,312
 ansi strip,372
 any,11
@@ -17,8 +17,8 @@ build-string,2
 bytes,1
 bytes index-of,4
 cal,8
-cd,1668
-char,1238
+cd,1669
+char,1171
 chunks,1
 clear,532
 clip,10
@@ -92,7 +92,7 @@ fill,629
 filter,147
 filter-with,3
 find,203
-first,2619
+first,2640
 flatten,1483
 fmt,5
 fn,6
@@ -122,11 +122,12 @@ group,11
 group-by,542
 hash,1
 hash md5,10
+hash sha256,61
 headers,44
 hello,3
-help,1117
+help,1118
 help aliases,2
-help commands,401
+help commands,402
 help escapes,25
 help externs,1
 help modules,71
@@ -170,9 +171,9 @@ keybindings,11
 keybindings default,16
 keybindings list,39
 keybindings listen,20
-last,1319
+last,1320
 length,1846
-let,4757
+let,4780
 let-env,119
 lines,2198
 list,2
@@ -205,12 +206,12 @@ mktemp,25
 module,15
 move,97
 mut,113
-mv,426
+mv,428
 n,10
-nu,4054
+nu,4056
 nu-check,44
 nu-highlight,98
-open,6934
+open,6935
 open-df,15
 or,1
 over,1
@@ -255,12 +256,13 @@ random float,32
 random int,99
 random uuid,36
 reduce,343
+regex,4
 register,38
 reject,1180
 rename,673
 return,37
 reverse,253
-rm,432
+rm,433
 roll down,2
 roll up,5
 rotate,5
@@ -363,7 +365,7 @@ update,614
 update cells,45
 upsert,3275
 url join,2
-use,2426
+use,2449
 value-counts,15
 values,394
 var,1
