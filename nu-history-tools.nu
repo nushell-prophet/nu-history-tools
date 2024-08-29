@@ -18,8 +18,8 @@ export def nu-hist-stats [
     cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.0'
 
     let $compatible_versions = ['0.97.1']
-    let $running_version = (version | get version)
-    let $temp_history_file = ($nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu')
+    let $running_version = version | get version
+    let $temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
 
     history-save $temp_history_file
 
@@ -31,7 +31,7 @@ export def nu-hist-stats [
     cprint --lines_before 1 --lines_after 2 'The script is calculating stats now.
         On an M1 Mac with a history of ~50,000 entries, It runs for about a minute. Please wait'
 
-    let $res = (nu-file-stats --extra_graphs $temp_history_file)
+    let $res = nu-file-stats --extra_graphs $temp_history_file
 
     $res
     | save-stats-for-submission $nickname
@@ -46,13 +46,11 @@ export def save-stats-for-submission [
 ] {
     let $input = $in
 
-    let $submissions_path = (
-        pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
+    let $submissions_path = pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
         | if ($in | path exists) { } else {
             error make {msg: `Please run this script for the root of it's git repositor folder`}
         }
         | path join $'v2+($nickname).csv'
-    )
 
     $input
     | select -i name freq
@@ -90,16 +88,13 @@ export def nu-file-stats [
     --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
     --include_0_freq_commands   # Include all the historical Nushell commands
 ] {
-    let $ast_data = (
-        nu --ide-ast $path --no-config-file --no-std-lib
+    let $ast_data = nu --ide-ast $path --no-config-file --no-std-lib
         | from json
         | where shape in ['shape_internalcall' 'keyword' 'shape_external']
-    )
 
-    let $freq_table = ($ast_data | get content | uniq --count | rename name freq)
+    let $freq_table = $ast_data | get content | uniq --count | rename name freq
 
-    let $freq_builtins_only = (
-        commands-all
+    let $freq_builtins_only = commands-all
         | reject first_tag last_tag crate
         | join $freq_table -l name # but left join we make sure that only standard commands are included into results
         | if $include_0_freq_commands {
@@ -107,7 +102,6 @@ export def nu-file-stats [
         } else {
             where freq? != null
         }
-    )
 
     $freq_builtins_only
     | if $normalize_freq or $extra_graphs {
@@ -146,8 +140,7 @@ export def aggregate-submissions [
 
     let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
-    let $aggregated_submissions = (
-        ls $submissions_path --full-paths
+    let $aggregated_submissions = ls $submissions_path --full-paths
         | where ($it.name | path parse | get extension) == 'csv'
         | sort-by size -r
         | get name
@@ -158,15 +151,12 @@ export def aggregate-submissions [
         } else {}
         | par-each {|filename| open_submission $filename}
         | sort-by command_entries -r
-    )
 
-    let $ordered_users = (
-        $aggregated_submissions
+    let $ordered_users = $aggregated_submissions
         | select user command_entries
         | enumerate
         | flatten
         | upsert user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
-    )
 
     if not $user_selection_dialog {
         cprint --lines_after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
@@ -176,23 +166,18 @@ export def aggregate-submissions [
 
     print $ordered_users
 
-    let $grouped_statistics = (
-        $aggregated_submissions
+    let $grouped_statistics = $aggregated_submissions
         | select commands user
         | flatten
         | flatten
         | group-by name
-    )
 
-    let $user_sparklines = (
-        $grouped_statistics
+    let $user_sparklines = $grouped_statistics
         | values
         | each {|b| {name: $b.name.0, freq_by_user: (spark $b.freq_norm --colors)}}
         | transpose -idr
-    )
 
-    let $final_analytics = (
-        $grouped_statistics
+    let $final_analytics = $grouped_statistics
         | items { |name b|
             {
                 name: $name,
@@ -209,7 +194,6 @@ export def aggregate-submissions [
         | normalize importance --suffix ''
         | sort-by importance -r
         | upsert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
-    );
 
     $final_analytics
     | join -l (commands-all | reject category) name     # here we join table to have info about github tags, when commands were introduced
@@ -220,10 +204,8 @@ export def aggregate-submissions [
 export def make-benchmarks [] {
     let $data = $in
 
-    let $benchmarks = (
-        aggregate-submissions
+    let $benchmarks = aggregate-submissions
         | select name importance importance_b freq_by_user
-    );
 
     cprint -f '*' --align 'center' 'Resulting table'
 
@@ -251,26 +233,22 @@ export def make-benchmarks [] {
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
 export def commands-all [] {
-    let $crate_history = (open crates_parsing/cmds_by_crates_and_tags.csv)
+    let $crate_history = open crates_parsing/cmds_by_crates_and_tags.csv
 
-    let $current_command_list = (
-        help commands
+    let $current_command_list = help commands
         | select name category command_type
         | where command_type in ['built-in' 'keyword' 'plugin']
         | reject command_type
-    )
 
-    let $ver = (version | get version)
+    let $ver = version | get version
 
     # The $default_command_data is used if there is no crates parsing history.
     # You can update the CSV file by running crates_parsing/crates_parsing.nu
-    let $default_command_data = (
-        $current_command_list
+    let $default_command_data = $current_command_list
         | select name
         | upsert crate not_parsed_yet
         | upsert first_tag $ver
         | upsert last_tag $ver
-    )
 
     $crate_history
     | append $default_command_data
@@ -284,25 +262,20 @@ def make_extra_graphs [
     $ast_data
 ] {
     let $table_in = $in
-    let $hist_for_timeline = (
-        $ast_data
+    let $hist_for_timeline = $ast_data
         | upsert start {|i| $i.span.start}
         | select content start
         | upsert start {|i| $i.start // 100_000}
         | uniq --count
         | flatten
-    );
 
-    let $default_bins = (
-        $hist_for_timeline
+    let $default_bins = $hist_for_timeline
         | get start
         | uniq
         | sort
         | reduce -f {} {|a b| $b | merge {$a: 0}}
-    )
 
-    let $sparkline_data = (
-        $hist_for_timeline
+    let $sparkline_data = $hist_for_timeline
         | group-by content
         | items {|a b|
             $default_bins
@@ -312,7 +285,6 @@ def make_extra_graphs [
             | { $a: $in }
         }
         | reduce -f {} {|a b| $a | merge $b}
-    )
 
     $table_in
     | upsert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
