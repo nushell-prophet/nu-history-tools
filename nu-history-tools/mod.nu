@@ -235,7 +235,11 @@ export def list-all-commands []: nothing -> table {
         | path join 'cmds_by_crates_and_tags.csv'
         | if ($in | path exists) {
             open
-        } else {[]}
+        } else {
+            cprint 'To obtain data about the version and when commands were introduced,
+                execute this command from the root of the module directory.'
+            []
+        }
 
     let $current_command_list = list-current-commands
 
