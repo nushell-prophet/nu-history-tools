@@ -25,9 +25,9 @@ export def insert-timeline [
 ]: table -> table {
     let $input = $in
 
-    let $chunks = ($ast_data | first | get span.start)
-        | append ($ast_data | last | get span.end)
-        | ($in.1 - $in.0) // $number_of_bins
+    let $chunks = ($ast_data | last | get span.end)
+        | $in - ($ast_data | first | get span.start)
+        | $in // $number_of_bins
         | append 30_000
         | math max
 
