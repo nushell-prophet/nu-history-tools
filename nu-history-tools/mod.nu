@@ -7,7 +7,7 @@
 # https://github.com/nushell-prophet/nu-history-tools
 
 use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
-use internals.nu [open_submission generate-graphs export-history list-current-commands]
+use internals.nu [open_submission insert-timeline export-history list-current-commands save-stats-for-submission]
 
 # Calculates statistics for the current user's command history.
 export def analyze-history [
@@ -112,7 +112,8 @@ export def calculate-commands-frequency-in-nu-file [
         normalize freq
     } else {}
     | if $extra_graphs {
-        generate-graphs $ast_data
+        insert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
+        | insert-timeline $ast_data
     } else {}
 }
 

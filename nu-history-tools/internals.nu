@@ -18,9 +18,8 @@ export def open_submission [
     | insert command_entries {|i| $i.commands.freq | math sum} # The total count of command entries in history of the current user
 }
 
-# Creates extra graphical representations for command usage over time.
-# Serves as a helper function within the script for visual data analysis.
-export def generate-graphs [
+# Insert the usage of command timeline sparkline
+export def insert-timeline [
     $ast_data
 ]: table -> table {
     let $input = $in
@@ -48,7 +47,6 @@ export def generate-graphs [
         | reduce -f {} {|a b| $a | merge $b}
 
     $input
-    | insert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
     | insert timeline {
         |i| $sparkline_data
         | get -i $i.name
