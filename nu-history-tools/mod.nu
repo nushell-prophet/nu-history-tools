@@ -6,7 +6,7 @@
 
 # https://github.com/nushell-prophet/nu-history-tools
 
-use nu-utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
+use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 
 # Calculates statistics for the current user's command history.
 export def analyze-history [
