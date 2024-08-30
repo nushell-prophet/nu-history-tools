@@ -7,7 +7,7 @@
 # https://github.com/nushell-prophet/nu-history-tools
 
 use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
-use internals.nu [open_submission generate-graphs export-history]
+use internals.nu [open_submission generate-graphs export-history list-current-commands]
 
 # Calculates statistics for the current user's command history.
 export def analyze-history [
@@ -240,10 +240,7 @@ export def list-all-commands []: nothing -> table {
             open
         } else {[]}
 
-    let $current_command_list = help commands
-        | select name category command_type
-        | where command_type in ['built-in' 'keyword' 'plugin']
-        | reject command_type
+    let $current_command_list = list-current-commands
 
     let $ver = version | get version
 

@@ -86,3 +86,10 @@ export def export-history [
     | str join $';(char nl)'
     | save -f $destination_path
 }
+
+export def list-current-commands [] {
+    help commands
+    | select name category command_type
+    | where command_type in ['built-in' 'keyword' 'plugin']
+    | reject command_type
+}
