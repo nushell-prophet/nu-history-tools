@@ -192,7 +192,6 @@ export def aggregate-submissions [
         | insert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
 
     $final_analytics
-    | join -l (list-all-commands | reject category) name     # here we join table to have info about github tags, when commands were introduced
 }
 
 # Create benchmark columns for piped-in stats.
