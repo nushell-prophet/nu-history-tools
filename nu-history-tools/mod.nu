@@ -135,8 +135,9 @@ export def aggregate-submissions [
 
     let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
-    let $aggregated_submissions = ls $submissions_path --full-paths
-        | where ($it.name | path parse | get extension) == 'csv'
+    let $aggregated_submissions = $submissions_path
+        | path join *.csv
+        | ls $in --full-paths
         | sort-by size -r
         | get name
         | where $it !~ 'WriteYourNick.csv' # default output
