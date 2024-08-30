@@ -147,3 +147,30 @@ export def calculate-commands-frequency-in-nu-file [
         | insert-timeline $ast_data
     } else {}
 }
+
+# Create benchmark columns for piped-in stats.
+# Adds extra columns to the data for visual representation and calculation of importance.
+export def generate-benchmarks []: table -> table {
+    let $input = $in
+
+    let $benchmarks = aggregate-submissions
+        | select name importance importance_b freq_by_user
+
+    if $env.freq-hist?.quiet? != true {
+        cprint -f '*' --align 'center' 'Resulting table'
+
+        cprint --keep_single_breaks --lines_after 2 '*A note about some columns*:
+        - *freq* - indicates the overall frequency of use of the given command for the currently analyzed source
+        - *freq_norm* - represents the overall frequency normalized
+        - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
+        - *timeline* - displays the dynamics, indicating when the command was used throughout your history
+        - *importance* - calculated as the geometric mean of the number of users who used this command and the average normalized frequency
+        - *freq_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
+    }
+
+    $input
+    | join -l $benchmarks name
+    | default 0 importance
+    | sort-by importance -r -n
+    | fill non-exist ''
+}

@@ -8,7 +8,7 @@
 
 use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 use internals.nu [open_submission insert-timeline export-history list-current-commands save-stats-for-submission
-    calculate-commands-frequency-in-nu-file]
+    calculate-commands-frequency-in-nu-file generate-benchmarks]
 
 # Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
 export def analyze-history [
@@ -139,33 +139,6 @@ export def aggregate-submissions [
         | insert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
 
     $final_analytics
-}
-
-# Create benchmark columns for piped-in stats.
-# Adds extra columns to the data for visual representation and calculation of importance.
-export def generate-benchmarks []: table -> table {
-    let $input = $in
-
-    let $benchmarks = aggregate-submissions
-        | select name importance importance_b freq_by_user
-
-    if $env.freq-hist?.quiet? != true {
-        cprint -f '*' --align 'center' 'Resulting table'
-
-        cprint --keep_single_breaks --lines_after 2 '*A note about some columns*:
-        - *freq* - indicates the overall frequency of use of the given command for the currently analyzed source
-        - *freq_norm* - represents the overall frequency normalized
-        - *freq_norm_bar* - shows the overall frequency normalized in a bar chart format
-        - *timeline* - displays the dynamics, indicating when the command was used throughout your history
-        - *importance* - calculated as the geometric mean of the number of users who used this command and the average normalized frequency
-        - *freq_by_user* (frequency norm by user) - each bar in the sparkline column represents one user (order is shown in the table above).'
-    }
-
-    $input
-    | join -l $benchmarks name
-    | default 0 importance
-    | sort-by importance -r -n
-    | fill non-exist ''
 }
 
 # Provides a list with all commands ever implemented in Nushell and their crates.
