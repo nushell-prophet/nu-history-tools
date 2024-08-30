@@ -1,8 +1,6 @@
-# This Nushell module contains utilities to analyze the usage statistics of Nushell commands based on user history.
-
-# Calculates and aggregates statistics for Nushell command usage across .nu files and command histories.
-# It includes features for normalization of data, creation of visual graphs and bars to represent data,
-# and benchmarking command usage against submissions from other users.
+# Utilities to analyze the usage statistics of Nushell commands (based on user history or `.nu` files).
+# It includes features for the creation of visual graphs and bars to represent data,
+# as well as benchmarking command usage against submissions from other users.
 
 # https://github.com/nushell-prophet/nu-history-tools
 
@@ -13,7 +11,7 @@ use internals.nu [open_submission export-history list-current-commands save-stat
 # Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
 export def analyze-history [
     --quiet (-q) # Suppress information messages
-    --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
+    --pick_users # This flag triggers an interactive user selection to filter benchmarks during script execution
     --nickname: string = 'WriteYourNick' # The nick to use for resulting stats (can be submitted to common stats repo)
 ]: nothing -> table {
     $env.freq-hist.pick-users = $pick_users
@@ -67,8 +65,8 @@ export def analyze-nu-files [
 # Can interactively select users to include in the analysis.
 export def aggregate-submissions [
     --quiet (-q) # Suppress information messages
-    --submissions_path: path = 'stats_submissions'  # A path to a folder that contains submitted results.
-    --pick_users                                    # This flag triggers interactive user selection during script execution.
+    --submissions_path: path = 'stats_submissions' # A path to a folder that contains submitted results.
+    --pick_users # This flag triggers interactive user selection during script execution.
 ]: nothing -> table {
     if $quiet {
         $env.freq-hist.quiet = true
