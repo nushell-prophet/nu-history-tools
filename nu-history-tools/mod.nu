@@ -6,8 +6,8 @@
 
 # https://github.com/nushell-prophet/nu-history-tools
 
-use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
-use internals.nu [open_submission insert-timeline export-history list-current-commands save-stats-for-submission
+use utils [bar spark normalize cprint ansi-alternate]
+use internals.nu [open_submission export-history list-current-commands save-stats-for-submission
     calculate-commands-frequency-in-nu-file generate-benchmarks]
 
 # Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
