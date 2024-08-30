@@ -113,3 +113,37 @@ export def save-stats-for-submission [
             to the original repository *https://github.com/nushell-prophet/nu-history-tools/tree/main/stats_submissions*.'
     }
 }
+
+
+# Calculate stats of command usage in a specified `.nu` file.
+# Generates additional graphs and normalizes frequency data upon request.
+# Saves the output to a user-defined path for contributing results to the `nu-history-tools` repo.
+export def calculate-commands-frequency-in-nu-file [
+    path: path
+    --normalize_freq            # Adds a normalized frequency column to the output.
+    --extra_graphs              # Includes frequency histogram and timeline sparklines in the output.
+    --include_0_freq_commands   # Include all the historical Nushell commands
+]: nothing -> table {
+    let $ast_data = nu --ide-ast $path --no-config-file --no-std-lib
+        | from json
+        | where shape in ['shape_internalcall' 'keyword' 'shape_external']
+
+    let $freq_table = $ast_data | get content | uniq --count | rename name freq
+
+    let $freq_builtins_only = list-current-commands
+        | join $freq_table -l name # but left join we make sure that only standard commands are included into results
+        | if $include_0_freq_commands {
+            default 0 freq
+        } else {
+            where freq? != null
+        }
+
+    $freq_builtins_only
+    | if $normalize_freq or $extra_graphs {
+        normalize freq
+    } else {}
+    | if $extra_graphs {
+        insert 'freq_norm_bar' {|i| bar $i.freq_norm --width 10}
+        | insert-timeline $ast_data
+    } else {}
+}
