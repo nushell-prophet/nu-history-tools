@@ -9,7 +9,7 @@
 use utils [bar spark normalize cprint 'fill non-exist' ansi-alternate]
 use internals.nu [open_submission insert-timeline export-history list-current-commands save-stats-for-submission]
 
-# Calculates statistics for the current user's command history.
+# Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
 export def analyze-history [
     --quiet (-q) # Suppress information messages
     --pick_users    # This flag triggers an interactive user selection to filter benchmarks during script execution
