@@ -21,10 +21,18 @@ export def open_submission [
 # Insert the command usage timeline sparkline
 export def insert-timeline [
     $ast_data
+    --number_of_bins: int = 10
 ]: table -> table {
     let $input = $in
+
+    let $chunks = ($ast_data | first | get span.start)
+        | append ($ast_data | last | get span.end)
+        | ($in.1 - $in.0) // $number_of_bins
+        | append 30_000
+        | math max
+
     let $hist_for_timeline = $ast_data
-        | insert start {|i| $i.span.start // 100_000}
+        | insert start {|i| $i.span.start // $chunks}
         | select content start
         | uniq --count
         | flatten
