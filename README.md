@@ -92,34 +92,7 @@ represents one user (order is shown in the table above).
 ## Analyze submissions separately
 
 ```nushell
-> use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions; $res2 | first 5
-*******************************************************************************
-                Aggregated stats of other users for benchmarks.
-                   They will be displayed in the final table.
-*******************************************************************************
-
-freq_by_user (frequency norm by user) includes stats from all users. You can
-pick some of them by providing the --pick_users flag: stats --pick_users or
-aggregate-submissions --pick_users.
-
-╭─#──┬──────user──────┬─command_entries─╮
-│ 0  │ maximuvarov    │          120938 │
-│ 1  │ vinlet         │           33817 │
-│ 2  │ fdncred        │           18538 │
-│ 3  │ nu_scripts     │           11214 │
-│ 4  │ kubouch        │           10170 │
-│ 5  │ ErichDonGubler │           10101 │
-│ 6  │ chtenb         │            9376 │
-│ 7  │ shinyzero0     │            9247 │
-│ 8  │ dazfuller      │            7354 │
-│ 9  │ cptpiepmatz    │            4199 │
-│ 10 │ zjp            │            2764 │
-│ 11 │ sholderbach    │            2114 │
-│ 12 │ horasal        │            1373 │
-│ 13 │ nu_std         │             985 │
-│ 14 │ pingiun        │             894 │
-│ 15 │ nicokosi       │             255 │
-╰─#──┴──────user──────┴─command_entries─╯
+> use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
 ╭─#─┬─name─┬──category──┬─freq_overall─┬─users_count─┬─f_n_per_user─┬───freq_by_user───┬─importance─┬─importance_b─╮
 │ 0 │ ls   │ filesystem │        15045 │          14 │         0.62 │ ▇▄█▁█▃▁█▄▄█▆█▁▆▇ │       1.00 │ ████████████ │
 │ 1 │ cd   │ filesystem │         8492 │          15 │         0.43 │ ▂▃▄▁▇▃▂▁██▇▄▄▁█▁ │       0.87 │ ██████████▍  │
