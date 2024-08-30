@@ -99,8 +99,7 @@ export def calculate-commands-frequency-in-nu-file [
 
     let $freq_table = $ast_data | get content | uniq --count | rename name freq
 
-    let $freq_builtins_only = list-all-commands
-        | reject first_tag last_tag crate
+    let $freq_builtins_only = list-current-commands
         | join $freq_table -l name # but left join we make sure that only standard commands are included into results
         | if $include_0_freq_commands {
             default 0 freq
