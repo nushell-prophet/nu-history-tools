@@ -234,7 +234,11 @@ export def generate-benchmarks []: table -> table {
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
 export def list-all-commands []: nothing -> table {
-    let $crate_history = open crates_parsing/cmds_by_crates_and_tags.csv
+    let $crate_history = 'crates_parsing'
+        | path join 'cmds_by_crates_and_tags.csv'
+        | if ($in | path exists) {
+            open
+        } else {[]}
 
     let $current_command_list = help commands
         | select name category command_type
