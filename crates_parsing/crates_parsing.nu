@@ -3,17 +3,16 @@ def 'parse-crates' [
     --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
 ] {
     # This script parses sources of nushell for the last x tags to extract nushell commands
-
     if not ($output_dir | path exists) {
-        error make {msg: 'set an `$output_dir` variable in the body of `crates_parsing.nu` script'}
+        error make {msg: 'set an `$output_dir` param'}
     }
 
     if not ($crates_dir | path exists) {
-        error make {msg: 'set an `$crates_dir` variable in the body of `crates_parsing.nu` script'}
+        error make {msg: 'set an `$crates_dir` param'}
     }
 
-    let $out_csv_long = ($output_dir | path join cmds_by_crates_and_tags_long.csv)
-    let $out_csv_short = ($output_dir | path join 'cmds_by_crates_and_tags.csv')
+    let $out_csv_long = $output_dir | path join cmds_by_crates_and_tags_long.csv
+    let $out_csv_short = $output_dir | path join 'cmds_by_crates_and_tags.csv'
 
     def parse_crates_from_tag [
         tag?
@@ -45,36 +44,31 @@ def 'parse-crates' [
         | save -r $out_csv_long
     }
 
-    let $parsed_tags = (
-        open $out_csv_long
+    let $parsed_tags = open $out_csv_long
         | get tag
         | uniq
         | str replace '0.5.0' '0_5_0'
-    )
 
-    (
-        cd $crates_dir;
-        git pull origin main;
-        mut $current_commit = (git rev-parse HEAD);
+    cd $crates_dir;
+    git pull origin main;
+    mut $current_commit = (git rev-parse HEAD);
 
-        git tag
-        | lines
-        | where $it not-in $parsed_tags
-        | sort -n
-        | each {
-            |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
-            parse_crates_from_tag $i
-        }
-        | flatten
-        | to csv --noheaders
-        | save -ar ($out_csv_long);
+    git tag
+    | lines
+    | where $it not-in $parsed_tags
+    | sort -n
+    | each {
+        |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
+        parse_crates_from_tag $i
+    }
+    | flatten
+    | to csv --noheaders
+    | save -ar ($out_csv_long);
 
-        git checkout $current_commit; # checkout back
-        cd -
-    )
+    git checkout $current_commit; # checkout back
+    cd -
 
-    let $cmds_agg = (
-        open $out_csv_long
+    let $cmds_agg = open $out_csv_long
         | group-by name
         | values
         | each {
@@ -86,19 +80,14 @@ def 'parse-crates' [
         }
         | flatten
         | sort-by -n last_tag first_tag crate name
-    );
 
-    let $cmds_missing = (
-        help commands
+    let $cmds_missing = help commands
         | where command_type in ['builtin' 'keyword']
         | get name
         | where $it not-in $cmds_agg.name
-    )
 
-    (
-        $cmds_agg
-        | save -f $out_csv_short
-    )
+    $cmds_agg
+    | save -f $out_csv_short
 
-    print $'($out_csv_short) file is saved and `$cmds_agg` variable is availble.'
+    print $'($out_csv_short) file is saved'
 }
