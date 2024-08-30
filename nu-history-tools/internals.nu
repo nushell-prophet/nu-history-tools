@@ -18,7 +18,7 @@ export def open_submission [
     | insert command_entries {|i| $i.commands.freq | math sum} # The total count of command entries in history of the current user
 }
 
-# Insert the usage of command timeline sparkline
+# Insert the command usage timeline sparkline
 export def insert-timeline [
     $ast_data
 ]: table -> table {
