@@ -91,3 +91,25 @@ export def list-current-commands [] {
     | where command_type in ['built-in' 'keyword' 'plugin']
     | reject command_type
 }
+
+export def save-stats-for-submission [
+    nickname: string
+]: table -> nothing {
+    let $input = $in
+
+    let $submissions_path = pwd | path join 'stats_submissions'   # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
+        | if ($in | path exists) { } else {
+            error make {msg: `Please run this script for the root of it's git repositor folder`}
+        }
+        | path join $'v2+($nickname).csv'
+
+    $input
+    | select -i name freq
+    | sort-by name
+    | save -f $submissions_path
+
+    if $env.freq-hist?.quiet? != true {
+        cprint --lines_after 2 $'Your stats have been saved to *($submissions_path)*. Please consider donating them
+            to the original repository *https://github.com/nushell-prophet/nu-history-tools/tree/main/stats_submissions*.'
+    }
+}
