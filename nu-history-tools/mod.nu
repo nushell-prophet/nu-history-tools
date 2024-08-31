@@ -149,8 +149,8 @@ export def aggregate-submissions [
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
 export def list-all-commands []: nothing -> table {
-    let $crate_history = 'crates_parsing'
-        | path join 'cmds_by_crates_and_tags.csv'
+    let $crate_history = 'assets'
+        | path join 'crates_parsing' 'cmds_by_crates_and_tags.csv'
         | if ($in | path exists) {
             open
         } else {

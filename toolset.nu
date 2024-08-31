@@ -1,7 +1,7 @@
 def 'main' [] {}
 
 def 'main parse-crates' [
-    --output_dir: path = '/Users/user/git/nu-stats/crates_parsing/' # A path to output `.csv` results
+    --output_dir: path = '/Users/user/git/nu-stats/assets/crates_parsing/' # A path to output `.csv` results
     --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
 ] {
     # This script parses sources of nushell for the last x tags to extract nushell commands
