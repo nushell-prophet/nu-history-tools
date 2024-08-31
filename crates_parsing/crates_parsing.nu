@@ -1,4 +1,6 @@
-def 'parse-crates' [
+def 'main' [] {}
+
+def 'main parse-crates' [
     --output_dir: path = '/Users/user/git/nu-stats/crates_parsing/' # A path to output `.csv` results
     --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
 ] {
