@@ -50,6 +50,7 @@ def 'main parse-crates' [
         | get tag
         | uniq
         | str replace '0.5.0' '0_5_0'
+        | append v0.96.0 # `v` was added by mistake so we ignore that tag
 
     cd $crates_dir;
     git pull origin main;
