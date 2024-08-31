@@ -66,36 +66,33 @@ export def export-history [
     destination_path: path
 ]: nothing -> nothing {
     let $history_sqlite_path = $nu.history-path | str replace 'txt' 'sqlite3'
-    let $history_txt_path = $nu.history-path | str replace 'sqlite3' 'txt'
+    let $history_txt = $nu.history-path
+        | str replace 'sqlite3' 'txt'
+        | if ($in | path exists) {
+            open | lines
+        }
 
-    mut history_txt = []
-
-    let $use_sqlite = if $nu.is-interactive {
+    let $use_sqlite = if $nu.is-interactive { # the check for executing inside toolkit.nu
             $env.config.history.file_format == 'sqlite'
         } else {
-            $history_sqlite_path
-            | path exists
+            $history_sqlite_path | path exists
         }
 
-    if $use_sqlite and ($history_txt_path | path exists) {
+    if $use_sqlite and ($history_txt != []) {
         if $env.freq-hist?.quiet? != true {
             cprint --lines_after 2 $'Your history is in *sqlite* format and will be used for analysis.
-                Additionally, you have history in *txt* format, which consists of *($history_txt_path | open | lines | length)
+                Additionally, you have history in *txt* format, which consists of *($history_txt | length)
                 lines*. It will be used for analysis as well.'
         }
-
-        $history_txt = ( open $history_txt_path | lines )
     }
 
-    if $use_sqlite {
+    if ($history_sqlite_path | path exists) {
         open $history_sqlite_path
         | get history
         | where exit_status == 0
-    } else {
-        history
-    }
-    | get command
-    | prepend $history_txt
+        | get command_line
+    } else { }
+    | append $history_txt
     | str join $';(char nl)'
     | save -f $destination_path
 }
