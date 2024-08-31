@@ -12,7 +12,7 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Installation
 
 ```nushell no-run
-> git clone https://github.com/nushell-prophet/nu-history-tools; cd nu-history-tools
+> git clone https://github.com/nushell-prophet/nu-history-tools; cd nu-history-tools; use nu-history-tools
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
