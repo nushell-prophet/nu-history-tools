@@ -23,7 +23,7 @@ def 'main parse-crates' [
             git checkout $tag
         }
 
-        if $tag in ["0.2.0", "0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.6.1"] {
+        if $tag in ["0.2.0", "0.3.0", "0.4.0", "0_5_0", "0.6.0", "0.6.1"] {
             cd ../src
         }
 
@@ -37,7 +37,8 @@ def 'main parse-crates' [
         | parse "{path}:{name}"
         | upsert crate {|i| $i.path | path split | get 0}
         | reject path
-        | upsert tag ($tag | str replace '0_5_0' '0.5.0')
+        | insert tag $tag
+        | str replace '0_5_0' '0.5.0' tag
         | sort-by name crate
     }
 
@@ -59,12 +60,12 @@ def 'main parse-crates' [
     git tag
     | lines
     | where $it not-in $parsed_tags
-    | sort -n
     | each {
         |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
         parse_crates_from_tag $i
     }
     | flatten
+    | sort -n
     | to csv --noheaders
     | save -ar ($out_csv_long);
 
