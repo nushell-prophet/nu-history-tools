@@ -65,11 +65,17 @@ export def insert-timeline [
 export def export-history [
     destination_path: path
 ]: nothing -> nothing {
+    let $history_sqlite_path = $nu.history-path | str replace 'txt' 'sqlite3'
     let $history_txt_path = $nu.history-path | str replace 'sqlite3' 'txt'
 
     mut history_txt = []
 
-    let $use_sqlite = $env.config.history.file_format == 'sqlite'
+    let $use_sqlite = if $nu.is-interactive {
+            $env.config.history.file_format == 'sqlite'
+        } else {
+            $history_sqlite_path
+            | path exists
+        }
 
     if $use_sqlite and ($history_txt_path | path exists) {
         if $env.freq-hist?.quiet? != true {
@@ -82,7 +88,8 @@ export def export-history [
     }
 
     if $use_sqlite {
-        history
+        open $history_sqlite_path
+        | get history
         | where exit_status == 0
     } else {
         history
