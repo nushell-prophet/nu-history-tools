@@ -8,6 +8,8 @@ use utils [bar spark normalize cprint ansi-alternate]
 use internals.nu [open_submission export-history list-current-commands save-stats-for-submission
     calculate-commands-frequency-in-nu-file generate-benchmarks]
 
+export use internals.nu aggregate-submissions # generate-benchmarks uses aggregate-submissions, so I put it into internals
+
 # Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
 export def analyze-history [
     --quiet (-q) # Suppress information messages
@@ -61,83 +63,6 @@ export def analyze-nu-files [
     | sort-by freq -r
 }
 
-# Parses submitted stats from a folder and aggregates them for benchmarking.
-# Can interactively select users to include in the analysis.
-export def aggregate-submissions [
-    --quiet (-q) # Suppress information messages
-    --submissions_path: path = 'stats_submissions' # A path to a folder that contains submitted results.
-    --pick_users # This flag triggers interactive user selection during script execution.
-]: nothing -> table {
-    if $quiet {
-        $env.freq-hist.quiet = true
-    }
-
-    if $env.freq-hist?.quiet? != true {
-        cprint -f '*' --align 'center' --lines_after 2 -H grey --keep_single_breaks 'Aggregated stats of other users for benchmarks.
-            *They will be displayed in the final table*.'
-    }
-
-    let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
-
-    let $aggregated_submissions = ls $submissions_path --full-paths
-        | where ($it.name | path parse | get extension) == 'csv'
-        | sort-by size -r
-        | get name
-        | where $it !~ 'WriteYourNick.csv' # default output
-        | if $user_selection_dialog {
-            each {|i| $i | path relative-to (pwd)} # make paths shorter for 'input list'
-            | input list --multi
-        } else {}
-        | par-each {|filename| open_submission $filename}
-        | sort-by command_entries -r
-
-    let $ordered_users = $aggregated_submissions
-        | select user command_entries
-        | enumerate
-        | flatten
-        | update user {|i| $'(ansi-alternate $i.index)($i.user)(ansi reset)'}
-
-    if $env.freq-hist?.quiet? != true {
-        if not $user_selection_dialog {
-            cprint --lines_after 2 '*freq_by_user* (frequency norm by user) includes stats from all users.
-                You can pick some of them by providing the *--pick_users* flag: *stats --pick_users* or
-                *aggregate-submissions --pick_users*.'
-        }
-
-        print $ordered_users
-    }
-
-    let $grouped_statistics = $aggregated_submissions
-        | select commands user
-        | flatten
-        | flatten
-        | group-by name
-
-    let $user_sparklines = $grouped_statistics
-        | values
-        | each {|b| {name: $b.name.0, freq_by_user: (spark $b.freq_norm --colors)}}
-        | transpose -idr
-
-    let $final_analytics = $grouped_statistics
-        | items { |name b|
-            {
-                name: $name,
-                category: $b.category.0,
-                freq_overall: ($b.freq | math sum),
-                users_count: ($b.freq | where $it > 0 | length),
-                f_n_per_user: ($b.freq_norm | math avg),
-                freq_by_user: ($user_sparklines | get $name),
-            }
-        }
-        | insert importance {
-            |i| $i.users_count * $i.f_n_per_user | math sqrt # geometric mean
-        }
-        | normalize importance --suffix ''
-        | sort-by importance -r
-        | insert importance_b {|i| bar $i.importance --width ('importance_b' | str length)}
-
-    $final_analytics
-}
 
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
