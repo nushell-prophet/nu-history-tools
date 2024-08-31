@@ -1,4 +1,19 @@
+use nu-history-tools/ [analyze-history aggregate-submissions]
+
 def 'main' [] {}
+
+def 'main update-examples' [] {
+    aggregate-submissions --quiet
+    | update freq_by_user {ansi strip}
+    | update importance {math round --precision 2}
+    | save -f ( [assets script_results_examples aggregated-submissions.csv] | path join )
+
+    analyze-history --quiet
+    | update freq_by_user {ansi strip}
+    | update freq_norm {math round --precision 2}
+    | update importance {math round --precision 2}
+    | save -f ( [assets script_results_examples nu-hist-stats-example.csv] | path join )
+}
 
 def 'main parse-crates' [
     --output_dir: path = '/Users/user/git/nu-stats/assets/crates_parsing/' # A path to output `.csv` results
