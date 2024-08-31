@@ -38,7 +38,7 @@ def 'main parse-crates' [
         | upsert crate {|i| $i.path | path split | get 0}
         | reject path
         | upsert tag ($tag | str replace '0_5_0' '0.5.0')
-        | sort-by 'name'
+        | sort-by name crate
     }
 
     if not ($out_csv_long | path exists) {
