@@ -21,7 +21,12 @@ The output of `analyze-history` contains a lot of informational messages (as you
 These informational messages can be silenced using the `--quiet` flag.
 
 ```nushell
-> use nu-history-tools; let $res = nu-history-tools analyze-history; $res | first 10
+use nu-history-tools; let $res = nu-history-tools analyze-history; $res | first 10
+```
+
+Output:
+
+```
 *******************************************************************************
                         nu-commands-frequency-stats v2.1
 *******************************************************************************
