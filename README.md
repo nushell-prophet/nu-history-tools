@@ -3,7 +3,7 @@
 
 A Nushell module to analyze the command frequencies in Nushell history, generate cool graphs, benchmark statistics with other users, and generate a file with statistics to share with the community.
 
-Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/nushell-prophet/nu-history-tools/tree/main/assets/script_results/aggregated-submissions.csv)
+Aggregated results, produced by the `aggregate-submissions` command can be found in the [csv file](https://github.com/nushell-prophet/nu-history-tools/tree/main/assets/script_results_examples/aggregated-submissions.csv)
 
 The history of nushell commands by releases can be found in [this csv](https://github.com/nushell-prophet/nu-history-tools/blob/main/assets/crates_parsing/cmds_by_crates_and_tags.csv)
 
