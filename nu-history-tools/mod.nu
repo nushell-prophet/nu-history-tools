@@ -92,7 +92,7 @@ export def list-all-commands []: nothing -> table {
     # You can update the CSV file by running crates_parsing/crates_parsing.nu
     let $default_command_data = $current_command_list
         | select name
-        | insert crate not_parsed_yet
+        | insert crate local_nu_environment
         | insert first_tag $ver
         | insert last_tag $ver
 
