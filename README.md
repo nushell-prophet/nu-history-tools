@@ -9,6 +9,13 @@ The history of nushell commands by releases can be found in [this csv](https://g
 
 ![nu-history-tools2](https://github.com/nushell-prophet/nu-history-tools/assets/4896754/5053ede0-d53a-46be-bd71-7f066eca7025)
 
+## nushell-history-tools video demo
+
+<a href="https://youtu.be/dbRjBsaH_VY">
+  <img src="https://github.com/user-attachments/assets/fdd07bfc-7d77-4dca-8a1c-3e27ac3063f9" alt="nushell-history-tools demo" width="100"/>
+</a>
+
+
 ## Installation
 
 ```nushell no-run
