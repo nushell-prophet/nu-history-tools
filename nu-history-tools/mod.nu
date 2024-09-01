@@ -47,7 +47,7 @@ export def analyze-history [
 }
 
 # Calculate stats of commands in given .nu files
-# > glob **/*.nu --not ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | analyze-nu-files
+# > glob **/*.nu --exclude ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**'] | analyze-nu-files
 export def analyze-nu-files [
     ...file_paths: path
 ]: [list<path> -> table, nothing -> table] {
