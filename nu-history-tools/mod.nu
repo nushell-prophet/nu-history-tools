@@ -20,7 +20,7 @@ export def analyze-history [
     $env.freq-hist.quiet = $quiet
 
     if not $quiet {
-        cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v2.1'
+        cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v0.2.1'
 
         let $compatible_versions = ['0.97.1']
         let $running_version = version | get version
