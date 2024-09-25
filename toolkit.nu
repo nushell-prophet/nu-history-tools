@@ -89,6 +89,7 @@ def 'main parse-crates' [
     cd -
 
     let $cmds_agg = open $out_csv_long
+        | sort-by tag --natural
         | group-by name
         | values
         | each {
