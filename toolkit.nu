@@ -42,11 +42,11 @@ def 'main parse-crates' [
             cd ../src
         }
 
-        rg 'PluginSignature::build\("(.*)"\)' -o -r '$1'
-        | append (rg 'fn name.*\n +"(.*)"' -U -o -r '$1')
-        | append (rg 'expr_name!.*\n.*\n +"(.*)"' -U -o -r '$1')
-        | append (rg 'expr_command!.*\n.*\n +"(.*)"' -U -o -r '$1')
-        | append (rg 'lazy_command!.*\n.*\n +"(.*)"' -U -o -r '$1')
+        rg 'PluginSignature::build\("(.*)"\)' -o -r '$1' | complete | get stdout
+        | append (rg 'fn name.*\n +"(.*)"' -U -o -r '$1' | complete | get stdout)
+        | append (rg 'expr_name!.*\n.*\n +"(.*)"' -U -o -r '$1' | complete | get stdout)
+        | append (rg 'expr_command!.*\n.*\n +"(.*)"' -U -o -r '$1' | complete | get stdout)
+        | append (rg 'lazy_command!.*\n.*\n +"(.*)"' -U -o -r '$1' | complete | get stdout)
         | flatten
         | lines
         | parse "{path}:{name}"
