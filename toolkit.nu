@@ -69,6 +69,7 @@ def 'main parse-crates' [
         | append v0.96.0 # `v` was added by mistake so we ignore that tag
 
     cd $crates_dir;
+    git checkout main;
     git pull origin main;
     mut $current_commit = (git rev-parse HEAD);
 
