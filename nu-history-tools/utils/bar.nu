@@ -15,7 +15,7 @@ export def main [
     --width (-w): int = 5
 ] {
     let blocks = [null "▏" "▎" "▍" "▌" "▋" "▊" "▉" "█"]
-    let $whole_part = ($blocks | last) | repeat ($percentage * $width // 1) | str join
+    let $whole_part = ($blocks | last) | repeat ($percentage * $width // 1 | into int) | str join
     let $fraction = $blocks
         | get (
             ($percentage * $width) mod 1
