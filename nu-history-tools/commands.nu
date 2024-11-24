@@ -365,8 +365,9 @@ export def generate-benchmarks []: table -> table {
     | fill non-exist ''
 }
 
+# query piped-in table most important column in history db with option to remove it
 export def query-from-history [
-    --remove
+    --remove # remove all matched rows from history
 ] {
     let $input = $in
 
