@@ -4,7 +4,7 @@
 
 # https://github.com/nushell-prophet/nu-history-tools
 
-use utils [bar spark normalize cprint ansi-alternate]
+use utils [bar spark normalize cprint ansi-alternate 'fill non-exist']
 
 # Calculate statistics for the current user's command history. Prepare a file for submission to common stats.
 export def analyze-history [
@@ -98,7 +98,6 @@ export def list-all-commands []: nothing -> table {
     | join -l $current_command_list name
 }
 
-use utils [bar spark normalize cprint 'fill non-exist']
 
 
 # Helper function to open a submission file and shape the data for further needs
@@ -106,9 +105,7 @@ export def open_submission [
     filename: path
 ]: nothing -> record {
     open $filename
-    | if ('command_type' in ($in | columns)) {
-        reject command_type
-    } else {}
+    | if ('command_type' in ($in | columns)) { reject command_type } else {}
     | join (list-all-commands) --right name
     | default 0 freq
     | normalize freq
