@@ -365,9 +365,10 @@ export def generate-benchmarks []: table -> table {
     | fill non-exist ''
 }
 
-export def remove-from-history [] {
-    mut $input = $in
-    mygit log
+export def query-from-history [
+    --remove
+] {
+    let $input = $in
 
     let $columns = $input | columns
 
@@ -382,11 +383,12 @@ export def remove-from-history [] {
         | where $it in ($input_rename | columns)
         | first
 
-    remove-from-history-where ($input_rename | select $column_to_filter)
+    query-from-history-where ($input_rename | select $column_to_filter) --remove=$remove
 }
 
-export def remove-from-history-where [
+export def query-from-history-where [
     $values: table
+    --remove
 ] {
     let $column_name = $values | columns | first
     let $query = "
@@ -394,9 +396,12 @@ export def remove-from-history-where [
             SELECT value
             FROM json_each(:values)
         )
-        DELETE
+        SELECT * -- might be replaced
         FROM history
         WHERE " + $column_name + " in (SELECT value FROM json_values);"
+        | if $remove {
+            str replace 'SELECT * -- might be replaced' 'DELETE'
+        } else {}
 
     open $nu.history-path
     | query db -p {

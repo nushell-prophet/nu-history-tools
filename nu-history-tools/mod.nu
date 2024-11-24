@@ -3,5 +3,5 @@ export use commands.nu [
     analyze-nu-files
     list-all-commands
     aggregate-submissions
-    remove-from-history
+    query-from-history
 ]
