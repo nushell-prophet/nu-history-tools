@@ -364,3 +364,42 @@ export def generate-benchmarks []: table -> table {
     | sort-by importance -r -n
     | fill non-exist ''
 }
+
+export def remove-from-history [] {
+    mut $input = $in
+    mygit log
+
+    let $columns = $input | columns
+
+    let $input_rename = $input
+        | if 'item_id' in $columns {
+            select 'item_id' | rename 'id'
+        } else if 'command' in $columns {
+            select 'command' | rename 'command_line'
+        } else {}
+
+    let $column_to_filter = [id, command_line, session_id]
+        | where $it in ($input_rename | columns)
+        | first
+
+    remove-from-history-where $column_to_filter ($input_rename | get $column_to_filter)
+}
+
+export def remove-from-history-where [
+    $column_name
+    $values
+] {
+    let $query = "
+        WITH json_values AS (
+            SELECT value
+            FROM json_each(:values)
+        )
+        DELETE
+        FROM history
+        WHERE " + $column_name + " in (SELECT value FROM json_values);"
+
+    open $nu.history-path
+    | query db -p {
+        values: ($values | to json)
+    } $query
+}
