@@ -382,13 +382,13 @@ export def remove-from-history [] {
         | where $it in ($input_rename | columns)
         | first
 
-    remove-from-history-where $column_to_filter ($input_rename | get $column_to_filter)
+    remove-from-history-where ($input_rename | select $column_to_filter)
 }
 
 export def remove-from-history-where [
-    $column_name
-    $values
+    $values: table
 ] {
+    let $column_name = $values | columns | first
     let $query = "
         WITH json_values AS (
             SELECT value
@@ -400,6 +400,6 @@ export def remove-from-history-where [
 
     open $nu.history-path
     | query db -p {
-        values: ($values | to json)
+        values: ($values | get $column_name | to json)
     } $query
 }
