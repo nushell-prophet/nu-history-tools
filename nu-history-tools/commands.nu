@@ -377,18 +377,18 @@ export def query-from-history [
             select 'command' | rename 'command_line'
         } else {}
 
-    let $column_to_filter = [id, command_line, session_id]
+    let $filter_column = [id, command_line, session_id]
         | where $it in ($input_rename | columns)
         | first
 
-    query-from-history-where ($input_rename | select $column_to_filter) --remove=$remove
+    query-from-history-where ($input_rename | select $filter_column) --remove=$remove
 }
 
 export def query-from-history-where [
-    $values: table
+    $filter_values: table
     --remove
 ] {
-    let $column_name = $values | columns | first
+    let $primary_column = $filter_values | columns | first
     let $query = "
         WITH json_values AS (
             SELECT value
@@ -396,13 +396,13 @@ export def query-from-history-where [
         )
         SELECT * -- might be replaced
         FROM history
-        WHERE " + $column_name + " in (SELECT value FROM json_values);"
+        WHERE " + $primary_column + " in (SELECT value FROM json_values);" # column name can't be transfered as parameter
         | if $remove {
             str replace 'SELECT * -- might be replaced' 'DELETE'
         } else {}
 
     open $nu.history-path
     | query db -p {
-        values: ($values | get $column_name | to json)
+        values: ($filter_values | get $primary_column | to json)
     } $query
 }
