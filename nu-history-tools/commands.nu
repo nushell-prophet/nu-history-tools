@@ -383,7 +383,7 @@ export def query-from-history [
             select 'command' | rename 'command_line'
         } else {}
 
-    let $filter_column = [id, command_line, session_id]
+    let $filter_column = [id, command_line, session_id, cwd]
         | where $it in ($input_rename | columns)
         | first
 
