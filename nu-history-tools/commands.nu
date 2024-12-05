@@ -369,6 +369,9 @@ export def query-from-history [
     --remove # remove all matched rows from history
 ] {
     let $input = $in
+        | if ($in | describe) == 'string' {
+            [['command_line']; [$in]]
+        } else {}
 
     let $columns = $input | columns
 
