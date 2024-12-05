@@ -363,6 +363,8 @@ export def generate-benchmarks []: table -> table {
 }
 
 # If piped-in table contains any column from: [item_id id command command_line session_id], history will be queried for exact matches. Optionally matches can be removed from history (with using --remove flag)
+#
+# > history | where command == 'cd ..' | query-from-history --remove
 export def query-from-history [
     --remove # remove all matched rows from history
 ] {
@@ -370,6 +372,7 @@ export def query-from-history [
 
     let $columns = $input | columns
 
+    # here we rename columns from their `history` command representation to how they are stored in sqlite
     let $input_rename = $input
         | if 'item_id' in $columns {
             select 'item_id' | rename 'id'
