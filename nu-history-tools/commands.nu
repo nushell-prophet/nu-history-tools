@@ -362,7 +362,7 @@ export def generate-benchmarks []: table -> table {
     | fill non-exist ''
 }
 
-# If piped-in table contains any column from: [item_id id command command_line session_id], history will be queried for exact matches. Optionally matches can be removed from history (with using --remove flag)
+# If piped-in table contains any column from: [item_id, id, command, command_line, session_id, cwd], history will be queried for exact matches. Optionally matches can be removed from history (with using --remove flag)
 #
 # > history | where command == 'cd ..' | query-from-history --remove
 export def query-from-history [
@@ -383,6 +383,7 @@ export def query-from-history [
             select 'command' | rename 'command_line'
         } else {}
 
+    # here we choose the most substantial column
     let $filter_column = [id, command_line, session_id, cwd]
         | where $it in ($input_rename | columns)
         | first
