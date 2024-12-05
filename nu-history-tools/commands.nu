@@ -362,7 +362,7 @@ export def generate-benchmarks []: table -> table {
     | fill non-exist ''
 }
 
-# query piped-in table most important column in history db with option to remove it
+# If piped-in table contains any column from: [item_id id command command_line session_id], history will be queried for exact matches. Optionally matches can be removed from history (with using --remove flag)
 export def query-from-history [
     --remove # remove all matched rows from history
 ] {
