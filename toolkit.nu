@@ -79,9 +79,9 @@ def 'main parse-crates' [
     | each {
         |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
         parse_crates_from_tag $i
+        | sort -n
     }
     | flatten
-    | sort -n
     | to csv --noheaders
     | save -ar ($out_csv_long);
 
