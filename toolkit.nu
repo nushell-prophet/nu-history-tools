@@ -76,10 +76,10 @@ def 'main parse-crates' [
     git tag
     | lines
     | where $it not-in $parsed_tags
-    | each {
-        |i| print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)';
-        parse_crates_from_tag $i
-        | sort -n
+    | each {|i|
+        print -n $'(ansi yellow)parsing ($i) tag: (ansi reset)'
+
+        parse_crates_from_tag $i | sort -n
     }
     | flatten
     | to csv --noheaders
