@@ -68,10 +68,10 @@ def 'main parse-crates' [
         | str replace '0.5.0' '0_5_0'
         | append v0.96.0 # `v` was added by mistake so we ignore that tag
 
-    cd $crates_dir;
-    git checkout main;
-    git pull origin main;
-    mut $current_commit = (git rev-parse HEAD);
+    cd $crates_dir
+    git checkout main
+    git pull origin main
+    mut $current_commit = (git rev-parse HEAD)
 
     git tag
     | lines
@@ -83,9 +83,9 @@ def 'main parse-crates' [
     }
     | flatten
     | to csv --noheaders
-    | save -ar ($out_csv_long);
+    | save -ar ($out_csv_long)
 
-    git checkout $current_commit; # checkout back
+    git checkout $current_commit # checkout back
     cd -
 
     let $cmds_agg = open $out_csv_long
