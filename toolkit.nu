@@ -1,18 +1,18 @@
-use nu-history-tools/ [analyze-history aggregate-submissions]
+use nu-history-tools/ [ analyze-history aggregate-submissions ]
 
-def 'main' [] {}
+def 'main' [] { }
 
 def 'main update-examples' [] {
     aggregate-submissions --quiet
-    | update freq_by_user {ansi strip}
-    | update importance {math round --precision 2}
-    | save -f ( [assets script_results_examples aggregated-submissions.csv] | path join )
+    | update freq_by_user { ansi strip }
+    | update importance { math round --precision 2 }
+    | save -f ([assets script_results_examples aggregated-submissions.csv] | path join)
 
     analyze-history --quiet
-    | update freq_by_user {ansi strip}
-    | update freq_norm {math round --precision 2}
-    | update importance {math round --precision 2}
-    | save -f ( [assets script_results_examples nu-hist-stats-example.csv] | path join )
+    | update freq_by_user { ansi strip }
+    | update freq_norm { math round --precision 2 }
+    | update importance { math round --precision 2 }
+    | save -f ([assets script_results_examples nu-hist-stats-example.csv] | path join)
 }
 
 def 'main parse-crates' [
@@ -38,7 +38,7 @@ def 'main parse-crates' [
             git checkout $tag
         }
 
-        if $tag in ["0.2.0", "0.3.0", "0.4.0", "0_5_0", "0.6.0", "0.6.1"] {
+        if $tag in ["0.2.0" "0.3.0" "0.4.0" "0_5_0" "0.6.0" "0.6.1"] {
             cd ../src
         }
 
@@ -50,7 +50,7 @@ def 'main parse-crates' [
         | flatten
         | lines
         | parse "{path}:{name}"
-        | upsert crate {|i| $i.path | path split | get 0}
+        | upsert crate {|i| $i.path | path split | get 0 }
         | reject path
         | insert tag $tag
         | str replace '0_5_0' '0.5.0' tag
@@ -63,10 +63,10 @@ def 'main parse-crates' [
     }
 
     let $parsed_tags = open $out_csv_long
-        | get tag
-        | uniq
-        | str replace '0.5.0' '0_5_0'
-        | append v0.96.0 # `v` was added by mistake so we ignore that tag
+    | get tag
+    | uniq
+    | str replace '0.5.0' '0_5_0'
+    | append v0.96.0 # `v` was added by mistake so we ignore that tag
 
     cd $crates_dir
     git checkout main
@@ -89,23 +89,23 @@ def 'main parse-crates' [
     cd -
 
     let $cmds_agg = open $out_csv_long
-        | sort-by tag --natural
-        | group-by name
-        | values
-        | each {
-            |i| $i
-            | last
-            | rename -c {tag: last_tag}
-            | merge ($i | first | select tag | rename first_tag)
-            | move first_tag --before last_tag
-        }
-        | flatten
-        | sort-by -n last_tag first_tag crate name
+    | sort-by tag --natural
+    | group-by name
+    | values
+    | each {|i|
+        $i
+        | last
+        | rename -c {tag: last_tag}
+        | merge ($i | first | select tag | rename first_tag)
+        | move first_tag --before last_tag
+    }
+    | flatten
+    | sort-by -n last_tag first_tag crate name
 
     let $cmds_missing = help commands
-        | where command_type in ['builtin' 'keyword']
-        | get name
-        | where $it not-in $cmds_agg.name
+    | where command_type in ['builtin' 'keyword']
+    | get name
+    | where $it not-in $cmds_agg.name
 
     $cmds_agg
     | save -f $out_csv_short
