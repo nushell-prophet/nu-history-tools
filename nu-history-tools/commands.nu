@@ -101,7 +101,7 @@ export def open_submission [
     filename: path
 ]: nothing -> record {
     open $filename
-    | if ('command_type' in ($in | columns)) { reject command_type } else { }
+    | reject --ignore-errors command_type
     | join (list-all-commands) --right name
     | default 0 freq
     | normalize freq
@@ -159,6 +159,7 @@ export def export-history [
     destination_path: path
 ]: nothing -> nothing {
     let $history_sqlite_path = $nu.history-path | str replace 'txt' 'sqlite3'
+
     let $history_txt = $nu.history-path
     | str replace 'sqlite3' 'txt'
     | if ($in | path exists) {
