@@ -34,9 +34,7 @@ export def analyze-history [
     let res = calculate-commands-frequency-in-nu-file --extra_graphs $temp_history_file
 
     $res
-    | save-stats-for-submission $nickname
-
-    $res
+    | tee { save-stats-for-submission $nickname }
     | generate-benchmarks
     | sort-by freq -r
 }
