@@ -18,7 +18,7 @@ export def analyze-history [
     if not $quiet {
         cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v0.2.1'
 
-        let compatible_versions = ['0.102.0']
+        let compatible_versions = 97..102 | each { $'0.($in).0' }
         let running_version = version | get version
 
         if $running_version not-in $compatible_versions {
