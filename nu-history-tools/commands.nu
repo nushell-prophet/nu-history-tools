@@ -18,8 +18,8 @@ export def analyze-history [
     if not $quiet {
         cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v0.2.1'
 
-        let $compatible_versions = ['0.97.1']
-        let $running_version = version | get version
+        let compatible_versions = ['0.97.1']
+        let running_version = version | get version
 
         if $running_version not-in $compatible_versions {
             cprint --lines_after 1 --lines_before 1 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
@@ -27,11 +27,11 @@ export def analyze-history [
         }
     }
 
-    let $temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
+    let temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
 
     export-history $temp_history_file
 
-    let $res = calculate-commands-frequency-in-nu-file --extra_graphs $temp_history_file
+    let res = calculate-commands-frequency-in-nu-file --extra_graphs $temp_history_file
 
     $res
     | save-stats-for-submission $nickname
@@ -61,14 +61,14 @@ export def analyze-nu-files [
 # Provides a list with all commands ever implemented in Nushell and their crates.
 # Useful for cross-referencing current commands against historical data.
 #
-# > use nu-history-tools.nu list-all-commands; let $res = list-all-commands; $res | last 3
+# > use nu-history-tools.nu list-all-commands; let res = list-all-commands; $res | last 3
 # ╭────name─────┬─────crate──────┬first_tag┬last_tag┬──category──╮
 # │ unfold      │ nu-command     │ 0.86.0  │ 0.86.0 │ generators │
 # │ url decode  │ nu-command     │ 0.86.0  │ 0.86.0 │ strings    │
 # │ hash sha256 │ not_parsed_yet │ 0.86.0  │ 0.86.0 │ hash       │
 # ╰─────────────┴────────────────┴─────────┴────────┴────────────╯
 export def list-all-commands []: nothing -> table {
-    let $crate_history = 'assets'
+    let crate_history = 'assets'
     | path join 'crates_parsing' 'cmds_by_crates_and_tags.csv'
     | if ($in | path exists) {
         open
@@ -78,13 +78,13 @@ export def list-all-commands []: nothing -> table {
         []
     }
 
-    let $current_command_list = list-current-commands
+    let current_command_list = list-current-commands
 
-    let $ver = version | get version
+    let ver = version | get version
 
     # The $default_command_data is used if there is no crates parsing history.
     # You can update the CSV file by running crates_parsing/crates_parsing.nu
-    let $default_command_data = $current_command_list
+    let default_command_data = $current_command_list
     | select name
     | insert crate local_nu_environment
     | insert first_tag $ver
@@ -116,27 +116,27 @@ export def insert-timeline [
     $ast_data
     --number_of_bins: int = 10
 ]: table -> table {
-    let $input = $in
+    let input = $in
 
-    let $chunks = ($ast_data | last | get span.end)
+    let chunks = ($ast_data | last | get span.end)
     | $in - ($ast_data | first | get span.start)
     | $in // $number_of_bins
     | append 30_000
     | math max
 
-    let $hist_for_timeline = $ast_data
+    let hist_for_timeline = $ast_data
     | insert start {|i| $i.span.start // $chunks }
     | select content start
     | uniq --count
     | flatten
 
-    let $default_bins = $hist_for_timeline
+    let default_bins = $hist_for_timeline
     | get start
     | uniq
     | sort
     | reduce -f {} {|a| merge {$a: 0} }
 
-    let $sparkline_data = $hist_for_timeline
+    let sparkline_data = $hist_for_timeline
     | group-by content
     | items {|a b|
         $default_bins
@@ -158,15 +158,15 @@ export def insert-timeline [
 export def export-history [
     destination_path: path
 ]: nothing -> nothing {
-    let $history_sqlite_path = $nu.history-path | str replace 'txt' 'sqlite3'
+    let history_sqlite_path = $nu.history-path | str replace 'txt' 'sqlite3'
 
-    let $history_txt = $nu.history-path
+    let history_txt = $nu.history-path
     | str replace 'sqlite3' 'txt'
     | if ($in | path exists) {
         open | lines
     }
 
-    let $use_sqlite = if $nu.is-interactive {
+    let use_sqlite = if $nu.is-interactive {
         # the check for executing inside toolkit.nu
         $env.config.history.file_format == 'sqlite'
     } else {
@@ -202,9 +202,9 @@ export def list-current-commands [] {
 export def save-stats-for-submission [
     nickname: string
 ]: table -> nothing {
-    let $input = $in
+    let input = $in
 
-    let $submissions_path = pwd | path join 'stats_submissions' # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
+    let submissions_path = pwd | path join 'stats_submissions' # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
     | if ($in | path exists) { } else {
         error make {msg: `Please run this script for the root of it's git repositor folder`}
     }
@@ -230,13 +230,13 @@ export def calculate-commands-frequency-in-nu-file [
     --extra_graphs # Includes frequency histogram and timeline sparklines in the output.
     --include_0_freq_commands # Include all the historical Nushell commands
 ]: nothing -> table {
-    let $ast_data = nu --ide-ast $path --no-config-file --no-std-lib
+    let ast_data = nu --ide-ast $path --no-config-file --no-std-lib
     | from json
     | where shape in ['shape_internalcall' 'keyword' 'shape_external']
 
-    let $freq_table = $ast_data | get content | uniq --count | rename name freq
+    let freq_table = $ast_data | get content | uniq --count | rename name freq
 
-    let $freq_builtins_only = list-current-commands
+    let freq_builtins_only = list-current-commands
     | join $freq_table -l name # but left join we make sure that only standard commands are included into results
     | if $include_0_freq_commands {
         default 0 freq
@@ -270,9 +270,9 @@ export def aggregate-submissions [
             *They will be displayed in the final table*.'
     }
 
-    let $user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
+    let user_selection_dialog = $pick_users or ($env.freq-hist?.pick-users? | default false)
 
-    let $aggregated_submissions = ls $submissions_path --full-paths
+    let aggregated_submissions = ls $submissions_path --full-paths
     | where ($it.name | path parse | get extension) == 'csv'
     | sort-by size -r
     | get name
@@ -284,7 +284,7 @@ export def aggregate-submissions [
     | par-each {|filename| open_submission $filename }
     | sort-by command_entries -r
 
-    let $ordered_users = $aggregated_submissions
+    let ordered_users = $aggregated_submissions
     | select user command_entries
     | enumerate
     | flatten
@@ -300,13 +300,13 @@ export def aggregate-submissions [
         print $ordered_users
     }
 
-    let $grouped_statistics = $aggregated_submissions
+    let grouped_statistics = $aggregated_submissions
     | select commands user
     | flatten
     | flatten
     | group-by name
 
-    let $user_sparklines = $grouped_statistics
+    let user_sparklines = $grouped_statistics
     | values
     | each {|b|
         {
@@ -316,7 +316,7 @@ export def aggregate-submissions [
     }
     | transpose -idr
 
-    let $final_analytics = $grouped_statistics
+    let final_analytics = $grouped_statistics
     | items {|name b|
         {
             name: $name
@@ -340,9 +340,9 @@ export def aggregate-submissions [
 # Create benchmark columns for piped-in stats.
 # Adds extra columns to the data for visual representation and calculation of importance.
 export def generate-benchmarks []: table -> table {
-    let $input = $in
+    let input = $in
 
-    let $benchmarks = aggregate-submissions
+    let benchmarks = aggregate-submissions
     | select name importance importance_b freq_by_user
 
     if $env.freq-hist?.quiet? != true {
@@ -370,15 +370,15 @@ export def generate-benchmarks []: table -> table {
 export def query-from-history [
     --remove # remove all matched rows from history
 ] {
-    let $input = $in
+    let input = $in
     | if ($in | describe) == 'string' {
         [['command_line']; [$in]]
     } else { }
 
-    let $columns = $input | columns
+    let columns = $input | columns
 
     # here we rename columns from their `history` command representation to how they are stored in sqlite
-    let $input_rename = $input
+    let input_rename = $input
     | if 'item_id' in $columns {
         select 'item_id' | rename 'id'
     } else if 'command' in $columns {
@@ -386,7 +386,7 @@ export def query-from-history [
     } else { }
 
     # here we choose the most substantial column
-    let $filter_column = [id command_line session_id cwd]
+    let filter_column = [id command_line session_id cwd]
     | where $it in ($input_rename | columns)
     | first
 
@@ -397,8 +397,8 @@ export def query-from-history-where [
     $filter_values: table
     --remove
 ] {
-    let $primary_column = $filter_values | columns | first
-    let $query = "
+    let primary_column = $filter_values | columns | first
+    let query = "
         WITH json_values AS (
             SELECT value
             FROM json_each(:values)
