@@ -15,6 +15,20 @@ def 'main update-examples' [] {
     | save -f ([assets script_results_examples nu-hist-stats-example.csv] | path join)
 }
 
+def 'main update-surrogates' [] {
+    glob /Users/user/git/nushell/crates/nu-std/std/**/*.nu
+    | nu-history-tools analyze-nu-files
+    | select name freq
+    | sort-by freq
+    | save -f stats_submissions/surrogate+nu_std.csv;
+
+    glob /Users/user/git/nu_scripts_upstream/**/*.nu --exclude ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**']
+    | analyze-nu-files
+    | select name freq
+    | sort-by freq
+    | save -f stats_submissions/surrogate+nu_scripts.csv;
+}
+
 def 'main parse-crates' [
     --output_dir: path = '/Users/user/git/nu-history-tools/assets/crates_parsing/' # A path to output `.csv` results
     --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
