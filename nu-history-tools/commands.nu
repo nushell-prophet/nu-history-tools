@@ -386,6 +386,7 @@ export def query-from-history [
     # here we choose the most substantial column
     let filter_column = [id command_line session_id cwd]
     | where $it in ($input_rename | columns)
+    | if ($in | is-empty) { return } else { }
     | first
 
     query-from-history-where ($input_rename | select $filter_column) --remove=$remove
