@@ -1,8 +1,8 @@
 use nu-history-tools/ [ analyze-history aggregate-submissions ]
 
-def 'main' [] { }
+export def 'main' [] { }
 
-def 'main update-examples' [] {
+export def 'main update-examples' [] {
     aggregate-submissions --quiet
     | update freq_by_user { ansi strip }
     | update importance { math round --precision 2 }
@@ -15,7 +15,7 @@ def 'main update-examples' [] {
     | save -f ([assets script_results_examples nu-hist-stats-example.csv] | path join)
 }
 
-def 'main update-surrogates' [] {
+export def 'main update-surrogates' [] {
     glob /Users/user/git/nushell/crates/nu-std/std/**/*.nu
     | nu-history-tools analyze-nu-files
     | select name freq
@@ -29,7 +29,7 @@ def 'main update-surrogates' [] {
     | save -f stats_submissions/surrogate+nu_scripts.csv;
 }
 
-def 'main parse-crates' [
+export def 'main parse-crates' [
     --output_dir: path = '/Users/user/git/nu-history-tools/assets/crates_parsing/' # A path to output `.csv` results
     --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
 ] {
