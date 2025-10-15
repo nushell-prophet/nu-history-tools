@@ -1,4 +1,4 @@
-use nu-history-tools/ [ analyze-history aggregate-submissions ]
+use nu-history-tools/ [ analyze-history aggregate-submissions analyze-nu-files ]
 
 export def 'main' [] { }
 
@@ -17,7 +17,7 @@ export def 'main update-examples' [] {
 
 export def 'main update-surrogates' [] {
     glob /Users/user/git/nushell/crates/nu-std/std/**/*.nu
-    | nu-history-tools analyze-nu-files
+    | analyze-nu-files
     | select name freq
     | sort-by freq
     | save -f stats_submissions/surrogate+nu_std.csv;
