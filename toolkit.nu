@@ -19,13 +19,13 @@ export def 'main update-surrogates' [] {
     glob /Users/user/git/nushell/crates/nu-std/std/**/*.nu
     | analyze-nu-files
     | select name freq
-    | sort-by freq
+    | sort-by name
     | save -f stats_submissions/surrogate+nu_std.csv;
 
     glob /Users/user/git/nu_scripts_upstream/**/*.nu --exclude ['**/themes/**/' '**/before_v0.60/**' '**/custom-completions/**']
     | analyze-nu-files
     | select name freq
-    | sort-by freq
+    | sort-by name
     | save -f stats_submissions/surrogate+nu_scripts.csv;
 }
 
