@@ -1,96 +1,118 @@
 name,freq
+alias,3
+ansi,133
 ansi strip,1
-upsert,1
-loop,1
-generate,1
-drop,1
-math max,1
-into duration,1
-version,1
-str starts-with,1
-take,1
-str trim,1
-reject,1
+append,8
 cd,1
-math stddev,1
-math avg,1
+char,11
+collect,3
+columns,1
+compact,1
 config use-colors,1
-values,1
-into string,1
-split row,1
-path type,1
-str upcase,1
-from nuon,1
-seq,1
-math min,1
-load-env,1
-format date,1
-is-not-empty,1
-str substring,1
-table,1
-str contains,1
-timeit,1
-date to-timezone,2
-to json,2
-update,2
-fmt,2
-skip,2
-first,2
-scope modules,2
-view source,2
-scope aliases,2
-transpose,2
-alias,2
-prepend,2
-insert,2
-from json,2
-date now,2
-input listen,2
-use,3
-into record,3
-str replace,3
-zip,3
-export use,3
-reduce,3
-filter,3
-sort-by,3
-lines,3
-export-env,3
-path expand,4
-for,4
-nu-highlight,4
-scope commands,5
-rename,5
-enumerate,5
-to text,6
-export alias,6
-describe,6
 const,6
-into int,6
+date now,2
+date to-timezone,2
+debug,1
+decode,2
+decode base64,1
+def,50
+default,21
+describe,9
+do,18
+drop,1
+each,33
+echo,6
+encode base64,1
+enumerate,7
+error make,16
+export alias,12
+export const,6
+export def,39
+export module,15
+export use,3
+export-env,3
 find,6
-char,6
-to nuon,7
-print,7
-select,9
-match,10
-try,10
-length,10
-do,10
+first,3
 flatten,12
-return,13
-default,13
-export module,13
-append,13
-mut,14
-error make,15
-where,20
-each,26
-str join,27
-metadata,35
+for,6
+format date,1
+format number,2
+from json,2
+from nuon,1
+generate,1
 get,36
-def,44
-is-empty,57
-export def,65
-ansi,115
-let,116
-if,155
+if,171
+ignore,10
+input listen,2
+insert,4
+into duration,1
+into float,1
+into int,5
+into record,3
+into string,2
+is-empty,26
+is-not-empty,31
+length,11
+let,134
+lines,4
+load-env,1
+loop,1
+ls,1
+match,12
+math avg,1
+math max,1
+math min,2
+math round,1
+math stddev,1
+merge,2
+metadata,38
+mut,17
+nu-highlight,5
+parse,1
+path expand,7
+path type,1
+prepend,3
+print,15
+random dice,2
+random int,1
+reduce,2
+reject,1
+rename,6
+return,14
+run-external,1
+scope aliases,2
+scope commands,6
+scope modules,2
+select,10
+seq,2
+skip,3
+skip until,1
+sort-by,4
+split row,4
+str contains,1
+str join,30
+str replace,8
+str starts-with,1
+str substring,1
+str trim,2
+str upcase,1
+table,6
+take,1
+term query,1
+timeit,1
+to json,2
+to nuon,7
+to text,6
+transpose,4
+try,11
+uniq,1
+update,3
+upsert,1
+use,4
+values,1
+version,1
+view source,3
+where,24
+with-env,1
+wrap,1
+zip,3

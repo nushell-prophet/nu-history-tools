@@ -1,242 +1,256 @@
 name,freq
-url parse,1
-view files,1
-from toml,1
-stor insert,1
-join,1
-str stats,1
-config use-colors,1
-format filesize,1
-format pattern,1
-history session,1
-move,1
-scope variables,1
-to tsv,1
-url join,1
-uniq-by,1
-stor open,1
-view source,1
-math product,1
-sys host,1
-to nuon,1
-stor create,1
-roll right,1
-str distance,1
-export extern,1
-math stddev,1
-math ceil,1
+alias,86
+all,6
+ansi,807
+ansi link,1
+ansi strip,12
+any,23
+append,207
+bits and,1
+bits or,1
+bits shl,1
+bits shr,1
+break,21
 bytes add,1
-drop nth,1
-from xml,1
-random dice,1
-hide,1
-values,1
-history,1
-take until,1
-exec,1
-detect columns,1
-skip while,1
-kill,1
-plugin,1
-random float,2
-bytes length,2
-version,2
-nu-check,2
-url build-query,2
-split cell-path,2
-random bool,2
-str index-of,2
-touch,2
-path type,2
-math sum,2
-shuffle,2
-into sqlite,2
-str kebab-case,2
-term query,2
-into binary,2
-overlay list,2
-encode base64,2
-math log,2
-hash sha256,2
-cp,2
-take while,2
-histogram,2
-sys cpu,2
-from tsv,2
-rotate,2
-str capitalize,2
-split list,2
-skip until,2
-to csv,2
-with-env,2
-mv,3
-nu-highlight,3
-str expand,3
-collect,3
-into filesize,3
-date to-timezone,3
-help commands,3
-format duration,3
-math arctan,3
-mktemp,3
-into record,3
-path self,3
-into cell-path,3
-glob,3
-headers,3
-update cells,3
-loop,3
-exit,3
-drop,4
-seq date,4
-decode,4
-from yaml,4
-math sqrt,4
-module,4
-take,4
-str camel-case,4
-continue,4
-ps,4
-to yaml,4
-compact,4
-from nuon,5
-zip,5
-str upcase,5
-while,5
-path split,5
-sleep,5
-is-admin,5
-to md,5
-path relative-to,5
-help,5
-to text,5
-math min,5
-math floor,5
-decode base64,6
-clear,6
-items,6
-random chars,6
-math abs,7
-all,7
-any,7
-str ends-with,7
-into duration,7
-into glob,8
-break,8
-path,8
-table,8
-ignore,8
-random int,8
-input,9
-polars,10
-term size,10
-ansi strip,10
-math max,10
-which,11
-query db,11
-to json,11
-path parse,11
-run-external,12
-input list,12
-complete,12
-path dirname,13
-split chars,14
-try,14
-into float,15
-mkdir,15
-sort,15
-timeit,15
-group-by,15
-reverse,15
-str contains,16
-wrap,16
-load-env,16
-uniq,17
-path basename,19
-math avg,19
-reject,19
-sort-by,19
-rm,20
-scope commands,20
-export-env,20
+bytes at,2
+bytes length,3
 cd,20
-str downcase,21
-find,22
-path expand,22
-skip,22
-par-each,22
-slice,23
-hide-env,23
-into datetime,25
-columns,25
-enumerate,26
-math round,26
-merge,26
-metadata,27
-parse,27
-export use,29
-last,30
-filter,30
-random uuid,31
-split column,33
-http get,34
-rename,35
-export module,38
-default,41
-str length,41
-is-not-empty,41
-path exists,42
-format date,45
-insert,46
-into int,47
-date now,48
-error make,48
-from ssv,50
-fill,50
-from json,51
-prepend,52
-ls,54
-save,58
-for,58
-match,58
-str substring,59
-first,60
-str starts-with,61
-select,61
-reduce,61
-seq,64
-transpose,64
-use,70
-str trim,70
-describe,72
-open,75
-flatten,76
-path join,77
-mut,77
-upsert,79
-return,80
-split row,81
-update,82
-lines,82
-alias,85
-str replace,86
-into string,94
-source,105
+char,492
+clear,6
+collect,3
+columns,39
+compact,6
+complete,13
+config use-colors,1
+const,153
+continue,14
+cp,2
+date now,54
+date to-timezone,3
+decode,4
+decode base64,6
+decode hex,1
+def,745
+default,264
+describe,104
+detect columns,1
 do,116
-append,121
+drop,6
+drop nth,1
+each,434
 echo,126
-length,129
-const,148
-where,154
-is-empty,212
-export alias,247
-str join,280
-print,301
-each,353
-char,486
-get,505
-export def,538
-def,625
-ansi,678
-if,1184
-let,2252
+encode base64,2
+enumerate,32
+error make,57
+exec,1
+exit,7
+export alias,249
+export const,2
+export def,597
+export extern,1
+export module,38
+export use,32
+export-env,21
+fill,50
+find,29
+first,72
+flatten,95
+for,114
+format date,52
+format duration,3
+format filesize,1
+format number,2
+format pattern,2
+from json,58
+from nuon,5
+from ssv,50
+from toml,2
+from tsv,2
+from xml,1
+from yaml,4
+get,697
+glob,4
+group-by,31
+hash sha256,2
+headers,3
+help,5
+help commands,3
+hide,1
+hide-env,24
+histogram,2
+history,1
+history session,1
+http get,32
+http post,1
+if,1521
+ignore,8
+input,10
+input list,14
+input listen,1
+insert,65
+into binary,3
+into cell-path,3
+into datetime,26
+into duration,7
+into filesize,3
+into float,15
+into glob,8
+into int,56
+into record,3
+into sqlite,2
+into string,126
+is-admin,6
+is-empty,283
+is-not-empty,46
+items,6
+job recv,1
+job send,1
+job spawn,2
+join,1
+kill,1
+last,45
+length,164
+let,2896
+lines,96
+load-env,31
+loop,9
+ls,55
+match,62
+math abs,7
+math arctan,3
+math avg,19
+math ceil,1
+math floor,7
+math log,2
+math max,16
+math min,5
+math product,1
+math round,30
+math sqrt,4
+math stddev,1
+math sum,2
+merge,28
+metadata,28
+metadata set,1
+mkdir,15
+mktemp,3
+module,4
+move,1
+mut,143
+mv,3
+nu-check,2
+nu-highlight,3
+open,83
+overlay list,2
+par-each,22
+parse,33
+path basename,21
+path dirname,13
+path exists,44
+path expand,32
+path join,78
+path parse,11
+path relative-to,6
+path self,4
+path split,7
+path type,4
+plugin,1
+plugin list,1
+prepend,52
+print,366
+ps,4
+query,4
+query db,11
+random bool,3
+random chars,6
+random dice,1
+random float,4
+random int,8
+random uuid,31
+reduce,91
+reject,19
+rename,39
+return,124
+reverse,15
+rm,20
+roll right,1
+rotate,2
+run-external,17
+save,61
+scope commands,20
+scope variables,1
+select,67
+seq,64
+seq date,2
+shuffle,2
+skip,29
+skip until,3
+skip while,1
+sleep,7
+slice,23
+sort,46
+sort-by,33
+source,105
+split cell-path,2
+split chars,15
+split column,35
+split list,4
+split row,114
+split words,1
+stor create,3
+stor insert,4
+stor open,2
+str camel-case,4
+str capitalize,3
+str contains,34
+str distance,1
+str downcase,31
+str ends-with,18
+str expand,3
+str index-of,2
+str join,323
+str kebab-case,2
+str length,63
+str replace,125
+str starts-with,82
+str stats,1
+str substring,61
+str trim,102
+str upcase,5
+sys cpu,2
+sys host,1
+table,10
+take,9
+take until,2
+take while,2
+tee,1
+term query,2
+term size,11
+timeit,15
+to csv,2
+to json,13
+to md,6
+to nuon,1
+to text,7
+to tsv,3
+to yaml,4
+touch,1
+transpose,76
+try,76
+uniq,54
+uniq-by,1
+update,84
+update cells,3
+upsert,118
+url build-query,2
+use,84
+values,4
+version,4
+view files,1
+view source,1
+where,282
+which,12
+while,10
+with-env,3
+wrap,16
+zip,5
