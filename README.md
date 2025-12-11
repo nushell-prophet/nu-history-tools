@@ -117,13 +117,6 @@ represents one user (order is shown in the table above).
 
 ```nushell
 use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
-╭─#─┬─name─┬──category──┬─freq_overall─┬─users_count─┬─f_n_per_user─┬───freq_by_user───┬─importance─┬─importance_b─╮
-│ 0 │ ls   │ filesystem │        11942 │          14 │         0.59 │ ▅▄█▁█▃▁█▄▄█▆█▁▆▇ │       1.00 │ ████████████ │
-│ 1 │ cd   │ filesystem │         8352 │          15 │         0.43 │ ▂▃▄▁▇▃▂▁██▇▄▄▁█▁ │       0.88 │ ██████████▋  │
-│ 2 │ get  │ filters    │        14406 │          16 │         0.38 │ ██▅▃▆▂▁▄▃▁▂▃▂▃▂█ │       0.86 │ ██████████▎  │
-│ 3 │ open │ filesystem │        13691 │          15 │         0.37 │ ▇█▄▁▄▂▁▄▃▆▂▃▃▁▂▇ │       0.82 │ █████████▉   │
-│ 4 │ help │ core       │         3432 │          14 │         0.30 │ ▂▂▅▁▃▁▁▂▂▂▃█▁▁▇█ │       0.70 │ ████████▌    │
-╰─#─┴─name─┴──category──┴─freq_overall─┴─users_count─┴─f_n_per_user─┴───freq_by_user───┴─importance─┴─importance_b─╯
 ```
 
 ## The most frequent Nushell commands in the current submissions
