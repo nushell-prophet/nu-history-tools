@@ -18,7 +18,7 @@ The history of nushell commands by releases can be found in [this csv](https://g
 ## Installation
 
 ```nushell no-run
-> git clone https://github.com/nushell-prophet/nu-history-tools; cd nu-history-tools; use nu-history-tools
+git clone https://github.com/nushell-prophet/nu-history-tools; cd nu-history-tools; use nu-history-tools
 ```
 
 ## Analyze your stats and benchmark them with other users' submissions.
@@ -116,7 +116,7 @@ represents one user (order is shown in the table above).
 ## Analyze submissions separately
 
 ```nushell
-> use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
+use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
 ╭─#─┬─name─┬──category──┬─freq_overall─┬─users_count─┬─f_n_per_user─┬───freq_by_user───┬─importance─┬─importance_b─╮
 │ 0 │ ls   │ filesystem │        11942 │          14 │         0.59 │ ▅▄█▁█▃▁█▄▄█▆█▁▆▇ │       1.00 │ ████████████ │
 │ 1 │ cd   │ filesystem │         8352 │          15 │         0.43 │ ▂▃▄▁▇▃▂▁██▇▄▄▁█▁ │       0.88 │ ██████████▋  │
