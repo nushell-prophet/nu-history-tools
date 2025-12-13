@@ -1,5 +1,5 @@
 # Utilities to analyze the usage statistics of Nushell commands (based on user history or `.nu` files).
-# It includes features for the creation of visual graphs and bars to represent data,
+# Includes features for creating visual graphs and bars to represent data,
 # as well as benchmarking command usage against submissions from other users.
 
 # https://github.com/nushell-prophet/nu-history-tools
@@ -63,8 +63,8 @@ export def list-all-commands []: nothing -> table {
     | if ($in | path exists) {
         open
     } else {
-        cprint 'To obtain data about the version and when commands were introduced,
-                execute this command from the root of the module directory.'
+        cprint 'To obtain data about when commands were introduced,
+                run this command from the root of the module directory.'
         []
     }
 
@@ -196,7 +196,7 @@ export def save-stats-for-submission [
 
     let submissions_path = pwd | path join 'stats_submissions' # if this script is executed from the git folder of nu-history-tools module, there should be a 'submissions' folder
     | if ($in | path exists) { } else {
-        error make {msg: `Please run this script for the root of it's git repositor folder`}
+        error make {msg: `Please run this script from the root of its git repository folder`}
     }
     | path join $'v2+($nickname).csv'
 
@@ -354,7 +354,7 @@ export def generate-benchmarks []: table -> table {
     | fill non-exist ''
 }
 
-# If piped-in table contains any column from: [item_id, id, command, command_line, session_id, cwd], history will be queried for exact matches. Optionally matches can be removed from history (with using --remove flag)
+# If the piped-in table contains any column from [item_id, id, command, command_line, session_id, cwd], history will be queried for exact matches. Optionally, matches can be removed from history using the --remove flag.
 #
 # > history | where command == 'cd ..' | query-from-history --remove
 export def query-from-history [
