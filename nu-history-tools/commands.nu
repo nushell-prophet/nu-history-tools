@@ -91,7 +91,7 @@ export def open_submission [
     filename: path
 ]: nothing -> record {
     open $filename
-    | reject --ignore-errors command_type
+    | reject --optional command_type
     | join (list-all-commands) --right name
     | default 0 freq
     | normalize freq
@@ -140,7 +140,7 @@ export def insert-timeline [
     $input
     | insert timeline {|i|
         $sparkline_data
-        | get -i $i.name
+        | get --optional $i.name
     }
 }
 
@@ -201,7 +201,7 @@ export def save-stats-for-submission [
     | path join $'v2+($nickname).csv'
 
     $input
-    | select -i name freq
+    | select --optional name freq
     | sort-by name
     | save -f $submissions_path
 
