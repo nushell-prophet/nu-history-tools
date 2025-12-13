@@ -385,7 +385,7 @@ export def query-from-history [
 }
 
 export def query-from-history-where [
-    $filter_values: table
+    filter_values: table
     --remove
 ] {
     let primary_column = $filter_values | columns | first
