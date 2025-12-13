@@ -17,14 +17,6 @@ export def analyze-history [
 
     if not $quiet {
         cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v0.2.1'
-
-        let compatible_versions = 97..102 | each { $'0.($in).0' }
-        let running_version = version | get version
-
-        if $running_version not-in $compatible_versions {
-            cprint --lines_after 1 --lines_before 1 $'This script was tested on *($compatible_versions)*. You have *($running_version)*.
-                If you have problems running this script, consider upgrading Nushell.'
-        }
     }
 
     let temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
