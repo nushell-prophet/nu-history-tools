@@ -26,7 +26,7 @@ git clone https://github.com/nushell-prophet/nu-history-tools; cd nu-history-too
 The output of `analyze-history` contains a lot of informational messages (as you can see in the next block).
 These informational messages can be silenced using the `--quiet` flag.
 
-```nushell
+```nushell separate-block
 use nu-history-tools; let $res = nu-history-tools analyze-history; $res | first 10
 ```
 
