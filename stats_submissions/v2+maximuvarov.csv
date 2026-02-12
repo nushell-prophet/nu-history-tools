@@ -1,91 +1,92 @@
 name,freq
-alias,33
+alias,58
 all,4
-ansi,1326
-ansi gradient,243
-ansi strip,515
+ansi,1345
+ansi gradient,245
+ansi strip,533
 any,10
-append,824
-ast,459
-break,7
+append,827
+ast,471
+break,11
 bytes add,3
 bytes build,3
 bytes index-of,3
-cal,12
-cd,1672
-char,1368
+cal,14
+cd,1818
+char,1389
 chunks,1
-clear,273
+clear,282
 collect,137
-columns,519
+columns,514
 commandline,107
 commandline edit,122
 commandline get-cursor,9
 commandline set-cursor,8
-compact,119
-complete,316
+compact,120
+complete,324
 config,40
-config env,28
+config env,30
 config flatten,139
-config nu,143
+config nu,146
 config reset,1
 const,16
 continue,1
-cp,313
+cp,325
 date,11
 date format,61
-date humanize,24
-date now,1162
+date humanize,25
+date now,1200
 date to-timezone,5
 debug,55
 debug info,3
 debug profile,234
-decode,27
+decode,44
 decode base32hex,1
 decode base64,23
-def,788
-default,638
-describe,817
-detect columns,64
-do,355
-drop,218
+def,799
+default,655
+describe,838
+detect columns,66
+do,356
+drop,236
 drop column,3
 drop nth,2
-du,73
-each,5057
+du,85
+each,5111
 each while,13
-echo,260
-encode,20
+echo,262
+encode,21
 encode base64,43
 encode hex,23
-enumerate,750
-error make,31
+enumerate,758
+error make,35
 exec,5
-exit,155
-explain,30
-explore,228
+exit,7
+explain,31
+explore,245
 export,3
 export alias,1
-export def,185
+export def,188
 export extern,2
 export module,1
 export use,2
 export-env,17
+extern,1
 fill,566
 filter,175
-find,265
-first,3059
-flatten,1854
+find,269
+first,3132
+flatten,1938
 for,72
 format,27
-format date,719
+format date,764
 format duration,54
 format filesize,2
 format number,1
-format pattern,9
+format pattern,10
 from,2
 from csv,101
-from json,1619
+from json,1672
 from msgpack,1
 from msgpackz,3
 from nuon,110
@@ -95,130 +96,131 @@ from tsv,78
 from xml,22
 from yaml,443
 generate,74
-get,8481
-glob,1421
+get,8573
+glob,1435
 grid,75
-group-by,775
+group-by,802
 hash,1
 hash md5,19
-hash sha256,92
+hash sha256,118
 headers,85
-help,1102
+help,1121
 help aliases,2
-help commands,429
+help commands,437
 help escapes,42
 help externs,2
 help modules,105
-help operators,20
+help operators,22
 help pipe-and-redirect,2
 hide,4
-hide-env,8
+hide-env,15
 histogram,12
-history,1014
+history,1019
 history import,2
 history session,39
-http get,287
+http get,292
 http options,1
 http post,38
-if,1562
+if,1574
 ignore,6
 input,33
 input list,95
-input listen,6
-insert,1339
+input listen,8
+insert,1398
 inspect,140
 into,56
-into binary,249
+into binary,265
 into bool,4
 into cell-path,81
-into datetime,383
+into datetime,407
 into duration,110
 into filesize,22
 into float,145
-into glob,7
-into int,904
-into record,126
+into glob,8
+into int,918
+into record,135
 into sqlite,8
-into string,426
+into string,427
 into value,19
-is-empty,108
-is-not-empty,59
-items,382
+is-empty,109
+is-not-empty,60
+items,408
 job,460
 job kill,14
-job list,2
+job list,5
 job spawn,32
 job unfreeze,1
-join,421
+join,425
 keybindings,11
 keybindings default,64
 keybindings list,61
-keybindings listen,53
+keybindings listen,54
 kill,2
-last,1638
-length,1566
-let,5059
+last,1700
+length,1599
+let,5134
 let-env,56
-lines,2683
+lines,2732
 load-env,3
-loop,4
-ls,4801
-match,148
+loop,6
+ls,5409
+match,150
 math,94
-math abs,13
+math abs,15
 math avg,14
 math ceil,22
 math exp,2
 math floor,76
 math ln,2
 math log,47
-math max,136
+math max,137
 math median,63
-math min,85
+math min,86
 math product,18
 math round,196
 math sqrt,69
 math stddev,32
-math sum,292
-merge,548
+math sum,303
+merge,549
 merge deep,7
 metadata,41
 metadata access,4
 metadata set,2
-mkdir,252
+mkdir,260
 mktemp,23
 module,13
 move,111
-mut,98
-mv,503
+mut,106
+mv,544
 nu-check,37
 nu-highlight,86
-open,8377
+open,8559
 overlay,9
 overlay hide,173
 overlay list,56
 overlay new,8
 overlay use,637
-par-each,558
-parse,1529
+par-each,560
+parse,1540
 path basename,209
-path dirname,32
-path exists,130
-path expand,172
-path join,373
-path parse,203
-path relative-to,69
-path split,106
-path type,23
+path dirname,35
+path exists,133
+path expand,208
+path join,424
+path parse,212
+path relative-to,78
+path self,1
+path split,108
+path type,30
 plugin,2
 plugin add,53
 plugin list,15
 plugin rm,7
 plugin stop,1
 plugin use,6
-prepend,231
-print,1311
-ps,293
+prepend,230
+print,1334
+ps,319
 query,15
 query db,441
 random,48
@@ -228,45 +230,45 @@ random dice,10
 random float,32
 random int,124
 random uuid,39
-reduce,454
-reject,1294
-rename,762
+reduce,463
+reject,1314
+rename,764
 return,48
 reverse,349
-rm,559
+rm,601
 roll down,2
 roll up,5
 rotate,5
 run-external,5
-save,1630
+save,1671
 schema,2
 scope,2
 scope aliases,2
-scope commands,133
+scope commands,155
 scope engine-stats,2
 scope externs,1
-scope modules,60
+scope modules,64
 scope variables,97
-select,2168
+select,2201
 seq,360
 seq char,19
 seq date,61
-skip,638
-skip until,269
+skip,651
+skip until,270
 skip while,1
 sleep,195
 slice,1
 sort,277
-sort-by,2002
-source,2019
+sort-by,2108
+source,2020
 split,5
 split cell-path,1
-split chars,412
-split column,162
+split chars,427
+split column,166
 split list,141
-split row,1181
+split row,1186
 split words,3
-start,301
+start,323
 stor,3
 stor create,28
 stor delete,3
@@ -284,68 +286,68 @@ str downcase,89
 str ends-with,6
 str expand,12
 str index-of,26
-str join,1504
-str length,269
-str replace,2709
+str join,1524
+str length,274
+str replace,2754
 str starts-with,56
 str stats,86
-str substring,579
-str trim,443
+str substring,588
+str trim,444
 str upcase,151
 sys,45
 sys cpu,5
 sys host,4
 sys mem,1
-table,1189
+table,1224
 take,15
 take until,171
 take while,2
-tee,27
-term query,28
-term size,542
+tee,31
+term query,29
+term size,545
 timeit,638
 to,112
 to csv,92
 to html,5
-to json,293
-to md,131
+to json,294
+to md,132
 to msgpack,21
 to msgpackz,23
-to nuon,423
-to text,399
-to toml,63
+to nuon,430
+to text,426
+to toml,64
 to tsv,34
 to xml,1
-to yaml,926
-touch,45
-transpose,969
-try,193
+to yaml,930
+touch,48
+transpose,985
+try,196
 tutor,17
 ulimit,1
 uname,1
-uniq,760
-uniq-by,254
-update,1450
-update cells,59
+uniq,772
+uniq-by,258
+update,1502
+update cells,66
 upsert,2810
 url build-query,1
 url join,7
 url parse,15
-use,2383
-values,567
-version,121
+use,2430
+values,572
+version,126
 view,2
 view blocks,3
 view files,6
 view ir,16
-view source,321
+view source,324
 view span,83
 watch,9
-where,4479
-which,590
+where,4626
+which,616
 while,5
 whoami,6
-window,236
+window,241
 with-env,30
-wrap,678
+wrap,683
 zip,137
