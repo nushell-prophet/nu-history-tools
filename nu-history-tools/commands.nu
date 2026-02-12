@@ -87,7 +87,7 @@ export def list-all-commands []: nothing -> table {
 }
 
 # Helper function to open a submission file and shape the data for further needs
-export def open_submission [
+export def open-submission [
     filename: path
 ]: nothing -> record {
     open $filename
@@ -271,7 +271,7 @@ export def aggregate-submissions [
         each {|i| $i | path relative-to (pwd) } # make paths shorter for 'input list'
         | input list --multi
     } else { }
-    | par-each {|filename| open_submission $filename }
+    | par-each {|filename| open-submission $filename }
     | sort-by command_entries -r
 
     let ordered_users = $aggregated_submissions
@@ -313,12 +313,12 @@ export def aggregate-submissions [
             category: $b.category.0
             freq_overall: ($b.freq | math sum)
             users_count: ($b.freq | where $it > 0 | length)
-            f_n_per_user: ($b.freq_norm | math avg)
+            avg_freq_norm: ($b.freq_norm | math avg)
             freq_by_user: ($user_sparklines | get $name)
         }
     }
     | insert importance {|i|
-        $i.users_count * $i.f_n_per_user | math sqrt # geometric mean
+        $i.users_count * $i.avg_freq_norm | math sqrt # geometric mean
     }
     | normalize importance --suffix ''
     | sort-by importance -r

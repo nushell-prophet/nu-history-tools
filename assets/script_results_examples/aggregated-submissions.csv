@@ -1,4 +1,4 @@
-name,category,freq_overall,users_count,f_n_per_user,freq_by_user,importance,importance_b
+name,category,freq_overall,users_count,avg_freq_norm,freq_by_user,importance,importance_b
 ls,filesystem,13120,15,0.6008551756823992,▅▄█▁█▃▁█▄▄█▆█▁▆▇,1.0,████████████
 cd,filesystem,8726,15,0.43511510698800315,▂▃▄▁▇▃▂▁██▇▄▄▁█▁,0.85,██████████▎ 
 get,filters,15200,16,0.38014157850449337,██▅▃▆▂▁▄▃▁▂▃▂▂▂█,0.82,█████████▉  

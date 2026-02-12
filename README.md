@@ -112,7 +112,7 @@ represents one user (order is shown in the table above).
 ```nushell
 use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
 # => ╭───┬──────┬────────────┬──────────────┬─────────────┬──────────────┬──────────────────┬────────────┬──────────────╮
-# => │ # │ name │  category  │ freq_overall │ users_count │ f_n_per_user │   freq_by_user   │ importance │ importance_b │
+# => │ # │ name │  category  │ freq_overall │ users_count │ avg_freq_norm │   freq_by_user   │ importance │ importance_b │
 # => ├───┼──────┼────────────┼──────────────┼─────────────┼──────────────┼──────────────────┼────────────┼──────────────┤
 # => │ 0 │ ls   │ filesystem │        12512 │          15 │         0.60 │ ▅▄█▁█▃▁█▄▄█▆█▁▆▇ │       1.00 │ ████████████ │
 # => │ 1 │ cd   │ filesystem │         8580 │          15 │         0.43 │ ▂▃▄▁▇▃▂▁██▇▄▄▁█▁ │       0.85 │ ██████████▎  │
