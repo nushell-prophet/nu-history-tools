@@ -19,7 +19,7 @@ export def analyze-history [
         cprint --frame '*' --align 'center' --lines_after 2 'nu-commands-frequency-stats v0.2.1'
     }
 
-    let temp_history_file = $nu.temp-path | path join $'nushell_hist_for_ast(random chars).nu'
+    let temp_history_file = $nu.temp-dir | path join $'nushell_hist_for_ast(random chars).nu'
 
     export-history $temp_history_file
 
