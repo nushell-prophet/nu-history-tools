@@ -38,7 +38,7 @@ Output:
 *******************************************************************************
 
 Your history is in sqlite format and will be used for analysis. Additionally,
-you have history in txt format, which consists of 651 lines. It will be used
+you have history in txt format, which consists of 745 lines. It will be used
 for analysis as well.
 
 Your stats have been saved to
@@ -56,24 +56,26 @@ freq_by_user (frequency norm by user) includes stats from all users. You can
 pick some of them by providing the --pick_users flag: stats --pick_users or
 aggregate-submissions --pick_users.
 
-╭─#──┬──────user──────┬─command_entries─╮
-│ 0  │ maximuvarov    │          118375 │
-│ 1  │ vinlet         │           33817 │
-│ 2  │ fdncred        │           18500 │
-│ 3  │ nu_scripts     │           12459 │
-│ 4  │ kubouch        │           10170 │
-│ 5  │ ErichDonGubler │           10101 │
-│ 6  │ chtenb         │            9376 │
-│ 7  │ shinyzero0     │            9247 │
-│ 8  │ dazfuller      │            7354 │
-│ 9  │ cptpiepmatz    │            4199 │
+╭────┬────────────────┬─────────────────╮
+│  # │      user      │ command_entries │
+├────┼────────────────┼─────────────────┤
+│  0 │ maximuvarov    │          128398 │
+│  1 │ vinlet         │           33817 │
+│  2 │ fdncred        │           18500 │
+│  3 │ nu_scripts     │           15692 │
+│  4 │ kubouch        │           10170 │
+│  5 │ ErichDonGubler │           10101 │
+│  6 │ chtenb         │            9376 │
+│  7 │ shinyzero0     │            9247 │
+│  8 │ dazfuller      │            7354 │
+│  9 │ cptpiepmatz    │            4199 │
 │ 10 │ zjp            │            2764 │
 │ 11 │ sholderbach    │            2114 │
 │ 12 │ horasal        │            1373 │
-│ 13 │ nu_std         │            1014 │
+│ 13 │ nu_std         │            1189 │
 │ 14 │ pingiun        │             894 │
 │ 15 │ nicokosi       │             255 │
-╰─#──┴──────user──────┴─command_entries─╯
+╰────┴────────────────┴─────────────────╯
 *******************************************************************************
                                 Resulting table
 *******************************************************************************
@@ -89,34 +91,35 @@ used this command and the average normalized frequency
 - freq_by_user (frequency norm by user) - each bar in the sparkline column
 represents one user (order is shown in the table above).
 
-╭─#─┬────name─────┬──category──┬─freq─┬─freq_norm─┬─freq_norm_bar─┬──timeline───┬─importance─┬─importance_b─┬──freq_by_user───╮
-│ 0 │ get         │ filters    │ 7971 │      1.00 │ ██████████    │ ▆█▅▄▄▃▃▃▄▃▁ │       0.86 │ ██████████▎  │ ██▅▃▆▂▁▄▃▁▂▃▂▃▂ │
-│   │             │            │      │           │               │             │            │              │ █               │
-│ 1 │ open        │ filesystem │ 7382 │      0.93 │ █████████▎    │ ▅█▄▂▃▄▅▆▆▄▁ │       0.82 │ █████████▉   │ ▇█▄▁▄▂▁▄▃▆▂▃▃▁▂ │
-│   │             │            │      │           │               │             │            │              │ ▇               │
-│ 2 │ each        │ filters    │ 4741 │      0.59 │ ██████        │ ▄█▄▅▄▄▅▆▅▅▁ │       0.59 │ ███████      │ ▅█▃▂▄▂▁▂▁▁▂▃▂▂▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 3 │ let         │ core       │ 4741 │      0.59 │ ██████        │ ▇█▅▇▅▄▆▅▆▅▁ │       0.66 │ ███████▉     │ ▅▃▄█▃▁▁▂▁▁▂▂▂▆▃ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 4 │ ls          │ filesystem │ 4242 │      0.53 │ █████▍        │ ▃█▅▃▅▄▅▄▃▇▁ │       1.00 │ ████████████ │ ▅▄█▁█▃▁█▄▄█▆█▁▆ │
-│   │             │            │      │           │               │             │            │              │ ▇               │
-│ 5 │ where       │ filters    │ 4030 │      0.51 │ █████         │ ▅▇▄▇█▇▆▄█▄▁ │       0.53 │ ██████▍      │ ██▅▂▅▂▁▃▃▂▂▅▃▃▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 6 │ upsert      │ filters    │ 2809 │      0.35 │ ███▌          │ ▅▆▃█▅▂▁▁▁▁▁ │       0.17 │ ██▏          │ █▅▃▂▁▁▁▁▁▁▁▁▁▁▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 7 │ first       │ filters    │ 2733 │      0.34 │ ███▍          │ ▄█▅▄▄▃▃▃▃▄▁ │       0.28 │ ███▍         │ █▁▃▂▁▂▁▁▁▄▃▃▁▁▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 8 │ polars      │ dataframe  │ 2537 │      0.32 │ ███▏          │ ▁▁▁▁▁▁█▄▁▂▁ │       0.07 │ ▉            │ █▁▁▁▁▁▁▁▁▁▁▁▁▁▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-│ 9 │ str replace │ strings    │ 2465 │      0.31 │ ███▏          │ ▄▅▅▅▃▇▆▆▅█▁ │       0.21 │ ██▌          │ █▂▃▂▁▂▁▂▁▂▂▁▁▁▁ │
-│   │             │            │      │           │               │             │            │              │ ▁               │
-╰─#─┴────name─────┴──category──┴─freq─┴─freq_norm─┴─freq_norm_bar─┴──timeline───┴─importance─┴─importance_b─┴──freq_by_user───╯
+# => ╭───┬─────────────┬────────────┬──────┬───────────┬───────────────┬──────────────────┬────────────┬──────────────┬─────╮
+# => │ # │    name     │  category  │ freq │ freq_norm │ freq_norm_bar │     timeline     │ importance │ importance_b │ ... │
+# => ├───┼─────────────┼────────────┼──────┼───────────┼───────────────┼──────────────────┼────────────┼──────────────┼─────┤
+# => │ 0 │ get         │ filters    │ 8573 │      1.00 │ ██████████    │ ▅█▆▅▄▄▃▃▃▂▄▃▃▂▃▁ │       0.82 │ █████████▉   │ ... │
+# => │ 1 │ open        │ filesystem │ 8559 │      1.00 │ ██████████    │ ▄█▅▄▂▃▄▄▄▄▇▆▃▄▇▁ │       0.80 │ █████████▌   │ ... │
+# => │ 2 │ ls          │ filesystem │ 5409 │      0.63 │ ██████▎       │ ▁▄▃▂▁▂▁▂▂▂▂▁▁▂█▂ │       1.00 │ ████████████ │ ... │
+# => │ 3 │ let         │ core       │ 5134 │      0.60 │ ██████        │ ▇▇▇▄█▅▅▃▅▆▄▆▆▅▄▁ │       0.64 │ ███████▋     │ ... │
+# => │ 4 │ each        │ filters    │ 5111 │      0.60 │ ██████        │ ▄██▅▆▆▄▅▆▇▇▆▇▄▅▁ │       0.57 │ ██████▊      │ ... │
+# => │ 5 │ where       │ filters    │ 4626 │      0.54 │ █████▍        │ ▃█▃▃▆▆▅▅▇▃▄▅▅▅▅▁ │       0.51 │ ██████▏      │ ... │
+# => │ 6 │ first       │ filters    │ 3132 │      0.37 │ ███▋          │ ▄█▆▆▃▅▃▃▃▂▄▃▃▅▅▁ │       0.28 │ ███▍         │ ... │
+# => │ 7 │ upsert      │ filters    │ 2810 │      0.33 │ ███▎          │ ▅▇▄▃▆█▄▂▂▁▁▁▁▁▁▁ │       0.17 │ ██           │ ... │
+# => │ 8 │ str replace │ strings    │ 2754 │      0.32 │ ███▎          │ ▄▂▆▄▃▄▃▆▆▄▅▄█▅▄▁ │       0.21 │ ██▌          │ ... │
+# => │ 9 │ lines       │ filters    │ 2732 │      0.32 │ ███▏          │ ▃▃▂▅▄▅▃▅▆▃▄█▆▇▄▁ │       0.45 │ █████▍       │ ... │
+# => ╰───┴─────────────┴────────────┴──────┴───────────┴───────────────┴──────────────────┴────────────┴──────────────┴─────╯
 ```
 
 ## Analyze submissions separately
 
 ```nushell
 use nu-history-tools; let $res2 = nu-history-tools aggregate-submissions --quiet; $res2 | first 5
+# => ╭───┬──────┬────────────┬──────────────┬─────────────┬──────────────┬──────────────────┬────────────┬──────────────╮
+# => │ # │ name │  category  │ freq_overall │ users_count │ f_n_per_user │   freq_by_user   │ importance │ importance_b │
+# => ├───┼──────┼────────────┼──────────────┼─────────────┼──────────────┼──────────────────┼────────────┼──────────────┤
+# => │ 0 │ ls   │ filesystem │        12512 │          15 │         0.60 │ ▅▄█▁█▃▁█▄▄█▆█▁▆▇ │       1.00 │ ████████████ │
+# => │ 1 │ cd   │ filesystem │         8580 │          15 │         0.43 │ ▂▃▄▁▇▃▂▁██▇▄▄▁█▁ │       0.85 │ ██████████▎  │
+# => │ 2 │ get  │ filters    │        15108 │          16 │         0.38 │ ██▅▃▆▂▁▄▃▁▂▃▂▂▂█ │       0.82 │ █████████▉   │
+# => │ 3 │ open │ filesystem │        14694 │          15 │         0.38 │ ██▄▁▄▂▁▄▃▆▂▃▃▁▂▇ │       0.80 │ █████████▌   │
+# => │ 4 │ help │ core       │         3472 │          14 │         0.30 │ ▂▂▅▁▃▁▁▂▂▂▃█▁▁▇█ │       0.68 │ ████████▏    │
+# => ╰───┴──────┴────────────┴──────────────┴─────────────┴──────────────┴──────────────────┴────────────┴──────────────╯
 ```
 
 ## The most frequent Nushell commands in the current submissions
