@@ -29,10 +29,14 @@ export def 'main update-surrogates' [] {
     | save -f stats_submissions/surrogate+nu_scripts.csv;
 }
 
+const self_dirname = path self | path dirname
+
 export def 'main parse-crates' [
-    --output_dir: path = '/Users/user/git/nu-history-tools/assets/crates_parsing/' # A path to output `.csv` results
-    --crates_dir: path = '/Users/user/git/nushell/crates/' # A path to a Nushell's git repository
+    --output_dir: path # A path to output `.csv` results
+    --crates_dir: path # A path to a Nushell's git repository
 ] {
+    let output_dir = $output_dir | default ($self_dirname | path join assets crates_parsing)
+    let crates_dir = $crates_dir | default ($self_dirname | path join .. nushell crates)
     # This script parses sources of nushell for the last x tags to extract nushell commands
     if not ($output_dir | path exists) {
         error make {msg: 'set an `$output_dir` param'}
@@ -77,10 +81,10 @@ export def 'main parse-crates' [
     }
 
     let $parsed_tags = open $out_csv_long
-    | get tag
-    | uniq
-    | str replace '0.5.0' '0_5_0'
-    | append v0.96.0 # `v` was added by mistake so we ignore that tag
+        | get tag
+        | uniq
+        | str replace '0.5.0' '0_5_0'
+        | append v0.96.0 # `v` was added by mistake so we ignore that tag
 
     cd $crates_dir
     git checkout main
@@ -103,23 +107,23 @@ export def 'main parse-crates' [
     cd -
 
     let $cmds_agg = open $out_csv_long
-    | sort-by tag --natural
-    | group-by name
-    | values
-    | each {|i|
-        $i
-        | last
-        | rename -c {tag: last_tag}
-        | merge ($i | first | select tag | rename first_tag)
-        | move first_tag --before last_tag
-    }
-    | flatten
-    | sort-by -n last_tag first_tag crate name
+        | sort-by tag --natural
+        | group-by name
+        | values
+        | each {|i|
+            $i
+            | last
+            | rename -c {tag: last_tag}
+            | merge ($i | first | select tag | rename first_tag)
+            | move first_tag --before last_tag
+        }
+        | flatten
+        | sort-by -n last_tag first_tag crate name
 
     let $cmds_missing = help commands
-    | where command_type in ['builtin' 'keyword']
-    | get name
-    | where $it not-in $cmds_agg.name
+        | where command_type in ['builtin' 'keyword']
+        | get name
+        | where $it not-in $cmds_agg.name
 
     $cmds_agg
     | save -f $out_csv_short
