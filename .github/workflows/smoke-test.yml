@@ -28,8 +28,5 @@ jobs:
           check-latest: true
 
       - name: Run `toolkit main parse-crates` with default args
-        shell: nu {0}
         working-directory: nu-history-tools
-        run: |
-          use toolkit.nu
-          toolkit main parse-crates
+        run: nu -c 'use toolkit.nu; toolkit main parse-crates'
