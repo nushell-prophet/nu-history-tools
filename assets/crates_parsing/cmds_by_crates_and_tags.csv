@@ -636,660 +636,660 @@ to yaml,nu-command,0.14.0,0.111.0
 random dice,nu-command,0.16.0,0.111.0
 to yml,nu-command,0.103.0,0.111.0
 job tag,nu-command,0.104.0,0.111.0
-version,nu-cmd-lang,0.2.0,0.112.1
-cd,nu-command,0.2.0,0.112.1
-clip,nu-command,0.2.0,0.112.1
-config,nu-command,0.2.0,0.112.1
-cp,nu-command,0.2.0,0.112.1
-date,nu-command,0.2.0,0.112.1
-debug,nu-command,0.2.0,0.112.1
-exit,nu-command,0.2.0,0.112.1
-first,nu-command,0.2.0,0.112.1
-get,nu-command,0.2.0,0.112.1
-lines,nu-command,0.2.0,0.112.1
-mkdir,nu-command,0.2.0,0.112.1
-mv,nu-command,0.2.0,0.112.1
-open,nu-command,0.2.0,0.112.1
-ps,nu-command,0.2.0,0.112.1
-reject,nu-command,0.2.0,0.112.1
-rm,nu-command,0.2.0,0.112.1
-save,nu-command,0.2.0,0.112.1
-sort-by,nu-command,0.2.0,0.112.1
-table,nu-command,0.2.0,0.112.1
-where,nu-command,0.2.0,0.112.1
-which,nu-command,0.2.0,0.112.1
-ls,nu-parser,0.2.0,0.112.1
-echo,nu-cmd-lang,0.3.0,0.112.1
-help,nu-command,0.3.0,0.112.1
-last,nu-command,0.3.0,0.112.1
-reverse,nu-command,0.3.0,0.112.1
-history,nu-cli,0.5.0,0.112.1
-append,nu-command,0.5.0,0.112.1
-prepend,nu-command,0.5.0,0.112.1
-group-by,nu-parser,0.5.0,0.112.1
-compact,nu-command,0.6.0,0.112.1
-default,nu-command,0.6.0,0.112.1
-histogram,nu-command,0.6.0,0.112.1
-describe,nu-cmd-lang,0.11.0,0.112.1
-clear,nu-command,0.11.0,0.112.1
-format,nu-command,0.11.0,0.112.1
-insert,nu-command,0.11.0,0.112.1
-kill,nu-command,0.11.0,0.112.1
-parse,nu-command,0.11.0,0.112.1
-rename,nu-command,0.11.0,0.112.1
-shuffle,nu-command,0.11.0,0.112.1
-skip,nu-command,0.11.0,0.112.1
-touch,nu-command,0.11.0,0.112.1
-uniq,nu-command,0.11.0,0.112.1
-wrap,nu-command,0.11.0,0.112.1
-headers,nu-command,0.12.0,0.112.1
-each,nu-command,0.13.0,0.112.1
-alias,nu-parser,0.13.0,0.112.1
-from url,nu-cmd-extra,0.14.0,0.112.1
-to html,nu-cmd-extra,0.14.0,0.112.1
-cal,nu-command,0.14.0,0.112.1
-drop,nu-command,0.14.0,0.112.1
-from,nu-command,0.14.0,0.112.1
-from csv,nu-command,0.14.0,0.112.1
-from json,nu-command,0.14.0,0.112.1
-from ods,nu-command,0.14.0,0.112.1
-from toml,nu-command,0.14.0,0.112.1
-from tsv,nu-command,0.14.0,0.112.1
-from xlsx,nu-command,0.14.0,0.112.1
-from xml,nu-command,0.14.0,0.112.1
-merge,nu-command,0.14.0,0.112.1
-select,nu-command,0.14.0,0.112.1
-to,nu-command,0.14.0,0.112.1
-to csv,nu-command,0.14.0,0.112.1
-to json,nu-command,0.14.0,0.112.1
-to md,nu-command,0.14.0,0.112.1
-to toml,nu-command,0.14.0,0.112.1
-to tsv,nu-command,0.14.0,0.112.1
-update,nu-command,0.14.0,0.112.1
-with-env,nu-command,0.14.0,0.112.1
-from eml,nu_plugin_formats,0.14.0,0.112.1
-from ics,nu_plugin_formats,0.14.0,0.112.1
-from ini,nu_plugin_formats,0.14.0,0.112.1
-from vcf,nu_plugin_formats,0.14.0,0.112.1
-split,nu-command,0.15.0,0.112.1
-split column,nu-command,0.15.0,0.112.1
-split row,nu-command,0.15.0,0.112.1
-str,nu-command,0.15.0,0.112.1
-str capitalize,nu-command,0.15.0,0.112.1
-str downcase,nu-command,0.15.0,0.112.1
-str substring,nu-command,0.15.0,0.112.1
-str trim,nu-command,0.15.0,0.112.1
-str upcase,nu-command,0.15.0,0.112.1
-every,nu-command,0.15.1,0.112.1
-math,nu-command,0.15.1,0.112.1
-math avg,nu-command,0.15.1,0.112.1
-math max,nu-command,0.15.1,0.112.1
-math median,nu-command,0.15.1,0.112.1
-math min,nu-command,0.15.1,0.112.1
-math mode,nu-command,0.15.1,0.112.1
-math sum,nu-command,0.15.1,0.112.1
-random,nu-command,0.15.1,0.112.1
-random uuid,nu-command,0.15.1,0.112.1
-do,nu-cmd-lang,0.16.0,0.112.1
-ansi,nu-command,0.16.0,0.112.1
-char,nu-command,0.16.0,0.112.1
-random bool,nu-command,0.16.0,0.112.1
-math stddev,nu-command,0.17.0,0.112.1
-math variance,nu-command,0.17.0,0.112.1
-move,nu-command,0.17.0,0.112.1
-skip until,nu-command,0.17.0,0.112.1
-skip while,nu-command,0.17.0,0.112.1
-split chars,nu-command,0.17.0,0.112.1
-str length,nu-command,0.17.0,0.112.1
-str reverse,nu-command,0.17.0,0.112.1
-if,nu-parser,0.17.0,0.112.1
-path,nu-command,0.18.1,0.112.1
-path basename,nu-command,0.18.1,0.112.1
-path exists,nu-command,0.18.1,0.112.1
-path expand,nu-command,0.18.1,0.112.1
-path type,nu-command,0.18.1,0.112.1
-reduce,nu-command,0.18.1,0.112.1
-str contains,nu-command,0.18.1,0.112.1
-str ends-with,nu-command,0.18.1,0.112.1
-str index-of,nu-command,0.18.1,0.112.1
-str starts-with,nu-command,0.18.1,0.112.1
-to xml,nu-command,0.18.1,0.112.1
-url,nu-command,0.18.1,0.112.1
-str camel-case,nu-cmd-extra,0.19.0,0.112.1
-str kebab-case,nu-cmd-extra,0.19.0,0.112.1
-str pascal-case,nu-cmd-extra,0.19.0,0.112.1
-str screaming-snake-case,nu-cmd-extra,0.19.0,0.112.1
-str snake-case,nu-cmd-extra,0.19.0,0.112.1
-date format,nu-command,0.19.0,0.112.1
-date now,nu-command,0.19.0,0.112.1
-math product,nu-command,0.19.0,0.112.1
-path dirname,nu-command,0.19.0,0.112.1
-sleep,nu-command,0.19.0,0.112.1
-exec,nu-command,0.20.0,0.112.1
-flatten,nu-command,0.22.0,0.112.1
-format filesize,nu-command,0.22.0,0.112.1
-math ceil,nu-command,0.22.0,0.112.1
-math floor,nu-command,0.22.0,0.112.1
-math round,nu-command,0.22.0,0.112.1
-seq,nu-command,0.22.0,0.112.1
-seq date,nu-command,0.23.0,0.112.1
-date list-timezone,nu-command,0.24.0,0.112.1
-date to-timezone,nu-command,0.24.0,0.112.1
-hash,nu-command,0.24.0,0.112.1
-math abs,nu-command,0.24.0,0.112.1
-random chars,nu-command,0.24.0,0.112.1
-let-env,nu-command,0.25.0,0.112.1
-source,nu-command,0.25.0,0.112.1
-def,nu-parser,0.25.0,0.112.1
-let,nu-parser,0.25.0,0.112.1
-term size,nu-command,0.27.0,0.112.1
-roll,nu-cmd-extra,0.28.0,0.112.1
-roll up,nu-cmd-extra,0.28.0,0.112.1
-rotate,nu-cmd-extra,0.28.0,0.112.1
-ansi strip,nu-command,0.28.0,0.112.1
-drop column,nu-command,0.28.0,0.112.1
-path join,nu-command,0.28.0,0.112.1
-length,nu-command,0.29.0,0.112.1
-into,nu-command,0.30.0,0.112.1
-into int,nu-command,0.30.0,0.112.1
-math sqrt,nu-command,0.30.0,0.112.1
-path parse,nu-command,0.30.0,0.112.1
-path split,nu-command,0.30.0,0.112.1
-into binary,nu-command,0.31.0,0.112.1
-into string,nu-command,0.31.0,0.112.1
-for,nu-cmd-lang,0.32.0,0.112.1
-load-env,nu-command,0.32.0,0.112.1
-path relative-to,nu-command,0.32.0,0.112.1
-ansi gradient,nu-cmd-extra,0.33.0,0.112.1
-ignore,nu-cmd-lang,0.33.0,0.112.1
-collect,nu-parser,0.33.0,0.112.1
-date humanize,nu-command,0.35.0,0.112.1
-md5,nu-command,0.35.0,0.112.1
-sha256,nu-command,0.35.0,0.112.1
-drop nth,nu-command,0.36.0,0.112.1
-tutor,nu-command,0.36.0,0.112.1
-zip,nu-command,0.36.0,0.112.1
-error make,nu-cmd-lang,0.37.0,0.112.1
-find,nu-command,0.37.0,0.112.1
-into filesize,nu-command,0.37.0,0.112.1
-sys,nu-command,0.37.0,0.112.1
-update cells,nu-cmd-extra,0.38.0,0.112.1
-detect columns,nu-command,0.40.0,0.112.1
-keybindings,nu-cli,0.60.0,0.112.1
-keybindings default,nu-cli,0.60.0,0.112.1
-keybindings list,nu-cli,0.60.0,0.112.1
-keybindings listen,nu-cli,0.60.0,0.112.1
-nu-highlight,nu-cli,0.60.0,0.112.1
-print,nu-cli,0.60.0,0.112.1
-roll down,nu-cmd-extra,0.60.0,0.112.1
-roll left,nu-cmd-extra,0.60.0,0.112.1
-roll right,nu-cmd-extra,0.60.0,0.112.1
-export,nu-cmd-lang,0.60.0,0.112.1
-export alias,nu-cmd-lang,0.60.0,0.112.1
-export def,nu-cmd-lang,0.60.0,0.112.1
-export extern,nu-cmd-lang,0.60.0,0.112.1
-extern,nu-cmd-lang,0.60.0,0.112.1
-hide,nu-cmd-lang,0.60.0,0.112.1
-match,nu-cmd-lang,0.60.0,0.112.1
-module,nu-cmd-lang,0.60.0,0.112.1
-use,nu-cmd-lang,0.60.0,0.112.1
-columns,nu-command,0.60.0,0.112.1
-complete,nu-command,0.60.0,0.112.1
-decode,nu-command,0.60.0,0.112.1
-du,nu-command,0.60.0,0.112.1
-from nuon,nu-command,0.60.0,0.112.1
-from ssv,nu-command,0.60.0,0.112.1
-grid,nu-command,0.60.0,0.112.1
-input,nu-command,0.60.0,0.112.1
-into bool,nu-command,0.60.0,0.112.1
-into datetime,nu-command,0.60.0,0.112.1
-into duration,nu-command,0.60.0,0.112.1
-metadata,nu-command,0.60.0,0.112.1
-par-each,nu-command,0.60.0,0.112.1
-to nuon,nu-command,0.60.0,0.112.1
-transpose,nu-command,0.60.0,0.112.1
-upsert,nu-command,0.60.0,0.112.1
-window,nu-command,0.60.0,0.112.1
-run-external,nu-mcp,0.60.0,0.112.1
-glob,nu-command,0.61.0,0.112.1
-sort,nu-command,0.61.0,0.112.1
-str replace,nu-command,0.61.0,0.112.1
-take,nu-command,0.61.0,0.112.1
-take until,nu-command,0.61.0,0.112.1
-take while,nu-command,0.61.0,0.112.1
-watch,nu-command,0.62.0,0.112.1
-str title-case,nu-cmd-extra,0.63.0,0.112.1
-overlay,nu-cmd-lang,0.63.0,0.112.1
-overlay list,nu-cmd-lang,0.63.0,0.112.1
-config env,nu-command,0.63.0,0.112.1
-config nu,nu-command,0.63.0,0.112.1
-seq char,nu-command,0.63.0,0.112.1
-to text,nu-command,0.63.0,0.112.1
-overlay new,nu-cmd-lang,0.63.1,0.112.1
-each while,nu-cmd-extra,0.64.0,0.112.1
-is-admin,nu-command,0.64.0,0.112.1
-join,nu-command,0.64.0,0.112.1
-slice,nu-command,0.64.0,0.112.1
-agg,nu-parser,0.64.0,0.112.1
-min,nu-parser,0.64.0,0.112.1
-to-custom,nu-parser,0.64.0,0.112.1
-with-column,nu-parser,0.64.0,0.112.1
-bytes length,nu-command,0.65.0,0.112.1
-bytes starts-with,nu-command,0.65.0,0.112.1
-decode base64,nu-command,0.65.0,0.112.1
-encode,nu-command,0.65.0,0.112.1
-encode base64,nu-command,0.65.0,0.112.1
-nu-check,nu-command,0.65.0,0.112.1
-port,nu-command,0.65.0,0.112.1
-schema,nu-command,0.65.0,0.112.1
-lowercase,nu-plugin-test-support,0.65.0,0.112.1
-query,nu_plugin_query,0.65.0,0.112.1
-bytes,nu-command,0.66.0,0.112.1
-bytes add,nu-command,0.66.0,0.112.1
-bytes at,nu-command,0.66.0,0.112.1
-bytes build,nu-command,0.66.0,0.112.1
-bytes collect,nu-command,0.66.0,0.112.1
-bytes ends-with,nu-command,0.66.0,0.112.1
-bytes index-of,nu-command,0.66.0,0.112.1
-bytes remove,nu-command,0.66.0,0.112.1
-bytes replace,nu-command,0.66.0,0.112.1
-bytes reverse,nu-command,0.66.0,0.112.1
-config reset,nu-command,0.66.0,0.112.1
-split list,nu-command,0.66.0,0.112.1
-bits,nu-cmd-extra,0.67.0,0.112.1
-bits and,nu-cmd-extra,0.67.0,0.112.1
-bits not,nu-cmd-extra,0.67.0,0.112.1
-bits or,nu-cmd-extra,0.67.0,0.112.1
-bits rol,nu-cmd-extra,0.67.0,0.112.1
-bits ror,nu-cmd-extra,0.67.0,0.112.1
-bits shl,nu-cmd-extra,0.67.0,0.112.1
-bits shr,nu-cmd-extra,0.67.0,0.112.1
-bits xor,nu-cmd-extra,0.67.0,0.112.1
-export use,nu-cmd-lang,0.67.0,0.112.1
-hide-env,nu-cmd-lang,0.67.0,0.112.1
-filter,nu-command,0.67.0,0.112.1
-into sqlite,nu-command,0.67.0,0.112.1
-query db,nu-command,0.67.0,0.112.1
-overlay hide,nu-cmd-lang,0.68.0,0.112.1
-overlay use,nu-cmd-lang,0.68.0,0.112.1
-all,nu-command,0.68.0,0.112.1
-any,nu-command,0.68.0,0.112.1
-ast,nu-command,0.68.0,0.112.1
-export-env,nu-command,0.68.0,0.112.1
-is-empty,nu-command,0.68.0,0.112.1
-source-env,nu-command,0.68.0,0.112.1
-split words,nu-command,0.68.0,0.112.1
-str distance,nu-command,0.68.0,0.112.1
-json,nu-plugin-core,0.68.1,0.112.1
-msgpack,nu-plugin-core,0.68.1,0.112.1
-commandline,nu-cli,0.69.0,0.112.1
-history session,nu-cli,0.69.0,0.112.1
-str join,nu-command,0.69.0,0.112.1
-registry query,nu-command,0.70.0,0.112.1
-break,nu-cmd-lang,0.72.0,0.112.1
-continue,nu-cmd-lang,0.72.0,0.112.1
-loop,nu-cmd-lang,0.72.0,0.112.1
-return,nu-cmd-lang,0.72.0,0.112.1
-try,nu-cmd-lang,0.72.0,0.112.1
-while,nu-cmd-lang,0.72.0,0.112.1
-help operators,nu-command,0.72.0,0.112.1
-into record,nu-command,0.72.0,0.112.1
-url parse,nu-command,0.72.0,0.112.1
-mut,nu-parser,0.72.0,0.112.1
-math arccos,nu-cmd-extra,0.73.0,0.112.1
-math arccosh,nu-cmd-extra,0.73.0,0.112.1
-math arcsin,nu-cmd-extra,0.73.0,0.112.1
-math arcsinh,nu-cmd-extra,0.73.0,0.112.1
-math arctan,nu-cmd-extra,0.73.0,0.112.1
-math arctanh,nu-cmd-extra,0.73.0,0.112.1
-math cos,nu-cmd-extra,0.73.0,0.112.1
-math cosh,nu-cmd-extra,0.73.0,0.112.1
-math ln,nu-cmd-extra,0.73.0,0.112.1
-math sin,nu-cmd-extra,0.73.0,0.112.1
-math sinh,nu-cmd-extra,0.73.0,0.112.1
-math tan,nu-cmd-extra,0.73.0,0.112.1
-math tanh,nu-cmd-extra,0.73.0,0.112.1
-math log,nu-command,0.73.0,0.112.1
-uniq-by,nu-command,0.73.0,0.112.1
-explore,nu-explore,0.73.0,0.112.1
-help aliases,nu-command,0.74.0,0.112.1
-help commands,nu-command,0.74.0,0.112.1
-help modules,nu-command,0.74.0,0.112.1
-start,nu-command,0.74.0,0.112.1
-url encode,nu-command,0.74.0,0.112.1
-values,nu-command,0.74.0,0.112.1
-const,nu-parser,0.74.0,0.112.1
-ansi link,nu-command,0.75.0,0.112.1
-enumerate,nu-command,0.75.0,0.112.1
-http,nu-command,0.75.0,0.112.1
-http get,nu-command,0.75.0,0.112.1
-http post,nu-command,0.75.0,0.112.1
-url build-query,nu-command,0.75.0,0.112.1
-url join,nu-command,0.75.0,0.112.1
-explain,nu-command,0.76.0,0.112.1
-fill,nu-command,0.76.0,0.112.1
-inspect,nu-command,0.76.0,0.112.1
-timeit,nu-command,0.76.0,0.112.1
-view,nu-command,0.76.0,0.112.1
-view files,nu-command,0.76.0,0.112.1
-view source,nu-command,0.76.0,0.112.1
-view span,nu-command,0.76.0,0.112.1
-custom-value generate,nu_plugin_custom_values,0.76.0,0.112.1
-custom-value generate2,nu_plugin_custom_values,0.76.0,0.112.1
-custom-value update,nu_plugin_custom_values,0.76.0,0.112.1
-gstat,nu_plugin_gstat,0.76.0,0.112.1
-inc,nu_plugin_inc,0.76.0,0.112.1
-query json,nu_plugin_query,0.76.0,0.112.1
-query web,nu_plugin_query,0.76.0,0.112.1
-query xml,nu_plugin_query,0.76.0,0.112.1
-http delete,nu-command,0.77.0,0.112.1
-http head,nu-command,0.77.0,0.112.1
-http patch,nu-command,0.77.0,0.112.1
-http put,nu-command,0.77.0,0.112.1
-math exp,nu-cmd-extra,0.78.0,0.112.1
-decode hex,nu-command,0.78.0,0.112.1
-encode hex,nu-command,0.78.0,0.112.1
-help externs,nu-command,0.78.0,0.112.1
-items,nu-command,0.79.0,0.112.1
-export module,nu-cmd-lang,0.80.0,0.112.1
-input list,nu-command,0.80.0,0.112.1
-scope,nu-cmd-lang,0.82.0,0.112.1
-scope aliases,nu-cmd-lang,0.82.0,0.112.1
-scope commands,nu-cmd-lang,0.82.0,0.112.1
-scope engine-stats,nu-cmd-lang,0.82.0,0.112.1
-scope modules,nu-cmd-lang,0.82.0,0.112.1
-scope variables,nu-cmd-lang,0.82.0,0.112.1
-http options,nu-command,0.82.0,0.112.1
-hello,nu-plugin-test-support,0.82.0,0.112.1
-input listen,nu-command,0.83.0,0.112.1
-str expand,nu-command,0.83.0,0.112.1
-export const,nu-cmd-lang,0.84.0,0.112.1
-scope externs,nu-cmd-lang,0.84.0,0.112.1
-format date,nu-command,0.84.0,0.112.1
-format duration,nu-command,0.84.0,0.112.1
-into float,nu-command,0.85.0,0.112.1
-random float,nu-command,0.85.0,0.112.1
-debug info,nu-command,0.86.0,0.112.1
-help escapes,nu-command,0.86.0,0.112.1
-into value,nu-command,0.86.0,0.112.1
-random int,nu-command,0.86.0,0.112.1
-url decode,nu-command,0.86.0,0.112.1
-generate,nu-command,0.87.0,0.112.1
-str stats,nu-command,0.87.0,0.112.1
-whoami,nu-command,0.87.0,0.112.1
-is-terminal,nu-command,0.88.0,0.112.1
-mktemp,nu-command,0.88.0,0.112.1
-stor,nu-command,0.88.0,0.112.1
-stor create,nu-command,0.88.0,0.112.1
-stor delete,nu-command,0.88.0,0.112.1
-stor export,nu-command,0.88.0,0.112.1
-stor import,nu-command,0.88.0,0.112.1
-stor insert,nu-command,0.88.0,0.112.1
-stor open,nu-command,0.88.0,0.112.1
-stor reset,nu-command,0.88.0,0.112.1
-stor update,nu-command,0.88.0,0.112.1
-format pattern,nu-cmd-extra,0.89.0,0.112.1
-ulimit,nu-command,0.89.0,0.112.1
-into cell-path,nu-command,0.90.0,0.112.1
-commandline edit,nu-cli,0.91.0,0.112.1
-commandline get-cursor,nu-cli,0.91.0,0.112.1
-commandline set-cursor,nu-cli,0.91.0,0.112.1
-interleave,nu-command,0.91.0,0.112.1
-into glob,nu-command,0.91.0,0.112.1
-is-not-empty,nu-command,0.91.0,0.112.1
-panic,nu-command,0.91.0,0.112.1
-tee,nu-command,0.91.0,0.112.1
-test command,nu-plugin,0.91.0,0.112.1
-test,nu-plugin-engine,0.91.0,0.112.1
-custom-value update-arg,nu_plugin_custom_values,0.91.0,0.112.1
-plugin,nu-cmd-plugin,0.92.0,0.112.1
-plugin list,nu-cmd-plugin,0.92.0,0.112.1
-plugin stop,nu-cmd-plugin,0.92.0,0.112.1
-debug profile,nu-command,0.92.0,0.112.1
-uname,nu-command,0.92.0,0.112.1
-into int from u32,nu-plugin-test-support,0.92.0,0.112.1
-into u32,nu-plugin-test-support,0.92.0,0.112.1
-custom-value drop-check,nu_plugin_custom_values,0.92.0,0.112.1
-example,nu_plugin_example,0.92.0,0.112.1
-example config,nu_plugin_example,0.92.0,0.112.1
-example disable-gc,nu_plugin_example,0.92.0,0.112.1
-example env,nu_plugin_example,0.92.0,0.112.1
-example for-each,nu_plugin_example,0.92.0,0.112.1
-example generate,nu_plugin_example,0.92.0,0.112.1
-example one,nu_plugin_example,0.92.0,0.112.1
-example seq,nu_plugin_example,0.92.0,0.112.1
-example sum,nu_plugin_example,0.92.0,0.112.1
-example three,nu_plugin_example,0.92.0,0.112.1
-example two,nu_plugin_example,0.92.0,0.112.1
-custom-value handle get,nu_plugin_custom_values,0.92.1,0.112.1
-custom-value handle make,nu_plugin_custom_values,0.92.1,0.112.1
-plugin add,nu-cmd-plugin,0.93.0,0.112.1
-plugin rm,nu-cmd-plugin,0.93.0,0.112.1
-plugin use,nu-cmd-plugin,0.93.0,0.112.1
-from msgpack,nu-command,0.93.0,0.112.1
-from msgpackz,nu-command,0.93.0,0.112.1
-metadata set,nu-command,0.93.0,0.112.1
-to msgpack,nu-command,0.93.0,0.112.1
-to msgpackz,nu-command,0.93.0,0.112.1
-custom-value handle update,nu_plugin_custom_values,0.93.0,0.112.1
-example view span,nu_plugin_example,0.93.0,0.112.1
-polars,nu_plugin_polars,0.93.0,0.112.1
-polars agg,nu_plugin_polars,0.93.0,0.112.1
-polars agg-groups,nu_plugin_polars,0.93.0,0.112.1
-polars all-false,nu_plugin_polars,0.93.0,0.112.1
-polars all-true,nu_plugin_polars,0.93.0,0.112.1
-polars append,nu_plugin_polars,0.93.0,0.112.1
-polars arg-max,nu_plugin_polars,0.93.0,0.112.1
-polars arg-min,nu_plugin_polars,0.93.0,0.112.1
-polars arg-sort,nu_plugin_polars,0.93.0,0.112.1
-polars arg-true,nu_plugin_polars,0.93.0,0.112.1
-polars arg-unique,nu_plugin_polars,0.93.0,0.112.1
-polars arg-where,nu_plugin_polars,0.93.0,0.112.1
-polars as,nu_plugin_polars,0.93.0,0.112.1
-polars as-date,nu_plugin_polars,0.93.0,0.112.1
-polars as-datetime,nu_plugin_polars,0.93.0,0.112.1
-polars cache,nu_plugin_polars,0.93.0,0.112.1
-polars cast,nu_plugin_polars,0.93.0,0.112.1
-polars col,nu_plugin_polars,0.93.0,0.112.1
-polars collect,nu_plugin_polars,0.93.0,0.112.1
-polars columns,nu_plugin_polars,0.93.0,0.112.1
-polars concat-str,nu_plugin_polars,0.93.0,0.112.1
-polars contains,nu_plugin_polars,0.93.0,0.112.1
-polars count,nu_plugin_polars,0.93.0,0.112.1
-polars count-null,nu_plugin_polars,0.93.0,0.112.1
-polars cumulative,nu_plugin_polars,0.93.0,0.112.1
-polars datepart,nu_plugin_polars,0.93.0,0.112.1
-polars drop,nu_plugin_polars,0.93.0,0.112.1
-polars drop-duplicates,nu_plugin_polars,0.93.0,0.112.1
-polars drop-nulls,nu_plugin_polars,0.93.0,0.112.1
-polars dummies,nu_plugin_polars,0.93.0,0.112.1
-polars explode,nu_plugin_polars,0.93.0,0.112.1
-polars expr-not,nu_plugin_polars,0.93.0,0.112.1
-polars fill-nan,nu_plugin_polars,0.93.0,0.112.1
-polars fill-null,nu_plugin_polars,0.93.0,0.112.1
-polars filter,nu_plugin_polars,0.93.0,0.112.1
-polars filter-with,nu_plugin_polars,0.93.0,0.112.1
-polars first,nu_plugin_polars,0.93.0,0.112.1
-polars flatten,nu_plugin_polars,0.93.0,0.112.1
-polars get,nu_plugin_polars,0.93.0,0.112.1
-polars get-day,nu_plugin_polars,0.93.0,0.112.1
-polars get-hour,nu_plugin_polars,0.93.0,0.112.1
-polars get-minute,nu_plugin_polars,0.93.0,0.112.1
-polars get-month,nu_plugin_polars,0.93.0,0.112.1
-polars get-nanosecond,nu_plugin_polars,0.93.0,0.112.1
-polars get-ordinal,nu_plugin_polars,0.93.0,0.112.1
-polars get-second,nu_plugin_polars,0.93.0,0.112.1
-polars get-week,nu_plugin_polars,0.93.0,0.112.1
-polars get-weekday,nu_plugin_polars,0.93.0,0.112.1
-polars get-year,nu_plugin_polars,0.93.0,0.112.1
-polars group-by,nu_plugin_polars,0.93.0,0.112.1
-polars implode,nu_plugin_polars,0.93.0,0.112.1
-polars into-df,nu_plugin_polars,0.93.0,0.112.1
-polars into-lazy,nu_plugin_polars,0.93.0,0.112.1
-polars into-nu,nu_plugin_polars,0.93.0,0.112.1
-polars is-duplicated,nu_plugin_polars,0.93.0,0.112.1
-polars is-in,nu_plugin_polars,0.93.0,0.112.1
-polars is-not-null,nu_plugin_polars,0.93.0,0.112.1
-polars is-null,nu_plugin_polars,0.93.0,0.112.1
-polars is-unique,nu_plugin_polars,0.93.0,0.112.1
-polars join,nu_plugin_polars,0.93.0,0.112.1
-polars last,nu_plugin_polars,0.93.0,0.112.1
-polars lit,nu_plugin_polars,0.93.0,0.112.1
-polars lowercase,nu_plugin_polars,0.93.0,0.112.1
-polars max,nu_plugin_polars,0.93.0,0.112.1
-polars mean,nu_plugin_polars,0.93.0,0.112.1
-polars median,nu_plugin_polars,0.93.0,0.112.1
-polars min,nu_plugin_polars,0.93.0,0.112.1
-polars n-unique,nu_plugin_polars,0.93.0,0.112.1
-polars not,nu_plugin_polars,0.93.0,0.112.1
-polars open,nu_plugin_polars,0.93.0,0.112.1
-polars otherwise,nu_plugin_polars,0.93.0,0.112.1
-polars quantile,nu_plugin_polars,0.93.0,0.112.1
-polars query,nu_plugin_polars,0.93.0,0.112.1
-polars rename,nu_plugin_polars,0.93.0,0.112.1
-polars replace,nu_plugin_polars,0.93.0,0.112.1
-polars reverse,nu_plugin_polars,0.93.0,0.112.1
-polars rolling,nu_plugin_polars,0.93.0,0.112.1
-polars sample,nu_plugin_polars,0.93.0,0.112.1
-polars schema,nu_plugin_polars,0.93.0,0.112.1
-polars select,nu_plugin_polars,0.93.0,0.112.1
-polars set,nu_plugin_polars,0.93.0,0.112.1
-polars set-with-idx,nu_plugin_polars,0.93.0,0.112.1
-polars shape,nu_plugin_polars,0.93.0,0.112.1
-polars shift,nu_plugin_polars,0.93.0,0.112.1
-polars slice,nu_plugin_polars,0.93.0,0.112.1
-polars sort-by,nu_plugin_polars,0.93.0,0.112.1
-polars std,nu_plugin_polars,0.93.0,0.112.1
-polars store-get,nu_plugin_polars,0.93.0,0.112.1
-polars store-ls,nu_plugin_polars,0.93.0,0.112.1
-polars store-rm,nu_plugin_polars,0.93.0,0.112.1
-polars str-lengths,nu_plugin_polars,0.93.0,0.112.1
-polars str-slice,nu_plugin_polars,0.93.0,0.112.1
-polars strftime,nu_plugin_polars,0.93.0,0.112.1
-polars sum,nu_plugin_polars,0.93.0,0.112.1
-polars summary,nu_plugin_polars,0.93.0,0.112.1
-polars take,nu_plugin_polars,0.93.0,0.112.1
-polars unique,nu_plugin_polars,0.93.0,0.112.1
-polars uppercase,nu_plugin_polars,0.93.0,0.112.1
-polars value-counts,nu_plugin_polars,0.93.0,0.112.1
-polars var,nu_plugin_polars,0.93.0,0.112.1
-polars when,nu_plugin_polars,0.93.0,0.112.1
-polars with-column,nu_plugin_polars,0.93.0,0.112.1
-sys cpu,nu-command,0.94.0,0.112.1
-sys disks,nu-command,0.94.0,0.112.1
-sys host,nu-command,0.94.0,0.112.1
-sys mem,nu-command,0.94.0,0.112.1
-sys net,nu-command,0.94.0,0.112.1
-sys temp,nu-command,0.94.0,0.112.1
-sys users,nu-command,0.94.0,0.112.1
-example collect-bytes,nu_plugin_example,0.94.0,0.112.1
-example echo,nu_plugin_example,0.94.0,0.112.1
-chunks,nu-command,0.96.0,0.112.1
-view ir,nu-command,0.96.0,0.112.1
-example call-decl,nu_plugin_example,0.96.0,0.112.1
-polars pivot,nu_plugin_polars,0.96.0,0.112.1
-polars unpivot,nu_plugin_polars,0.96.0,0.112.1
-query webpage-info,nu_plugin_query,0.96.0,0.112.1
-random binary,nu-command,0.97.0,0.112.1
-example ctrlc,nu_plugin_example,0.97.0,0.112.1
-from plist,nu_plugin_formats,0.97.0,0.112.1
-to plist,nu_plugin_formats,0.97.0,0.112.1
-polars save,nu_plugin_polars,0.97.0,0.112.1
-decode base32,nu-command,0.98.0,0.112.1
-decode base32hex,nu-command,0.98.0,0.112.1
-encode base32,nu-command,0.98.0,0.112.1
-encode base32hex,nu-command,0.98.0,0.112.1
-metadata access,nu-command,0.98.0,0.112.1
-split cell-path,nu-command,0.98.0,0.112.1
-polars decimal,nu_plugin_polars,0.98.0,0.112.1
-polars integer,nu_plugin_polars,0.98.0,0.112.1
-polars str-join,nu_plugin_polars,0.98.0,0.112.1
-polars concat,nu_plugin_polars,0.99.0,0.112.1
-polars len,nu_plugin_polars,0.99.0,0.112.1
-polars profile,nu_plugin_polars,0.99.0,0.112.1
-history import,nu-cli,0.100.0,0.112.1
-url split-query,nu-command,0.100.0,0.112.1
-polars unnest,nu_plugin_polars,0.100.0,0.112.1
-chunk-by,nu-command,0.101.0,0.112.1
-config flatten,nu-command,0.101.0,0.112.1
-merge deep,nu-command,0.101.0,0.112.1
-path self,nu-command,0.101.0,0.112.1
-term,nu-command,0.101.0,0.112.1
-term query,nu-command,0.101.0,0.112.1
-view blocks,nu-command,0.101.0,0.112.1
-format bits,nu-cmd-extra,0.102.0,0.112.1
-format number,nu-cmd-extra,0.102.0,0.112.1
-bytes split,nu-command,0.102.0,0.112.1
-config use-colors,nu-command,0.102.0,0.112.1
-help pipe-and-redirect,nu-command,0.102.0,0.112.1
-version check,nu-command,0.102.0,0.112.1
-polars into-repr,nu_plugin_polars,0.102.0,0.112.1
-polars str-split,nu_plugin_polars,0.102.0,0.112.1
-attr category,nu-cmd-lang,0.103.0,0.112.1
-attr example,nu-cmd-lang,0.103.0,0.112.1
-attr search-terms,nu-cmd-lang,0.103.0,0.112.1
-job,nu-command,0.103.0,0.112.1
-job kill,nu-command,0.103.0,0.112.1
-job list,nu-command,0.103.0,0.112.1
-job spawn,nu-command,0.103.0,0.112.1
-job unfreeze,nu-command,0.103.0,0.112.1
-attr echo,nu-parser,0.103.0,0.112.1
-polars list-contains,nu_plugin_polars,0.103.0,0.112.1
-polars str-strip-chars,nu_plugin_polars,0.103.0,0.112.1
-date from-human,nu-command,0.104.0,0.112.1
-job flush,nu-command,0.104.0,0.112.1
-job id,nu-command,0.104.0,0.112.1
-job recv,nu-command,0.104.0,0.112.1
-job send,nu-command,0.104.0,0.112.1
-polars convert-time-zone,nu_plugin_polars,0.104.0,0.112.1
-polars cut,nu_plugin_polars,0.104.0,0.112.1
-polars into-dtype,nu_plugin_polars,0.104.0,0.112.1
-polars into-schema,nu_plugin_polars,0.104.0,0.112.1
-polars join-where,nu_plugin_polars,0.104.0,0.112.1
-polars over,nu_plugin_polars,0.104.0,0.112.1
-polars qcut,nu_plugin_polars,0.104.0,0.112.1
-polars replace-time-zone,nu_plugin_polars,0.104.0,0.112.1
-polars truncate,nu_plugin_polars,0.104.0,0.112.1
-attr deprecated,nu-cmd-lang,0.105.0,0.112.1
-debug env,nu-command,0.105.0,0.112.1
-polars horizontal,nu_plugin_polars,0.105.0,0.112.1
-polars math,nu_plugin_polars,0.105.0,0.112.1
-polars str-replace,nu_plugin_polars,0.105.0,0.112.1
-polars str-replace-all,nu_plugin_polars,0.105.0,0.112.1
-polars struct-json-encode,nu_plugin_polars,0.105.0,0.112.1
-debug experimental-options,nu-command,0.106.0,0.112.1
-attr,nu-cmd-lang,0.107.0,0.112.1
-error,nu-cmd-lang,0.107.0,0.112.1
-detect,nu-command,0.107.0,0.112.1
-registry,nu-command,0.107.0,0.112.1
-attr complete,nu-cmd-lang,0.108.0,0.112.1
-attr complete external,nu-cmd-lang,0.108.0,0.112.1
-detect type,nu-command,0.108.0,0.112.1
-fake-cmd,nu-cli,0.109.0,0.112.1
-explore regex,nu-explore,0.109.0,0.112.1
-example arg-completion,nu_plugin_example,0.109.0,0.112.1
-http pool,nu-command,0.110.0,0.112.1
-unlet,nu-command,0.110.0,0.112.1
-explore config,nu-explore,0.110.0,0.112.1
-polars selector,nu_plugin_polars,0.110.0,0.112.1
-polars selector all,nu_plugin_polars,0.110.0,0.112.1
-polars selector by-dtype,nu_plugin_polars,0.110.0,0.112.1
-polars selector by-name,nu_plugin_polars,0.110.0,0.112.1
-polars selector first,nu_plugin_polars,0.110.0,0.112.1
-polars selector last,nu_plugin_polars,0.110.0,0.112.1
-clip copy,nu-command,0.111.0,0.112.1
-clip paste,nu-command,0.111.0,0.112.1
-umask,nu-command,0.111.0,0.112.1
-polars entropy,nu_plugin_polars,0.111.0,0.112.1
-from md,nu-command,0.112.0,0.112.1
-job describe,nu-command,0.112.0,0.112.1
-str escape-regex,nu-command,0.112.0,0.112.1
-polars selector ends-with,nu_plugin_polars,0.112.0,0.112.1
-polars selector float,nu_plugin_polars,0.112.0,0.112.1
-polars selector integer,nu_plugin_polars,0.112.0,0.112.1
-polars selector matches,nu_plugin_polars,0.112.0,0.112.1
-polars selector not,nu_plugin_polars,0.112.0,0.112.1
-polars selector numeric,nu_plugin_polars,0.112.0,0.112.1
-polars selector signed-integer,nu_plugin_polars,0.112.0,0.112.1
-polars selector starts-with,nu_plugin_polars,0.112.0,0.112.1
-polars selector unsigned-integer,nu_plugin_polars,0.112.0,0.112.1
+version,nu-cmd-lang,0.2.0,0.112.2
+cd,nu-command,0.2.0,0.112.2
+clip,nu-command,0.2.0,0.112.2
+config,nu-command,0.2.0,0.112.2
+cp,nu-command,0.2.0,0.112.2
+date,nu-command,0.2.0,0.112.2
+debug,nu-command,0.2.0,0.112.2
+exit,nu-command,0.2.0,0.112.2
+first,nu-command,0.2.0,0.112.2
+get,nu-command,0.2.0,0.112.2
+lines,nu-command,0.2.0,0.112.2
+mkdir,nu-command,0.2.0,0.112.2
+mv,nu-command,0.2.0,0.112.2
+open,nu-command,0.2.0,0.112.2
+ps,nu-command,0.2.0,0.112.2
+reject,nu-command,0.2.0,0.112.2
+rm,nu-command,0.2.0,0.112.2
+save,nu-command,0.2.0,0.112.2
+sort-by,nu-command,0.2.0,0.112.2
+table,nu-command,0.2.0,0.112.2
+where,nu-command,0.2.0,0.112.2
+which,nu-command,0.2.0,0.112.2
+ls,nu-parser,0.2.0,0.112.2
+echo,nu-cmd-lang,0.3.0,0.112.2
+help,nu-command,0.3.0,0.112.2
+last,nu-command,0.3.0,0.112.2
+reverse,nu-command,0.3.0,0.112.2
+history,nu-cli,0.5.0,0.112.2
+append,nu-command,0.5.0,0.112.2
+prepend,nu-command,0.5.0,0.112.2
+group-by,nu-parser,0.5.0,0.112.2
+compact,nu-command,0.6.0,0.112.2
+default,nu-command,0.6.0,0.112.2
+histogram,nu-command,0.6.0,0.112.2
+describe,nu-cmd-lang,0.11.0,0.112.2
+clear,nu-command,0.11.0,0.112.2
+format,nu-command,0.11.0,0.112.2
+insert,nu-command,0.11.0,0.112.2
+kill,nu-command,0.11.0,0.112.2
+parse,nu-command,0.11.0,0.112.2
+rename,nu-command,0.11.0,0.112.2
+shuffle,nu-command,0.11.0,0.112.2
+skip,nu-command,0.11.0,0.112.2
+touch,nu-command,0.11.0,0.112.2
+uniq,nu-command,0.11.0,0.112.2
+wrap,nu-command,0.11.0,0.112.2
+headers,nu-command,0.12.0,0.112.2
+each,nu-command,0.13.0,0.112.2
+alias,nu-parser,0.13.0,0.112.2
+from url,nu-cmd-extra,0.14.0,0.112.2
+to html,nu-cmd-extra,0.14.0,0.112.2
+cal,nu-command,0.14.0,0.112.2
+drop,nu-command,0.14.0,0.112.2
+from,nu-command,0.14.0,0.112.2
+from csv,nu-command,0.14.0,0.112.2
+from json,nu-command,0.14.0,0.112.2
+from ods,nu-command,0.14.0,0.112.2
+from toml,nu-command,0.14.0,0.112.2
+from tsv,nu-command,0.14.0,0.112.2
+from xlsx,nu-command,0.14.0,0.112.2
+from xml,nu-command,0.14.0,0.112.2
+merge,nu-command,0.14.0,0.112.2
+select,nu-command,0.14.0,0.112.2
+to,nu-command,0.14.0,0.112.2
+to csv,nu-command,0.14.0,0.112.2
+to json,nu-command,0.14.0,0.112.2
+to md,nu-command,0.14.0,0.112.2
+to toml,nu-command,0.14.0,0.112.2
+to tsv,nu-command,0.14.0,0.112.2
+update,nu-command,0.14.0,0.112.2
+with-env,nu-command,0.14.0,0.112.2
+from eml,nu_plugin_formats,0.14.0,0.112.2
+from ics,nu_plugin_formats,0.14.0,0.112.2
+from ini,nu_plugin_formats,0.14.0,0.112.2
+from vcf,nu_plugin_formats,0.14.0,0.112.2
+split,nu-command,0.15.0,0.112.2
+split column,nu-command,0.15.0,0.112.2
+split row,nu-command,0.15.0,0.112.2
+str,nu-command,0.15.0,0.112.2
+str capitalize,nu-command,0.15.0,0.112.2
+str downcase,nu-command,0.15.0,0.112.2
+str substring,nu-command,0.15.0,0.112.2
+str trim,nu-command,0.15.0,0.112.2
+str upcase,nu-command,0.15.0,0.112.2
+every,nu-command,0.15.1,0.112.2
+math,nu-command,0.15.1,0.112.2
+math avg,nu-command,0.15.1,0.112.2
+math max,nu-command,0.15.1,0.112.2
+math median,nu-command,0.15.1,0.112.2
+math min,nu-command,0.15.1,0.112.2
+math mode,nu-command,0.15.1,0.112.2
+math sum,nu-command,0.15.1,0.112.2
+random,nu-command,0.15.1,0.112.2
+random uuid,nu-command,0.15.1,0.112.2
+do,nu-cmd-lang,0.16.0,0.112.2
+ansi,nu-command,0.16.0,0.112.2
+char,nu-command,0.16.0,0.112.2
+random bool,nu-command,0.16.0,0.112.2
+math stddev,nu-command,0.17.0,0.112.2
+math variance,nu-command,0.17.0,0.112.2
+move,nu-command,0.17.0,0.112.2
+skip until,nu-command,0.17.0,0.112.2
+skip while,nu-command,0.17.0,0.112.2
+split chars,nu-command,0.17.0,0.112.2
+str length,nu-command,0.17.0,0.112.2
+str reverse,nu-command,0.17.0,0.112.2
+if,nu-parser,0.17.0,0.112.2
+path,nu-command,0.18.1,0.112.2
+path basename,nu-command,0.18.1,0.112.2
+path exists,nu-command,0.18.1,0.112.2
+path expand,nu-command,0.18.1,0.112.2
+path type,nu-command,0.18.1,0.112.2
+reduce,nu-command,0.18.1,0.112.2
+str contains,nu-command,0.18.1,0.112.2
+str ends-with,nu-command,0.18.1,0.112.2
+str index-of,nu-command,0.18.1,0.112.2
+str starts-with,nu-command,0.18.1,0.112.2
+to xml,nu-command,0.18.1,0.112.2
+url,nu-command,0.18.1,0.112.2
+str camel-case,nu-cmd-extra,0.19.0,0.112.2
+str kebab-case,nu-cmd-extra,0.19.0,0.112.2
+str pascal-case,nu-cmd-extra,0.19.0,0.112.2
+str screaming-snake-case,nu-cmd-extra,0.19.0,0.112.2
+str snake-case,nu-cmd-extra,0.19.0,0.112.2
+date format,nu-command,0.19.0,0.112.2
+date now,nu-command,0.19.0,0.112.2
+math product,nu-command,0.19.0,0.112.2
+path dirname,nu-command,0.19.0,0.112.2
+sleep,nu-command,0.19.0,0.112.2
+exec,nu-command,0.20.0,0.112.2
+flatten,nu-command,0.22.0,0.112.2
+format filesize,nu-command,0.22.0,0.112.2
+math ceil,nu-command,0.22.0,0.112.2
+math floor,nu-command,0.22.0,0.112.2
+math round,nu-command,0.22.0,0.112.2
+seq,nu-command,0.22.0,0.112.2
+seq date,nu-command,0.23.0,0.112.2
+date list-timezone,nu-command,0.24.0,0.112.2
+date to-timezone,nu-command,0.24.0,0.112.2
+hash,nu-command,0.24.0,0.112.2
+math abs,nu-command,0.24.0,0.112.2
+random chars,nu-command,0.24.0,0.112.2
+let-env,nu-command,0.25.0,0.112.2
+source,nu-command,0.25.0,0.112.2
+def,nu-parser,0.25.0,0.112.2
+let,nu-parser,0.25.0,0.112.2
+term size,nu-command,0.27.0,0.112.2
+roll,nu-cmd-extra,0.28.0,0.112.2
+roll up,nu-cmd-extra,0.28.0,0.112.2
+rotate,nu-cmd-extra,0.28.0,0.112.2
+ansi strip,nu-command,0.28.0,0.112.2
+drop column,nu-command,0.28.0,0.112.2
+path join,nu-command,0.28.0,0.112.2
+length,nu-command,0.29.0,0.112.2
+into,nu-command,0.30.0,0.112.2
+into int,nu-command,0.30.0,0.112.2
+math sqrt,nu-command,0.30.0,0.112.2
+path parse,nu-command,0.30.0,0.112.2
+path split,nu-command,0.30.0,0.112.2
+into binary,nu-command,0.31.0,0.112.2
+into string,nu-command,0.31.0,0.112.2
+for,nu-cmd-lang,0.32.0,0.112.2
+load-env,nu-command,0.32.0,0.112.2
+path relative-to,nu-command,0.32.0,0.112.2
+ansi gradient,nu-cmd-extra,0.33.0,0.112.2
+ignore,nu-cmd-lang,0.33.0,0.112.2
+collect,nu-parser,0.33.0,0.112.2
+date humanize,nu-command,0.35.0,0.112.2
+md5,nu-command,0.35.0,0.112.2
+sha256,nu-command,0.35.0,0.112.2
+drop nth,nu-command,0.36.0,0.112.2
+tutor,nu-command,0.36.0,0.112.2
+zip,nu-command,0.36.0,0.112.2
+error make,nu-cmd-lang,0.37.0,0.112.2
+find,nu-command,0.37.0,0.112.2
+into filesize,nu-command,0.37.0,0.112.2
+sys,nu-command,0.37.0,0.112.2
+update cells,nu-cmd-extra,0.38.0,0.112.2
+detect columns,nu-command,0.40.0,0.112.2
+keybindings,nu-cli,0.60.0,0.112.2
+keybindings default,nu-cli,0.60.0,0.112.2
+keybindings list,nu-cli,0.60.0,0.112.2
+keybindings listen,nu-cli,0.60.0,0.112.2
+nu-highlight,nu-cli,0.60.0,0.112.2
+print,nu-cli,0.60.0,0.112.2
+roll down,nu-cmd-extra,0.60.0,0.112.2
+roll left,nu-cmd-extra,0.60.0,0.112.2
+roll right,nu-cmd-extra,0.60.0,0.112.2
+export,nu-cmd-lang,0.60.0,0.112.2
+export alias,nu-cmd-lang,0.60.0,0.112.2
+export def,nu-cmd-lang,0.60.0,0.112.2
+export extern,nu-cmd-lang,0.60.0,0.112.2
+extern,nu-cmd-lang,0.60.0,0.112.2
+hide,nu-cmd-lang,0.60.0,0.112.2
+match,nu-cmd-lang,0.60.0,0.112.2
+module,nu-cmd-lang,0.60.0,0.112.2
+use,nu-cmd-lang,0.60.0,0.112.2
+columns,nu-command,0.60.0,0.112.2
+complete,nu-command,0.60.0,0.112.2
+decode,nu-command,0.60.0,0.112.2
+du,nu-command,0.60.0,0.112.2
+from nuon,nu-command,0.60.0,0.112.2
+from ssv,nu-command,0.60.0,0.112.2
+grid,nu-command,0.60.0,0.112.2
+input,nu-command,0.60.0,0.112.2
+into bool,nu-command,0.60.0,0.112.2
+into datetime,nu-command,0.60.0,0.112.2
+into duration,nu-command,0.60.0,0.112.2
+metadata,nu-command,0.60.0,0.112.2
+par-each,nu-command,0.60.0,0.112.2
+to nuon,nu-command,0.60.0,0.112.2
+transpose,nu-command,0.60.0,0.112.2
+upsert,nu-command,0.60.0,0.112.2
+window,nu-command,0.60.0,0.112.2
+run-external,nu-mcp,0.60.0,0.112.2
+glob,nu-command,0.61.0,0.112.2
+sort,nu-command,0.61.0,0.112.2
+str replace,nu-command,0.61.0,0.112.2
+take,nu-command,0.61.0,0.112.2
+take until,nu-command,0.61.0,0.112.2
+take while,nu-command,0.61.0,0.112.2
+watch,nu-command,0.62.0,0.112.2
+str title-case,nu-cmd-extra,0.63.0,0.112.2
+overlay,nu-cmd-lang,0.63.0,0.112.2
+overlay list,nu-cmd-lang,0.63.0,0.112.2
+config env,nu-command,0.63.0,0.112.2
+config nu,nu-command,0.63.0,0.112.2
+seq char,nu-command,0.63.0,0.112.2
+to text,nu-command,0.63.0,0.112.2
+overlay new,nu-cmd-lang,0.63.1,0.112.2
+each while,nu-cmd-extra,0.64.0,0.112.2
+is-admin,nu-command,0.64.0,0.112.2
+join,nu-command,0.64.0,0.112.2
+slice,nu-command,0.64.0,0.112.2
+agg,nu-parser,0.64.0,0.112.2
+min,nu-parser,0.64.0,0.112.2
+to-custom,nu-parser,0.64.0,0.112.2
+with-column,nu-parser,0.64.0,0.112.2
+bytes length,nu-command,0.65.0,0.112.2
+bytes starts-with,nu-command,0.65.0,0.112.2
+decode base64,nu-command,0.65.0,0.112.2
+encode,nu-command,0.65.0,0.112.2
+encode base64,nu-command,0.65.0,0.112.2
+nu-check,nu-command,0.65.0,0.112.2
+port,nu-command,0.65.0,0.112.2
+schema,nu-command,0.65.0,0.112.2
+lowercase,nu-plugin-test-support,0.65.0,0.112.2
+query,nu_plugin_query,0.65.0,0.112.2
+bytes,nu-command,0.66.0,0.112.2
+bytes add,nu-command,0.66.0,0.112.2
+bytes at,nu-command,0.66.0,0.112.2
+bytes build,nu-command,0.66.0,0.112.2
+bytes collect,nu-command,0.66.0,0.112.2
+bytes ends-with,nu-command,0.66.0,0.112.2
+bytes index-of,nu-command,0.66.0,0.112.2
+bytes remove,nu-command,0.66.0,0.112.2
+bytes replace,nu-command,0.66.0,0.112.2
+bytes reverse,nu-command,0.66.0,0.112.2
+config reset,nu-command,0.66.0,0.112.2
+split list,nu-command,0.66.0,0.112.2
+bits,nu-cmd-extra,0.67.0,0.112.2
+bits and,nu-cmd-extra,0.67.0,0.112.2
+bits not,nu-cmd-extra,0.67.0,0.112.2
+bits or,nu-cmd-extra,0.67.0,0.112.2
+bits rol,nu-cmd-extra,0.67.0,0.112.2
+bits ror,nu-cmd-extra,0.67.0,0.112.2
+bits shl,nu-cmd-extra,0.67.0,0.112.2
+bits shr,nu-cmd-extra,0.67.0,0.112.2
+bits xor,nu-cmd-extra,0.67.0,0.112.2
+export use,nu-cmd-lang,0.67.0,0.112.2
+hide-env,nu-cmd-lang,0.67.0,0.112.2
+filter,nu-command,0.67.0,0.112.2
+into sqlite,nu-command,0.67.0,0.112.2
+query db,nu-command,0.67.0,0.112.2
+overlay hide,nu-cmd-lang,0.68.0,0.112.2
+overlay use,nu-cmd-lang,0.68.0,0.112.2
+all,nu-command,0.68.0,0.112.2
+any,nu-command,0.68.0,0.112.2
+ast,nu-command,0.68.0,0.112.2
+export-env,nu-command,0.68.0,0.112.2
+is-empty,nu-command,0.68.0,0.112.2
+source-env,nu-command,0.68.0,0.112.2
+split words,nu-command,0.68.0,0.112.2
+str distance,nu-command,0.68.0,0.112.2
+json,nu-plugin-core,0.68.1,0.112.2
+msgpack,nu-plugin-core,0.68.1,0.112.2
+commandline,nu-cli,0.69.0,0.112.2
+history session,nu-cli,0.69.0,0.112.2
+str join,nu-command,0.69.0,0.112.2
+registry query,nu-command,0.70.0,0.112.2
+break,nu-cmd-lang,0.72.0,0.112.2
+continue,nu-cmd-lang,0.72.0,0.112.2
+loop,nu-cmd-lang,0.72.0,0.112.2
+return,nu-cmd-lang,0.72.0,0.112.2
+try,nu-cmd-lang,0.72.0,0.112.2
+while,nu-cmd-lang,0.72.0,0.112.2
+help operators,nu-command,0.72.0,0.112.2
+into record,nu-command,0.72.0,0.112.2
+url parse,nu-command,0.72.0,0.112.2
+mut,nu-parser,0.72.0,0.112.2
+math arccos,nu-cmd-extra,0.73.0,0.112.2
+math arccosh,nu-cmd-extra,0.73.0,0.112.2
+math arcsin,nu-cmd-extra,0.73.0,0.112.2
+math arcsinh,nu-cmd-extra,0.73.0,0.112.2
+math arctan,nu-cmd-extra,0.73.0,0.112.2
+math arctanh,nu-cmd-extra,0.73.0,0.112.2
+math cos,nu-cmd-extra,0.73.0,0.112.2
+math cosh,nu-cmd-extra,0.73.0,0.112.2
+math ln,nu-cmd-extra,0.73.0,0.112.2
+math sin,nu-cmd-extra,0.73.0,0.112.2
+math sinh,nu-cmd-extra,0.73.0,0.112.2
+math tan,nu-cmd-extra,0.73.0,0.112.2
+math tanh,nu-cmd-extra,0.73.0,0.112.2
+math log,nu-command,0.73.0,0.112.2
+uniq-by,nu-command,0.73.0,0.112.2
+explore,nu-explore,0.73.0,0.112.2
+help aliases,nu-command,0.74.0,0.112.2
+help commands,nu-command,0.74.0,0.112.2
+help modules,nu-command,0.74.0,0.112.2
+start,nu-command,0.74.0,0.112.2
+url encode,nu-command,0.74.0,0.112.2
+values,nu-command,0.74.0,0.112.2
+const,nu-parser,0.74.0,0.112.2
+ansi link,nu-command,0.75.0,0.112.2
+enumerate,nu-command,0.75.0,0.112.2
+http,nu-command,0.75.0,0.112.2
+http get,nu-command,0.75.0,0.112.2
+http post,nu-command,0.75.0,0.112.2
+url build-query,nu-command,0.75.0,0.112.2
+url join,nu-command,0.75.0,0.112.2
+explain,nu-command,0.76.0,0.112.2
+fill,nu-command,0.76.0,0.112.2
+inspect,nu-command,0.76.0,0.112.2
+timeit,nu-command,0.76.0,0.112.2
+view,nu-command,0.76.0,0.112.2
+view files,nu-command,0.76.0,0.112.2
+view source,nu-command,0.76.0,0.112.2
+view span,nu-command,0.76.0,0.112.2
+custom-value generate,nu_plugin_custom_values,0.76.0,0.112.2
+custom-value generate2,nu_plugin_custom_values,0.76.0,0.112.2
+custom-value update,nu_plugin_custom_values,0.76.0,0.112.2
+gstat,nu_plugin_gstat,0.76.0,0.112.2
+inc,nu_plugin_inc,0.76.0,0.112.2
+query json,nu_plugin_query,0.76.0,0.112.2
+query web,nu_plugin_query,0.76.0,0.112.2
+query xml,nu_plugin_query,0.76.0,0.112.2
+http delete,nu-command,0.77.0,0.112.2
+http head,nu-command,0.77.0,0.112.2
+http patch,nu-command,0.77.0,0.112.2
+http put,nu-command,0.77.0,0.112.2
+math exp,nu-cmd-extra,0.78.0,0.112.2
+decode hex,nu-command,0.78.0,0.112.2
+encode hex,nu-command,0.78.0,0.112.2
+help externs,nu-command,0.78.0,0.112.2
+items,nu-command,0.79.0,0.112.2
+export module,nu-cmd-lang,0.80.0,0.112.2
+input list,nu-command,0.80.0,0.112.2
+scope,nu-cmd-lang,0.82.0,0.112.2
+scope aliases,nu-cmd-lang,0.82.0,0.112.2
+scope commands,nu-cmd-lang,0.82.0,0.112.2
+scope engine-stats,nu-cmd-lang,0.82.0,0.112.2
+scope modules,nu-cmd-lang,0.82.0,0.112.2
+scope variables,nu-cmd-lang,0.82.0,0.112.2
+http options,nu-command,0.82.0,0.112.2
+hello,nu-plugin-test-support,0.82.0,0.112.2
+input listen,nu-command,0.83.0,0.112.2
+str expand,nu-command,0.83.0,0.112.2
+export const,nu-cmd-lang,0.84.0,0.112.2
+scope externs,nu-cmd-lang,0.84.0,0.112.2
+format date,nu-command,0.84.0,0.112.2
+format duration,nu-command,0.84.0,0.112.2
+into float,nu-command,0.85.0,0.112.2
+random float,nu-command,0.85.0,0.112.2
+debug info,nu-command,0.86.0,0.112.2
+help escapes,nu-command,0.86.0,0.112.2
+into value,nu-command,0.86.0,0.112.2
+random int,nu-command,0.86.0,0.112.2
+url decode,nu-command,0.86.0,0.112.2
+generate,nu-command,0.87.0,0.112.2
+str stats,nu-command,0.87.0,0.112.2
+whoami,nu-command,0.87.0,0.112.2
+is-terminal,nu-command,0.88.0,0.112.2
+mktemp,nu-command,0.88.0,0.112.2
+stor,nu-command,0.88.0,0.112.2
+stor create,nu-command,0.88.0,0.112.2
+stor delete,nu-command,0.88.0,0.112.2
+stor export,nu-command,0.88.0,0.112.2
+stor import,nu-command,0.88.0,0.112.2
+stor insert,nu-command,0.88.0,0.112.2
+stor open,nu-command,0.88.0,0.112.2
+stor reset,nu-command,0.88.0,0.112.2
+stor update,nu-command,0.88.0,0.112.2
+format pattern,nu-cmd-extra,0.89.0,0.112.2
+ulimit,nu-command,0.89.0,0.112.2
+into cell-path,nu-command,0.90.0,0.112.2
+commandline edit,nu-cli,0.91.0,0.112.2
+commandline get-cursor,nu-cli,0.91.0,0.112.2
+commandline set-cursor,nu-cli,0.91.0,0.112.2
+interleave,nu-command,0.91.0,0.112.2
+into glob,nu-command,0.91.0,0.112.2
+is-not-empty,nu-command,0.91.0,0.112.2
+panic,nu-command,0.91.0,0.112.2
+tee,nu-command,0.91.0,0.112.2
+test command,nu-plugin,0.91.0,0.112.2
+test,nu-plugin-engine,0.91.0,0.112.2
+custom-value update-arg,nu_plugin_custom_values,0.91.0,0.112.2
+plugin,nu-cmd-plugin,0.92.0,0.112.2
+plugin list,nu-cmd-plugin,0.92.0,0.112.2
+plugin stop,nu-cmd-plugin,0.92.0,0.112.2
+debug profile,nu-command,0.92.0,0.112.2
+uname,nu-command,0.92.0,0.112.2
+into int from u32,nu-plugin-test-support,0.92.0,0.112.2
+into u32,nu-plugin-test-support,0.92.0,0.112.2
+custom-value drop-check,nu_plugin_custom_values,0.92.0,0.112.2
+example,nu_plugin_example,0.92.0,0.112.2
+example config,nu_plugin_example,0.92.0,0.112.2
+example disable-gc,nu_plugin_example,0.92.0,0.112.2
+example env,nu_plugin_example,0.92.0,0.112.2
+example for-each,nu_plugin_example,0.92.0,0.112.2
+example generate,nu_plugin_example,0.92.0,0.112.2
+example one,nu_plugin_example,0.92.0,0.112.2
+example seq,nu_plugin_example,0.92.0,0.112.2
+example sum,nu_plugin_example,0.92.0,0.112.2
+example three,nu_plugin_example,0.92.0,0.112.2
+example two,nu_plugin_example,0.92.0,0.112.2
+custom-value handle get,nu_plugin_custom_values,0.92.1,0.112.2
+custom-value handle make,nu_plugin_custom_values,0.92.1,0.112.2
+plugin add,nu-cmd-plugin,0.93.0,0.112.2
+plugin rm,nu-cmd-plugin,0.93.0,0.112.2
+plugin use,nu-cmd-plugin,0.93.0,0.112.2
+from msgpack,nu-command,0.93.0,0.112.2
+from msgpackz,nu-command,0.93.0,0.112.2
+metadata set,nu-command,0.93.0,0.112.2
+to msgpack,nu-command,0.93.0,0.112.2
+to msgpackz,nu-command,0.93.0,0.112.2
+custom-value handle update,nu_plugin_custom_values,0.93.0,0.112.2
+example view span,nu_plugin_example,0.93.0,0.112.2
+polars,nu_plugin_polars,0.93.0,0.112.2
+polars agg,nu_plugin_polars,0.93.0,0.112.2
+polars agg-groups,nu_plugin_polars,0.93.0,0.112.2
+polars all-false,nu_plugin_polars,0.93.0,0.112.2
+polars all-true,nu_plugin_polars,0.93.0,0.112.2
+polars append,nu_plugin_polars,0.93.0,0.112.2
+polars arg-max,nu_plugin_polars,0.93.0,0.112.2
+polars arg-min,nu_plugin_polars,0.93.0,0.112.2
+polars arg-sort,nu_plugin_polars,0.93.0,0.112.2
+polars arg-true,nu_plugin_polars,0.93.0,0.112.2
+polars arg-unique,nu_plugin_polars,0.93.0,0.112.2
+polars arg-where,nu_plugin_polars,0.93.0,0.112.2
+polars as,nu_plugin_polars,0.93.0,0.112.2
+polars as-date,nu_plugin_polars,0.93.0,0.112.2
+polars as-datetime,nu_plugin_polars,0.93.0,0.112.2
+polars cache,nu_plugin_polars,0.93.0,0.112.2
+polars cast,nu_plugin_polars,0.93.0,0.112.2
+polars col,nu_plugin_polars,0.93.0,0.112.2
+polars collect,nu_plugin_polars,0.93.0,0.112.2
+polars columns,nu_plugin_polars,0.93.0,0.112.2
+polars concat-str,nu_plugin_polars,0.93.0,0.112.2
+polars contains,nu_plugin_polars,0.93.0,0.112.2
+polars count,nu_plugin_polars,0.93.0,0.112.2
+polars count-null,nu_plugin_polars,0.93.0,0.112.2
+polars cumulative,nu_plugin_polars,0.93.0,0.112.2
+polars datepart,nu_plugin_polars,0.93.0,0.112.2
+polars drop,nu_plugin_polars,0.93.0,0.112.2
+polars drop-duplicates,nu_plugin_polars,0.93.0,0.112.2
+polars drop-nulls,nu_plugin_polars,0.93.0,0.112.2
+polars dummies,nu_plugin_polars,0.93.0,0.112.2
+polars explode,nu_plugin_polars,0.93.0,0.112.2
+polars expr-not,nu_plugin_polars,0.93.0,0.112.2
+polars fill-nan,nu_plugin_polars,0.93.0,0.112.2
+polars fill-null,nu_plugin_polars,0.93.0,0.112.2
+polars filter,nu_plugin_polars,0.93.0,0.112.2
+polars filter-with,nu_plugin_polars,0.93.0,0.112.2
+polars first,nu_plugin_polars,0.93.0,0.112.2
+polars flatten,nu_plugin_polars,0.93.0,0.112.2
+polars get,nu_plugin_polars,0.93.0,0.112.2
+polars get-day,nu_plugin_polars,0.93.0,0.112.2
+polars get-hour,nu_plugin_polars,0.93.0,0.112.2
+polars get-minute,nu_plugin_polars,0.93.0,0.112.2
+polars get-month,nu_plugin_polars,0.93.0,0.112.2
+polars get-nanosecond,nu_plugin_polars,0.93.0,0.112.2
+polars get-ordinal,nu_plugin_polars,0.93.0,0.112.2
+polars get-second,nu_plugin_polars,0.93.0,0.112.2
+polars get-week,nu_plugin_polars,0.93.0,0.112.2
+polars get-weekday,nu_plugin_polars,0.93.0,0.112.2
+polars get-year,nu_plugin_polars,0.93.0,0.112.2
+polars group-by,nu_plugin_polars,0.93.0,0.112.2
+polars implode,nu_plugin_polars,0.93.0,0.112.2
+polars into-df,nu_plugin_polars,0.93.0,0.112.2
+polars into-lazy,nu_plugin_polars,0.93.0,0.112.2
+polars into-nu,nu_plugin_polars,0.93.0,0.112.2
+polars is-duplicated,nu_plugin_polars,0.93.0,0.112.2
+polars is-in,nu_plugin_polars,0.93.0,0.112.2
+polars is-not-null,nu_plugin_polars,0.93.0,0.112.2
+polars is-null,nu_plugin_polars,0.93.0,0.112.2
+polars is-unique,nu_plugin_polars,0.93.0,0.112.2
+polars join,nu_plugin_polars,0.93.0,0.112.2
+polars last,nu_plugin_polars,0.93.0,0.112.2
+polars lit,nu_plugin_polars,0.93.0,0.112.2
+polars lowercase,nu_plugin_polars,0.93.0,0.112.2
+polars max,nu_plugin_polars,0.93.0,0.112.2
+polars mean,nu_plugin_polars,0.93.0,0.112.2
+polars median,nu_plugin_polars,0.93.0,0.112.2
+polars min,nu_plugin_polars,0.93.0,0.112.2
+polars n-unique,nu_plugin_polars,0.93.0,0.112.2
+polars not,nu_plugin_polars,0.93.0,0.112.2
+polars open,nu_plugin_polars,0.93.0,0.112.2
+polars otherwise,nu_plugin_polars,0.93.0,0.112.2
+polars quantile,nu_plugin_polars,0.93.0,0.112.2
+polars query,nu_plugin_polars,0.93.0,0.112.2
+polars rename,nu_plugin_polars,0.93.0,0.112.2
+polars replace,nu_plugin_polars,0.93.0,0.112.2
+polars reverse,nu_plugin_polars,0.93.0,0.112.2
+polars rolling,nu_plugin_polars,0.93.0,0.112.2
+polars sample,nu_plugin_polars,0.93.0,0.112.2
+polars schema,nu_plugin_polars,0.93.0,0.112.2
+polars select,nu_plugin_polars,0.93.0,0.112.2
+polars set,nu_plugin_polars,0.93.0,0.112.2
+polars set-with-idx,nu_plugin_polars,0.93.0,0.112.2
+polars shape,nu_plugin_polars,0.93.0,0.112.2
+polars shift,nu_plugin_polars,0.93.0,0.112.2
+polars slice,nu_plugin_polars,0.93.0,0.112.2
+polars sort-by,nu_plugin_polars,0.93.0,0.112.2
+polars std,nu_plugin_polars,0.93.0,0.112.2
+polars store-get,nu_plugin_polars,0.93.0,0.112.2
+polars store-ls,nu_plugin_polars,0.93.0,0.112.2
+polars store-rm,nu_plugin_polars,0.93.0,0.112.2
+polars str-lengths,nu_plugin_polars,0.93.0,0.112.2
+polars str-slice,nu_plugin_polars,0.93.0,0.112.2
+polars strftime,nu_plugin_polars,0.93.0,0.112.2
+polars sum,nu_plugin_polars,0.93.0,0.112.2
+polars summary,nu_plugin_polars,0.93.0,0.112.2
+polars take,nu_plugin_polars,0.93.0,0.112.2
+polars unique,nu_plugin_polars,0.93.0,0.112.2
+polars uppercase,nu_plugin_polars,0.93.0,0.112.2
+polars value-counts,nu_plugin_polars,0.93.0,0.112.2
+polars var,nu_plugin_polars,0.93.0,0.112.2
+polars when,nu_plugin_polars,0.93.0,0.112.2
+polars with-column,nu_plugin_polars,0.93.0,0.112.2
+sys cpu,nu-command,0.94.0,0.112.2
+sys disks,nu-command,0.94.0,0.112.2
+sys host,nu-command,0.94.0,0.112.2
+sys mem,nu-command,0.94.0,0.112.2
+sys net,nu-command,0.94.0,0.112.2
+sys temp,nu-command,0.94.0,0.112.2
+sys users,nu-command,0.94.0,0.112.2
+example collect-bytes,nu_plugin_example,0.94.0,0.112.2
+example echo,nu_plugin_example,0.94.0,0.112.2
+chunks,nu-command,0.96.0,0.112.2
+view ir,nu-command,0.96.0,0.112.2
+example call-decl,nu_plugin_example,0.96.0,0.112.2
+polars pivot,nu_plugin_polars,0.96.0,0.112.2
+polars unpivot,nu_plugin_polars,0.96.0,0.112.2
+query webpage-info,nu_plugin_query,0.96.0,0.112.2
+random binary,nu-command,0.97.0,0.112.2
+example ctrlc,nu_plugin_example,0.97.0,0.112.2
+from plist,nu_plugin_formats,0.97.0,0.112.2
+to plist,nu_plugin_formats,0.97.0,0.112.2
+polars save,nu_plugin_polars,0.97.0,0.112.2
+decode base32,nu-command,0.98.0,0.112.2
+decode base32hex,nu-command,0.98.0,0.112.2
+encode base32,nu-command,0.98.0,0.112.2
+encode base32hex,nu-command,0.98.0,0.112.2
+metadata access,nu-command,0.98.0,0.112.2
+split cell-path,nu-command,0.98.0,0.112.2
+polars decimal,nu_plugin_polars,0.98.0,0.112.2
+polars integer,nu_plugin_polars,0.98.0,0.112.2
+polars str-join,nu_plugin_polars,0.98.0,0.112.2
+polars concat,nu_plugin_polars,0.99.0,0.112.2
+polars len,nu_plugin_polars,0.99.0,0.112.2
+polars profile,nu_plugin_polars,0.99.0,0.112.2
+history import,nu-cli,0.100.0,0.112.2
+url split-query,nu-command,0.100.0,0.112.2
+polars unnest,nu_plugin_polars,0.100.0,0.112.2
+chunk-by,nu-command,0.101.0,0.112.2
+config flatten,nu-command,0.101.0,0.112.2
+merge deep,nu-command,0.101.0,0.112.2
+path self,nu-command,0.101.0,0.112.2
+term,nu-command,0.101.0,0.112.2
+term query,nu-command,0.101.0,0.112.2
+view blocks,nu-command,0.101.0,0.112.2
+format bits,nu-cmd-extra,0.102.0,0.112.2
+format number,nu-cmd-extra,0.102.0,0.112.2
+bytes split,nu-command,0.102.0,0.112.2
+config use-colors,nu-command,0.102.0,0.112.2
+help pipe-and-redirect,nu-command,0.102.0,0.112.2
+version check,nu-command,0.102.0,0.112.2
+polars into-repr,nu_plugin_polars,0.102.0,0.112.2
+polars str-split,nu_plugin_polars,0.102.0,0.112.2
+attr category,nu-cmd-lang,0.103.0,0.112.2
+attr example,nu-cmd-lang,0.103.0,0.112.2
+attr search-terms,nu-cmd-lang,0.103.0,0.112.2
+job,nu-command,0.103.0,0.112.2
+job kill,nu-command,0.103.0,0.112.2
+job list,nu-command,0.103.0,0.112.2
+job spawn,nu-command,0.103.0,0.112.2
+job unfreeze,nu-command,0.103.0,0.112.2
+attr echo,nu-parser,0.103.0,0.112.2
+polars list-contains,nu_plugin_polars,0.103.0,0.112.2
+polars str-strip-chars,nu_plugin_polars,0.103.0,0.112.2
+date from-human,nu-command,0.104.0,0.112.2
+job flush,nu-command,0.104.0,0.112.2
+job id,nu-command,0.104.0,0.112.2
+job recv,nu-command,0.104.0,0.112.2
+job send,nu-command,0.104.0,0.112.2
+polars convert-time-zone,nu_plugin_polars,0.104.0,0.112.2
+polars cut,nu_plugin_polars,0.104.0,0.112.2
+polars into-dtype,nu_plugin_polars,0.104.0,0.112.2
+polars into-schema,nu_plugin_polars,0.104.0,0.112.2
+polars join-where,nu_plugin_polars,0.104.0,0.112.2
+polars over,nu_plugin_polars,0.104.0,0.112.2
+polars qcut,nu_plugin_polars,0.104.0,0.112.2
+polars replace-time-zone,nu_plugin_polars,0.104.0,0.112.2
+polars truncate,nu_plugin_polars,0.104.0,0.112.2
+attr deprecated,nu-cmd-lang,0.105.0,0.112.2
+debug env,nu-command,0.105.0,0.112.2
+polars horizontal,nu_plugin_polars,0.105.0,0.112.2
+polars math,nu_plugin_polars,0.105.0,0.112.2
+polars str-replace,nu_plugin_polars,0.105.0,0.112.2
+polars str-replace-all,nu_plugin_polars,0.105.0,0.112.2
+polars struct-json-encode,nu_plugin_polars,0.105.0,0.112.2
+debug experimental-options,nu-command,0.106.0,0.112.2
+attr,nu-cmd-lang,0.107.0,0.112.2
+error,nu-cmd-lang,0.107.0,0.112.2
+detect,nu-command,0.107.0,0.112.2
+registry,nu-command,0.107.0,0.112.2
+attr complete,nu-cmd-lang,0.108.0,0.112.2
+attr complete external,nu-cmd-lang,0.108.0,0.112.2
+detect type,nu-command,0.108.0,0.112.2
+fake-cmd,nu-cli,0.109.0,0.112.2
+explore regex,nu-explore,0.109.0,0.112.2
+example arg-completion,nu_plugin_example,0.109.0,0.112.2
+http pool,nu-command,0.110.0,0.112.2
+unlet,nu-command,0.110.0,0.112.2
+explore config,nu-explore,0.110.0,0.112.2
+polars selector,nu_plugin_polars,0.110.0,0.112.2
+polars selector all,nu_plugin_polars,0.110.0,0.112.2
+polars selector by-dtype,nu_plugin_polars,0.110.0,0.112.2
+polars selector by-name,nu_plugin_polars,0.110.0,0.112.2
+polars selector first,nu_plugin_polars,0.110.0,0.112.2
+polars selector last,nu_plugin_polars,0.110.0,0.112.2
+clip copy,nu-command,0.111.0,0.112.2
+clip paste,nu-command,0.111.0,0.112.2
+umask,nu-command,0.111.0,0.112.2
+polars entropy,nu_plugin_polars,0.111.0,0.112.2
+from md,nu-command,0.112.0,0.112.2
+job describe,nu-command,0.112.0,0.112.2
+str escape-regex,nu-command,0.112.0,0.112.2
+polars selector ends-with,nu_plugin_polars,0.112.0,0.112.2
+polars selector float,nu_plugin_polars,0.112.0,0.112.2
+polars selector integer,nu_plugin_polars,0.112.0,0.112.2
+polars selector matches,nu_plugin_polars,0.112.0,0.112.2
+polars selector not,nu_plugin_polars,0.112.0,0.112.2
+polars selector numeric,nu_plugin_polars,0.112.0,0.112.2
+polars selector signed-integer,nu_plugin_polars,0.112.0,0.112.2
+polars selector starts-with,nu_plugin_polars,0.112.0,0.112.2
+polars selector unsigned-integer,nu_plugin_polars,0.112.0,0.112.2
