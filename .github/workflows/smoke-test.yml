@@ -8,7 +8,11 @@ on:
 
 jobs:
   parse-crates:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout nu-history-tools
         uses: actions/checkout@v4
@@ -29,4 +33,5 @@ jobs:
 
       - name: Run `toolkit main parse-crates` with default args
         working-directory: nu-history-tools
+        shell: bash
         run: nu -c 'use toolkit.nu; toolkit main parse-crates'
