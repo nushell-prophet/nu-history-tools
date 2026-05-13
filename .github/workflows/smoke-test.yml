@@ -1,0 +1,35 @@
+name: smoke-test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  parse-crates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout nu-history-tools
+        uses: actions/checkout@v4
+        with:
+          path: nu-history-tools
+
+      - name: Checkout nushell (sibling, needed by --crates_dir default)
+        uses: actions/checkout@v4
+        with:
+          repository: nushell/nushell
+          path: nushell
+          fetch-depth: 0
+
+      - name: Install Nushell
+        uses: hustcer/setup-nu@v3
+        with:
+          check-latest: true
+
+      - name: Run `toolkit main parse-crates` with default args
+        shell: nu {0}
+        working-directory: nu-history-tools
+        run: |
+          use toolkit.nu
+          toolkit main parse-crates
